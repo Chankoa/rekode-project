@@ -1,0 +1,15 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "astro",
+    "types": [
+      "astro/client"
+    ],
+    "typeRoots": [
+      "./src/types",
+      "./node_modules",
+      "./node_modules/@types"
+    ]
+  }
+}

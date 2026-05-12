@@ -1,0 +1,220 @@
+---
+import Layout from "../components/layout/Layout.astro";
+import "../styles/components/code-blocks.scss";
+import "../styles/components/expressive-code-overrides.scss";
+import "../styles/components/color-swatches.scss";
+import "../styles/components/note-callout.scss";
+import { Code } from "astro-expressive-code/components";
+
+const sections = [
+  { id: "couleurs", label: "Couleurs & thèmes" },
+  { id: "typo", label: "Typographie" },
+  { id: "boutons", label: "Boutons" },
+  { id: "cards", label: "Cards" },
+  { id: "layout", label: "Layout & containers" },
+  { id: "utils", label: "Utilitaires" },
+  { id: "custom", label: "Personnalisation" },
+];
+
+const colorRoles = [
+  { name: "Fond principal", variable: "--surface-bg", token: "surface-bg", fallback: "#f5f7fa", usage: "Arrière-plan global" },
+  { name: "Cartes / panneaux", variable: "--surface-card", token: "surface-card", fallback: "#ffffff", usage: "Cartes, panneaux flottants" },
+  { name: "Accent primaire", variable: "--accent-primary", token: "accent-primary", fallback: "#2cb1bc", usage: "CTA, éléments actifs" },
+  { name: "Accent secondaire", variable: "--accent-secondary", token: "accent-secondary", fallback: "#0f2a43", usage: "Titres, liens au survol" },
+  { name: "Texte fort", variable: "--text-strong", token: "text-strong", fallback: "#0f2a43", usage: "Titres, labels" },
+  { name: "Texte atténué", variable: "--text-muted", token: "text-muted", fallback: "rgba(15, 42, 67, 0.65)", usage: "Méta, sous-titres" },
+];
+
+---
+
+<Layout title="Guide des styles" description="Référence rapide du design system, avec exemples et snippets pour personnaliser.">
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 grid gap-8 grid-cols-1 md:grid-cols-[260px_minmax(0,1fr)]">
+      <aside class="sticky top-0 z-20 self-start md:top-[calc(var(--space-10)-var(--space-1))] md:col-start-1 bg-[var(--surface-card)] border border-[var(--border-soft)] rounded-lg p-3 md:p-4 shadow-sm" data-docs-nav>
+        <p class="text-sm font-semibold text-[var(--text-strong)] mb-3" data-docs-nav-title>Navigation</p>
+        <nav class="flex md:flex-col gap-2 overflow-x-auto pb-1" id="styleguide-nav">
+          {sections.map((item) => (
+            <a
+              href={`#${item.id}`}
+              data-target={item.id}
+              class="px-3 py-2 whitespace-nowrap rounded-md text-sm text-[var(--text-muted)] hover:text-[var(--text-strong)] hover:bg-[var(--surface-muted)] transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </aside>
+
+      <div class="space-y-14 md:col-start-2">
+        <header class="space-y-4">
+          <p class="text-sm uppercase tracking-[0.08em] text-[var(--text-muted)]">Wiki design</p>
+          <h1 class="text-3xl font-bold text-[var(--text-strong)]">Guide des styles</h1>
+          <p class="text-[var(--text-muted)] leading-relaxed">
+            Ce guide présente les tokens, composants et utilitaires. Chaque bloc inclut un extrait de code pour adapter le thème ou surcharger les styles.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a class="btn-primary" href="#custom">Voir la personnalisation</a>
+            <span class="badge-pill">Scrollspy actif</span>
+          </div>
+        </header>
+
+        <section id="couleurs" class="scroll-mt-24 space-y-4" data-spy-section>
+          <h2 class="text-2xl font-semibold text-[var(--text-strong)]">Couleurs & thèmes</h2>
+          <p class="text-[var(--text-muted)]">Les tokens ci-dessous sont liés au thème actif : si vous passez en Blue Ocean ou en dark, les pastilles se mettent à jour automatiquement car elles lisent les variables CSS.</p>
+          <div class="note-callout">
+            <p class="note-callout__title">Où ça se trouve ?</p>
+            <p class="note-callout__text">Tokens principaux : <code>src/styles/design-system/_semantic-tokens.scss</code></p>
+            <p class="note-callout__text">Thème Blue Ocean : <code>src/styles/design-system/themes/_blue-ocean.scss</code> — activer via <code>data-theme="blue-ocean"</code> sur <code>&lt;html&gt;</code> ou <code>&lt;body&gt;</code>.</p>
+          </div>
+          <div class="color-swatch-grid">
+            {colorRoles.map((role) => (
+              <div class="color-swatch">
+                <div class="color-swatch__chip" style={`background: var(${role.variable}, ${role.fallback})`}></div>
+                <div class="color-swatch__body">
+                  <div class="color-swatch__title">{role.name}</div>
+                  <div class="color-swatch__meta">Token : {role.token}</div>
+                  <div class="color-swatch__meta">Var : {role.variable}</div>
+                  <div class="color-swatch__meta">Valeur par défaut : {role.fallback}</div>
+                  <div class="color-swatch__meta">Usage : {role.usage}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="doc-card">
+              <p class="text-sm font-semibold mb-2">Activer Blue Ocean</p>
+              <Code lang="html" code={`<body data-theme="blue-ocean">`} />
+              <p class="text-sm text-[var(--text-muted)] mt-2">Les alias <code>--color-accent</code>, <code>--color-bg</code>, etc. sont mis à jour automatiquement.</p>
+            </div>
+            <div class="doc-card">
+              <p class="text-sm font-semibold mb-2">Changer l’accent primaire</p>
+              <Code lang="css" code={`:root {\n  --accent-primary: #e4572e;\n}`} />
+              <p class="text-sm text-[var(--text-muted)] mt-2">Ou surchargez dans un thème custom : <code>[data-theme="brand"]</code>.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="typo" class="scroll-mt-24 space-y-4" data-spy-section>
+          <h2 class="text-2xl font-semibold text-[var(--text-strong)]">Typographie</h2>
+          <p class="text-[var(--text-muted)]">Les fontes et l’échelle sont pilotées par <code>--font-body</code> et <code>--font-heading</code>. Changez-les dans <code>_foundations.scss</code> pour modifier la base globale, ou sur un bloc précis via des variables locales.</p>
+          <div class="note-callout">
+            <p class="note-callout__title">Où ça se trouve ?</p>
+            <p class="note-callout__text">Fondations typo : <code>src/styles/design-system/_foundations.scss</code> (fonte, échelle, taille de base 16px).</p>
+          </div>
+          <div class="doc-card space-y-3">
+            <div class="flex flex-col gap-1">
+              <span class="text-sm text-[var(--text-muted)]">Heading</span>
+              <h3 class="text-3xl font-bold">Titre H3 — Space Grotesk</h3>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="text-sm text-[var(--text-muted)]">Corps</span>
+              <p>Texte de paragraphe utilisant <code>--font-body</code> et la couleur <code>--text-default</code>.</p>
+            </div>
+            <Code
+              lang="css"
+              code={`:root {\n  --font-heading: "Space Grotesk", system-ui, sans-serif;\n  --font-body: "Inter", system-ui, sans-serif;\n}`}
+            />
+          </div>
+        </section>
+
+        <section id="boutons" class="scroll-mt-24 space-y-4" data-spy-section>
+          <h2 class="text-2xl font-semibold text-[var(--text-strong)]">Boutons</h2>
+          <p class="text-[var(--text-muted)]">La classe <code>.btn-primary</code> s’appuie sur <code>--color-accent</code> pour le fond et <code>--shadow-soft</code> pour le relief. Ajustez les variables pour changer l’identité sans toucher la classe.</p>
+          <div class="note-callout">
+            <p class="note-callout__title">Où ça se trouve ?</p>
+            <p class="note-callout__text">Styles bouton : <code>src/styles/components/_buttons.scss</code>. <code>.btn-primary</code> s’appuie sur <code>--color-accent</code> et <code>--shadow-soft</code>.</p>
+          </div>
+          <div class="doc-card space-y-3">
+            <div class="flex gap-3 items-center flex-wrap">
+              <a class="btn-primary" href="#">Appel à l’action</a>
+              <a class="btn-primary is-outline" href="#">Bouton Outline</a>
+            </div>
+            <Code
+              lang="css"
+              code={`.btn-primary {\n  background: var(--color-accent);\n  color: #fff;\n  box-shadow: var(--shadow-soft);\n}`}
+            />
+          </div>
+        </section>
+
+        <section id="cards" class="scroll-mt-24 space-y-4" data-spy-section>
+          <h2 class="text-2xl font-semibold text-[var(--text-strong)]">Cards</h2>
+          <p class="text-[var(--text-muted)]">Utilisez <code>.doc-card</code> pour des blocs neutres et lisibles, ou <code>.card-elevated</code> quand vous voulez un contraste plus marqué et une ombre douce.</p>
+          <div class="note-callout">
+            <p class="note-callout__title">Où ça se trouve ?</p>
+            <p class="note-callout__text">Cartes : <code>src/styles/components/_cards.scss</code>. <code>.doc-card</code> et <code>.card-elevated</code> héritent des tokens de surface/bordure/ombre.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="doc-card">
+              <p class="font-semibold text-[var(--text-strong)]">Card par défaut</p>
+              <p class="text-[var(--text-muted)]">Fond <code>--surface-card</code>, ombre <code>--shadow-md</code>, rayon <code>--radius-lg</code>.</p>
+            </div>
+            <div class="card-elevated">
+              <p class="font-semibold text-[var(--text-strong)]">Card elevated</p>
+              <p class="text-[var(--text-muted)]">Utilise <code>--shadow-soft</code> et <code>--color-bg-alt</code>.</p>
+            </div>
+          </div>
+          <Code
+            lang="css"
+            code={`.doc-card {\n  background: var(--surface-card);\n  box-shadow: var(--shadow-md);\n}\n.card-elevated {\n  background: var(--color-bg-alt);\n}`}
+          />
+        </section>
+
+        <section id="layout" class="scroll-mt-24 space-y-4" data-spy-section>
+          <h2 class="text-2xl font-semibold text-[var(--text-strong)]">Layout & containers</h2>
+          <p class="text-[var(--text-muted)]">Ces helpers posent la grille de base de la page : <code>.app-shell</code> gère le cadre, <code>.main-content</code> laisse respirer le contenu, et <code>.container</code> borne la largeur pour un texte confortable.</p>
+          <div class="note-callout">
+            <p class="note-callout__title">Où ça se trouve ?</p>
+            <p class="note-callout__text">Layout : <code>src/styles/layout/_base.scss</code> pour la structure et <code>src/styles/layout/_containers.scss</code> pour la largeur contrôlée.</p>
+          </div>
+          <div class="doc-card space-y-2">
+            <Code
+              lang="html"
+              code={`<div class="app-shell">\n  <main class="main-content">…</main>\n</div>`}
+            />
+            <p class="text-sm text-[var(--text-muted)]">Utilisez <code>.container</code> pour limiter la largeur : max 1120px.</p>
+          </div>
+        </section>
+
+        <section id="utils" class="scroll-mt-24 space-y-4" data-spy-section>
+          <h2 class="text-2xl font-semibold text-[var(--text-strong)]">Utilitaires</h2>
+          <p class="text-[var(--text-muted)]">Quelques classes prêtes à l’emploi pour l’accessibilité (sr-only) et les retouches rapides (ombre, texte atténué, bordure douce) sans écrire de CSS.</p>
+          <div class="note-callout">
+            <p class="note-callout__title">Où ça se trouve ?</p>
+            <p class="note-callout__text">Utilitaires : <code>src/styles/utilities/_helpers.scss</code>. Classes d’accessibilité et d’appoint branchées sur les tokens du thème.</p>
+          </div>
+          <div class="doc-card space-y-2">
+            <ul class="list-disc list-inside text-[var(--text-muted)] text-sm space-y-1">
+              <li><code>.u-sr-only</code> : texte uniquement pour lecteurs d’écran.</li>
+              <li><code>.u-shadow-soft</code> : applique <code>--shadow-soft</code>.</li>
+              <li><code>.u-text-muted</code> : couleur <code>--text-muted</code>.</li>
+              <li><code>.u-border-soft</code> : bordure <code>--border-soft</code>.</li>
+            </ul>
+            <Code lang="html" code={`<span class="u-sr-only">Libellé accessible</span>`} />
+          </div>
+        </section>
+
+        <section id="custom" class="scroll-mt-24 space-y-4" data-spy-section>
+          <h2 class="text-2xl font-semibold text-[var(--text-strong)]">Personnalisation</h2>
+          <p class="text-[var(--text-muted)]">Dupliquez les tokens, changez les valeurs puis appliquez un nouvel attribut <code>data-theme</code> pour tester instantanément votre palette.</p>
+          <div class="note-callout">
+            <p class="note-callout__title">Où ça se trouve ?</p>
+            <p class="note-callout__text">Nouveaux thèmes : créez un fichier dans <code>src/styles/design-system/themes/</code> (ex. <code>_brand.scss</code>) et importez-le. Activez avec <code>data-theme="brand"</code>.</p>
+          </div>
+          <div class="doc-card space-y-3">
+            <Code
+              lang="scss"
+              code={`@use "../styles/design-system/semantic-tokens" as tokens;\n\n$brand-tokens: (\n  surface-bg: #fef9f5,\n  surface-card: #ffffff,\n  surface-muted: #ffeede,\n  text-strong: #2b1a14,\n  text-default: #3c241c,\n  text-muted: rgba(43,26,20,0.7),\n  border-soft: #f5d7c3,\n  border-strong: #eabf9b,\n  accent-primary: #ff7a59,\n  accent-primary-strong: #e8643f,\n  accent-secondary: #2b1a14,\n  accent-tertiary: #ffd580,\n  status-info: #2cb1bc,\n  status-success: #1fbf90,\n  status-warning: #ffb347,\n  status-danger: #ff5a5f\n);\n\n[data-theme="brand"] {\n  @include tokens.apply-theme($brand-tokens);\n}`}
+            />
+            <p class="text-sm text-[var(--text-muted)]">Ensuite, appliquez <code>data-theme="brand"</code> sur <code>&lt;body&gt;</code> ou <code>&lt;html&gt;</code>.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import { initWikiPage } from "../scripts/wiki-shared";
+
+    initWikiPage("#styleguide-nav");
+  </script>
+</Layout>
