@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title = "Ce que je peux faire pour vous",
-  intro = "Des prestations structurees pour produire un site juste, rapide et facile a faire vivre.",
+  intro = "Des prestations structurées pour produire un site juste, rapide et facile à faire vivre.",
   services,
 } = Astro.props;
 ---
@@ -30,7 +30,7 @@ const {
 
     <div class="service-grid">
       {services.map((service) => (
-        <article class="service-item">
+        <article class="service-item has-hover-fx">
           <span class="service-item__icon"><Icon name={service.icon as any} /></span>
           <h3 class="text-base font-semibold">{service.title}</h3>
           <p class="text-sm text-[var(--color-muted)]">{service.description}</p>

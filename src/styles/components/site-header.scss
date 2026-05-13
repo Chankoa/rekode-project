@@ -1,5 +1,24 @@
 @use "../design-system/breakpoints" as bp;
 
+.site-header {
+  --site-header-height: 4rem;
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+  transition:
+    background-color 180ms var(--ease-standard, ease),
+    border-color 180ms var(--ease-standard, ease),
+    backdrop-filter 180ms var(--ease-standard, ease),
+    box-shadow 180ms var(--ease-standard, ease);
+}
+
+.site-header.is-stuck {
+  background: color-mix(in srgb, var(--surface-bg) 86%, transparent);
+  border-bottom-color: var(--color-border);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 24px rgba(15, 15, 15, 0.06);
+}
+
 /* Visibility rules for header navigation/drawer */
 .desktop-nav {
   display: none;

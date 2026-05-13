@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = "Projets sélectionnés",
-  intro = "Une selection de projets pour montrer le niveau d'execution, la precision de l'integration et la variete des contextes traites.",
+  title = "Quelques projets",
+  intro = "Une sélection de projets pour montrer le niveau d'exécution, la précision de l'intégration et la variété des contextes traités.",
   projects,
 } = Astro.props;
 ---
@@ -30,12 +30,12 @@ const {
 
     <div class="project-grid project-grid--projects">
       {projects.map((project) => (
-        <article class={`project-card project-card--${project.slug}`}>
+        <article class={`project-card has-hover-fx project-card--${project.slug}`}>
           <div class="project-card__visual">
             <div class="project-card__screen"></div>
           </div>
 
-          <div class="space-y-3">
+          <div class="project-card__content space-y-3">
             <p class="project-card__meta">{project.meta}</p>
             <h3 class="text-lg font-semibold">{project.title}</h3>
             <p class="text-sm text-[var(--color-muted)]">{project.summary}</p>

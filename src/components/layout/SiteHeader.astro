@@ -5,10 +5,10 @@ import "../../styles/components/navigation.scss";
 import "../../styles/components/site-header.scss";
 ---
 
-<header class="sticky top-0 z-30 backdrop-blur bg-[color-mix(in_srgb,var(--surface-bg)_88%,white_12%)] border-b border-[var(--color-border)]">
+<header class="site-header sticky top-0 z-30 border-b border-transparent">
   <div class="mx-auto flex max-w-[var(--site-max-width)] items-center justify-between gap-4 px-4 py-4">
     <a href="/" class="flex items-center gap-2 leading-none no-underline">
-      <span class="font-[var(--font-heading)] text-base font-bold tracking-[-0.04em] text-[var(--text-strong)]">{siteConfig.name}<span class="text-[var(--accent-primary)]">.</span></span>
+      <span style="font-family: var(--font-heading);" class="text-base font-bold tracking-[-0.04em] text-[var(--text-strong)]">{siteConfig.name}<span class="text-[var(--accent-primary)]">.</span></span>
     </a>
 
     <nav class="desktop-nav nav items-center gap-6 text-sm text-[var(--text-muted)]">
@@ -50,7 +50,7 @@ import "../../styles/components/site-header.scss";
 >
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-2">
-      <span class="font-[var(--font-heading)] text-base font-bold tracking-[-0.04em] text-[var(--text-strong)]">{siteConfig.name}<span class="text-[var(--accent-primary)]">.</span></span>
+      <span style="font-family: var(--font-heading);" class="text-base font-bold tracking-[-0.04em] text-[var(--text-strong)]">{siteConfig.name}<span class="text-[var(--accent-primary)]">.</span></span>
     </div>
     <button
       id="drawer-close"
@@ -150,6 +150,11 @@ import "../../styles/components/site-header.scss";
     const openBtn = document.getElementById("drawer-open");
     const closeBtn = document.getElementById("drawer-close");
     const drawerLinks = drawer?.querySelectorAll("a");
+    const header = document.querySelector(".site-header");
+
+    const syncHeaderState = () => {
+      header?.classList.toggle("is-stuck", window.scrollY > 8);
+    };
 
     const setDrawer = (open) => {
       if (drawer) {
@@ -169,7 +174,10 @@ import "../../styles/components/site-header.scss";
     backdrop?.addEventListener("click", () => setDrawer(false));
     drawerLinks?.forEach((link) => link.addEventListener("click", () => setDrawer(false)));
 
+    window.addEventListener("scroll", syncHeaderState, { passive: true });
+
     // Initialize closed state
     setDrawer(false);
+    syncHeaderState();
   })();
 </script>

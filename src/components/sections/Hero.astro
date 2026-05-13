@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { siteConfig } from "../../data/site-config";
+import type { HeroTitlePart } from "../../data/site-content";
 import heroImage from "../../assets/home/hero.webp";
 import CircleBadge from "../ui/CircleBadge.astro";
 import Icon from "../ui/Icon.astro";
@@ -12,7 +13,7 @@ interface FeatureItem {
 
 interface Props {
   eyebrow?: string;
-  title: string;
+  titleParts: HeroTitlePart[];
   subtitle?: string;
   ctaLabel?: string;
   ctaHref?: string;
@@ -25,7 +26,7 @@ interface Props {
 
 const {
   eyebrow = "Site vitrine",
-  title,
+  titleParts = [{ text: "Des sites web clairs, pensés pour des humains." }],
   subtitle = siteConfig.baseline,
   ctaLabel = "Nous contacter",
   ctaHref = "/contact",
@@ -49,7 +50,14 @@ const {
         {eyebrow}
       </span>
       <h1 class="hero__title font-bold tracking-tight">
-        {title}<span class="text-[var(--accent-primary)]">.</span>
+        {titleParts.map((part) => (
+          <span class:list={{
+            "u-text-gradient": part.highlight,
+            "text-[var(--accent-primary)]": part.accent,
+          }}>
+            {part.text}
+          </span>
+        ))}
       </h1>
       {subtitle && (
         <p class="hero__summary text-base sm:text-lg text-[var(--color-muted)] max-w-xl">
@@ -75,16 +83,18 @@ const {
       </ul>
     </div>
 
-    <div class="hero__visual card-elevated relative p-6 md:p-8">
-      <Image
-        src={heroImage}
-        alt="Vue de montagne au lever du soleil"
-        class="hero__image"
-        widths={[480, 720, 960]}
-        sizes="(max-width: 767px) 100vw, 40vw"
-        loading="eager"
-        format="webp"
-      />
+    <div class="hero__visual relative p-6 md:p-8">
+      <div class="hero__visual-frame card-elevated">
+        <Image
+          src={heroImage}
+          alt="Vue de montagne au lever du soleil"
+          class="hero__image"
+          widths={[480, 720, 960]}
+          sizes="(max-width: 767px) 100vw, 40vw"
+          loading="eager"
+          format="webp"
+        />
+      </div>
       <CircleBadge class="hero__badge" />
       <div class="hero__panel hidden">
         <p class="text-sm uppercase tracking-[0.2em] text-[var(--color-muted)] mb-3">

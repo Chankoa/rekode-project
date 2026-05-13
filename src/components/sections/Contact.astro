@@ -17,8 +17,8 @@ const {
   intro = "Un besoin cadré, une refonte en vue ou une question sur la bonne stack: le plus simple est d'en parler directement.",
   ctaLabel = "Parler du projet",
   ctaHref = "/contact",
-  newsletterTitle = "Restez inspire",
-  newsletterText = "Recevez mes articles, ressources et inspirations autour du web et de la creation.",
+  newsletterTitle = "Restez inspiré",
+  newsletterText = "Recevez mes articles, ressources et inspirations autour du web et de la création.",
   compact = false,
 } = Astro.props;
 ---
@@ -60,7 +60,7 @@ const {
           <h3 class="text-lg font-semibold">{newsletterTitle}</h3>
           <p class="text-sm text-[var(--color-muted)]">{newsletterText}</p>
           <form class="newsletter-form">
-            <input type="email" placeholder="Votre email" aria-label="Votre email" />
+            <input type="email" placeholder="Votre email" aria-label="Votre email" class="has-focus-fx" />
             <button type="button" class="newsletter-form__submit" aria-label="S'inscrire">
               <Icon name="arrow" />
             </button>
@@ -88,9 +88,17 @@ const {
         name="contact"
         method="POST"
         data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/merci"
         class="card-elevated section-card space-y-4 text-sm"
       >
         <input type="hidden" name="form-name" value="contact" />
+        <p class="u-sr-only">
+          <label>
+            Ne pas remplir ce champ si vous êtes humain
+            <input name="bot-field" tabindex="-1" autocomplete="off" />
+          </label>
+        </p>
 
         <div class="space-y-1">
           <label for="name" class="font-medium">Nom</label>
@@ -98,7 +106,7 @@ const {
             id="name"
             name="name"
             required
-            class="w-full rounded-md border border-[var(--color-border)] px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+            class="has-focus-fx w-full rounded border border-[var(--color-border)] px-3 py-2"
           />
         </div>
 
@@ -109,7 +117,7 @@ const {
             name="email"
             type="email"
             required
-            class="w-full rounded-md border border-[var(--color-border)] px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+            class="has-focus-fx w-full rounded border border-[var(--color-border)] px-3 py-2"
           />
         </div>
 
@@ -120,7 +128,7 @@ const {
             name="message"
             rows="4"
             required
-            class="w-full rounded-md border border-[var(--color-border)] px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+            class="has-focus-fx w-full rounded border border-[var(--color-border)] px-3 py-2"
           ></textarea>
         </div>
 

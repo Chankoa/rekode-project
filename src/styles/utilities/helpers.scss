@@ -23,3 +23,57 @@
 .u-border-soft {
   border: 1px solid var(--border-soft);
 }
+
+.has-hover-fx {
+  transition:
+    transform 180ms var(--ease-standard, ease),
+    box-shadow 180ms var(--ease-standard, ease),
+    border-color 180ms var(--ease-standard, ease),
+    background-color 180ms var(--ease-standard, ease);
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .has-hover-fx:hover,
+  .has-hover-fx:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-xs);
+    border-color: color-mix(in srgb, var(--accent-primary) 18%, var(--color-border) 82%);
+  }
+}
+
+.has-focus-fx {
+  background: color-mix(in srgb, var(--surface-card) 94%, white 6%);
+  color: var(--text-default);
+  transition:
+    transform 180ms var(--ease-standard, ease),
+    box-shadow 180ms var(--ease-standard, ease),
+    border-color 180ms var(--ease-standard, ease),
+    background-color 180ms var(--ease-standard, ease);
+}
+
+input.has-focus-fx:focus-visible,
+textarea.has-focus-fx:focus-visible {
+  outline: none;
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent-primary) 24%, var(--color-border) 76%);
+  background: color-mix(in srgb, var(--surface-card) 80%, var(--surface-muted) 20%);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--accent-primary) 18%, transparent),
+    var(--shadow-xs);
+}
+
+.u-text-gradient {
+  color: var(--accent-primary);
+  background-image: linear-gradient(
+    135deg,
+    var(--accent-primary-strong) 0%,
+    var(--accent-primary) 34%,
+    color-mix(in srgb, var(--accent-tertiary) 68%, var(--accent-primary) 32%) 70%,
+    color-mix(in srgb, var(--accent-secondary) 16%, var(--accent-primary-strong) 84%) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}

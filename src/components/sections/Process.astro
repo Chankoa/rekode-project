@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title = "Une approche simple et humaine",
-  intro = "Une methode lisible, sans mise en scene inutile: comprendre, structurer, concevoir, integrer, mettre en ligne.",
+  intro = "Une méthode lisible, sans mise en scène inutile : comprendre, structurer, concevoir, intégrer, mettre en ligne.",
   steps,
 } = Astro.props;
 ---
@@ -26,7 +26,7 @@ const {
       {steps.map((step, index) => (
         <li class="process-step">
           <span class="process-step__index">0{index + 1}</span>
-          <span class="process-step__icon"><Icon name={step.icon as any} /></span>
+          <span class="process-step__icon has-hover-fx"><Icon name={step.icon as any} /></span>
           <h3 class="text-base font-semibold">{step.title}</h3>
           <p class="text-sm text-[var(--color-muted)]">{step.description}</p>
         </li>
