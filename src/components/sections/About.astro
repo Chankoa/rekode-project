@@ -1,0 +1,33 @@
+---
+interface Props {
+  title?: string;
+  text: string;
+  points?: string[];
+}
+
+const {
+  title = "À propos",
+  text,
+  points = [],
+} = Astro.props;
+---
+
+<section class="section-shell">
+  <div class="max-w-5xl mx-auto px-4 grid gap-10 md:grid-cols-2 items-start">
+    <header class="section-header section-header--split">
+      <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
+      <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">{text}</p>
+    </header>
+
+    {points.length > 0 && (
+      <div class="card-elevated section-card">
+        <h3 class="text-sm font-semibold">Principes de travail</h3>
+        <ul class="feature-list feature-list--stacked text-sm text-[var(--color-muted)]">
+          {points.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/Hero.astro";
+import SelectedProjects from "../components/sections/SelectedProjects.astro";
+import Services from "../components/sections/Services.astro";
+import Process from "../components/sections/Process.astro";
+import About from "../components/sections/About.astro";
+import Contact from "../components/sections/Contact.astro";
+import { aboutContent, heroContent, processSteps, selectedProjects, services } from "../data/site-content";
+---
+
+<Layout title="Accueil">
+  <Hero
+    eyebrow={heroContent.eyebrow}
+    title={heroContent.title}
+    subtitle={heroContent.subtitle}
+    ctaLabel={heroContent.ctaLabel}
+    ctaHref={heroContent.ctaHref}
+    secondaryCtaLabel={heroContent.secondaryCtaLabel}
+    secondaryCtaHref={heroContent.secondaryCtaHref}
+    supportingLabel={heroContent.supportingLabel}
+    supportingText={heroContent.supportingText}
+    features={heroContent.features}
+  />
+
+  <SelectedProjects projects={selectedProjects} />
+
+  <Services services={services} />
+
+  <Process steps={processSteps} />
+
+  <About text={aboutContent.text} points={aboutContent.points} />
+
+  <Contact />
+</Layout>

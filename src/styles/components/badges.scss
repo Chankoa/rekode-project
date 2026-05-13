@@ -1,0 +1,15 @@
+/* Badges: small labels for status or meta information. */
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-2) * 0.7);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-primary);
+  background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-primary) 18%, transparent);
+}

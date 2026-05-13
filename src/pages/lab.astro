@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { labItems } from "../data/site-content";
+---
+
+<Layout title="Lab">
+  <section class="section-shell">
+    <div class="max-w-5xl mx-auto px-4 space-y-8">
+      <header class="section-header">
+        <h1 class="text-3xl sm:text-4xl font-semibold">Lab</h1>
+        <p class="text-sm sm:text-base text-[var(--color-muted)]">
+          Un espace pour documenter les pistes de recherche, les essais front-end et les sujets en cours avant qu'ils ne deviennent des projets clients.
+        </p>
+      </header>
+
+      <div class="project-grid project-grid--services">
+        {labItems.map((item) => (
+          <article class="card-elevated section-card">
+            <h2 class="text-lg font-semibold">{item.title}</h2>
+            <p class="text-sm text-[var(--color-muted)]">{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

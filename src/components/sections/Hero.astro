@@ -1,0 +1,70 @@
+---
+import { siteConfig } from "../../data/site-config";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  supportingLabel?: string;
+  supportingText?: string;
+  features?: string[];
+}
+
+const {
+  eyebrow = "Site vitrine",
+  title,
+  subtitle = siteConfig.baseline,
+  ctaLabel = "Nous contacter",
+  ctaHref = "/contact",
+  secondaryCtaLabel = "Voir les projets",
+  secondaryCtaHref = "/projets",
+  supportingLabel = "Approche",
+  supportingText = "Un site clair, efficace, documenté, et suffisamment simple pour rester facile à reprendre après livraison.",
+  features = ["Sites rapides", "UX & design", "Intégration propre", "Accompagnement"],
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero__inner max-w-[var(--site-max-width)] mx-auto px-4 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(22rem,1fr)] items-center">
+    <div class="space-y-6">
+      <span class="badge-pill hero__eyebrow text-[var(--color-muted)]">
+        {eyebrow}
+      </span>
+      <h1 class="hero__title font-bold tracking-tight">
+        {title}
+      </h1>
+      {subtitle && (
+        <p class="hero__summary text-base sm:text-lg text-[var(--color-muted)] max-w-xl">
+          {subtitle}
+        </p>
+      )}
+      <div class="hero__actions pt-2">
+        <a href={ctaHref} class="btn-primary">
+          {ctaLabel}
+        </a>
+        <a href={secondaryCtaHref} class="btn-secondary">
+          {secondaryCtaLabel}
+        </a>
+      </div>
+
+      <ul class="hero__features">
+        {features.map((feature) => <li>{feature}</li>)}
+      </ul>
+    </div>
+
+    <div class="hero__visual card-elevated relative p-6 md:p-8">
+      <div class="hero__panel">
+        <p class="text-sm uppercase tracking-[0.2em] text-[var(--color-muted)] mb-3">
+          {supportingLabel}
+        </p>
+        <p class="text-sm sm:text-base leading-relaxed">
+          {supportingText}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Services from "../components/sections/Services.astro";
+import { services } from "../data/site-content";
+---
+
+<Layout title="Services">
+  <Services
+    title="Services"
+    intro="De la création de site vitrine à l'accompagnement, chaque intervention vise une base plus claire, plus performante et plus simple à maintenir."
+    services={services}
+  />
+</Layout>

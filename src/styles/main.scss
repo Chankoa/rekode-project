@@ -1,0 +1,19 @@
+@use "./tokens/colors" as *;
+@use "./tokens/spacing" as *;
+@use "./tokens/typography" as *;
+@use "./tokens/motion" as *;
+@use "./design-system/index" as *;
+@use "./base/index" as *;
+@use "./layout/containers" as *;
+@use "./components/buttons" as *;
+@use "./components/badges" as *;
+@use "./components/cards" as *;
+@use "./sections/hero" as *;
+@use "./sections/content-sections" as *;
+@use "./utilities/helpers" as *;
+
+/*
+ * File: main.scss
+ * Purpose: Entry point for tokens, foundations, sections, components, and utilities. Tailwind is loaded separately via tailwind.css so these rules can override it.
+ * Updated: 2025-12-10
+ */

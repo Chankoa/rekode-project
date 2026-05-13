@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import About from "../components/sections/About.astro";
+import { aboutContent } from "../data/site-content";
+---
+
+<Layout title="À propos">
+  <section class="pt-16 pb-8">
+    <div class="max-w-5xl mx-auto px-4">
+      <About title="À propos" text={aboutContent.text} points={aboutContent.points} />
+    </div>
+  </section>
+</Layout>

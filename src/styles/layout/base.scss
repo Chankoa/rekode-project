@@ -1,0 +1,55 @@
+/* Layout base: document-level resets and typography using semantic tokens. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  background:
+    radial-gradient(circle at top center, color-mix(in srgb, var(--accent-primary) 8%, transparent), transparent 35%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-bg) 94%, white 6%), var(--surface-bg));
+  color: var(--text-default);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent-primary) 24%, transparent);
+}
+

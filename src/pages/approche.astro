@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Process from "../components/sections/Process.astro";
+import { processSteps } from "../data/site-content";
+---
+
+<Layout title="Approche">
+  <Process
+    title="Approche"
+    intro="Le projet avance par étapes courtes et explicites, avec une attention particulière à la structure de contenu, à la lisibilité du code et aux contraintes réelles de mise en ligne."
+    steps={processSteps}
+  />
+</Layout>
