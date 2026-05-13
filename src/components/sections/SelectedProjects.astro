@@ -1,5 +1,6 @@
 ---
 import type { ProjectItem } from "../../data/site-content";
+import Icon from "../ui/Icon.astro";
 
 interface Props {
   title?: string;
@@ -9,31 +10,37 @@ interface Props {
 
 const {
   title = "Projets sélectionnés",
-  intro = "Des projets qui montrent à la fois le niveau d'exécution, la variété des contextes et la capacité à construire une base réutilisable.",
+  intro = "Une selection de projets pour montrer le niveau d'execution, la precision de l'integration et la variete des contextes traites.",
   projects,
 } = Astro.props;
 ---
 
 <section class="section-shell">
-  <div class="max-w-5xl mx-auto px-4 space-y-8">
-    <header class="section-header">
-      <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
-      <p class="text-[var(--color-muted)] text-sm sm:text-base">{intro}</p>
+  <div class="max-w-[var(--site-max-width)] mx-auto px-4 space-y-8">
+    <header class="section-heading-row">
+      <div class="section-header">
+        <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
+        <p class="text-[var(--color-muted)] text-sm sm:text-base">{intro}</p>
+      </div>
+      <a href="/projets" class="section-link">
+        <span>Voir tous les projets</span>
+        <Icon name="arrow" />
+      </a>
     </header>
 
-    <div class="project-grid">
+    <div class="project-grid project-grid--projects">
       {projects.map((project) => (
-        <article class="card-elevated section-card section-card--project">
-          <div class="space-y-3">
-            <h3 class="text-lg font-semibold">{project.title}</h3>
-            <p class="text-sm text-[var(--color-muted)]">{project.summary}</p>
+        <article class={`project-card project-card--${project.slug}`}>
+          <div class="project-card__visual">
+            <div class="project-card__screen"></div>
           </div>
 
-          <ul class="feature-list">
-            {project.tags.map((tag) => (
-              <li class="badge-pill">{tag}</li>
-            ))}
-          </ul>
+          <div class="space-y-3">
+            <p class="project-card__meta">{project.meta}</p>
+            <h3 class="text-lg font-semibold">{project.title}</h3>
+            <p class="text-sm text-[var(--color-muted)]">{project.summary}</p>
+            <p class="project-card__tags">{project.tags.join(" · ")}</p>
+          </div>
         </article>
       ))}
     </div>

@@ -1,5 +1,6 @@
 ---
 import type { ServiceItem } from "../../data/site-content";
+import Icon from "../ui/Icon.astro";
 
 interface Props {
   title?: string;
@@ -8,23 +9,29 @@ interface Props {
 }
 
 const {
-  title = "Services",
-  intro = "Des prestations cadrées pour garder un projet lisible, autant côté contenu que côté intégration.",
+  title = "Ce que je peux faire pour vous",
+  intro = "Des prestations structurees pour produire un site juste, rapide et facile a faire vivre.",
   services,
 } = Astro.props;
 ---
 
 <section class="section-shell">
-  <div class="max-w-5xl mx-auto px-4 space-y-8">
-    <header class="section-header">
-      <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
-      <p class="text-[var(--color-muted)] text-sm sm:text-base">{intro}</p>
+  <div class="max-w-[var(--site-max-width)] mx-auto px-4 space-y-8">
+    <header class="section-heading-row">
+      <div class="section-header">
+        <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
+        <p class="text-[var(--color-muted)] text-sm sm:text-base">{intro}</p>
+      </div>
+      <a href="/services" class="section-link">
+        <span>Voir tous les services</span>
+        <Icon name="arrow" />
+      </a>
     </header>
 
-    <div class="project-grid project-grid--services">
+    <div class="service-grid">
       {services.map((service) => (
-        <article class="card-elevated section-card">
-          <p class="text-xs uppercase tracking-[0.18em] text-[var(--color-muted)]">{service.highlight}</p>
+        <article class="service-item">
+          <span class="service-item__icon"><Icon name={service.icon as any} /></span>
           <h3 class="text-base font-semibold">{service.title}</h3>
           <p class="text-sm text-[var(--color-muted)]">{service.description}</p>
         </article>

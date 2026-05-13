@@ -22,6 +22,7 @@
     font-family: var(--font-mono);
     font-size: 0.75rem;
     letter-spacing: 0.12em;
+    color: var(--accent-primary);
 }
 
 .hero__title {
@@ -56,22 +57,28 @@
     gap: 0.55rem;
 }
 
-.hero__features li::before {
-    content: "";
-    width: 0.55rem;
-    height: 0.55rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--accent-primary) 18%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 42%, transparent);
+.hero__feature-icon {
+    font-size: 1rem;
+    color: var(--text-muted);
 }
 
 .hero__visual {
+    position: relative;
     min-height: 30rem;
     overflow: hidden;
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent),
         radial-gradient(circle at 58% 30%, rgba(255, 255, 255, 0.12), transparent 20%),
         linear-gradient(145deg, color-mix(in srgb, var(--surface-muted) 48%, var(--surface-card) 52%), color-mix(in srgb, var(--surface-card) 82%, var(--surface-bg) 18%));
+}
+
+.hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 58%;
 }
 
 .hero__visual::before {
@@ -89,16 +96,16 @@
 .hero__visual::after {
     content: "";
     position: absolute;
-    inset: 1.5rem 1.5rem auto auto;
-    width: 9rem;
-    aspect-ratio: 1;
-    border-radius: 999px;
-    border: 1px dashed color-mix(in srgb, var(--accent-primary) 40%, transparent);
-    opacity: 0.7;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(15, 15, 15, 0.04), transparent 25%),
+        linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.24));
+    pointer-events: none;
 }
 
 .hero__panel {
     position: absolute;
+    z-index: 1;
     right: 1.5rem;
     bottom: 1.5rem;
     max-width: 17rem;
@@ -109,8 +116,45 @@
     border-radius: var(--radius-lg);
 }
 
+.hero__badge {
+    position: absolute;
+    z-index: 1;
+    right: -2rem;
+    bottom: -1.25rem;
+}
+
+.circle-badge {
+    width: 8rem;
+    height: 8rem;
+    color: var(--accent-primary);
+    opacity: 0.92;
+}
+
+.circle-badge svg {
+    animation: rotateBadge 24s linear infinite;
+}
+
+.circle-badge text {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    fill: currentColor;
+}
+
+@keyframes rotateBadge {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 @media (max-width: 767px) {
     .hero__visual {
         min-height: 22rem;
+    }
+
+    .hero__badge {
+        right: -0.5rem;
+        bottom: -1.5rem;
+        transform: scale(0.82);
     }
 }

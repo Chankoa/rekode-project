@@ -7,7 +7,14 @@ import { aboutContent } from "../data/site-content";
 <Layout title="À propos">
   <section class="pt-16 pb-8">
     <div class="max-w-5xl mx-auto px-4">
-      <About title="À propos" text={aboutContent.text} points={aboutContent.points} />
+      <About
+        eyebrow={aboutContent.eyebrow}
+        title={aboutContent.title}
+        text={aboutContent.text}
+        points={aboutContent.points}
+        ctaLabel={aboutContent.ctaLabel}
+        ctaHref={aboutContent.ctaHref}
+      />
     </div>
   </section>
 </Layout>

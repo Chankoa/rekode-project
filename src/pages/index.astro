@@ -6,7 +6,7 @@ import Services from "../components/sections/Services.astro";
 import Process from "../components/sections/Process.astro";
 import About from "../components/sections/About.astro";
 import Contact from "../components/sections/Contact.astro";
-import { aboutContent, heroContent, processSteps, selectedProjects, services } from "../data/site-content";
+import { aboutContent, contactContent, heroContent, processSteps, selectedProjects, services } from "../data/site-content";
 ---
 
 <Layout title="Accueil">
@@ -29,7 +29,22 @@ import { aboutContent, heroContent, processSteps, selectedProjects, services } f
 
   <Process steps={processSteps} />
 
-  <About text={aboutContent.text} points={aboutContent.points} />
+  <About
+    eyebrow={aboutContent.eyebrow}
+    title={aboutContent.title}
+    text={aboutContent.text}
+    points={aboutContent.points}
+    ctaLabel={aboutContent.ctaLabel}
+    ctaHref={aboutContent.ctaHref}
+  />
 
-  <Contact />
+  <Contact
+    compact={true}
+    title={contactContent.title}
+    intro={contactContent.intro}
+    ctaLabel={contactContent.ctaLabel}
+    ctaHref={contactContent.ctaHref}
+    newsletterTitle={contactContent.newsletterTitle}
+    newsletterText={contactContent.newsletterText}
+  />
 </Layout>

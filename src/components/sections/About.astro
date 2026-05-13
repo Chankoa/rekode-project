@@ -1,33 +1,68 @@
 ---
+import { Image } from "astro:assets";
+import aboutPortrait from "../../assets/about-chandra-josephus.webp";
+import Icon from "../ui/Icon.astro";
+
 interface Props {
+  eyebrow?: string;
   title?: string;
   text: string;
   points?: string[];
+  ctaLabel?: string;
+  ctaHref?: string;
 }
 
 const {
-  title = "À propos",
+  eyebrow = "A propos",
+  title = "Un profil hybride au service du web.",
   text,
   points = [],
+  ctaLabel = "En savoir plus sur moi",
+  ctaHref = "/a-propos",
 } = Astro.props;
 ---
 
 <section class="section-shell">
-  <div class="max-w-5xl mx-auto px-4 grid gap-10 md:grid-cols-2 items-start">
-    <header class="section-header section-header--split">
-      <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
-      <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">{text}</p>
-    </header>
-
-    {points.length > 0 && (
-      <div class="card-elevated section-card">
-        <h3 class="text-sm font-semibold">Principes de travail</h3>
-        <ul class="feature-list feature-list--stacked text-sm text-[var(--color-muted)]">
-          {points.map((point) => (
-            <li>{point}</li>
-          ))}
-        </ul>
+  <div class="max-w-[var(--site-max-width)] mx-auto px-4">
+    <div class="about-preview">
+      <div class="about-preview__media">
+        <Image
+          src={aboutPortrait}
+          alt="Portrait en noir et blanc"
+          class="about-preview__portrait"
+          widths={[480, 720, 960]}
+          sizes="(max-width: 767px) 100vw, 30vw"
+          loading="lazy"
+          format="webp"
+        />
       </div>
-    )}
+
+      <div class="about-preview__content">
+        <header class="section-header section-header--split">
+          <p class="section-label">{eyebrow}</p>
+          <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
+          <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">{text}</p>
+        </header>
+        <a href={ctaHref} class="section-link section-link--inline">
+          <span>{ctaLabel}</span>
+          <Icon name="arrow" />
+        </a>
+      </div>
+
+      {points.length > 0 && (
+        <div class="about-preview__highlights">
+          <ul class="about-highlight-list">
+            {points.map((point, index) => (
+              <li>
+                <span class="about-highlight-list__icon">
+                  <Icon name={index === 0 ? "star" : index === 1 ? "heart" : "mountain"} />
+                </span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   </div>
 </section>

@@ -1,3 +1,8 @@
+export interface FeatureItem {
+  label: string;
+  icon: string;
+}
+
 export interface HeroContent {
   eyebrow: string;
   title: string;
@@ -8,7 +13,7 @@ export interface HeroContent {
   secondaryCtaHref: string;
   supportingLabel: string;
   supportingText: string;
-  features: string[];
+  features: FeatureItem[];
 }
 
 export interface ProjectItem {
@@ -16,27 +21,42 @@ export interface ProjectItem {
   slug: string;
   summary: string;
   tags: string[];
+  meta: string;
 }
 
 export interface ServiceItem {
   title: string;
-  highlight: string;
+  icon: string;
   description: string;
 }
 
 export interface ProcessStep {
   title: string;
   description: string;
+  icon: string;
 }
 
 export interface AboutContent {
+  eyebrow: string;
+  title: string;
   text: string;
   points: string[];
+  ctaLabel: string;
+  ctaHref: string;
 }
 
 export interface LabItem {
   title: string;
   summary: string;
+}
+
+export interface ContactContent {
+  title: string;
+  intro: string;
+  ctaLabel: string;
+  ctaHref: string;
+  newsletterTitle: string;
+  newsletterText: string;
 }
 
 export const heroContent: HeroContent = {
@@ -48,98 +68,127 @@ export const heroContent: HeroContent = {
   ctaHref: "/contact",
   secondaryCtaLabel: "Voir les projets",
   secondaryCtaHref: "/projets",
-  supportingLabel: "Base technique",
+  supportingLabel: "Clarte editoriale",
   supportingText:
-    "Architecture Astro legere, styles segmentes, composants lisibles et donnees centralisees pour faire evoluer le site sans friction.",
-  features: ["Sites rapides", "UX & design", "Integration propre", "Accompagnement"],
+    "Une base technique legere et une structure de contenu lisible pour garder le bon niveau de precision sans transformer le site en vitrine technique.",
+  features: [
+    { label: "Sites rapides", icon: "bolt" },
+    { label: "UX & design", icon: "document" },
+    { label: "Integration propre", icon: "code" },
+    { label: "Accompagnement", icon: "leaf" },
+  ],
 };
 
 export const selectedProjects: ProjectItem[] = [
   {
     title: "ROCKSIDERS",
     slug: "rocksiders",
-    summary: "Direction visuelle, système de styles et interface éditoriale pour un univers musical affirmé.",
-    tags: ["UI", "Design system", "Intégration"],
+    summary: "Site WordPress sur-mesure pour l'encadrement outdoor.",
+    tags: ["UX", "Design", "WordPress", "SEO"],
+    meta: "01",
   },
   {
     title: "Sens Dessus Dessous",
     slug: "sens-dessus-dessous",
-    summary: "Site de présentation structuré pour mettre en avant l'offre, le ton et les prises de contact.",
-    tags: ["Site vitrine", "Contenu", "SEO"],
+    summary: "Site vitrine pour accompagnement en montagne.",
+    tags: ["Design", "Integration", "SEO"],
+    meta: "02",
   },
   {
-    title: "Template site vitrine",
+    title: "Template Astro",
     slug: "template-site-vitrine",
-    summary: "Base Astro réutilisable pensée pour accélérer les futurs projets sans dette structurelle.",
-    tags: ["Astro", "Performance", "Réutilisable"],
+    summary: "Modele de site vitrine rapide et optimise.",
+    tags: ["Astro", "Performance", "Accessibilite"],
+    meta: "03",
   },
   {
     title: "Learn It",
     slug: "learn-it",
-    summary: "Expérimentation pédagogique mêlant front-end, contenus et scénarios d'apprentissage.",
-    tags: ["Pédagogie", "Prototype", "Expérimentation"],
+    summary: "Plateforme pedagogique WordPress sur-mesure.",
+    tags: ["WordPress", "UX", "Pedagogie"],
+    meta: "04",
   },
 ];
 
 export const services: ServiceItem[] = [
   {
     title: "Création de site vitrine",
-    highlight: "Base solide",
-    description: "Un site sobre, performant et crédible, conçu pour présenter l'activité et orienter vers le bon contact.",
+    icon: "monitor",
+    description: "Un site clair, adapte a votre activite et a vos objectifs.",
   },
   {
     title: "Intégration front-end",
-    highlight: "Astro / HTML / CSS",
-    description: "Transformation de maquettes en interfaces robustes, accessibles et maintenables, sans sur-ingénierie.",
+    icon: "code",
+    description: "HTML, CSS, JavaScript, Astro. Propre, semantique, rapide.",
   },
   {
     title: "Refonte / optimisation",
-    highlight: "Clarté & performance",
-    description: "Remise à plat de l'existant pour améliorer structure, vitesse, lisibilité et cohérence visuelle.",
+    icon: "refresh",
+    description: "Amelioration de l'experience, des performances et du SEO.",
   },
   {
     title: "WordPress sur-mesure",
-    highlight: "Quand utile",
-    description: "Mise en place ou adaptation de sites WordPress lorsque l'autonomie éditoriale prime sur la sobriété du stack.",
+    icon: "wordpress",
+    description: "Themes legers, modulaires et faciles a prendre en main.",
   },
   {
     title: "Formation / accompagnement",
-    highlight: "Transmission",
-    description: "Aide au cadrage, montée en compétence et documentation pour garder la main après la mise en ligne.",
+    icon: "cap",
+    description: "Transmission et autonomie pour vos equipes.",
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
-    title: "Écoute",
-    description: "Clarifier le besoin réel, le public visé et les contraintes pour éviter les choix décoratifs sans impact.",
+    title: "Ecouter",
+    description: "Comprendre vos besoins, vos contraintes et vos enjeux.",
+    icon: "ear",
   },
   {
     title: "Structure",
-    description: "Définir l'arborescence, les contenus clés et les parcours avant d'entrer dans les détails visuels.",
+    description: "Organiser l'information et poser des bases solides.",
+    icon: "spark",
   },
   {
-    title: "Design",
-    description: "Construire une identité d'interface cohérente, utile et assez souple pour évoluer sans tout refaire.",
+    title: "Concevoir",
+    description: "Imaginer des interfaces claires, utiles et elegantes.",
+    icon: "pen",
   },
   {
     title: "Intégration",
-    description: "Assembler dans Astro avec des composants lisibles, des styles segmentés et des données centralisées.",
+    description: "Developper un front-end propre, rapide et accessible.",
+    icon: "code",
   },
   {
     title: "Mise en ligne",
-    description: "Finaliser SEO, formulaires, performance et passation pour une mise en production propre.",
+    description: "Deployer, optimiser et vous rendre autonome.",
+    icon: "rocket",
   },
 ];
 
 export const aboutContent: AboutContent = {
+  eyebrow: "A propos",
+  title: "Un profil hybride au service du web.",
   text:
-    "REKODE est un studio web orienté conception et intégration. L'objectif n'est pas de multiplier les couches, mais de produire un site lisible, rapide à faire évoluer et simple à reprendre plus tard.",
+    "Developpeur front-end, integrateur, designer dans l'ame, formateur et entrepreneur terrain. J'aime les projets qui ont du sens et les collaborations basees sur la confiance.",
   points: [
-    "Une architecture Astro pensée pour durer",
-    "Des composants de sections réutilisables sans logique dispersée",
-    "Un cadrage pragmatique du contenu, du design et de la mise en ligne",
+    "15+ ans d'experience dans l'accompagnement",
+    "Passion pour l'UX, le design et le cinema",
+    "Esprit entrepreneurial et sens du terrain",
   ],
+  ctaLabel: "En savoir plus sur moi",
+  ctaHref: "/a-propos",
+};
+
+export const contactContent: ContactContent = {
+  title: "Un projet en tete ? Discutons-en.",
+  intro:
+    "Un site, une refonte ou une idee a concretiser ? Ecrivez-moi, je vous reponds rapidement.",
+  ctaLabel: "Parler du projet",
+  ctaHref: "/contact",
+  newsletterTitle: "Restez inspire",
+  newsletterText:
+    "Recevez mes articles, ressources et inspirations autour du web et de la creation.",
 };
 
 export const labItems: LabItem[] = [

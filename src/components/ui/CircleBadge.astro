@@ -1,0 +1,22 @@
+---
+interface Props {
+  text?: string;
+  class?: string;
+}
+
+const {
+  text = "DESIGN · FRONT-END · CLARTE · PERFORMANCE · REKODE · ",
+  class: className = "",
+} = Astro.props;
+---
+
+<div class={`circle-badge ${className}`.trim()} aria-hidden="true">
+  <svg viewBox="0 0 200 200">
+    <defs>
+      <path id="circlePath" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0" />
+    </defs>
+    <text>
+      <textPath href="#circlePath">{text}</textPath>
+    </text>
+  </svg>
+</div>

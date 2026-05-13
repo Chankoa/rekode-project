@@ -1,5 +1,6 @@
 ---
 import type { ProcessStep } from "../../data/site-content";
+import Icon from "../ui/Icon.astro";
 
 interface Props {
   title?: string;
@@ -8,14 +9,14 @@ interface Props {
 }
 
 const {
-  title = "Approche",
-  intro = "Une méthode simple: poser une structure claire, faire les bons arbitrages techniques et garder de la place pour l'évolution.",
+  title = "Une approche simple et humaine",
+  intro = "Une methode lisible, sans mise en scene inutile: comprendre, structurer, concevoir, integrer, mettre en ligne.",
   steps,
 } = Astro.props;
 ---
 
 <section class="section-shell">
-  <div class="max-w-5xl mx-auto px-4 space-y-8">
+  <div class="max-w-[var(--site-max-width)] mx-auto px-4 space-y-8">
     <header class="section-header">
       <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
       <p class="text-[var(--color-muted)] text-sm sm:text-base">{intro}</p>
@@ -23,8 +24,9 @@ const {
 
     <ol class="process-grid">
       {steps.map((step, index) => (
-        <li class="card-elevated section-card section-card--process">
-          <span class="badge-pill">0{index + 1}</span>
+        <li class="process-step">
+          <span class="process-step__index">0{index + 1}</span>
+          <span class="process-step__icon"><Icon name={step.icon as any} /></span>
           <h3 class="text-base font-semibold">{step.title}</h3>
           <p class="text-sm text-[var(--color-muted)]">{step.description}</p>
         </li>

@@ -77,3 +77,13 @@
   transform: translateY(-1px);
   outline: none;
 }
+
+:root[data-theme="dark"] .hero .btn-primary {
+  background: var(--accent-primary);
+  color: var(--text-white);
+}
+
+:root[data-theme="dark"] .hero .btn-primary:hover {
+  background: var(--accent-primary-strong);
+  /* color: var(--text-inverse); */
+}

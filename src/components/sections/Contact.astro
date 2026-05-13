@@ -1,76 +1,133 @@
 ---
 import { siteConfig } from "../../data/site-config";
+import Icon from "../ui/Icon.astro";
 
 interface Props {
   title?: string;
   intro?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  newsletterTitle?: string;
+  newsletterText?: string;
+  compact?: boolean;
 }
 
 const {
   title = "Contact",
   intro = "Un besoin cadré, une refonte en vue ou une question sur la bonne stack: le plus simple est d'en parler directement.",
+  ctaLabel = "Parler du projet",
+  ctaHref = "/contact",
+  newsletterTitle = "Restez inspire",
+  newsletterText = "Recevez mes articles, ressources et inspirations autour du web et de la creation.",
+  compact = false,
 } = Astro.props;
 ---
 
 <section class="section-shell" id="contact">
-  <div class="max-w-5xl mx-auto px-4 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
-    <div class="space-y-4">
-      <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
-      <p class="text-sm sm:text-base text-[var(--color-muted)]">{intro}</p>
-      <div class="space-y-1 text-sm text-[var(--color-muted)]">
-        {siteConfig.contact.phone && (
-          <p>Tél. : <a href={`tel:${siteConfig.contact.phone}`} class="hover:text-[var(--color-accent)]">{siteConfig.contact.phone}</a></p>
-        )}
-        {siteConfig.contact.email && (
-          <p>Email : <a href={`mailto:${siteConfig.contact.email}`} class="hover:text-[var(--color-accent)]">{siteConfig.contact.email}</a></p>
-        )}
-        {siteConfig.contact.address && <p>Adresse : {siteConfig.contact.address}</p>}
+  {compact ? (
+    <div class="max-w-[var(--site-max-width)] mx-auto px-4">
+      <div class="contact-band">
+        <div class="contact-band__intro">
+          <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
+          <p class="text-sm sm:text-base text-[var(--color-muted)]">{intro}</p>
+          <a href={ctaHref} class="contact-band__cta" aria-label={ctaLabel}>
+            <Icon name="arrow" />
+          </a>
+        </div>
+
+        <div class="contact-band__details">
+          {siteConfig.contact.email && (
+            <a href={`mailto:${siteConfig.contact.email}`} class="contact-line">
+              <Icon name="mail" />
+              <span>{siteConfig.contact.email}</span>
+            </a>
+          )}
+          {siteConfig.contact.phone && (
+            <a href={`tel:${siteConfig.contact.phone}`} class="contact-line">
+              <Icon name="phone" />
+              <span>{siteConfig.contact.phone}</span>
+            </a>
+          )}
+          {siteConfig.contact.address && (
+            <p class="contact-line">
+              <Icon name="pin" />
+              <span>{siteConfig.contact.address}</span>
+            </p>
+          )}
+        </div>
+
+        <div class="contact-band__newsletter">
+          <h3 class="text-lg font-semibold">{newsletterTitle}</h3>
+          <p class="text-sm text-[var(--color-muted)]">{newsletterText}</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Votre email" aria-label="Votre email" />
+            <button type="button" class="newsletter-form__submit" aria-label="S'inscrire">
+              <Icon name="arrow" />
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      class="card-elevated section-card space-y-4 text-sm"
-    >
-      <input type="hidden" name="form-name" value="contact" />
-
-      <div class="space-y-1">
-        <label for="name" class="font-medium">Nom</label>
-        <input
-          id="name"
-          name="name"
-          required
-          class="w-full rounded-md border border-[var(--color-border)] px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-        />
+  ) : (
+    <div class="max-w-[var(--site-max-width)] mx-auto px-4 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
+      <div class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
+        <p class="text-sm sm:text-base text-[var(--color-muted)]">{intro}</p>
+        <div class="space-y-2 text-sm text-[var(--color-muted)]">
+          {siteConfig.contact.phone && (
+            <p class="contact-line"><Icon name="phone" /> <a href={`tel:${siteConfig.contact.phone}`} class="hover:text-[var(--color-accent)]">{siteConfig.contact.phone}</a></p>
+          )}
+          {siteConfig.contact.email && (
+            <p class="contact-line"><Icon name="mail" /> <a href={`mailto:${siteConfig.contact.email}`} class="hover:text-[var(--color-accent)]">{siteConfig.contact.email}</a></p>
+          )}
+          {siteConfig.contact.address && <p class="contact-line"><Icon name="pin" /> <span>{siteConfig.contact.address}</span></p>}
+        </div>
       </div>
 
-      <div class="space-y-1">
-        <label for="email" class="font-medium">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          class="w-full rounded-md border border-[var(--color-border)] px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-        />
-      </div>
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        class="card-elevated section-card space-y-4 text-sm"
+      >
+        <input type="hidden" name="form-name" value="contact" />
 
-      <div class="space-y-1">
-        <label for="message" class="font-medium">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          required
-          class="w-full rounded-md border border-[var(--color-border)] px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-        ></textarea>
-      </div>
+        <div class="space-y-1">
+          <label for="name" class="font-medium">Nom</label>
+          <input
+            id="name"
+            name="name"
+            required
+            class="w-full rounded-md border border-[var(--color-border)] px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+          />
+        </div>
 
-      <button type="submit" class="btn-primary w-full justify-center">
-        Envoyer
-      </button>
-    </form>
-  </div>
+        <div class="space-y-1">
+          <label for="email" class="font-medium">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class="w-full rounded-md border border-[var(--color-border)] px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+          />
+        </div>
+
+        <div class="space-y-1">
+          <label for="message" class="font-medium">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            class="w-full rounded-md border border-[var(--color-border)] px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary w-full justify-center">
+          Envoyer
+        </button>
+      </form>
+    </div>
+  )}
 </section>

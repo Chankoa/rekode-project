@@ -3,22 +3,13 @@ import { siteConfig } from "../../data/site-config";
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[var(--color-border)] mt-16">
-  <div class="relative max-w-5xl mx-auto px-4 py-8 pr-16 md:pr-20 text-sm text-[var(--color-muted)] flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-    <p>
-      © {year} {siteConfig.name}. Tous droits réservés.
-    </p>
-    <div class="flex flex-wrap items-center gap-3">
-      {siteConfig.contact.phone && (
-        <a href={`tel:${siteConfig.contact.phone}`} class="hover:text-[var(--color-accent)]">
-          {siteConfig.contact.phone}
-        </a>
-      )}
-      {siteConfig.contact.email && (
-        <a href={`mailto:${siteConfig.contact.email}`} class="hover:text-[var(--color-accent)]">
-          {siteConfig.contact.email}
-        </a>
-      )}
+<footer class="border-t border-[var(--color-border)]">
+  <div class="relative max-w-[var(--site-max-width)] mx-auto px-4 py-6 pr-16 md:pr-20 text-sm text-[var(--color-muted)] flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <p>© {year} {siteConfig.name}. Tous droits reserves.</p>
+    <div class="flex flex-wrap items-center gap-5">
+      <a href="#">Mentions legales</a>
+      <a href="#">Politique de confidentialite</a>
+      <p>Concu avec Astro</p>
     </div>
 
     <button
