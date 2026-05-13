@@ -61,7 +61,7 @@ export interface ContactContent {
 
 export const heroContent: HeroContent = {
   eyebrow: "Design & integration front-end",
-  title: "Des sites web clairs, rapides et penses pour durer.",
+  title: "Des sites web clairs, pensés pour des humains",
   subtitle:
     "J'aide les independants, petites structures et projets creatifs a construire une presence en ligne juste, efficace et humaine.",
   ctaLabel: "Parler de votre projet",
@@ -91,7 +91,7 @@ export const selectedProjects: ProjectItem[] = [
     title: "Sens Dessus Dessous",
     slug: "sens-dessus-dessous",
     summary: "Site vitrine pour accompagnement en montagne.",
-    tags: ["Design", "Integration", "SEO"],
+    tags: ["Redesign", "Integration", "WordPress", "SEO"],
     meta: "02",
   },
   {
