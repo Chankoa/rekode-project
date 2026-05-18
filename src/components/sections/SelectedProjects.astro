@@ -1,4 +1,6 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 import type { ProjectItem } from "../../data/site-content";
 import Icon from "../ui/Icon.astro";
 
@@ -6,13 +8,44 @@ interface Props {
   title?: string;
   intro?: string;
   projects: ProjectItem[];
+  showProjectsLink?: boolean;
+  variant?: "cards" | "case-studies";
 }
 
 const {
   title = "Quelques projets",
   intro = "Une sélection de projets pour montrer le niveau d'exécution, la précision de l'intégration et la variété des contextes traités.",
   projects,
+  showProjectsLink = true,
+  variant = "cards",
 } = Astro.props;
+
+const assetExtensionPattern = /\.(avif|webp|png|jpe?g)$/i;
+
+const buildAssetMap = (modules: Record<string, { default: ImageMetadata }>) =>
+  new Map(
+    Object.entries(modules)
+      .map(([path, asset]) => {
+        const fileName = path.split("/").pop();
+        const slug = fileName?.replace(assetExtensionPattern, "");
+
+        return slug ? [slug, asset.default] : null;
+      })
+      .filter((entry): entry is [string, ImageMetadata] => Boolean(entry)),
+  );
+
+const projectThumbnailModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/projects/*.{avif,webp,png,jpg,jpeg}",
+  { eager: true },
+);
+
+const projectLogoModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/projects/logos/*.{avif,webp,png,jpg,jpeg}",
+  { eager: true },
+);
+
+const projectThumbnailMap = buildAssetMap(projectThumbnailModules);
+const projectLogoMap = buildAssetMap(projectLogoModules);
 ---
 
 <section class="section-shell">
@@ -22,27 +55,142 @@ const {
         <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
         <p class="text-[var(--color-muted)] text-sm sm:text-base">{intro}</p>
       </div>
-      <a href="/projets" class="section-link">
-        <span>Voir tous les projets</span>
-        <Icon name="arrow" />
-      </a>
+      {showProjectsLink && (
+        <a href="/projets" class="section-link">
+          <span>Voir tous les projets</span>
+          <Icon name="arrow" />
+        </a>
+      )}
     </header>
 
-    <div class="project-grid project-grid--projects">
-      {projects.map((project) => (
-        <article class={`project-card has-hover-fx project-card--${project.slug}`}>
-          <div class="project-card__visual">
-            <div class="project-card__screen"></div>
-          </div>
+    {variant === "cards" ? (
+      <div class="project-grid project-grid--projects">
+        {projects.map((project) => {
+          const thumbnail = projectThumbnailMap.get(project.slug);
+          const logo = projectLogoMap.get(project.slug);
 
-          <div class="project-card__content space-y-3">
-            <p class="project-card__meta">{project.meta}</p>
-            <h3 class="text-lg font-semibold">{project.title}</h3>
-            <p class="text-sm text-[var(--color-muted)]">{project.summary}</p>
-            <p class="project-card__tags">{project.tags.join(" · ")}</p>
-          </div>
-        </article>
-      ))}
-    </div>
+          return (
+            <article class={`project-card has-hover-fx project-card--${project.slug}`}>
+              <div class="project-card__visual">
+                {thumbnail ? (
+                  <Image
+                    src={thumbnail}
+                    alt={project.thumbnailAlt ?? `Apercu du projet ${project.title}`}
+                    class="project-card__image"
+                    widths={[480, 720, 960]}
+                    sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+                    loading="lazy"
+                    format="webp"
+                  />
+                ) : (
+                  <div class="project-card__screen project-card__screen--placeholder"></div>
+                )}
+
+                <div class="project-card__visual-overlay" aria-hidden="true"></div>
+
+                {logo && (
+                  <div class="project-card__logo-badge">
+                    <Image
+                      src={logo}
+                      alt={project.clientLogoAlt ?? `Logo ${project.title}`}
+                      class="project-card__logo"
+                      widths={[96, 144, 192]}
+                      sizes="96px"
+                      loading="lazy"
+                      format="webp"
+                    />
+                  </div>
+                )}
+              </div>
+
+              <div class="project-card__content space-y-3">
+                <p class="project-card__meta">{project.meta}</p>
+                <h3 class="text-lg font-semibold">{project.title}</h3>
+                <p class="text-sm text-[var(--color-muted)]">{project.summary}</p>
+                <p class="project-card__tags">{project.tags.join(" · ")}</p>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    ) : (
+      <div class="project-case-study-list">
+        {projects.map((project) => {
+          const thumbnail = projectThumbnailMap.get(project.slug);
+          const logo = projectLogoMap.get(project.slug);
+          const caseStudy = project.caseStudy;
+
+          return (
+            <article class={`project-case-study project-card--${project.slug}`}>
+              <div class="project-case-study__media">
+                <div class="project-case-study__visual">
+                  {thumbnail ? (
+                    <Image
+                      src={thumbnail}
+                      alt={project.thumbnailAlt ?? `Apercu du projet ${project.title}`}
+                      class="project-case-study__image"
+                      widths={[720, 1080, 1440]}
+                      sizes="(max-width: 1023px) 100vw, 52vw"
+                      loading="lazy"
+                      format="webp"
+                    />
+                  ) : (
+                    <div class="project-card__screen project-card__screen--placeholder"></div>
+                  )}
+
+                  <div class="project-card__visual-overlay" aria-hidden="true"></div>
+
+                  <div class="project-case-study__meta-band">
+                    <p class="project-card__meta">{project.meta}</p>
+                    {logo && (
+                      <div class="project-card__logo-badge project-card__logo-badge--case-study">
+                        <Image
+                          src={logo}
+                          alt={project.clientLogoAlt ?? `Logo ${project.title}`}
+                          class="project-card__logo"
+                          widths={[96, 144, 192]}
+                          sizes="96px"
+                          loading="lazy"
+                          format="webp"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-case-study__content space-y-6">
+                <div class="space-y-3">
+                  <h3 class="text-2xl sm:text-3xl font-semibold">{project.title}</h3>
+                  <p class="text-base sm:text-lg text-[var(--color-muted)] leading-relaxed">
+                    {project.summary}
+                  </p>
+                  <p class="project-card__tags">{project.tags.join(" · ")}</p>
+                </div>
+
+                <div class="project-case-study__sections">
+                  <section class="project-case-study__section">
+                    <p class="project-case-study__label">Contexte</p>
+                    <p>{caseStudy?.context ?? project.summary}</p>
+                  </section>
+                  <section class="project-case-study__section">
+                    <p class="project-case-study__label">Objectif</p>
+                    <p>{caseStudy?.objective ?? project.summary}</p>
+                  </section>
+                  <section class="project-case-study__section">
+                    <p class="project-case-study__label">Approche</p>
+                    <p>{caseStudy?.approach ?? project.summary}</p>
+                  </section>
+                  <section class="project-case-study__section">
+                    <p class="project-case-study__label">Resultat</p>
+                    <p>{caseStudy?.outcome ?? project.summary}</p>
+                  </section>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    )}
   </div>
 </section>

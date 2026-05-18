@@ -17,10 +17,56 @@
   background: var(--project-bg, linear-gradient(145deg, #c6d4d6, #7f8d90));
   overflow: hidden;
   position: relative;
+  isolation: isolate;
+}
+
+.project-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 320ms var(--ease-standard, ease);
+}
+
+.project-card__visual-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 13, 17, 0.06) 0%, rgba(7, 13, 17, 0) 38%),
+    linear-gradient(180deg, rgba(7, 13, 17, 0) 45%, rgba(7, 13, 17, 0.34) 100%);
+  opacity: 0.72;
+  transition: opacity 240ms var(--ease-standard, ease);
+  pointer-events: none;
+}
+
+.project-card__logo-badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 24px rgba(16, 24, 40, 0.14);
+  z-index: 1;
+}
+
+.project-card__logo {
+  width: auto;
+  height: 1.25rem;
+  max-width: 5.5rem;
+  object-fit: contain;
+  display: block;
 }
 
 .project-card__content {
   padding: 1rem 1rem 1.1rem;
+  transition: transform 220ms var(--ease-standard, ease);
 }
 
 .project-card__screen {
@@ -28,6 +74,28 @@
   inset: 0;
   background: var(--project-screen, linear-gradient(135deg, #425058, #111315));
   overflow: hidden;
+}
+
+.project-card__screen--placeholder {
+  position: absolute;
+  inset: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover .project-card__image,
+  .project-card:focus-within .project-card__image {
+    transform: scale(1.035);
+  }
+
+  .project-card:hover .project-card__visual-overlay,
+  .project-card:focus-within .project-card__visual-overlay {
+    opacity: 0.9;
+  }
+
+  .project-card:hover .project-card__content,
+  .project-card:focus-within .project-card__content {
+    transform: translateY(-0.12rem);
+  }
 }
 
 .project-card__meta {
@@ -42,6 +110,85 @@
   margin: 0;
   color: var(--text-muted);
   font-size: 0.82rem;
+}
+
+.project-case-study-list {
+  display: grid;
+  gap: 2rem;
+}
+
+.project-case-study {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface-card) 88%, white 12%);
+}
+
+.project-case-study__media {
+  min-width: 0;
+}
+
+.project-case-study__visual {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: calc(var(--radius-lg) - 0.25rem);
+  background: var(--project-bg, linear-gradient(145deg, #c6d4d6, #7f8d90));
+  isolation: isolate;
+}
+
+.project-case-study__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-case-study__meta-band {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem;
+  z-index: 1;
+}
+
+.project-card__logo-badge--case-study {
+  position: static;
+}
+
+.project-case-study__content {
+  align-content: start;
+}
+
+.project-case-study__sections {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-case-study__section {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.project-case-study__section p {
+  margin: 0;
+}
+
+.project-case-study__label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--accent-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .project-card--rocksiders {
@@ -274,6 +421,17 @@
 @media (min-width: 1024px) {
   .project-grid--projects {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .project-case-study {
+    grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .project-case-study__sections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.25rem;
   }
 
   .service-grid {

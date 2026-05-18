@@ -28,6 +28,14 @@ export interface ProjectItem {
   summary: string;
   tags: string[];
   meta: string;
+  thumbnailAlt?: string;
+  clientLogoAlt?: string;
+  caseStudy?: {
+    context: string;
+    objective: string;
+    approach: string;
+    outcome: string;
+  };
 }
 
 export interface ServiceItem {
@@ -70,7 +78,7 @@ export const heroContent: HeroContent = {
   titleParts: [
     { text: "Des " },
     { text: "sites web", highlight: true },
-    { text: " clairs, pensés pour des " },
+    { text: "pensés pour des " },
     { text: "humains.", highlight: true },
   ],
   subtitle:
@@ -97,27 +105,71 @@ export const selectedProjects: ProjectItem[] = [
     summary: "Site WordPress sur-mesure pour l'encadrement outdoor.",
     tags: ["UX", "Design", "WordPress", "SEO"],
     meta: "01",
+    thumbnailAlt: "Apercu du projet ROCKSIDERS",
+    caseStudy: {
+      context:
+        "ROCKSIDERS avait besoin d'une présence en ligne plus cohérente avec son positionnement outdoor, capable de transmettre l'esprit de terrain de la marque tout en rendant l'offre plus lisible pour un public qui découvre l'activité.",
+      objective:
+        "Clarifier les prestations, renforcer la crédibilité dès les premières secondes et poser une base WordPress suffisamment souple pour faire évoluer les contenus sans complexifier l'administration.",
+      approach:
+        "Le travail s'est concentré sur une hiérarchie de contenus plus nette, un design plus incarné, des points d'entrée plus directs vers les offres et une intégration sobre pour garder un site rapide, clair et facile à maintenir.",
+      outcome:
+        "Le projet aboutit à une vitrine plus rassurante, plus alignée avec l'univers de la marque et mieux structurée pour accompagner la prise de contact ou la découverte progressive des prestations.",
+    },
   },
   {
     title: "Sens Dessus Dessous",
     slug: "sens-dessus-dessous",
-    summary: "Site vitrine pour accompagnement en montagne.",
+    summary: "Site vitrine pour promouvoir des activités de pleine nature.",
     tags: ["Redesign", "Intégration", "WordPress", "SEO"],
     meta: "02",
+    thumbnailAlt: "Apercu du projet Sens Dessus Dessous",
+    caseStudy: {
+      context:
+        "Le site devait mieux refléter la qualité de l'accompagnement proposé, avec une présentation plus claire des activités et une expérience de lecture plus fluide pour des visiteurs parfois peu familiers avec cet univers.",
+      objective:
+        "Redonner de la lisibilité à l'ensemble, mieux mettre en avant les accompagnements et construire un cadre éditorial rassurant pour faciliter la compréhension de l'offre.",
+      approach:
+        "La refonte a porté sur la structure des pages, la hiérarchie des informations, la respiration visuelle et une intégration WordPress légère, pensée pour permettre des mises à jour simples côté client.",
+      outcome:
+        "Le résultat est un site plus apaisé, plus clair et plus crédible, qui soutient mieux la prise d'information et donne davantage de place au contenu utile dans le parcours utilisateur.",
+    },
   },
   {
-    title: "Template Astro",
-    slug: "template-site-vitrine",
-    summary: "Modèle de site vitrine rapide et optimisé.",
-    tags: ["Astro", "Performance", "Accessibilité"],
+    title: "La Fabrique de Moustiers",
+    slug: "lafabrique-moustiers",
+    summary: "Site vitrine des hébergements touristiques de La Fabrique de Moustiers.",
+    tags: ["Wordpress", "UX / UI Design", "Performance", "Optimisation SEO"],
     meta: "03",
+    thumbnailAlt: "Apercu du projet La Fabrique de Moustiers",
+    caseStudy: {
+      context:
+        "Le projet consistait à mettre en valeur plusieurs hébergements touristiques au sein d'un même univers, en trouvant le bon équilibre entre désirabilité, informations pratiques et capacité de réservation ou de contact.",
+      objective:
+        "Raconter le lieu avec plus de sensibilité, aider les visiteurs à se projeter et structurer le contenu de façon à soutenir à la fois l'expérience utilisateur et la visibilité organique.",
+      approach:
+        "L'approche a combiné cadrage UX, direction visuelle, optimisation des parcours de découverte et attention portée aux performances pour conserver une navigation légère malgré la richesse du contenu visuel.",
+      outcome:
+        "Le site sert aujourd'hui de support de présentation plus complet, avec une lecture plus fluide des hébergements et une base plus saine pour faire évoluer les contenus et le référencement dans le temps.",
+    },
   },
   {
     title: "Learn It",
     slug: "learn-it",
     summary: "Plateforme pédagogique WordPress sur-mesure.",
-    tags: ["WordPress", "UX", "Pédagogie"],
+    tags: ["Work in Progress", "React", "UX/UI Design", "Pédagogie"],
     meta: "04",
+    thumbnailAlt: "Apercu du projet Learn It",
+    caseStudy: {
+      context:
+        "Learn It est un projet en cours autour d'une expérience pédagogique plus engageante, avec des besoins forts en clarté de parcours, en modularité des contenus et en cohérence entre usage éditorial et interface.",
+      objective:
+        "Construire une base capable d'accompagner différentes formes d'apprentissage, tout en gardant une expérience simple, progressive et suffisamment robuste pour accueillir des évolutions futures.",
+      approach:
+        "Le travail explore une articulation entre UX, design d'interface, logique de composants et réflexion pédagogique, avec une attention particulière portée à la lisibilité des étapes, des contenus et des actions attendues.",
+      outcome:
+        "Le projet est encore en développement, mais il pose déjà les fondations d'une plateforme plus claire, plus flexible et mieux alignée avec les besoins d'apprentissage et de transmission.",
+    },
   },
 ];
 
