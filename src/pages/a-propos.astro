@@ -1,20 +1,290 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import About from "../components/sections/About.astro";
-import { aboutContent } from "../data/site-content";
+import aboutPortrait from "../assets/about-chandra-josephus.webp";
+import aboutLandscape from "../assets/home/hero.webp";
+import Icon from "../components/ui/Icon.astro";
+import { siteConfig } from "../data/site-config";
+
+const highlights = [
+  "Webdesigner / intégrateur depuis 2007",
+  "UX, design & front-end",
+  "Formation web et pédagogie",
+  "Entrepreneuriat & expérience terrain",
+  "Sens du détail, du rythme et du récit",
+] as const;
+
+const philosophy = [
+  {
+    icon: "leaf",
+    title: "Clarté",
+    text: "Concevoir des interfaces lisibles, hiérarchisées et utiles, sans surcharger l'expérience.",
+  },
+  {
+    icon: "heart",
+    title: "Humain",
+    text: "Relier le fond, la forme et la relation de confiance pour faire émerger des expériences plus justes.",
+  },
+  {
+    icon: "spark",
+    title: "Sens",
+    text: "Faire en sorte que la technique, le design et le contenu servent une intention claire et durable.",
+  },
+] as const;
+
+const process = [
+  {
+    icon: "ear",
+    title: "Écouter",
+    text: "Comprendre votre activité, votre contexte et ce qui compte vraiment pour vos utilisateurs.",
+  },
+  {
+    icon: "document",
+    title: "Explorer",
+    text: "Clarifier les contenus, les enjeux et les opportunités avant de produire des écrans.",
+  },
+  {
+    icon: "pen",
+    title: "Concevoir",
+    text: "Donner une forme visuelle et narrative cohérente à des idées parfois encore diffuses.",
+  },
+  {
+    icon: "code",
+    title: "Développer",
+    text: "Intégrer proprement en HTML, CSS, WordPress, Astro ou React selon le bon niveau de réponse.",
+  },
+  {
+    icon: "arrow",
+    title: "Livrer & ajuster",
+    text: "Documenter, transmettre et ajuster pour que le projet reste vivant et appropriable.",
+  },
+] as const;
+
+const inspirations = [
+  "Les projets utiles, les trajectoires atypiques et les personnes qui portent une vision claire.",
+  "La nature, le mouvement, l'outdoor et ce qu'ils enseignent sur le rythme, l'attention et la simplicité.",
+  "La transmission, la pédagogie et le plaisir d'aider d'autres personnes à mieux comprendre les outils du web.",
+  "Le récit visuel, l'audiovisuel, le voyage, la culture et les détails qui créent une ambiance juste.",
+] as const;
+
+const skills = [
+  "HTML / CSS",
+  "WordPress",
+  "UX / UI",
+  "Astro",
+  "React",
+  "SEO",
+  "Pédagogie",
+  "Gestion de projet",
+] as const;
 ---
 
-<Layout title="À propos">
-  <section class="pt-16 pb-8">
-    <div class="max-w-5xl mx-auto px-4">
-      <About
-        eyebrow={aboutContent.eyebrow}
-        title={aboutContent.title}
-        text={aboutContent.text}
-        points={aboutContent.points}
-        ctaLabel={aboutContent.ctaLabel}
-        ctaHref={aboutContent.ctaHref}
-      />
+<Layout
+  title="À propos"
+  description="Un parcours hybride entre terrain, création et numérique au service d’expériences web plus humaines."
+>
+  <section class="section-shell about-page">
+    <div class="max-w-[var(--site-max-width)] mx-auto px-4 space-y-8 lg:space-y-12">
+      <section class="about-page__hero">
+        <div class="about-page__hero-media">
+          <Image
+            src={aboutPortrait}
+            alt="Portrait en noir et blanc"
+            class="about-page__portrait"
+            widths={[480, 720, 960]}
+            sizes="(max-width: 767px) 100vw, 30vw"
+            loading="eager"
+            format="webp"
+          />
+        </div>
+
+        <div class="about-page__hero-content">
+          <header class="about-page__hero-header">
+            <p class="section-label">À propos</p>
+            <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">Un profil hybride au service du web.</h1>
+            <div class="about-page__hero-copy">
+              <p class="text-base sm:text-lg text-[var(--color-muted)] leading-relaxed">
+                Webdesigner / intégrateur freelance depuis 2007, j'accompagne les indépendants, petites structures et projets porteurs de sens à concevoir des expériences web plus claires, plus humaines et plus cohérentes.
+              </p>
+              <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+                Design, intégration front-end, WordPress, Astro, React, pédagogie et entrepreneuriat terrain : un parcours transversal qui me permet de relier vision, exécution et transmission.
+              </p>
+            </div>
+          </header>
+
+          <div class="about-page__skills about-page__skills--hero">
+            <p class="about-page__skills-label">Compétences-clés</p>
+            <ul class="about-page__skills-list">
+              {skills.map((skill) => (
+                <li class="about-page__skill-pill">{skill}</li>
+              ))}
+            </ul>
+          </div>
+
+          <a href="#parcours" class="section-link section-link--inline">
+            <span>Découvrir mon parcours</span>
+            <Icon name="arrow" />
+          </a>
+        </div>
+
+        <aside class="about-page__hero-highlights" aria-label="Repères">
+          <p class="about-page__hero-aside-label">Repères</p>
+          <ul class="about-page__highlight-list">
+            {highlights.map((item) => (
+              <li>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </section>
+
+      <section id="parcours" class="about-page__panel about-page__panel--story">
+        <div class="about-page__section-intro">
+          <p class="about-page__section-index">01</p>
+          <div class="space-y-4">
+            <h2 class="text-2xl sm:text-4xl font-semibold tracking-tight">Un parcours entre terrain, création et numérique.</h2>
+            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+              Avant le web, il y a eu le terrain, l'accompagnement, la relation humaine et l'entrepreneuriat.
+            </p>
+            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+              Éducateur sportif depuis 1998, puis entrepreneur outdoor avec ROCKSIDERS de 2019 à 2025, j'ai appris à construire des offres, gérer des projets, transmettre, communiquer et prendre des décisions au contact du réel.
+            </p>
+            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+              En parallèle, le web est devenu un terrain d'expression central : design d'interface, intégration HTML/CSS, WordPress, responsive design, UX/UI, puis outils plus récents comme Astro ou React. Cette diversité nourrit aujourd'hui ma manière de concevoir des projets numériques plus solides, plus lisibles et plus ancrés dans les usages.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-page__story-media">
+          <Image
+            src={aboutLandscape}
+            alt="Carnet ouvert face aux montagnes au lever du soleil"
+            class="about-page__story-image"
+            widths={[640, 960, 1280]}
+            sizes="(max-width: 1023px) 100vw, 55vw"
+            loading="lazy"
+            format="webp"
+          />
+        </div>
+      </section>
+
+      <section class="about-page__panel about-page__panel--values">
+        <div class="about-page__section-intro">
+          <p class="about-page__section-index">02</p>
+          <div class="space-y-3">
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Ma philosophie.</h2>
+            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+              Je crois aux expériences digitales qui restent simples, compréhensibles et alignées avec ce que vous faites réellement. Un site n'a pas besoin d'être spectaculaire pour être juste : il doit être lisible, fluide et crédible.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-page__value-grid">
+          {philosophy.map((item) => (
+            <article class="about-page__value-item">
+              <span class="about-page__value-icon">
+                <Icon name={item.icon} />
+              </span>
+              <h3 class="text-lg font-semibold">{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="about-page__panel about-page__panel--process">
+        <div class="about-page__section-intro">
+          <p class="about-page__section-index">03</p>
+          <div class="space-y-3">
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Ma façon d'aborder vos projets.</h2>
+            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+              Une démarche souple et collaborative, nourrie par le design, l'intégration, la pédagogie et la gestion de projet, adaptée à votre réalité et au bon niveau de complexité.
+            </p>
+          </div>
+        </div>
+
+        <ol class="about-page__process-grid">
+          {process.map((step, index) => (
+            <li class="about-page__process-item">
+              <span class="about-page__process-icon">
+                <Icon name={step.icon} />
+              </span>
+              <p class="about-page__process-index">0{index + 1}</p>
+              <h3 class="text-base font-semibold">{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="about-page__panel about-page__panel--inspiration">
+        <div class="about-page__inspiration-media">
+          <Image
+            src={aboutPortrait}
+            alt="Portrait en noir et blanc recadré"
+            class="about-page__inspiration-image"
+            widths={[480, 720, 960]}
+            sizes="(max-width: 1023px) 100vw, 26vw"
+            loading="lazy"
+            format="webp"
+          />
+        </div>
+
+        <div class="about-page__section-intro">
+          <p class="about-page__section-index">04</p>
+          <div class="space-y-3">
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Ce qui m'inspire.</h2>
+            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+              Des projets utiles, des personnes passionnées et des trajectoires atypiques. J'aime les croisements entre technique, création, transmission et récit visuel.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-page__inspiration-grid">
+          {inspirations.map((item) => (
+            <p>{item}</p>
+          ))}
+        </div>
+      </section>
+
+      <section class="about-page__closing">
+        <div class="about-page__closing-intro">
+          <p class="about-page__section-index">05</p>
+          <div class="space-y-3">
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Un projet en tête ?</h2>
+            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+              Une idée, une refonte ou un projet à faire émerger ? Discutons-en simplement et voyons quelle forme lui donner.
+            </p>
+          </div>
+
+          <div class="about-page__closing-contact">
+            {siteConfig.contact.email && (
+              <a href={`mailto:${siteConfig.contact.email}`} class="contact-line">
+                <Icon name="mail" />
+                <span>{siteConfig.contact.email}</span>
+              </a>
+            )}
+            {siteConfig.contact.phone && (
+              <a href={`tel:${siteConfig.contact.phone}`} class="contact-line">
+                <Icon name="phone" />
+                <span>{siteConfig.contact.phone}</span>
+              </a>
+            )}
+            {siteConfig.contact.address && (
+              <p class="contact-line">
+                <Icon name="pin" />
+                <span>{siteConfig.contact.address}</span>
+              </p>
+            )}
+          </div>
+
+          <a href="/contact" class="section-link section-link--inline">
+            <span>Discutons-en</span>
+            <Icon name="arrow" />
+          </a>
+        </div>
+      </section>
     </div>
   </section>
 </Layout>

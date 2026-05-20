@@ -4,11 +4,9 @@ import { siteConfig } from "../../data/site-config";
 import type { HeroTitlePart } from "../../data/site-content";
 import heroImage from "../../assets/home/hero.webp";
 import CircleBadge from "../ui/CircleBadge.astro";
-import Icon from "../ui/Icon.astro";
 
 interface FeatureItem {
   label: string;
-  icon: string;
 }
 
 interface Props {
@@ -35,10 +33,10 @@ const {
   supportingLabel = "Approche",
   supportingText = "Un site clair, efficace, documenté, et suffisamment simple pour rester facile à reprendre après livraison.",
   features = [
-    { label: "Sites rapides", icon: "bolt" },
-    { label: "UX & design", icon: "document" },
-    { label: "Integration propre", icon: "code" },
-    { label: "Accompagnement", icon: "leaf" },
+    { label: "Sites rapides" },
+    { label: "UX & design" },
+    { label: "Intégration propre" },
+    { label: "Accompagnement" },
   ],
 } = Astro.props;
 ---
@@ -76,7 +74,6 @@ const {
       <ul class="hero__features">
         {features.map((feature) => (
           <li>
-            <Icon name={feature.icon as any} class="hero__feature-icon" />
             <span>{feature.label}</span>
           </li>
         ))}

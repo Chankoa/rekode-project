@@ -19,10 +19,7 @@ export const siteConfig = {
   },
   navigation: [
     { label: "Projets", href: "/projets" },
-    { label: "Services", href: "/services" },
-    { label: "Approche", href: "/approche" },
     { label: "À propos", href: "/a-propos" },
-    { label: "Lab", href: "/lab" },
     { label: "Contact", href: "/contact" },
   ],
 };

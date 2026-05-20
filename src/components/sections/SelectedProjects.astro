@@ -44,8 +44,14 @@ const projectLogoModules = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true },
 );
 
+const projectCaseStudyImageModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/projects/case-studies/*.{avif,webp,png,jpg,jpeg}",
+  { eager: true },
+);
+
 const projectThumbnailMap = buildAssetMap(projectThumbnailModules);
 const projectLogoMap = buildAssetMap(projectLogoModules);
+const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
 ---
 
 <section class="section-shell">
@@ -68,47 +74,50 @@ const projectLogoMap = buildAssetMap(projectLogoModules);
         {projects.map((project) => {
           const thumbnail = projectThumbnailMap.get(project.slug);
           const logo = projectLogoMap.get(project.slug);
+          const projectHref = `/projets#${project.slug}`;
 
           return (
             <article class={`project-card has-hover-fx project-card--${project.slug}`}>
-              <div class="project-card__visual">
-                {thumbnail ? (
-                  <Image
-                    src={thumbnail}
-                    alt={project.thumbnailAlt ?? `Apercu du projet ${project.title}`}
-                    class="project-card__image"
-                    widths={[480, 720, 960]}
-                    sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
-                    loading="lazy"
-                    format="webp"
-                  />
-                ) : (
-                  <div class="project-card__screen project-card__screen--placeholder"></div>
-                )}
-
-                <div class="project-card__visual-overlay" aria-hidden="true"></div>
-
-                {logo && (
-                  <div class="project-card__logo-badge">
+              <a href={projectHref} class="project-card__link" aria-label={`Voir le projet ${project.title}`}>
+                <div class="project-card__visual">
+                  {thumbnail ? (
                     <Image
-                      src={logo}
-                      alt={project.clientLogoAlt ?? `Logo ${project.title}`}
-                      class="project-card__logo"
-                      widths={[96, 144, 192]}
-                      sizes="96px"
+                      src={thumbnail}
+                      alt={project.thumbnailAlt ?? `Apercu du projet ${project.title}`}
+                      class="project-card__image"
+                      widths={[480, 720, 960]}
+                      sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
                       loading="lazy"
                       format="webp"
                     />
-                  </div>
-                )}
-              </div>
+                  ) : (
+                    <div class="project-card__screen project-card__screen--placeholder"></div>
+                  )}
 
-              <div class="project-card__content space-y-3">
-                <p class="project-card__meta">{project.meta}</p>
-                <h3 class="text-lg font-semibold">{project.title}</h3>
-                <p class="text-sm text-[var(--color-muted)]">{project.summary}</p>
-                <p class="project-card__tags">{project.tags.join(" · ")}</p>
-              </div>
+                  <div class="project-card__visual-overlay" aria-hidden="true"></div>
+
+                  {logo && (
+                    <div class="project-card__logo-badge">
+                      <Image
+                        src={logo}
+                        alt={project.clientLogoAlt ?? `Logo ${project.title}`}
+                        class="project-card__logo"
+                        widths={[96, 144, 192]}
+                        sizes="96px"
+                        loading="lazy"
+                        format="webp"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                <div class="project-card__content space-y-3">
+                  <p class="project-card__meta">{project.meta}</p>
+                  <h3 class="text-lg font-semibold">{project.title}</h3>
+                  <p class="text-sm text-[var(--color-muted)]">{project.summary}</p>
+                  <p class="project-card__tags">{project.tags.join(" · ")}</p>
+                </div>
+              </a>
             </article>
           );
         })}
@@ -119,73 +128,141 @@ const projectLogoMap = buildAssetMap(projectLogoModules);
           const thumbnail = projectThumbnailMap.get(project.slug);
           const logo = projectLogoMap.get(project.slug);
           const caseStudy = project.caseStudy;
+          const caseStudyImage = projectCaseStudyImageMap.get(project.slug) ?? thumbnail;
+          const overview = caseStudy?.overview;
+          const highlights = overview?.highlights ?? [];
+          const cta = caseStudy?.cta;
+          const projectWebsiteHref = project.websiteHref;
 
           return (
-            <article class={`project-case-study project-card--${project.slug}`}>
-              <div class="project-case-study__media">
-                <div class="project-case-study__visual">
-                  {thumbnail ? (
-                    <Image
-                      src={thumbnail}
-                      alt={project.thumbnailAlt ?? `Apercu du projet ${project.title}`}
-                      class="project-case-study__image"
-                      widths={[720, 1080, 1440]}
-                      sizes="(max-width: 1023px) 100vw, 52vw"
-                      loading="lazy"
-                      format="webp"
-                    />
-                  ) : (
-                    <div class="project-card__screen project-card__screen--placeholder"></div>
-                  )}
+            <article id={project.slug} class={`project-case-study project-card--${project.slug}`}>
+              <div class="project-case-study__hero">
+                <div class="project-case-study__media">
+                  <div
+                    class="project-case-study__visual"
+                    style={caseStudyImage ? `--project-case-study-aspect-ratio: ${caseStudyImage.width} / ${caseStudyImage.height};` : undefined}
+                  >
+                    <p class="project-case-study__index" aria-hidden="true">{project.meta}</p>
 
-                  <div class="project-card__visual-overlay" aria-hidden="true"></div>
-
-                  <div class="project-case-study__meta-band">
-                    <p class="project-card__meta">{project.meta}</p>
-                    {logo && (
-                      <div class="project-card__logo-badge project-card__logo-badge--case-study">
+                    <div class="project-case-study__frame">
+                      {caseStudyImage ? (
                         <Image
-                          src={logo}
-                          alt={project.clientLogoAlt ?? `Logo ${project.title}`}
-                          class="project-card__logo"
-                          widths={[96, 144, 192]}
-                          sizes="96px"
+                          src={caseStudyImage}
+                          alt={project.thumbnailAlt ?? `Apercu du projet ${project.title}`}
+                          class="project-case-study__image"
+                          widths={[720, 1080, 1440]}
+                          sizes="(max-width: 1023px) 100vw, 52vw"
                           loading="lazy"
                           format="webp"
                         />
+                      ) : (
+                        <div class="project-card__screen project-card__screen--placeholder"></div>
+                      )}
+
+                      <div class="project-card__visual-overlay" aria-hidden="true"></div>
+
+                      {logo && (
+                        <div class="project-card__logo-badge project-card__logo-badge--case-study">
+                          <Image
+                            src={logo}
+                            alt={project.clientLogoAlt ?? `Logo ${project.title}`}
+                            class="project-card__logo"
+                            widths={[96, 144, 192]}
+                            sizes="96px"
+                            loading="lazy"
+                            format="webp"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-case-study__content space-y-6">
+                  <div class="project-case-study__header">
+                    <div class="project-case-study__heading-row">
+                      <div class="space-y-3">
+                        <p class="project-card__meta">Projet {project.meta}</p>
+                        <h3 class="text-2xl sm:text-3xl font-semibold">{project.title}</h3>
+                        <p class="text-base sm:text-lg text-[var(--color-muted)] leading-relaxed">
+                          {project.summary}
+                        </p>
+                        <p class="project-card__tags">{project.tags.join(" · ")}</p>
+                        {projectWebsiteHref && (
+                          <a
+                            href={projectWebsiteHref}
+                            class="project-case-study__site-link section-link"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <span>{project.websiteLabel ?? "Voir le site"}</span>
+                            <Icon name="arrow" />
+                          </a>
+                        )}
                       </div>
+                    </div>
+
+                    {overview && (
+                      <dl class="project-case-study__overview">
+                        <div class="project-case-study__overview-item">
+                          <dt class="project-case-study__label">Rôle</dt>
+                          <dd>{overview.role}</dd>
+                        </div>
+                        <div class="project-case-study__overview-item">
+                          <dt class="project-case-study__label">Livrables</dt>
+                          <dd>{overview.deliverables}</dd>
+                        </div>
+                        <div class="project-case-study__overview-item">
+                          <dt class="project-case-study__label">Stack</dt>
+                          <dd>{overview.stack}</dd>
+                        </div>
+                        {overview.timeline && (
+                          <div class="project-case-study__overview-item">
+                            <dt class="project-case-study__label">Cadre</dt>
+                            <dd>{overview.timeline}</dd>
+                          </div>
+                        )}
+                      </dl>
+                    )}
+
+                    {highlights.length > 0 && (
+                      <div class="project-case-study__highlights">
+                        <p class="project-case-study__label">Points clés</p>
+                        <ul class="project-case-study__highlights-list">
+                          {highlights.map((highlight) => (
+                            <li>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {cta && (
+                      <a href={cta.href} class="project-case-study__cta section-link section-link--inline">
+                        <span>{cta.label}</span>
+                        <Icon name="arrow" />
+                      </a>
                     )}
                   </div>
                 </div>
               </div>
 
-              <div class="project-case-study__content space-y-6">
-                <div class="space-y-3">
-                  <h3 class="text-2xl sm:text-3xl font-semibold">{project.title}</h3>
-                  <p class="text-base sm:text-lg text-[var(--color-muted)] leading-relaxed">
-                    {project.summary}
-                  </p>
-                  <p class="project-card__tags">{project.tags.join(" · ")}</p>
-                </div>
-
-                <div class="project-case-study__sections">
-                  <section class="project-case-study__section">
-                    <p class="project-case-study__label">Contexte</p>
-                    <p>{caseStudy?.context ?? project.summary}</p>
-                  </section>
-                  <section class="project-case-study__section">
-                    <p class="project-case-study__label">Objectif</p>
-                    <p>{caseStudy?.objective ?? project.summary}</p>
-                  </section>
-                  <section class="project-case-study__section">
-                    <p class="project-case-study__label">Approche</p>
-                    <p>{caseStudy?.approach ?? project.summary}</p>
-                  </section>
-                  <section class="project-case-study__section">
-                    <p class="project-case-study__label">Resultat</p>
-                    <p>{caseStudy?.outcome ?? project.summary}</p>
-                  </section>
-                </div>
+              <div class="project-case-study__sections">
+                <section class="project-case-study__section">
+                  <p class="project-case-study__label">Contexte</p>
+                  <p>{caseStudy?.context ?? project.summary}</p>
+                </section>
+                <section class="project-case-study__section">
+                  <p class="project-case-study__label">Objectif</p>
+                  <p>{caseStudy?.objective ?? project.summary}</p>
+                </section>
+                <section class="project-case-study__section">
+                  <p class="project-case-study__label">Approche</p>
+                  <p>{caseStudy?.approach ?? project.summary}</p>
+                </section>
+                <section class="project-case-study__section">
+                  <p class="project-case-study__label">Résultat</p>
+                  <p>{caseStudy?.outcome ?? project.summary}</p>
+                </section>
               </div>
             </article>
           );

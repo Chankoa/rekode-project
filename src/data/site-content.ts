@@ -1,6 +1,5 @@
 export interface FeatureItem {
   label: string;
-  icon: string;
 }
 
 export interface HeroTitlePart {
@@ -30,7 +29,20 @@ export interface ProjectItem {
   meta: string;
   thumbnailAlt?: string;
   clientLogoAlt?: string;
+  websiteHref?: string;
+  websiteLabel?: string;
   caseStudy?: {
+    overview?: {
+      role: string;
+      deliverables: string;
+      stack: string;
+      timeline?: string;
+      highlights?: string[];
+    };
+    cta?: {
+      label: string;
+      href: string;
+    };
     context: string;
     objective: string;
     approach: string;
@@ -69,12 +81,10 @@ export interface ContactContent {
   intro: string;
   ctaLabel: string;
   ctaHref: string;
-  newsletterTitle: string;
-  newsletterText: string;
 }
 
 export const heroContent: HeroContent = {
-  eyebrow: "Design & integration front-end",
+  eyebrow: "Design & intégration front-end",
   titleParts: [
     { text: "Des " },
     { text: "sites web", highlight: true },
@@ -91,10 +101,10 @@ export const heroContent: HeroContent = {
   supportingText:
     "Une base technique légère et une structure de contenu lisible pour garder le bon niveau de précision sans transformer le site en vitrine technique.",
   features: [
-    { label: "Sites rapides", icon: "bolt" },
-    { label: "UX & design", icon: "document" },
-    { label: "Intégration propre", icon: "code" },
-    { label: "Accompagnement", icon: "leaf" },
+    { label: "Sites rapides" },
+    { label: "UX & design" },
+    { label: "Intégration propre" },
+    { label: "Accompagnement" },
   ],
 };
 
@@ -106,7 +116,23 @@ export const selectedProjects: ProjectItem[] = [
     tags: ["UX", "Design", "WordPress", "SEO"],
     meta: "01",
     thumbnailAlt: "Apercu du projet ROCKSIDERS",
+    websiteHref: "https://www.rocksiders.com/",
     caseStudy: {
+      overview: {
+        role: "UX, direction visuelle, intégration WordPress",
+        deliverables: "Arborescence, maquettes, intégration, optimisation SEO",
+        stack: "WordPress, SCSS, contenus éditoriaux structurés",
+        timeline: "Refonte et mise en ligne progressive",
+        highlights: [
+          "Clarification de l'offre et des parcours",
+          "Direction visuelle plus incarnée",
+          "Base WordPress légère et maintenable",
+        ],
+      },
+      cta: {
+        label: "Discuter d'un projet similaire",
+        href: "/contact",
+      },
       context:
         "ROCKSIDERS avait besoin d'une présence en ligne plus cohérente avec son positionnement outdoor, capable de transmettre l'esprit de terrain de la marque tout en rendant l'offre plus lisible pour un public qui découvre l'activité.",
       objective:
@@ -124,7 +150,23 @@ export const selectedProjects: ProjectItem[] = [
     tags: ["Redesign", "Intégration", "WordPress", "SEO"],
     meta: "02",
     thumbnailAlt: "Apercu du projet Sens Dessus Dessous",
+    websiteHref: "https://sensdessusdessous.eu/",
     caseStudy: {
+      overview: {
+        role: "Refonte UX/UI et intégration WordPress",
+        deliverables: "Reprise de structure, redesign, gabarits de contenus",
+        stack: "WordPress, CSS sur mesure, optimisation éditoriale",
+        timeline: "Refonte du site existant",
+        highlights: [
+          "Hiérarchie éditoriale simplifiée",
+          "Mise en avant plus lisible des accompagnements",
+          "Autonomie de mise à jour côté client",
+        ],
+      },
+      cta: {
+        label: "Parler d'une refonte",
+        href: "/contact",
+      },
       context:
         "Le site devait mieux refléter la qualité de l'accompagnement proposé, avec une présentation plus claire des activités et une expérience de lecture plus fluide pour des visiteurs parfois peu familiers avec cet univers.",
       objective:
@@ -142,7 +184,23 @@ export const selectedProjects: ProjectItem[] = [
     tags: ["Wordpress", "UX / UI Design", "Performance", "Optimisation SEO"],
     meta: "03",
     thumbnailAlt: "Apercu du projet La Fabrique de Moustiers",
+    websiteHref: "https://lafabrique-moustiers.com/",
     caseStudy: {
+      overview: {
+        role: "UX/UI design, intégration et optimisation de parcours",
+        deliverables: "Direction visuelle, pages de présentation, base SEO",
+        stack: "WordPress, design system léger, optimisation performance",
+        timeline: "Conception et déploiement du site vitrine",
+        highlights: [
+          "Valorisation sensible du lieu",
+          "Parcours de découverte plus fluides",
+          "Attention portée aux performances et au SEO",
+        ],
+      },
+      cta: {
+        label: "Imaginer un site d'hospitalité",
+        href: "/contact",
+      },
       context:
         "Le projet consistait à mettre en valeur plusieurs hébergements touristiques au sein d'un même univers, en trouvant le bon équilibre entre désirabilité, informations pratiques et capacité de réservation ou de contact.",
       objective:
@@ -161,6 +219,21 @@ export const selectedProjects: ProjectItem[] = [
     meta: "04",
     thumbnailAlt: "Apercu du projet Learn It",
     caseStudy: {
+      overview: {
+        role: "Conception produit, UX/UI design, architecture front",
+        deliverables: "Parcours, composants, interface pédagogique",
+        stack: "React, WordPress, logique modulaire de contenus",
+        timeline: "Projet en cours",
+        highlights: [
+          "Parcours d'apprentissage plus progressifs",
+          "Architecture de contenus modulaire",
+          "Articulation entre pédagogie et interface",
+        ],
+      },
+      cta: {
+        label: "Échanger sur un produit pédagogique",
+        href: "/contact",
+      },
       context:
         "Learn It est un projet en cours autour d'une expérience pédagogique plus engageante, avec des besoins forts en clarté de parcours, en modularité des contenus et en cohérence entre usage éditorial et interface.",
       objective:
@@ -249,9 +322,6 @@ export const contactContent: ContactContent = {
     "Un site, une refonte ou une idée à concrétiser ? Écrivez-moi, je vous réponds rapidement.",
   ctaLabel: "Parler du projet",
   ctaHref: "/contact",
-  newsletterTitle: "Restez inspiré",
-  newsletterText:
-    "Recevez mes articles, ressources et inspirations autour du web et de la création.",
 };
 
 export const labItems: LabItem[] = [

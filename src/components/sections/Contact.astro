@@ -7,8 +7,6 @@ interface Props {
   intro?: string;
   ctaLabel?: string;
   ctaHref?: string;
-  newsletterTitle?: string;
-  newsletterText?: string;
   compact?: boolean;
 }
 
@@ -17,8 +15,6 @@ const {
   intro = "Un besoin cadré, une refonte en vue ou une question sur la bonne stack: le plus simple est d'en parler directement.",
   ctaLabel = "Parler du projet",
   ctaHref = "/contact",
-  newsletterTitle = "Restez inspiré",
-  newsletterText = "Recevez mes articles, ressources et inspirations autour du web et de la création.",
   compact = false,
 } = Astro.props;
 ---
@@ -54,17 +50,6 @@ const {
               <span>{siteConfig.contact.address}</span>
             </p>
           )}
-        </div>
-
-        <div class="contact-band__newsletter">
-          <h3 class="text-lg font-semibold">{newsletterTitle}</h3>
-          <p class="text-sm text-[var(--color-muted)]">{newsletterText}</p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Votre email" aria-label="Votre email" class="has-focus-fx" />
-            <button type="button" class="newsletter-form__submit" aria-label="S'inscrire">
-              <Icon name="arrow" />
-            </button>
-          </form>
         </div>
       </div>
     </div>
