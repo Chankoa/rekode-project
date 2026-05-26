@@ -1,11 +1,14 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 
 import expressiveCode from 'astro-expressive-code';
 
 export default defineConfig({
-  integrations: [tailwind(), expressiveCode()],
+  integrations: [expressiveCode()],
   srcDir: 'src',
+  vite: {
+    plugins: [tailwindcss()]
+  },
   server: {
     port: 4321
   }

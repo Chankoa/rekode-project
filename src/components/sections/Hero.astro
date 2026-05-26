@@ -4,9 +4,13 @@ import { siteConfig } from "../../data/site-config";
 import type { HeroTitlePart } from "../../data/site-content";
 import heroImage from "../../assets/home/hero.webp";
 import CircleBadge from "../ui/CircleBadge.astro";
+import Icon from "../ui/Icon.astro";
+
+type FeatureIconName = "bolt" | "pen" | "code" | "ear";
 
 interface FeatureItem {
   label: string;
+  icon?: FeatureIconName;
 }
 
 interface Props {
@@ -33,12 +37,14 @@ const {
   supportingLabel = "Approche",
   supportingText = "Un site clair, efficace, documenté, et suffisamment simple pour rester facile à reprendre après livraison.",
   features = [
-    { label: "Sites rapides" },
-    { label: "UX & design" },
-    { label: "Intégration propre" },
-    { label: "Accompagnement" },
+    { label: "Sites rapides", icon: "bolt" },
+    { label: "UX & design", icon: "pen" },
+    { label: "Intégration propre", icon: "code" },
+    { label: "Accompagnement", icon: "ear" },
   ],
 } = Astro.props;
+
+const fallbackIcons: FeatureIconName[] = ["bolt", "pen", "code", "ear"];
 ---
 
 <section class="hero">
@@ -72,8 +78,11 @@ const {
       </div>
 
       <ul class="hero__features">
-        {features.map((feature) => (
+        {features.map((feature, index) => (
           <li>
+            <span class="hero__feature-icon">
+              <Icon name={feature.icon ?? fallbackIcons[index % fallbackIcons.length]} />
+            </span>
             <span>{feature.label}</span>
           </li>
         ))}
