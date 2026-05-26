@@ -77,6 +77,21 @@ const skills = [
   "Pédagogie",
   "Gestion de projet",
 ] as const;
+
+const expertisePoints = [
+  {
+    title: "Concevoir avec clarté",
+    text: "Transformer des besoins diffus en structure lisible, en hiérarchie de contenu et en expérience crédible.",
+  },
+  {
+    title: "Produire sans surcouche inutile",
+    text: "Choisir le bon niveau d'outil et d'intégration pour rester sobre, maintenable et vraiment utile dans le temps.",
+  },
+  {
+    title: "Transmettre et rendre autonome",
+    text: "Documenter, expliquer et simplifier pour que le projet puisse être compris, repris et faire gagner du temps après livraison.",
+  },
+] as const;
 ---
 
 <Layout
@@ -86,57 +101,52 @@ const skills = [
   <section class="section-shell about-page">
     <div class="max-w-[var(--site-max-width)] mx-auto px-4 space-y-8 lg:space-y-12">
       <section class="about-page__hero">
-        <div class="about-page__hero-media">
-          <Image
-            src={aboutPortrait}
-            alt="Portrait en noir et blanc"
-            class="about-page__portrait"
-            widths={[480, 720, 960]}
-            sizes="(max-width: 767px) 100vw, 30vw"
-            loading="eager"
-            format="webp"
-          />
-        </div>
+        <figure class="about-page__hero-media about-page__media-card about-page__media-card--hero">
+          <div class="about-page__media-frame">
+            <Image
+              src={aboutPortrait}
+              alt="Portrait en noir et blanc"
+              class="about-page__portrait"
+              widths={[480, 720, 960]}
+              sizes="(max-width: 767px) 100vw, 30vw"
+              loading="eager"
+              format="webp"
+            />
+            <figcaption class="about-page__media-caption about-page__media-caption--hero">Un parcours hybride, entre exigence terrain, culture visuelle et production web.</figcaption>
+          </div>
+        </figure>
 
-        <div class="about-page__hero-content">
-          <header class="about-page__hero-header">
-            <p class="section-label">À propos</p>
-            <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">Un profil hybride au service du web.</h1>
-            <div class="about-page__hero-copy">
-              <p class="text-base sm:text-lg text-[var(--color-muted)] leading-relaxed">
-                Webdesigner / intégrateur freelance depuis 2007, j'accompagne les indépendants, petites structures et projets porteurs de sens à concevoir des expériences web plus claires, plus humaines et plus cohérentes.
-              </p>
-              <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
-                Design, intégration front-end, WordPress, Astro, React, pédagogie et entrepreneuriat terrain : un parcours transversal qui me permet de relier vision, exécution et transmission.
-              </p>
-            </div>
-          </header>
+        <header class="about-page__hero-header">
+          <p class="section-label">À propos</p>
+          <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">Un profil hybride au service du web.</h1>
+        </header>
 
-          <div class="about-page__skills about-page__skills--hero">
-            <p class="about-page__skills-label">Compétences-clés</p>
-            <ul class="about-page__skills-list">
-              {skills.map((skill) => (
-                <li class="about-page__skill-pill">{skill}</li>
-              ))}
-            </ul>
+        <div class="about-page__hero-body">
+          <div class="about-page__hero-copy">
+            <p class="text-base sm:text-lg text-[var(--color-muted)] leading-relaxed">
+              Webdesigner / intégrateur freelance depuis 2007, j'accompagne les indépendants, petites structures et projets porteurs de sens à concevoir des expériences web plus claires, plus humaines et plus cohérentes.
+            </p>
+            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+              Design, intégration front-end, WordPress, Astro, React, pédagogie et entrepreneuriat terrain : un parcours transversal qui me permet de relier vision, exécution et transmission.
+            </p>
           </div>
 
-          <a href="#parcours" class="section-link section-link--inline">
-            <span>Découvrir mon parcours</span>
-            <Icon name="arrow" />
-          </a>
+          <aside class="about-page__hero-highlights" aria-label="Repères">
+            <p class="about-page__hero-aside-label">Repères</p>
+            <ul class="about-page__highlight-list">
+              {highlights.map((item) => (
+                <li>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
         </div>
 
-        <aside class="about-page__hero-highlights" aria-label="Repères">
-          <p class="about-page__hero-aside-label">Repères</p>
-          <ul class="about-page__highlight-list">
-            {highlights.map((item) => (
-              <li>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </aside>
+        <a href="#parcours" class="about-page__hero-cta section-link section-link--inline">
+          <span>Découvrir mon parcours</span>
+          <Icon name="arrow" />
+        </a>
       </section>
 
       <section id="parcours" class="about-page__panel about-page__panel--story">
@@ -156,22 +166,57 @@ const skills = [
           </div>
         </div>
 
-        <div class="about-page__story-media">
-          <Image
-            src={aboutLandscape}
-            alt="Carnet ouvert face aux montagnes au lever du soleil"
-            class="about-page__story-image"
-            widths={[640, 960, 1280]}
-            sizes="(max-width: 1023px) 100vw, 55vw"
-            loading="lazy"
-            format="webp"
-          />
+        <figure class="about-page__story-media about-page__media-card">
+          <div class="about-page__media-frame">
+            <Image
+              src={aboutLandscape}
+              alt="Carnet ouvert face aux montagnes au lever du soleil"
+              class="about-page__story-image"
+              widths={[640, 960, 1280]}
+              sizes="(max-width: 1023px) 100vw, 55vw"
+              loading="lazy"
+              format="webp"
+            />
+            <figcaption class="about-page__media-caption">Terrain, pédagogie, entrepreneuriat : une culture du concret qui structure ensuite les projets web.</figcaption>
+          </div>
+        </figure>
+      </section>
+
+      <section class="about-page__panel about-page__panel--expertise">
+        <div class="about-page__section-intro">
+          <p class="about-page__section-index">02</p>
+          <div class="space-y-3">
+            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Ce que ce parcours me permet d'apporter.</h2>
+            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
+              Mes compétences ne sont pas un inventaire d'outils. Elles prennent sens dans la façon dont j'articule stratégie, design, intégration et transmission pour faire avancer un projet de manière lisible.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-page__expertise-grid">
+          <div class="about-page__skills">
+            <p class="about-page__skills-label">Compétences-clés</p>
+            <ul class="about-page__skills-list">
+              {skills.map((skill) => (
+                <li class="about-page__skill-pill">{skill}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="about-page__expertise-points">
+            {expertisePoints.map((item) => (
+              <article class="about-page__expertise-point about-page__soft-rule">
+                <h3 class="text-base font-semibold">{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section class="about-page__panel about-page__panel--values">
         <div class="about-page__section-intro">
-          <p class="about-page__section-index">02</p>
+          <p class="about-page__section-index">03</p>
           <div class="space-y-3">
             <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Ma philosophie.</h2>
             <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
@@ -180,22 +225,31 @@ const skills = [
           </div>
         </div>
 
-        <div class="about-page__value-grid">
-          {philosophy.map((item) => (
-            <article class="about-page__value-item">
-              <span class="about-page__value-icon">
-                <Icon name={item.icon} />
-              </span>
-              <h3 class="text-lg font-semibold">{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
+        <div class="about-page__values-shell">
+          <aside class="about-page__values-manifesto" aria-label="Manifeste">
+            <p class="about-page__values-manifesto-label">Fil conducteur</p>
+            <p class="about-page__values-manifesto-quote">
+              Concevoir des interfaces calmes, utiles et lisibles, où la forme accompagne le sens au lieu de le parasiter.
+            </p>
+          </aside>
+
+          <div class="about-page__value-grid">
+            {philosophy.map((item) => (
+              <article class="about-page__value-item about-page__soft-rule">
+                <span class="about-page__value-icon">
+                  <Icon name={item.icon} />
+                </span>
+                <h3 class="text-lg font-semibold">{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section class="about-page__panel about-page__panel--process">
         <div class="about-page__section-intro">
-          <p class="about-page__section-index">03</p>
+          <p class="about-page__section-index">04</p>
           <div class="space-y-3">
             <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Ma façon d'aborder vos projets.</h2>
             <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
@@ -219,20 +273,8 @@ const skills = [
       </section>
 
       <section class="about-page__panel about-page__panel--inspiration">
-        <div class="about-page__inspiration-media">
-          <Image
-            src={aboutPortrait}
-            alt="Portrait en noir et blanc recadré"
-            class="about-page__inspiration-image"
-            widths={[480, 720, 960]}
-            sizes="(max-width: 1023px) 100vw, 26vw"
-            loading="lazy"
-            format="webp"
-          />
-        </div>
-
         <div class="about-page__section-intro">
-          <p class="about-page__section-index">04</p>
+          <p class="about-page__section-index">05</p>
           <div class="space-y-3">
             <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Ce qui m'inspire.</h2>
             <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">
@@ -243,14 +285,14 @@ const skills = [
 
         <div class="about-page__inspiration-grid">
           {inspirations.map((item) => (
-            <p>{item}</p>
+            <p class="about-page__soft-rule">{item}</p>
           ))}
         </div>
       </section>
 
       <section class="about-page__closing">
         <div class="about-page__closing-intro">
-          <p class="about-page__section-index">05</p>
+          <p class="about-page__section-index">06</p>
           <div class="space-y-3">
             <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">Un projet en tête ?</h2>
             <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">

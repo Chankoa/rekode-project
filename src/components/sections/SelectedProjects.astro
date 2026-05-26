@@ -113,7 +113,7 @@ const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
 
                 <div class="project-card__content space-y-3">
                   <p class="project-card__meta">{project.meta}</p>
-                  <h3 class="text-lg font-semibold">{project.title}</h3>
+                  <h3 class="text-base font-semibold">{project.title}</h3>
                   <p class="text-sm text-[var(--color-muted)]">{project.summary}</p>
                   <p class="project-card__tags">{project.tags.join(" · ")}</p>
                 </div>
@@ -182,12 +182,10 @@ const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
                   <div class="project-case-study__header">
                     <div class="project-case-study__heading-row">
                       <div class="space-y-3">
-                        <p class="project-card__meta">Projet {project.meta}</p>
                         <h3 class="text-2xl sm:text-3xl font-semibold">{project.title}</h3>
                         <p class="text-base sm:text-lg text-[var(--color-muted)] leading-relaxed">
                           {project.summary}
                         </p>
-                        <p class="project-card__tags">{project.tags.join(" · ")}</p>
                         {projectWebsiteHref && (
                           <a
                             href={projectWebsiteHref}
@@ -203,37 +201,26 @@ const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
                     </div>
 
                     {overview && (
-                      <dl class="project-case-study__overview">
-                        <div class="project-case-study__overview-item">
+                      <dl class="project-case-study__overview" aria-label="Repères projet">
+                        <div class="project-case-study__overview-item about-page__soft-rule">
                           <dt class="project-case-study__label">Rôle</dt>
                           <dd>{overview.role}</dd>
                         </div>
-                        <div class="project-case-study__overview-item">
+                        <div class="project-case-study__overview-item about-page__soft-rule">
                           <dt class="project-case-study__label">Livrables</dt>
                           <dd>{overview.deliverables}</dd>
                         </div>
-                        <div class="project-case-study__overview-item">
+                        <div class="project-case-study__overview-item about-page__soft-rule">
                           <dt class="project-case-study__label">Stack</dt>
                           <dd>{overview.stack}</dd>
                         </div>
                         {overview.timeline && (
-                          <div class="project-case-study__overview-item">
+                          <div class="project-case-study__overview-item about-page__soft-rule">
                             <dt class="project-case-study__label">Cadre</dt>
                             <dd>{overview.timeline}</dd>
                           </div>
                         )}
                       </dl>
-                    )}
-
-                    {highlights.length > 0 && (
-                      <div class="project-case-study__highlights">
-                        <p class="project-case-study__label">Points clés</p>
-                        <ul class="project-case-study__highlights-list">
-                          {highlights.map((highlight) => (
-                            <li>{highlight}</li>
-                          ))}
-                        </ul>
-                      </div>
                     )}
 
                     {cta && (
@@ -247,19 +234,19 @@ const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
               </div>
 
               <div class="project-case-study__sections">
-                <section class="project-case-study__section">
+                <section class="project-case-study__section about-page__soft-rule">
                   <p class="project-case-study__label">Contexte</p>
                   <p>{caseStudy?.context ?? project.summary}</p>
                 </section>
-                <section class="project-case-study__section">
+                <section class="project-case-study__section about-page__soft-rule">
                   <p class="project-case-study__label">Objectif</p>
                   <p>{caseStudy?.objective ?? project.summary}</p>
                 </section>
-                <section class="project-case-study__section">
+                <section class="project-case-study__section about-page__soft-rule">
                   <p class="project-case-study__label">Approche</p>
                   <p>{caseStudy?.approach ?? project.summary}</p>
                 </section>
-                <section class="project-case-study__section">
+                <section class="project-case-study__section about-page__soft-rule">
                   <p class="project-case-study__label">Résultat</p>
                   <p>{caseStudy?.outcome ?? project.summary}</p>
                 </section>

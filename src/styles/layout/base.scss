@@ -26,12 +26,39 @@ h3,
 h4 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.02;
+  line-height: 1.05;
   letter-spacing: -0.03em;
+  margin: 0;
 }
 
 h1 {
+  font-size: var(--text-5xl);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+h2 {
   font-size: var(--text-3xl);
+  line-height: 1.02;
+}
+
+h3 {
+  font-size: var(--text-xl);
+  line-height: 1.12;
+}
+
+h4 {
+  font-size: var(--text-lg);
+  line-height: 1.2;
+}
+
+h1.text-base,
+h2.text-base,
+h3.text-base,
+h4.text-base {
+  font-size: var(--text-base);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 p {

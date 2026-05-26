@@ -1,10 +1,10 @@
 .section-shell {
-  padding-block: var(--space-8, 6rem);
+  padding-block: clamp(5.5rem, 8vw, 7.75rem);
 }
 
 .section-header {
   display: grid;
-  gap: var(--space-3, 1rem);
+  gap: clamp(1.1rem, 1.6vw, 1.5rem);
   max-width: 42rem;
 }
 
@@ -37,7 +37,7 @@
   display: flex;
   align-items: end;
   justify-content: space-between;
-  gap: var(--space-5);
+  gap: clamp(1.5rem, 2.2vw, 2.4rem);
 }
 
 .section-link {
@@ -69,7 +69,7 @@
 }
 
 .section-link--inline {
-  margin-top: var(--space-4);
+  margin-top: clamp(1.25rem, 2vw, 1.8rem);
 }
 
 .section-label {

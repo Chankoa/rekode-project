@@ -39,9 +39,11 @@
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
-  --text-xl: 1.625rem;
-  --text-2xl: 1.875rem;
-  --text-3xl: clamp(2.75rem, 5vw, 5rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.45vw, 1.5rem);
+  --text-2xl: clamp(1.625rem, 1.35rem + 1vw, 2.125rem);
+  --text-3xl: clamp(2rem, 1.55rem + 1.8vw, 2.9rem);
+  --text-4xl: clamp(2.45rem, 1.8rem + 2.75vw, 3.9rem);
+  --text-5xl: clamp(3rem, 2.15rem + 3.75vw, 5rem);
 
   /* animation timing */
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
