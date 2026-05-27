@@ -6,6 +6,7 @@
   display: grid;
   gap: 0;
   align-content: start;
+  line-height: 1.45;
   min-width: 0;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -15,6 +16,7 @@
 .project-card__link {
   display: grid;
   min-width: 0;
+  line-height: 1.45;
   color: inherit;
   text-decoration: none;
 }
@@ -23,6 +25,7 @@
   aspect-ratio: 16 / 10;
   background: var(--project-bg, linear-gradient(145deg, #c6d4d6, #7f8d90));
   overflow: hidden;
+  line-height: 1.45;
   position: relative;
   isolation: isolate;
 }
@@ -32,6 +35,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  line-height: 1.45;
   transition: transform 320ms var(--ease-standard, ease);
 }
 
@@ -43,6 +47,7 @@
     linear-gradient(180deg, rgba(7, 13, 17, 0) 45%, rgba(7, 13, 17, 0.34) 100%);
   opacity: 0.72;
   transition: opacity 240ms var(--ease-standard, ease);
+  line-height: 1.45;
   pointer-events: none;
   z-index: 1;
 }
@@ -53,6 +58,7 @@
   left: 0.9rem;
   display: inline-flex;
   align-items: center;
+  line-height: 1.45;
   justify-content: center;
   min-width: 4.5rem;
   min-height: 2.5rem;
@@ -62,6 +68,7 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 12px 24px rgba(16, 24, 40, 0.14);
   z-index: 2;
+  line-height: 1.45;
 }
 
 .project-card__logo {
@@ -174,21 +181,20 @@
 }
 
 .project-case-study__index {
-  position: absolute;
-  left: var(--project-index-left, clamp(-2.2rem, -1.8vw, -1rem));
-  top: var(--project-index-top, clamp(-2.3rem, -1.8vw, -1.2rem));
+  position: relative;
+  display: block;
   margin: 0;
   font-family: var(--font-mono);
-  font-size: var(--project-index-size, clamp(7.4rem, 20vw, 13rem));
+  font-size: clamp(4.8rem, 12vw, 7.2rem);
   font-weight: 700;
-  line-height: 0.82;
+  line-height: 0.86;
   letter-spacing: -0.08em;
   color: var(--project-index-color, color-mix(in srgb, white 72%, var(--accent-primary) 28%));
-  opacity: var(--project-index-opacity, 0.46);
-  z-index: 0;
+  opacity: 0.3;
+  padding-bottom: 0.2rem;
   pointer-events: none;
   user-select: none;
-  transform: var(--project-index-transform, translate(-16%, -20%));
+  transform: none;
 }
 
 .project-card__logo-badge--case-study {
@@ -210,6 +216,16 @@
   grid-template-columns: 1fr;
   gap: 1.25rem;
   align-items: start;
+}
+
+.project-case-study__heading-row .space-y-3 {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.project-case-study__heading-row h3 {
+  max-width: 14ch;
+  text-wrap: balance;
 }
 
 .project-case-study__overview {
@@ -281,49 +297,24 @@
 .project-card--rocksiders {
   --project-bg: linear-gradient(145deg, #aec1ca, #304550 70%);
   --project-screen: linear-gradient(145deg, #6f8990, #1d2629 60%, #111315);
-  --project-index-left: clamp(-2.6rem, -2.1vw, -1.2rem);
-  --project-index-top: clamp(-2.6rem, -2vw, -1.35rem);
-  --project-index-size: clamp(7.6rem, 21vw, 13.4rem);
-  --project-index-color: color-mix(in srgb, white 72%, var(--accent-primary) 28%);
-  --project-index-opacity: 0.46;
 }
 
 .project-card--sens-dessus-dessous {
   --project-bg: linear-gradient(145deg, #ddd4c8, #7c6d5c 70%);
   --project-screen: linear-gradient(145deg, #847462, #1f2021 65%, #111315);
-  --project-index-left: clamp(-3.4rem, -2.7vw, -1.8rem);
-  --project-index-top: clamp(-3.2rem, -2.5vw, -1.6rem);
-  --project-index-size: clamp(8.4rem, 22vw, 14.4rem);
   --project-index-color: color-mix(in srgb, white 70%, var(--accent-primary) 30%);
-  --project-index-opacity: 0.47;
-  --project-index-left-lg: clamp(-4rem, -2.2vw, -2rem);
-  --project-index-top-lg: clamp(-3.8rem, -2vw, -1.9rem);
-  --project-index-size-lg: clamp(9.4rem, 15vw, 15.5rem);
-  --project-index-transform-lg: translate(-22%, -26%);
 }
 
 .project-card--template-site-vitrine {
   --project-bg: linear-gradient(145deg, #eaf4f5, #bfd1d5 70%);
   --project-screen: linear-gradient(145deg, #ffffff, #e8f1f2 60%, #c0d7db);
-  --project-index-left: clamp(-1.8rem, -1.4vw, -0.8rem);
-  --project-index-top: clamp(-2rem, -1.5vw, -0.95rem);
-  --project-index-size: clamp(6.8rem, 18vw, 11.6rem);
   --project-index-color: color-mix(in srgb, white 74%, var(--accent-primary) 26%);
-  --project-index-opacity: 0.43;
 }
 
 .project-card--learn-it {
   --project-bg: linear-gradient(145deg, #f3ede5, #e1cdb7 70%);
   --project-screen: linear-gradient(145deg, #fff9f4, #f3e6d4 60%, #e6c9ab);
-  --project-index-left: clamp(-3rem, -2.3vw, -1.45rem);
-  --project-index-top: clamp(-3rem, -2.3vw, -1.4rem);
-  --project-index-size: clamp(8.2rem, 21vw, 14rem);
   --project-index-color: color-mix(in srgb, white 70%, var(--accent-primary) 30%);
-  --project-index-opacity: 0.47;
-  --project-index-left-lg: clamp(-3.8rem, -2vw, -1.85rem);
-  --project-index-top-lg: clamp(-3.7rem, -1.9vw, -1.8rem);
-  --project-index-size-lg: clamp(9rem, 14vw, 15rem);
-  --project-index-transform-lg: translate(-21%, -24%);
 }
 
 .service-grid {
@@ -336,16 +327,16 @@
   display: grid;
   gap: 1rem;
   padding: 1.25rem 0 0;
-  border-top: 1px solid var(--color-border);
+  /* border-top: 1px solid var(--color-border); */
 }
 
 .service-item__icon {
   width: 3rem;
   height: 3rem;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-default);
+  align-items: center; 
+  /* justify-content: center; */
+  color: var(--accent-primary);
   background: transparent;
   border: none;
   box-shadow: none;
@@ -498,6 +489,11 @@
   padding-top: 4.75rem;
 }
 
+.about-page__stack {
+  display: grid;
+  gap: clamp(4rem, 6vw, 5.75rem);
+}
+
 .about-page__hero,
 .about-page__panel {
   display: grid;
@@ -607,6 +603,17 @@
   max-width: 39rem;
 }
 
+.about-page__hero-header h1,
+.about-page__section-intro h2,
+.about-page__closing-intro h2 {
+  text-wrap: balance;
+}
+
+.about-page__section-intro h2,
+.about-page__closing-intro h2 {
+  max-width: 16ch;
+}
+
 .about-page__hero-copy {
   display: grid;
   gap: 1.15rem;
@@ -703,6 +710,12 @@
   border-top: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
 }
 
+.about-page__panel:not(.about-page__panel--story),
+.about-page__closing {
+  padding-top: 0;
+  border-top: none;
+}
+
 .about-page__panel--story {
   align-items: center;
 }
@@ -743,19 +756,6 @@
 .about-page__values-shell {
   display: grid;
   gap: 1.25rem;
-}
-
-.about-page__soft-rule {
-  position: relative;
-}
-
-.about-page__soft-rule::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto auto 0;
-  width: min(7rem, 38%);
-  height: 1px;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--accent-primary) 46%, transparent), transparent 82%);
 }
 
 .about-page__values-manifesto {
@@ -854,6 +854,28 @@
   gap: 1.25rem;
   padding-top: 2.6rem;
   border-top: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+}
+
+.project-case-study-page .project-case-study-list {
+  gap: clamp(6rem, 8vw, 8.5rem);
+}
+
+.project-case-study-page .project-case-study {
+  gap: clamp(2.75rem, 4vw, 3.6rem);
+  padding-bottom: clamp(3rem, 4vw, 4rem);
+}
+
+.project-case-study-page .project-case-study__header {
+  gap: 2rem;
+}
+
+.project-case-study-page .project-case-study__sections {
+  gap: clamp(1.9rem, 2.4vw, 2.35rem);
+}
+
+.project-case-study-page .project-case-study__section {
+  gap: 1rem;
+  padding-top: 1.2rem;
 }
 
 .about-page__closing-intro {
@@ -958,6 +980,82 @@
   color: var(--text-muted);
 }
 
+.contact-form {
+  gap: clamp(1rem, 1.8vw, 1.2rem);
+  padding: clamp(1.2rem, 2.3vw, 1.65rem);
+  border-radius: clamp(1.2rem, 2vw, 1.45rem);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, white 28%, transparent), transparent 22%),
+    color-mix(in srgb, var(--surface-card) 96%, white 4%);
+  border-color: color-mix(in srgb, var(--color-border) 82%, white 18%);
+  box-shadow: 0 20px 48px rgba(23, 23, 23, 0.05);
+}
+
+.contact-form__field {
+  display: grid;
+}
+
+.contact-form__input {
+  width: 100%;
+  min-height: 4.15rem;
+  padding: 1.05rem 1.28rem;
+  border-radius: 1.05rem;
+  border: 1px solid color-mix(in srgb, var(--color-border) 84%, white 16%);
+  background: color-mix(in srgb, var(--surface-card) 92%, white 8%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 1px 2px rgba(23, 23, 23, 0.02);
+  font-size: clamp(1rem, 0.98rem + 0.14vw, 1.05rem);
+  line-height: 1.4;
+  color: var(--text-default);
+}
+
+.contact-form__input::placeholder {
+  color: color-mix(in srgb, var(--text-muted) 84%, var(--accent-primary) 16%);
+  opacity: 1;
+}
+
+.contact-form__input--textarea {
+  min-height: clamp(14rem, 33vw, 17.5rem);
+  padding-top: 1.15rem;
+  resize: vertical;
+}
+
+.contact-form__input:hover {
+  border-color: color-mix(in srgb, var(--accent-primary) 12%, var(--color-border) 88%);
+}
+
+.contact-form__input:-webkit-autofill,
+.contact-form__input:-webkit-autofill:hover,
+.contact-form__input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-default);
+  box-shadow:
+    0 0 0 1000px color-mix(in srgb, var(--surface-card) 92%, white 8%) inset,
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  transition: background-color 9999s ease-out 0s;
+}
+
+.contact-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+}
+
+.contact-form__submit {
+  min-width: 9rem;
+  padding-inline: 1.45rem;
+  min-height: 3.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--accent-primary) 16%, transparent);
+}
+
+.contact-form__submit:hover {
+  box-shadow: 0 18px 34px color-mix(in srgb, var(--accent-primary) 20%, transparent);
+}
+
 @media (min-width: 768px) {
   .project-grid--projects {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1017,6 +1115,10 @@
 
   .about-page__hero-header h1 {
     max-width: 10.5ch;
+  }
+
+  .project-case-study__heading-row h3 {
+    max-width: 12ch;
   }
 
   .about-page__hero-body {
@@ -1115,6 +1217,11 @@
     padding-top: 3.6rem;
   }
 
+  .about-page__panel:not(.about-page__panel--story),
+  .about-page__closing {
+    padding-top: 0;
+  }
+
   .about-page__hero {
     gap: 2.8rem 3rem;
   }
@@ -1186,10 +1293,7 @@
   }
 
   .project-case-study__index {
-    left: var(--project-index-left-lg, clamp(-2.7rem, -1.2vw, -1.1rem));
-    top: var(--project-index-top-lg, clamp(-2.8rem, -1.2vw, -1.2rem));
-    font-size: var(--project-index-size-lg, clamp(8rem, 14vw, 13.5rem));
-    transform: var(--project-index-transform-lg, translate(-18%, -22%));
+    font-size: clamp(5.4rem, 9vw, 7.8rem);
   }
 
   .project-case-study__sections {
@@ -1210,8 +1314,8 @@
   .service-item {
     /*padding-inline: 0.25rem 1rem;*/
     border-top: none;
-    border-left: 1px solid var(--color-border);
-    padding: 0 1.25rem;
+    /*border-left: 1px solid var(--color-border);
+    padding: 0 1.25rem;*/
   }
 
   .service-item:first-child {
@@ -1250,7 +1354,7 @@
     right: -0.05rem;
     width: 0.5rem;
     height: 0.5rem;
-    border-top: 1px solid color-mix(in srgb, var(--border-soft) 72%, transparent);
+    border-top: 1px solid color-mix(in srgb, var(--border-soft) 72%, transparent); 
     border-right: 1px solid color-mix(in srgb, var(--border-soft) 72%, transparent);
     transform: rotate(45deg);
   }

@@ -6,12 +6,12 @@ import "../../styles/components/site-header.scss";
 ---
 
 <header class="site-header sticky top-0 z-30 border-b border-transparent">
-  <div class="mx-auto flex max-w-[var(--site-max-width)] items-center justify-between gap-4 px-4 py-4">
-    <a href="/" class="flex items-center gap-2 leading-none no-underline">
-      <span style="font-family: var(--font-heading);" class="text-base font-bold tracking-[-0.04em] text-[var(--text-strong)]">{siteConfig.name}<span class="text-[var(--accent-primary)]">.</span></span>
+  <div class="site-header__inner mx-auto flex max-w-(--site-max-width) items-center justify-between gap-4 px-4 py-4">
+    <a href="/" class="site-header__brand flex items-center gap-2 leading-none no-underline">
+      <span style="font-family: var(--font-heading);" class="text-base font-bold tracking-[-0.04em] text-(--text-strong)">{siteConfig.name}<span class="text-(--accent-primary)">.</span></span>
     </a>
 
-    <nav class="desktop-nav nav items-center gap-6 text-sm text-[var(--text-muted)]">
+    <nav class="desktop-nav nav items-center gap-6 text-sm text-(--text-muted)">
       {siteConfig.navigation.map((item) => (
         <a
           href={item.href}
@@ -28,7 +28,7 @@ import "../../styles/components/site-header.scss";
 
       <button
         id="drawer-open"
-        class="drawer-toggle inline-flex items-center justify-center text-[var(--text-strong)]"
+        class="drawer-toggle inline-flex items-center justify-center text-(--text-strong)"
         aria-controls="mobile-drawer"
         aria-expanded="false"
         aria-label="Ouvrir le menu"
@@ -52,40 +52,58 @@ import "../../styles/components/site-header.scss";
 
 <aside
   id="mobile-drawer"
-  class="drawer fixed inset-y-0 left-0 w-full max-w-none bg-[var(--surface-card)] border-r border-[var(--border-soft)] shadow-2xl z-50 flex flex-col p-6 gap-8"
+  class="drawer fixed inset-y-0 left-0 w-full max-w-none bg-(--surface-card) border-r border-(--border-soft) shadow-2xl z-50 flex flex-col p-6 gap-8"
   aria-label="Menu mobile"
 >
-  <div class="drawer-intro flex flex-col gap-3 pr-16 pt-16">
+  <div class="drawer-intro flex flex-col gap-3">
     <span class="drawer-intro__eyebrow">Navigation</span>
     <div class="flex items-center gap-2">
-      <span style="font-family: var(--font-heading);" class="text-lg font-bold tracking-[-0.05em] text-[var(--text-strong)]">{siteConfig.name}<span class="text-[var(--accent-primary)]">.</span></span>
+      <span style="font-family: var(--font-heading);" class="text-lg font-bold tracking-tighter text-(--text-strong)">{siteConfig.name}<span class="text-(--accent-primary)">.</span></span>
     </div>
-    <p class="drawer-intro__lede max-w-[28rem] text-sm leading-6 text-[var(--text-muted)]">
+    <p class="drawer-intro__lede max-w-md text-sm leading-6 text-(--text-muted)">
       Explore les pages essentielles du studio avec une navigation plus lisible et plus directe sur mobile.
     </p>
   </div>
 
-  <nav class="drawer-menu flex flex-col gap-2 text-sm text-[var(--text-muted)] nav nav--stacked">
+  <nav class="drawer-menu flex flex-col gap-2 text-sm text-(--text-muted) nav nav--stacked">
     {siteConfig.navigation.map((item) => (
       <a
         href={item.href}
-        class="drawer-menu__item nav-link px-3 py-4 rounded-md transition-colors hover:bg-[var(--surface-muted)] hover:text-[var(--text-strong)]"
+        class="drawer-menu__item nav-link px-3 py-4 rounded-md transition-colors hover:bg-(--surface-muted) hover:text-(--text-strong)"
       >
         {item.label}
       </a>
     ))}
   </nav>
 
-  <div class="drawer-actions border-t border-[var(--border-soft)] pt-6">
+  <div class="drawer-actions border-t border-(--border-soft) pt-6">
     <button
       id="theme-toggle-mobile"
-      class="w-full inline-flex items-center justify-center gap-2 rounded-full border border-[var(--border-soft)] bg-[var(--surface-muted)] px-3 py-2 text-sm font-semibold text-[var(--text-strong)] shadow-sm hover:bg-[var(--surface-card)]"
+      class="theme-mode-toggle w-full inline-flex items-center justify-between rounded-full border border-(--border-soft) px-3 py-2 text-sm font-semibold text-(--text-strong)"
       aria-label="Basculer le thème"
+      aria-pressed="false"
       type="button"
     >
-      <span id="icon-sun-mobile" class="inline-flex">☀️</span>
-      <span id="icon-moon-mobile" class="hidden">🌙</span>
-      <span id="theme-label-mobile">Mode clair</span>
+      <span class="theme-mode-toggle__switch" aria-hidden="true">
+        <span class="theme-mode-toggle__tokens">
+          <span id="theme-light-mobile" class="theme-mode-toggle__token is-active">L</span>
+          <span id="theme-dark-mobile" class="theme-mode-toggle__token">D</span>
+        </span>
+        <span class="theme-mode-toggle__thumb">
+          <span class="theme-mode-toggle__thumb-icon theme-mode-toggle__thumb-icon--sun">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m14.95 6.95-1.41-1.41M7.46 7.46 6.05 6.05m11.31 0-1.41 1.41M7.46 16.54l-1.41 1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" fill="none" />
+            </svg>
+          </span>
+          <span class="theme-mode-toggle__thumb-icon theme-mode-toggle__thumb-icon--moon">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            </svg>
+          </span>
+        </span>
+      </span>
+      <span id="theme-label-mobile" class="theme-mode-toggle__label">Clair</span>
     </button>
   </div>
 </aside>
@@ -100,9 +118,11 @@ import "../../styles/components/site-header.scss";
     const sun = document.getElementById("icon-sun");
     const moon = document.getElementById("icon-moon");
     const label = document.getElementById("theme-label");
-    const sunM = document.getElementById("icon-sun-mobile");
-    const moonM = document.getElementById("icon-moon-mobile");
+    const lightM = document.getElementById("theme-light-mobile");
+    const darkM = document.getElementById("theme-dark-mobile");
     const labelM = document.getElementById("theme-label-mobile");
+    const desktopToggle = document.getElementById("theme-toggle");
+    const mobileToggle = document.getElementById("theme-toggle-mobile");
 
     const applyTheme = (mode) => {
       const target = mode === "dark" ? "dark" : palette;
@@ -110,16 +130,18 @@ import "../../styles/components/site-header.scss";
       root.dataset.baseTheme = palette;
       localStorage.setItem(STORAGE_KEY, target === "dark" ? "dark" : palette);
       const isDark = target === "dark";
+      desktopToggle?.setAttribute("aria-pressed", isDark ? "true" : "false");
+      mobileToggle?.setAttribute("aria-pressed", isDark ? "true" : "false");
       if (sun && moon) {
         sun.classList.toggle("hidden", isDark);
         moon.classList.toggle("hidden", !isDark);
       }
       if (label) label.textContent = isDark ? "Mode sombre" : "Mode clair";
-      if (sunM && moonM) {
-        sunM.classList.toggle("hidden", isDark);
-        moonM.classList.toggle("hidden", !isDark);
+      if (lightM && darkM) {
+        lightM.classList.toggle("is-active", !isDark);
+        darkM.classList.toggle("is-active", isDark);
       }
-      if (labelM) labelM.textContent = isDark ? "Mode sombre" : "Mode clair";
+      if (labelM) labelM.textContent = isDark ? "Sombre" : "Clair";
     };
 
     const initTheme = () => {
@@ -139,8 +161,6 @@ import "../../styles/components/site-header.scss";
     };
     initTheme();
 
-    const desktopToggle = document.getElementById("theme-toggle");
-    const mobileToggle = document.getElementById("theme-toggle-mobile");
     const toggleHandler = () => {
       const isDark = root.dataset.theme === "dark";
       applyTheme(isDark ? palette : "dark");

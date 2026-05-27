@@ -1,29 +1,30 @@
 ---
 import { Image } from "astro:assets";
+import { aboutContent } from "../../data/site-content";
 import aboutPortrait from "../../assets/about-chandra-josephus.webp";
 import Icon from "../ui/Icon.astro";
 
 interface Props {
   eyebrow?: string;
   title?: string;
-  text: string;
+  text?: string;
   points?: string[];
   ctaLabel?: string;
   ctaHref?: string;
 }
 
 const {
-  eyebrow = "À propos",
-  title = "Un profil hybride au service du web.",
-  text,
-  points = [],
-  ctaLabel = "En savoir plus sur moi",
-  ctaHref = "/a-propos",
+  eyebrow = aboutContent.eyebrow,
+  title = aboutContent.title,
+  text = aboutContent.text,
+  points = aboutContent.points,
+  ctaLabel = aboutContent.ctaLabel,
+  ctaHref = aboutContent.ctaHref,
 } = Astro.props;
 ---
 
 <section class="section-shell">
-  <div class="max-w-[var(--site-max-width)] mx-auto px-4">
+  <div class="max-w-(--site-max-width) mx-auto px-4">
     <div class="about-preview">
       <div class="about-preview__media">
         <Image
@@ -45,7 +46,7 @@ const {
       <div class="about-preview__body">
         <div class="about-preview__content">
           <div class="about-preview__copy">
-            <p class="text-sm sm:text-base text-[var(--color-muted)] leading-relaxed">{text}</p>
+            <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed">{text}</p>
           </div>
 
           <a href={ctaHref} class="section-link section-link--inline">
@@ -56,7 +57,7 @@ const {
 
         {points.length > 0 && (
           <aside class="about-preview__highlights" aria-label="Repères">
-            <p class="about-page__hero-aside-label">Repères</p>
+            <p class="about-page__hero-aside-label pb-2">Repères</p>
             <ul class="about-highlight-list">
               {points.map((point) => (
                 <li>

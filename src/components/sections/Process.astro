@@ -1,5 +1,5 @@
 ---
-import type { ProcessStep } from "../../data/site-content";
+import { processContent, type ProcessStep } from "../../data/site-content";
 import Icon from "../ui/Icon.astro";
 
 interface Props {
@@ -9,26 +9,26 @@ interface Props {
 }
 
 const {
-  title = "Une approche simple et humaine",
-  intro = "Une méthode lisible, sans mise en scène inutile : comprendre, structurer, concevoir, intégrer, mettre en ligne.",
+  title = processContent.title,
+  intro = processContent.intro,
   steps,
 } = Astro.props;
 ---
 
 <section class="section-shell">
-  <div class="max-w-[var(--site-max-width)] mx-auto px-4 space-y-8">
+  <div class="approach-page section-stack--airy max-w-(--site-max-width) mx-auto px-4">
     <header class="section-header">
-      <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
-      <p class="text-[var(--color-muted)] text-sm sm:text-base">{intro}</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">{title}</h2>
+      <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">{intro}</p>
     </header>
 
     <ol class="process-grid">
       {steps.map((step, index) => (
         <li class="process-step">
           <span class="process-step__index">0{index + 1}</span>
-          <span class="process-step__icon has-hover-fx"><Icon name={step.icon as any} /></span>
-          <h3 class="text-base font-semibold">{step.title}</h3>
-          <p class="text-sm text-[var(--color-muted)]">{step.description}</p>
+          <span class="process-step__icon has-hover-fx"><Icon name={step.icon} /></span>
+          <h3 class="text-base sm:text-lg font-semibold">{step.title}</h3>
+          <p class="text-sm text-(--color-muted) leading-relaxed">{step.description}</p>
         </li>
       ))}
     </ol>

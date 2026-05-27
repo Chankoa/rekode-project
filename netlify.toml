@@ -6,3 +6,9 @@
 [build.environment]
   NODE_VERSION = "22.12.0"
   NPM_FLAGS = "--include=optional"
+
+[[redirects]]
+  from = "/projets"
+  to = "/realisations"
+  status = 301
+  force = true

@@ -12,7 +12,7 @@ Le projet privilegie une structure simple a faire evoluer:
 
 ## Stack
 
-- Astro 5
+- Astro 6
 - TypeScript
 - SCSS
 - Tailwind CSS
@@ -60,7 +60,7 @@ src/
 ## Modifier le contenu
 
 - navigation, metadonnees et contact: `src/data/site-config.ts`
-- hero, projets, services, approche, a propos et lab: `src/data/site-content.ts`
+- hero, realisations, services, approche, a propos et lab: `src/data/site-content.ts`
 
 ## Modifier les styles
 

@@ -2,6 +2,27 @@ export interface FeatureItem {
   label: string;
 }
 
+export type IconName =
+  | "arrow"
+  | "bolt"
+  | "document"
+  | "code"
+  | "leaf"
+  | "monitor"
+  | "refresh"
+  | "wordpress"
+  | "cap"
+  | "ear"
+  | "spark"
+  | "pen"
+  | "rocket"
+  | "mail"
+  | "phone"
+  | "pin"
+  | "star"
+  | "heart"
+  | "mountain";
+
 export interface HeroTitlePart {
   text: string;
   highlight?: boolean;
@@ -52,14 +73,14 @@ export interface ProjectItem {
 
 export interface ServiceItem {
   title: string;
-  icon: string;
+  icon: IconName;
   description: string;
 }
 
 export interface ProcessStep {
   title: string;
   description: string;
-  icon: string;
+  icon: IconName;
 }
 
 export interface AboutContent {
@@ -69,6 +90,83 @@ export interface AboutContent {
   points: string[];
   ctaLabel: string;
   ctaHref: string;
+}
+
+export interface AboutPageSectionPoint {
+  title: string;
+  text: string;
+}
+
+export interface AboutPageIconPoint extends AboutPageSectionPoint {
+  icon: IconName;
+}
+
+export interface AboutPageProcessStep extends AboutPageSectionPoint {
+  icon: IconName;
+}
+
+export interface AboutPageSectionBase {
+  index: string;
+  title: string;
+  intro: string;
+}
+
+export interface AboutPageHeroContent {
+  label: string;
+  title: string;
+  paragraphs: string[];
+  highlightsLabel: string;
+  highlights: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  portraitAlt: string;
+  portraitCaption: string;
+}
+
+export interface AboutPageStorySection extends AboutPageSectionBase {
+  id: string;
+  paragraphs: string[];
+  imageAlt: string;
+  imageCaption: string;
+}
+
+export interface AboutPageExpertiseSection extends AboutPageSectionBase {
+  skillsLabel: string;
+  skills: string[];
+  points: AboutPageSectionPoint[];
+}
+
+export interface AboutPageValuesSection extends AboutPageSectionBase {
+  manifestoLabel: string;
+  manifestoQuote: string;
+  items: AboutPageIconPoint[];
+}
+
+export interface AboutPageProcessSection extends AboutPageSectionBase {
+  steps: AboutPageProcessStep[];
+}
+
+export interface AboutPageInspirationSection extends AboutPageSectionBase {
+  items: string[];
+}
+
+export interface AboutPageClosingSection extends AboutPageSectionBase {
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+export interface AboutPageContent {
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: AboutPageHeroContent;
+  story: AboutPageStorySection;
+  expertise: AboutPageExpertiseSection;
+  values: AboutPageValuesSection;
+  process: AboutPageProcessSection;
+  inspiration: AboutPageInspirationSection;
+  closing: AboutPageClosingSection;
 }
 
 export interface LabItem {
@@ -83,8 +181,13 @@ export interface ContactContent {
   ctaHref: string;
 }
 
+export interface SectionIntroContent {
+  title: string;
+  intro: string;
+}
+
 export const heroContent: HeroContent = {
-  eyebrow: "Design & intégration front-end",
+  eyebrow: "Studio web et accompagnement digital",
   titleParts: [
     { text: "Des " },
     { text: "sites web", highlight: true },
@@ -92,18 +195,18 @@ export const heroContent: HeroContent = {
     { text: "humains.", highlight: true },
   ],
   subtitle:
-    "J'aide les projets créatifs à construire une présence en ligne efficace, esthétique et humaine.",
+    "J’aide les indépendants, petites structures et acteurs du tourisme à clarifier leur présence web grâce à une approche mêlant UX, contenu, WordPress, SEO et accompagnement humain.",
   ctaLabel: "Parler de votre projet",
   ctaHref: "/contact",
-  secondaryCtaLabel: "Voir les projets",
-  secondaryCtaHref: "/projets",
+  secondaryCtaLabel: "Voir les réalisations",
+  secondaryCtaHref: "/realisations",
   supportingLabel: "Clarté éditoriale",
   supportingText:
     "Une base technique légère et une structure de contenu lisible pour garder le bon niveau de précision sans transformer le site en vitrine technique.",
   features: [
-    { label: "Sites rapides" },
-    { label: "UX & design" },
-    { label: "Intégration propre" },
+    { label: "Sites optimisés" },
+    { label: "UX et design" },
+    { label: "Intégration soignée" },
     { label: "Accompagnement" },
   ],
 };
@@ -316,6 +419,159 @@ export const aboutContent: AboutContent = {
   ctaHref: "/a-propos",
 };
 
+export const aboutPageContent: AboutPageContent = {
+  meta: {
+    title: "À propos",
+    description:
+      "Un parcours hybride entre terrain, création et numérique au service d’expériences web plus humaines.",
+  },
+  hero: {
+    label: "À propos",
+    title: "Un profil hybride au service du web.",
+    paragraphs: [
+      "Webdesigner / intégrateur freelance depuis 2007, j'accompagne les indépendants, petites structures et projets porteurs de sens à concevoir des expériences web plus claires, plus humaines et plus cohérentes.",
+      "Design, intégration front-end, WordPress, Astro, React, pédagogie et entrepreneuriat terrain : un parcours transversal qui me permet de relier vision, exécution et transmission.",
+    ],
+    highlightsLabel: "Repères",
+    highlights: [
+      "Webdesigner / intégrateur depuis 2007",
+      "UX, design & front-end",
+      "Formation web et pédagogie",
+      "Entrepreneuriat & expérience terrain",
+      "Sens du détail, du rythme et du récit",
+    ],
+    ctaLabel: "Découvrir mon parcours",
+    ctaHref: "#parcours",
+    portraitAlt: "Portrait en noir et blanc",
+    portraitCaption:
+      "Un parcours hybride, entre exigence terrain, culture visuelle et production web.",
+  },
+  story: {
+    id: "parcours",
+    index: "01",
+    title: "Un parcours entre terrain, création et numérique.",
+    intro:
+      "Avant le web, il y a eu le terrain, l'accompagnement, la relation humaine et l'entrepreneuriat.",
+    paragraphs: [
+      "Éducateur sportif depuis 1998, puis entrepreneur outdoor avec ROCKSIDERS de 2019 à 2025, j'ai appris à construire des offres, gérer des projets, transmettre, communiquer et prendre des décisions au contact du réel.",
+      "En parallèle, le web est devenu un terrain d'expression central : design d'interface, intégration HTML/CSS, WordPress, responsive design, UX/UI, puis outils plus récents comme Astro ou React. Cette diversité nourrit aujourd'hui ma manière de concevoir des projets numériques plus solides, plus lisibles et plus ancrés dans les usages.",
+    ],
+    imageAlt: "Carnet ouvert face aux montagnes au lever du soleil",
+    imageCaption:
+      "Terrain, pédagogie, entrepreneuriat : une culture du concret qui structure ensuite les projets web.",
+  },
+  expertise: {
+    index: "02",
+    title: "Ce que ce parcours me permet d'apporter.",
+    intro:
+      "Mes compétences ne sont pas un inventaire d'outils. Elles prennent sens dans la façon dont j'articule stratégie, design, intégration et transmission pour faire avancer un projet de manière lisible.",
+    skillsLabel: "Compétences-clés",
+    skills: [
+      "HTML / CSS",
+      "WordPress",
+      "UX / UI",
+      "Astro",
+      "React",
+      "SEO",
+      "Pédagogie",
+      "Gestion de projet",
+    ],
+    points: [
+      {
+        title: "Concevoir avec clarté",
+        text: "Transformer des besoins diffus en structure lisible, en hiérarchie de contenu et en expérience crédible.",
+      },
+      {
+        title: "Produire sans surcouche inutile",
+        text: "Choisir le bon niveau d'outil et d'intégration pour rester sobre, maintenable et vraiment utile dans le temps.",
+      },
+      {
+        title: "Transmettre et rendre autonome",
+        text: "Documenter, expliquer et simplifier pour que le projet puisse être compris, repris et faire gagner du temps après livraison.",
+      },
+    ],
+  },
+  values: {
+    index: "03",
+    title: "Ma philosophie.",
+    intro:
+      "Je crois aux expériences digitales qui restent simples, compréhensibles et alignées avec ce que vous faites réellement. Un site n'a pas besoin d'être spectaculaire pour être juste : il doit être lisible, fluide et crédible.",
+    manifestoLabel: "Fil conducteur",
+    manifestoQuote:
+      "Concevoir des interfaces calmes, utiles et lisibles, où la forme accompagne le sens au lieu de le parasiter.",
+    items: [
+      {
+        icon: "leaf",
+        title: "Clarté",
+        text: "Concevoir des interfaces lisibles, hiérarchisées et utiles, sans surcharger l'expérience.",
+      },
+      {
+        icon: "heart",
+        title: "Humain",
+        text: "Relier le fond, la forme et la relation de confiance pour faire émerger des expériences plus justes.",
+      },
+      {
+        icon: "spark",
+        title: "Sens",
+        text: "Faire en sorte que la technique, le design et le contenu servent une intention claire et durable.",
+      },
+    ],
+  },
+  process: {
+    index: "04",
+    title: "Ma façon d'aborder vos projets.",
+    intro:
+      "Une démarche souple et collaborative, nourrie par le design, l'intégration, la pédagogie et la gestion de projet, adaptée à votre réalité et au bon niveau de complexité.",
+    steps: [
+      {
+        icon: "ear",
+        title: "Écouter",
+        text: "Comprendre votre activité, votre contexte et ce qui compte vraiment pour vos utilisateurs.",
+      },
+      {
+        icon: "document",
+        title: "Explorer",
+        text: "Clarifier les contenus, les enjeux et les opportunités avant de produire des écrans.",
+      },
+      {
+        icon: "pen",
+        title: "Concevoir",
+        text: "Donner une forme visuelle et narrative cohérente à des idées parfois encore diffuses.",
+      },
+      {
+        icon: "code",
+        title: "Développer",
+        text: "Intégrer proprement en HTML, CSS, WordPress, Astro ou React selon le bon niveau de réponse.",
+      },
+      {
+        icon: "arrow",
+        title: "Livrer & ajuster",
+        text: "Documenter, transmettre et ajuster pour que le projet reste vivant et appropriable.",
+      },
+    ],
+  },
+  inspiration: {
+    index: "05",
+    title: "Ce qui m'inspire.",
+    intro:
+      "Des projets utiles, des personnes passionnées et des trajectoires atypiques. J'aime les croisements entre technique, création, transmission et récit visuel.",
+    items: [
+      "Les projets utiles, les trajectoires atypiques et les personnes qui portent une vision claire.",
+      "La nature, le mouvement, l'outdoor et ce qu'ils enseignent sur le rythme, l'attention et la simplicité.",
+      "La transmission, la pédagogie et le plaisir d'aider d'autres personnes à mieux comprendre les outils du web.",
+      "Le récit visuel, l'audiovisuel, le voyage, la culture et les détails qui créent une ambiance juste.",
+    ],
+  },
+  closing: {
+    index: "06",
+    title: "Un projet en tête ?",
+    intro:
+      "Une idée, une refonte ou un projet à faire émerger ? Discutons-en simplement et voyons quelle forme lui donner.",
+    ctaLabel: "Discutons-en",
+    ctaHref: "/contact",
+  },
+};
+
 export const contactContent: ContactContent = {
   title: "Un projet en tête ? Discutons-en.",
   intro:
@@ -342,3 +598,20 @@ export const labItems: LabItem[] = [
     summary: "Formats narratifs, rythme de lecture et mise en scène de contenus complexes.",
   },
 ];
+
+export const selectedProjectsContent: SectionIntroContent = {
+  title: "Quelques réalisations",
+  intro:
+    "Une sélection de projets menés autour des activités de pleine nature, des hébergements touristiques, de l’accompagnement et de la pédagogie.",
+};
+
+export const servicesContent: SectionIntroContent = {
+  title: "Ce que je peux faire pour vous",
+  intro: "Des prestations structurées pour produire un site juste, rapide et facile à faire vivre.",
+};
+
+export const processContent: SectionIntroContent = {
+  title: "Une approche simple et humaine",
+  intro:
+    "Une méthode lisible, sans mise en scène inutile : comprendre, structurer, concevoir, intégrer, mettre en ligne.",
+};

@@ -24,6 +24,21 @@
   border: 1px solid var(--border-soft);
 }
 
+.u-soft-rule,
+.about-page__soft-rule {
+  position: relative;
+}
+
+.u-soft-rule::before,
+.about-page__soft-rule::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: min(7rem, 38%);
+  height: 1px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent-primary) 46%, transparent), transparent 82%);
+}
+
 .has-hover-fx {
   transition:
     transform 180ms var(--ease-standard, ease),
@@ -45,6 +60,7 @@
 .has-focus-fx {
   background: color-mix(in srgb, var(--surface-card) 94%, white 6%);
   color: var(--text-default);
+  outline: none;
   transition:
     transform 180ms var(--ease-standard, ease),
     box-shadow 180ms var(--ease-standard, ease),
@@ -56,10 +72,11 @@ input.has-focus-fx:focus-visible,
 textarea.has-focus-fx:focus-visible {
   outline: none;
   transform: translateY(-1px);
-  border-color: color-mix(in srgb, var(--accent-primary) 24%, var(--color-border) 76%);
-  background: color-mix(in srgb, var(--surface-card) 80%, var(--surface-muted) 20%);
+  border-color: color-mix(in srgb, var(--accent-primary) 28%, var(--color-border) 72%);
+  background: color-mix(in srgb, var(--surface-card) 88%, white 12%);
   box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--accent-primary) 18%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--accent-primary) 20%, transparent),
+    0 14px 28px rgba(23, 23, 23, 0.08),
     var(--shadow-xs);
 }
 

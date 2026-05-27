@@ -46,7 +46,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
       })();
     </script>
   </head>
-  <body class="bg-[var(--surface-bg)] text-[var(--text-default)]">
+  <body class="bg-(--surface-bg) text-(--text-default)">
     <SiteHeader />
     <main class="min-h-[70vh]">
       <slot />

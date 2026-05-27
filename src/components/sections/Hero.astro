@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { siteConfig } from "../../data/site-config";
-import type { HeroTitlePart } from "../../data/site-content";
+import { heroContent, type HeroTitlePart } from "../../data/site-content";
 import heroImage from "../../assets/home/hero.webp";
 import CircleBadge from "../ui/CircleBadge.astro";
 import Icon from "../ui/Icon.astro";
@@ -15,7 +15,7 @@ interface FeatureItem {
 
 interface Props {
   eyebrow?: string;
-  titleParts: HeroTitlePart[];
+  titleParts?: HeroTitlePart[];
   subtitle?: string;
   ctaLabel?: string;
   ctaHref?: string;
@@ -27,15 +27,15 @@ interface Props {
 }
 
 const {
-  eyebrow = "Site vitrine",
-  titleParts = [{ text: "Des sites web clairs, pensés pour des humains." }],
-  subtitle = siteConfig.baseline,
-  ctaLabel = "Nous contacter",
-  ctaHref = "/contact",
-  secondaryCtaLabel = "Voir les projets",
-  secondaryCtaHref = "/projets",
-  supportingLabel = "Approche",
-  supportingText = "Un site clair, efficace, documenté, et suffisamment simple pour rester facile à reprendre après livraison.",
+  eyebrow = heroContent.eyebrow,
+  titleParts = heroContent.titleParts,
+  subtitle = heroContent.subtitle ?? siteConfig.baseline,
+  ctaLabel = heroContent.ctaLabel,
+  ctaHref = heroContent.ctaHref,
+  secondaryCtaLabel = heroContent.secondaryCtaLabel,
+  secondaryCtaHref = heroContent.secondaryCtaHref,
+  supportingLabel = heroContent.supportingLabel,
+  supportingText = heroContent.supportingText,
   features = [
     { label: "Sites rapides", icon: "bolt" },
     { label: "UX & design", icon: "pen" },
@@ -48,23 +48,23 @@ const fallbackIcons: FeatureIconName[] = ["bolt", "pen", "code", "ear"];
 ---
 
 <section class="hero">
-  <div class="hero__inner max-w-[var(--site-max-width)] mx-auto px-4 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(22rem,1fr)] items-center">
+  <div class="hero__inner max-w-(--site-max-width) mx-auto px-4 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(22rem,1fr)] items-center">
     <div class="space-y-6">
-      <span class="hero__eyebrow text-[var(--color-muted)]">
+      <span class="hero__eyebrow text-(--color-muted)">
         {eyebrow}
       </span>
-      <h1 class="hero__title font-bold tracking-tight">
+      <h1 class="hero__title pb-(--space-4) font-bold tracking-tight">
         {titleParts.map((part) => (
           <span class:list={{
             "u-text-gradient": part.highlight,
-            "text-[var(--accent-primary)]": part.accent,
+            "text-(--accent-primary)": part.accent,
           }}>
             {part.text}
           </span>
         ))}
       </h1>
       {subtitle && (
-        <p class="hero__summary text-base sm:text-lg text-[var(--color-muted)] max-w-xl">
+        <p class="hero__summary text-base sm:text-lg text-(--color-muted) max-w-xl pb-(--space-4)">
           {subtitle}
         </p>
       )}
@@ -89,7 +89,7 @@ const fallbackIcons: FeatureIconName[] = ["bolt", "pen", "code", "ear"];
       </ul>
     </div>
 
-    <div class="hero__visual relative p-6 md:p-8">
+    <div class="hero__visual relative md:p-8">
       <div class="hero__visual-frame card-elevated">
         <Image
           src={heroImage}
@@ -103,7 +103,7 @@ const fallbackIcons: FeatureIconName[] = ["bolt", "pen", "code", "ear"];
       </div>
       <CircleBadge class="hero__badge" />
       <div class="hero__panel hidden">
-        <p class="text-sm uppercase tracking-[0.2em] text-[var(--color-muted)] mb-3">
+        <p class="text-sm uppercase tracking-[0.2em] text-(--color-muted) mb-3">
           {supportingLabel}
         </p>
         <p class="text-sm sm:text-base leading-relaxed">

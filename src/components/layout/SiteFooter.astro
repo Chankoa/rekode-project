@@ -3,9 +3,9 @@ import { siteConfig } from "../../data/site-config";
 const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer border-t border-[var(--border-soft)]">
+<footer class="site-footer border-t border-(--border-soft)">
   <div class="footer-manifesto-wrap">
-    <div class="footer-manifesto max-w-[var(--site-max-width)] mx-auto px-4 py-10 md:py-12">
+    <div class="footer-manifesto max-w-(--site-max-width) mx-auto px-4 py-10 md:py-12">
       <div class="footer-manifesto__visual" aria-hidden="true">
         <div class="footer-manifesto__circle footer-manifesto__circle--outer"></div>
         <div class="footer-manifesto__circle footer-manifesto__circle--middle"></div>
@@ -32,7 +32,7 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
-  <div class="relative max-w-[var(--site-max-width)] mx-auto px-4 py-6 pr-16 md:pr-20 text-sm text-[var(--text-muted)] flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+  <div class="relative max-w-(--site-max-width) mx-auto px-4 py-6 pr-16 md:pr-20 text-sm text-(--text-muted) flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
     <p>© {year} {siteConfig.name}. Tous droits réservés.</p>
     <div class="flex flex-wrap items-center gap-5">
       <a href="#">Mentions légales</a>
@@ -42,7 +42,7 @@ const year = new Date().getFullYear();
 
     <button
       type="button"
-      class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border border-[var(--border-soft)] bg-[var(--surface-muted)] text-[var(--text-strong)] shadow-sm transition-colors hover:bg-[var(--surface-card)]"
+      class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border border-(--border-soft) bg-(--surface-muted) text-(--text-strong) shadow-sm transition-colors hover:bg-(--surface-card)"
       aria-label="Revenir en haut de page"
       title="Revenir en haut de page"
       data-scroll-top
@@ -87,7 +87,7 @@ const year = new Date().getFullYear();
   .footer-manifesto__visual {
     position: relative;
     width: clamp(11rem, 23vw, 13.25rem);
-    height: clamp(9.5rem, 21vw, 11.75rem);
+    aspect-ratio: 1;
     margin-inline: auto;
     filter: drop-shadow(0 18px 28px color-mix(in srgb, var(--accent-primary) 14%, transparent));
   }
@@ -99,23 +99,23 @@ const year = new Date().getFullYear();
   }
 
   .footer-manifesto__circle--outer {
-    inset: 0.1rem auto auto 0;
-    width: clamp(8.9rem, 19vw, 10.4rem);
-    height: clamp(8.9rem, 19vw, 10.4rem);
+    inset: 12% auto auto 5%;
+    width: 80%;
+    aspect-ratio: 1;
     opacity: 0.18;
   }
 
   .footer-manifesto__circle--middle {
-    inset: 1.6rem auto auto 2rem;
-    width: clamp(6.75rem, 15vw, 8rem);
-    height: clamp(6.75rem, 15vw, 8rem);
+    inset: 23% auto auto 19%;
+    width: 63%;
+    aspect-ratio: 1;
     opacity: 0.34;
   }
 
   .footer-manifesto__circle--inner {
-    inset: 4.55rem auto auto 5.4rem;
-    width: clamp(3.2rem, 7.2vw, 3.95rem);
-    height: clamp(3.2rem, 7.2vw, 3.95rem);
+    inset: 45% auto auto 42%;
+    width: 34%;
+    aspect-ratio: 1;
     opacity: 0.82;
   }
 

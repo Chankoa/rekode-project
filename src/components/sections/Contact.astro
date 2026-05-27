@@ -1,4 +1,5 @@
 ---
+import { contactContent } from "../../data/site-content";
 import { siteConfig } from "../../data/site-config";
 import Icon from "../ui/Icon.astro";
 
@@ -11,21 +12,21 @@ interface Props {
 }
 
 const {
-  title = "Contact",
-  intro = "Un besoin cadré, une refonte en vue ou une question sur la bonne stack: le plus simple est d'en parler directement.",
-  ctaLabel = "Parler du projet",
-  ctaHref = "/contact",
+  title = contactContent.title,
+  intro = contactContent.intro,
+  ctaLabel = contactContent.ctaLabel,
+  ctaHref = contactContent.ctaHref,
   compact = false,
 } = Astro.props;
 ---
 
 <section class="section-shell" id="contact">
   {compact ? (
-    <div class="max-w-[var(--site-max-width)] mx-auto px-4">
+    <div class="max-w-(--site-max-width) mx-auto px-4">
       <div class="contact-band">
-        <div class="contact-band__intro">
+        <div class="contact-band__intro section-copy-stack">
           <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
-          <p class="text-sm sm:text-base text-[var(--color-muted)]">{intro}</p>
+          <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed">{intro}</p>
           <a href={ctaHref} class="contact-band__cta" aria-label={ctaLabel}>
             <Icon name="arrow" />
           </a>
@@ -54,16 +55,16 @@ const {
       </div>
     </div>
   ) : (
-    <div class="max-w-[var(--site-max-width)] mx-auto px-4 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
-      <div class="space-y-4">
+    <div class="max-w-(--site-max-width) mx-auto px-4 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
+      <div class="section-copy-stack">
         <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
-        <p class="text-sm sm:text-base text-[var(--color-muted)]">{intro}</p>
-        <div class="space-y-2 text-sm text-[var(--color-muted)]">
+        <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed">{intro}</p>
+        <div class="space-y-2 text-sm text-(--color-muted)">
           {siteConfig.contact.phone && (
-            <p class="contact-line"><Icon name="phone" /> <a href={`tel:${siteConfig.contact.phone}`} class="hover:text-[var(--color-accent)]">{siteConfig.contact.phone}</a></p>
+            <p class="contact-line"><Icon name="phone" /> <a href={`tel:${siteConfig.contact.phone}`} class="hover:text-(--color-accent)">{siteConfig.contact.phone}</a></p>
           )}
           {siteConfig.contact.email && (
-            <p class="contact-line"><Icon name="mail" /> <a href={`mailto:${siteConfig.contact.email}`} class="hover:text-[var(--color-accent)]">{siteConfig.contact.email}</a></p>
+            <p class="contact-line"><Icon name="mail" /> <a href={`mailto:${siteConfig.contact.email}`} class="hover:text-(--color-accent)">{siteConfig.contact.email}</a></p>
           )}
           {siteConfig.contact.address && <p class="contact-line"><Icon name="pin" /> <span>{siteConfig.contact.address}</span></p>}
         </div>
@@ -75,7 +76,7 @@ const {
         data-netlify="true"
         netlify-honeypot="bot-field"
         action="/merci"
-        class="card-elevated section-card space-y-4 text-sm"
+        class="contact-form card-elevated section-card text-sm"
       >
         <input type="hidden" name="form-name" value="contact" />
         <p class="u-sr-only">
@@ -85,41 +86,49 @@ const {
           </label>
         </p>
 
-        <div class="space-y-1">
-          <label for="name" class="font-medium">Nom</label>
+        <div class="contact-form__field">
+          <label for="name" class="u-sr-only">Vos nom et prenom</label>
           <input
             id="name"
             name="name"
             required
-            class="has-focus-fx w-full rounded border border-[var(--color-border)] px-3 py-2"
+            autocomplete="name"
+            placeholder="Vos nom et prenom*"
+            class="contact-form__input has-focus-fx"
           />
         </div>
 
-        <div class="space-y-1">
-          <label for="email" class="font-medium">Email</label>
+        <div class="contact-form__field">
+          <label for="email" class="u-sr-only">Votre adresse mail</label>
           <input
             id="email"
             name="email"
             type="email"
             required
-            class="has-focus-fx w-full rounded border border-[var(--color-border)] px-3 py-2"
+            autocomplete="email"
+            inputmode="email"
+            placeholder="Votre adresse mail*"
+            class="contact-form__input has-focus-fx"
           />
         </div>
 
-        <div class="space-y-1">
-          <label for="message" class="font-medium">Message</label>
+        <div class="contact-form__field">
+          <label for="message" class="u-sr-only">Votre message</label>
           <textarea
             id="message"
             name="message"
             rows="4"
             required
-            class="has-focus-fx w-full rounded border border-[var(--color-border)] px-3 py-2"
+            placeholder="Votre message"
+            class="contact-form__input contact-form__input--textarea has-focus-fx"
           ></textarea>
         </div>
 
-        <button type="submit" class="btn-primary w-full justify-center">
-          Envoyer
-        </button>
+        <div class="contact-form__actions">
+          <button type="submit" class="contact-form__submit btn-primary is-rounded justify-center">
+            Envoyer
+          </button>
+        </div>
       </form>
     </div>
   )}

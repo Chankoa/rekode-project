@@ -1,7 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import type { ProjectItem } from "../../data/site-content";
+import { selectedProjectsContent, type ProjectItem } from "../../data/site-content";
 import Icon from "../ui/Icon.astro";
 
 interface Props {
@@ -13,8 +13,8 @@ interface Props {
 }
 
 const {
-  title = "Quelques projets",
-  intro = "Une sélection de projets pour montrer le niveau d'exécution, la précision de l'intégration et la variété des contextes traités.",
+  title = selectedProjectsContent.title,
+  intro = selectedProjectsContent.intro,
   projects,
   showProjectsLink = true,
   variant = "cards",
@@ -55,15 +55,15 @@ const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
 ---
 
 <section class="section-shell">
-  <div class="max-w-[var(--site-max-width)] mx-auto px-4 space-y-8">
+  <div class={`max-w-(--site-max-width) mx-auto px-4 ${variant === "case-studies" ? "section-stack--airy project-case-study-page" : "space-y-8"}`}>
     <header class="section-heading-row">
       <div class="section-header">
-        <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
-        <p class="text-[var(--color-muted)] text-sm sm:text-base">{intro}</p>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">{title}</h2>
+        <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">{intro}</p>
       </div>
       {showProjectsLink && (
-        <a href="/projets" class="section-link">
-          <span>Voir tous les projets</span>
+        <a href="/realisations" class="section-link">
+          <span>Voir toutes les réalisations</span>
           <Icon name="arrow" />
         </a>
       )}
@@ -74,7 +74,7 @@ const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
         {projects.map((project) => {
           const thumbnail = projectThumbnailMap.get(project.slug);
           const logo = projectLogoMap.get(project.slug);
-          const projectHref = `/projets#${project.slug}`;
+          const projectHref = `/realisations#${project.slug}`;
 
           return (
             <article class={`project-card has-hover-fx project-card--${project.slug}`}>
@@ -113,8 +113,8 @@ const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
 
                 <div class="project-card__content space-y-3">
                   <p class="project-card__meta">{project.meta}</p>
-                  <h3 class="text-base font-semibold">{project.title}</h3>
-                  <p class="text-sm text-[var(--color-muted)]">{project.summary}</p>
+                  <h3 class="text-base sm:text-lg font-semibold">{project.title}</h3>
+                  <p class="text-sm text-(--color-muted) leading-relaxed">{project.summary}</p>
                   <p class="project-card__tags">{project.tags.join(" · ")}</p>
                 </div>
               </a>
@@ -142,8 +142,6 @@ const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
                     class="project-case-study__visual"
                     style={caseStudyImage ? `--project-case-study-aspect-ratio: ${caseStudyImage.width} / ${caseStudyImage.height};` : undefined}
                   >
-                    <p class="project-case-study__index" aria-hidden="true">{project.meta}</p>
-
                     <div class="project-case-study__frame">
                       {caseStudyImage ? (
                         <Image
@@ -182,8 +180,9 @@ const projectCaseStudyImageMap = buildAssetMap(projectCaseStudyImageModules);
                   <div class="project-case-study__header">
                     <div class="project-case-study__heading-row">
                       <div class="space-y-3">
+                        <p class="project-case-study__index" aria-hidden="true">{project.meta}</p>
                         <h3 class="text-2xl sm:text-3xl font-semibold">{project.title}</h3>
-                        <p class="text-base sm:text-lg text-[var(--color-muted)] leading-relaxed">
+                        <p class="text-base sm:text-lg text-(--color-muted) leading-relaxed">
                           {project.summary}
                         </p>
                         {projectWebsiteHref && (
