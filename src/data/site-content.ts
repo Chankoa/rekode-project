@@ -119,6 +119,7 @@ export interface AboutPageSectionBase {
 export interface AboutPageHeroContent {
   label: string;
   title: string;
+  titleParts?: HeroTitlePart[];
   paragraphs: string[];
   highlightsLabel: string;
   highlights: AboutHighlightItem[];
@@ -151,6 +152,12 @@ export interface AboutPageProcessSection extends AboutPageSectionBase {
   steps: AboutPageProcessStep[];
 }
 
+export interface AboutPageQuoteSection {
+  label: string;
+  text: string;
+  attribution: string;
+}
+
 export interface AboutPageInspirationSection extends AboutPageSectionBase {
   items: string[];
 }
@@ -169,6 +176,7 @@ export interface AboutPageContent {
   story: AboutPageStorySection;
   expertise: AboutPageExpertiseSection;
   values: AboutPageValuesSection;
+  quote: AboutPageQuoteSection;
   process: AboutPageProcessSection;
   inspiration: AboutPageInspirationSection;
   closing: AboutPageClosingSection;
@@ -441,9 +449,14 @@ export const aboutPageContent: AboutPageContent = {
   },
   hero: {
     label: "À propos",
-    title: "Un profil hybride au service du web.",
+    title: "Un parcours transversal pour concevoir des projets web plus justes.",
+    titleParts: [
+      { text: "Je m'appelle " },
+      { text: "Chandra", highlight: true },
+      { text: "," },
+    ],
     paragraphs: [
-      "Webdesigner / intégrateur freelance depuis 2007, j'accompagne les indépendants, petites structures et projets porteurs de sens à concevoir des expériences web plus claires, plus humaines et plus cohérentes.",
+      "J'avance depuis plusieurs annees a la croisee du terrain, de la creation, de la transmission et du developpement web, avec une meme attention pour le fond, l'usage, le rythme et la clarte.",
       "Design, intégration front-end, WordPress, Astro, React, pédagogie et entrepreneuriat terrain : un parcours transversal qui me permet de relier vision, exécution et transmission.",
     ],
     highlightsLabel: "Repères",
@@ -545,6 +558,12 @@ export const aboutPageContent: AboutPageContent = {
         text: "Faire en sorte que la technique, le design et le contenu servent une intention claire et durable.",
       },
     ],
+  },
+  quote: {
+    label: "Phrase repere",
+    text:
+      "Pour penser differemment, il faut parfois accepter de sortir du chemin commun.",
+    attribution: "Libre inspiration autour d'une idee souvent associee a Haruki Murakami",
   },
   process: {
     index: "04",

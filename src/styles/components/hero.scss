@@ -1,5 +1,9 @@
 .hero {
     position: relative;
+}
+
+.hero.section-shell {
+    position: relative;
     margin-top: calc(var(--site-header-height, 4rem) * -1);
     padding-top: calc(var(--space-12) + var(--site-header-height, 4rem));
     padding-bottom: var(--space-12);

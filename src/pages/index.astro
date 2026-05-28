@@ -11,11 +11,11 @@ import { processSteps, selectedProjects, services } from "../data/site-content";
 <Layout title="Accueil">
   <Hero />
 
-  <SelectedProjects projects={selectedProjects} />
+  <SelectedProjects label="Réalisations" projects={selectedProjects} />
 
-  <Services services={services} />
+  <Services label="Services" services={services} showServicesLink={true} />
 
-  <Process steps={processSteps} />
+  <Process label="Approche" steps={processSteps} />
 
   <About />
 </Layout>

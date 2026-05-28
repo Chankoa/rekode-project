@@ -1,15 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SelectedProjects from "../components/sections/SelectedProjects.astro";
+import Icon from "../components/ui/Icon.astro";
 import { selectedProjects } from "../data/site-content";
 ---
 
 <Layout title="Réalisations">
-  <SelectedProjects
-    title="Les réalisations"
-    intro="Une sélection de projets menés autour des activités de pleine nature, des hébergements touristiques, de l’accompagnement et de la pédagogie."
-    projects={selectedProjects}
-    showProjectsLink={false}
-    variant="case-studies"
-  />
+  <section class="section-shell">
+    <div class="projects-page__hero max-w-(--site-max-width) mx-auto px-4">
+      <header class="projects-page__hero-content section-header">
+        <p class="section-label">Réalisations</p>
+        <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
+          Des projets pensés pour des structures de terrain.
+        </h1>
+        <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
+          Une sélection de sites et d'interventions menés autour des activités de pleine nature, des hébergements touristiques, de l'accompagnement et de la pédagogie, avec un même objectif : rendre l'offre plus claire, plus crédible et plus simple à parcourir.
+        </p>
+        <div class="hero__actions pt-2">
+          <a href="#liste-realisations" class="btn-primary">Voir les études de cas</a>
+          <a href="/services" class="btn-secondary">Découvrir les services</a>
+        </div>
+      </header>
+
+      <aside class="projects-page__hero-aside u-soft-rule" aria-label="Repères">
+        <p class="projects-page__hero-kicker">Ce que montrent ces projets</p>
+        <ul class="projects-page__hero-points">
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="pen" /></span>
+            <span>Clarifier le message, la structure et les priorités de contenu.</span>
+          </li>
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="code" /></span>
+            <span>Concevoir des interfaces plus sobres, plus lisibles et plus simples à maintenir.</span>
+          </li>
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="heart" /></span>
+            <span>Relier image, usage et crédibilité pour des projets à taille humaine.</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <div id="liste-realisations">
+    <SelectedProjects
+      title="Les réalisations"
+      intro="Chaque étude de cas montre comment le contenu, l'UX, l'intégration et les arbitrages éditoriaux ont été pensés ensemble pour servir un usage réel."
+      projects={selectedProjects}
+      showProjectsLink={false}
+      variant="case-studies"
+    />
+  </div>
 </Layout>

@@ -3,6 +3,13 @@ import ThemeToggle from "./ThemeToggle.astro";
 import { siteConfig } from "../../data/site-config";
 import "../../styles/components/navigation.scss";
 import "../../styles/components/site-header.scss";
+
+const normalizePath = (path: string) => {
+  if (!path || path === "/") return "/";
+  return path.endsWith("/") ? path.slice(0, -1) : path;
+};
+
+const currentPath = normalizePath(Astro.url.pathname);
 ---
 
 <header class="site-header sticky top-0 z-30 border-b border-transparent">
@@ -15,7 +22,11 @@ import "../../styles/components/site-header.scss";
       {siteConfig.navigation.map((item) => (
         <a
           href={item.href}
-          class="nav-link px-1 py-1 rounded-full transition-colors"
+          class:list={{
+            "nav-link px-1 py-1 rounded-full transition-colors": true,
+            "is-active": normalizePath(item.href) === currentPath,
+          }}
+          aria-current={normalizePath(item.href) === currentPath ? "page" : undefined}
         >
           {item.label}
         </a>
@@ -69,7 +80,11 @@ import "../../styles/components/site-header.scss";
     {siteConfig.navigation.map((item) => (
       <a
         href={item.href}
-        class="drawer-menu__item nav-link px-3 py-4 rounded-md transition-colors hover:bg-(--surface-muted) hover:text-(--text-strong)"
+        class:list={{
+          "drawer-menu__item nav-link px-3 py-4 rounded-md transition-colors hover:bg-(--surface-muted) hover:text-(--text-strong)": true,
+          "is-active": normalizePath(item.href) === currentPath,
+        }}
+        aria-current={normalizePath(item.href) === currentPath ? "page" : undefined}
       >
         {item.label}
       </a>

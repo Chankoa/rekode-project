@@ -28,6 +28,12 @@
   opacity: 1;
 }
 
+.nav-link.is-active,
+.nav-link[aria-current="page"] {
+  color: var(--color-accent);
+  opacity: 1;
+}
+
 .nav-link:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent, var(--accent-primary, #7c3aed)) 45%, transparent);
@@ -52,7 +58,9 @@
   }
 
   .nav-link:hover::after,
-  .nav-link:focus-visible::after {
+  .nav-link:focus-visible::after,
+  .nav-link.is-active::after,
+  .nav-link[aria-current="page"]::after {
     transform: scaleX(1);
     opacity: 1;
   }
