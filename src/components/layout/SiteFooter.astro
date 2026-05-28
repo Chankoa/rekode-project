@@ -1,32 +1,59 @@
 ---
 import { siteConfig } from "../../data/site-config";
+import { contactContent } from "../../data/site-content";
+import Icon from "../ui/Icon.astro";
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer border-t border-(--border-soft)">
   <div class="footer-manifesto-wrap">
     <div class="footer-manifesto max-w-(--site-max-width) mx-auto px-4 py-10 md:py-12">
-      <div class="footer-manifesto__visual" aria-hidden="true">
-        <div class="footer-manifesto__circle footer-manifesto__circle--outer"></div>
-        <div class="footer-manifesto__circle footer-manifesto__circle--middle"></div>
-        <div class="footer-manifesto__circle footer-manifesto__circle--inner"></div>
-      </div>
+      <aside class="footer-contact" aria-label="Contact direct">
+        <div class="footer-contact__intro">
+          <h2 class="footer-contact__title">{contactContent.title}</h2>
+          <p class="footer-contact__text">{contactContent.intro}</p>
+          <a href={contactContent.ctaHref} class="footer-contact__cta" aria-label={contactContent.ctaLabel} title={contactContent.ctaLabel}>
+            <span class="sr-only">{contactContent.ctaLabel}</span>
+            <Icon name="arrow" />
+          </a>
+        </div>
 
-      <div class="footer-manifesto__content">
-        <p class="footer-manifesto__eyebrow">Design, intégration, transmission.</p>
-        <div class="footer-manifesto__entries" role="list" aria-label="Positionnement">
-          <div class="footer-manifesto__entry" role="listitem">
-            <p class="footer-manifesto__title">Webdesign | Intégration</p>
-            <p class="footer-manifesto__text">Des interfaces sobres, rapides et maintenables, pensées pour des humains.</p>
-          </div>
-          <div class="footer-manifesto__entry" role="listitem">
-            <p class="footer-manifesto__title">UX | Contenus</p>
-            <p class="footer-manifesto__text">Clarifier le message, la structure et le parcours pour rendre chaque projet plus lisible.</p>
-          </div>
-          <div class="footer-manifesto__entry" role="listitem">
-            <p class="footer-manifesto__title">Transmission | Accompagnement</p>
-            <p class="footer-manifesto__text">Concevoir un site que vous pouvez comprendre, faire vivre et reprendre avec autonomie.</p>
-          </div>
+        <div class="footer-contact__details">
+          {siteConfig.contact.email && (
+            <a href={`mailto:${siteConfig.contact.email}`} class="footer-contact__line">
+              <Icon name="mail" />
+              <span>{siteConfig.contact.email}</span>
+            </a>
+          )}
+          {siteConfig.contact.phone && (
+            <a href={`tel:${siteConfig.contact.phone}`} class="footer-contact__line">
+              <Icon name="phone" />
+              <span>{siteConfig.contact.phone}</span>
+            </a>
+          )}
+          {siteConfig.contact.address && (
+            <p class="footer-contact__line footer-contact__line--static">
+              <Icon name="pin" />
+              <span>{siteConfig.contact.address}</span>
+            </p>
+          )}
+        </div>
+      </aside>
+
+      <div class="footer-manifesto__aside">
+        <div class="footer-manifesto__visual" aria-hidden="true">
+          <div class="footer-manifesto__circle footer-manifesto__circle--outer"></div>
+          <div class="footer-manifesto__circle footer-manifesto__circle--middle"></div>
+          <div class="footer-manifesto__circle footer-manifesto__circle--inner"></div>
+        </div>
+
+        <div class="footer-manifesto__content">
+          <a href="/" class="footer-contact__brand" aria-label={`Retour à l'accueil ${siteConfig.name}`}>
+            <span class="footer-contact__brand-mark">{siteConfig.name}<span class="footer-contact__brand-dot">.</span></span>
+          </a>
+          <p class="footer-manifesto__eyebrow">Créer des expériences,</p>
+          <p class="footer-manifesto__eyebrow">Partager,</p>
+          <p class="footer-manifesto__eyebrow">Rester créatif.</p>
         </div>
       </div>
     </div>
@@ -81,6 +108,12 @@ const year = new Date().getFullYear();
   .footer-manifesto {
     display: grid;
     gap: 2.5rem;
+    align-items: start;
+  }
+
+  .footer-manifesto__aside {
+    display: grid;
+    gap: 2rem;
     align-items: center;
   }
 
@@ -122,6 +155,124 @@ const year = new Date().getFullYear();
   .footer-manifesto__content {
     display: grid;
     gap: 1.1rem;
+    align-content: start;
+  }
+
+  .footer-contact {
+    display: grid;
+    gap: 1.1rem;
+    align-content: start;
+  }
+
+  .footer-contact__intro,
+  .footer-contact__details {
+    display: grid;
+    gap: 0.8rem;
+    padding-top: 1rem;
+  }
+
+  .footer-contact__brand {
+    width: fit-content;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .footer-contact__brand-mark {
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--text-default);
+  }
+
+  .footer-contact__brand-dot {
+    color: var(--accent-primary);
+  }
+
+  .footer-contact__label {
+    margin: 0;
+    max-width: 28rem;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+
+  .footer-contact__title,
+  .footer-contact__text {
+    margin: 0;
+  }
+
+  .footer-contact__title {
+    max-width: 22ch;
+    font-size: clamp(1.22rem, 1.02rem + 0.72vw, 1.78rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--text-default);
+    text-wrap: balance;
+  }
+
+  .footer-contact__text {
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .footer-contact__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: var(--text-default);
+    color: var(--surface-bg);
+    text-decoration: none;
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--accent-primary) 10%, transparent);
+    transition:
+      transform 160ms var(--ease-standard, ease),
+      box-shadow 160ms var(--ease-standard, ease),
+      background-color 160ms var(--ease-standard, ease);
+  }
+
+  .footer-contact__cta:hover,
+  .footer-contact__cta:focus-visible {
+    transform: translateX(0.16rem);
+    box-shadow: 0 14px 28px color-mix(in srgb, var(--accent-primary) 14%, transparent);
+  }
+
+  .footer-contact__cta .icon {
+    font-size: 1rem;
+    transition: transform 160ms var(--ease-standard, ease);
+  }
+
+  .footer-contact__cta:hover .icon,
+  .footer-contact__cta:focus-visible .icon {
+    transform: translateX(0.08rem);
+  }
+
+  .footer-contact__details {
+    padding-top: 2rem; 
+    border-top: 1px solid color-mix(in srgb, var(--border-soft) 52%, transparent);
+  }
+
+  .footer-contact__line {
+    display: inline-flex;
+    align-items: start;
+    gap: 0.75rem;
+    color: var(--text-default);
+    text-decoration: none;
+    line-height: 1.5;
+  }
+
+  .footer-contact__line--static {
+    margin: 0;
+  }
+
+  .footer-contact__line .icon {
+    flex: 0 0 auto;
+    margin-top: 0.1rem;
+    font-size: 0.98rem;
+    color: color-mix(in srgb, var(--text-muted) 86%, var(--accent-primary) 14%);
   }
 
   .footer-manifesto__eyebrow {
@@ -132,19 +283,6 @@ const year = new Date().getFullYear();
     text-transform: uppercase;
     color: color-mix(in srgb, var(--accent-primary-strong) 66%, var(--text-default) 34%);
   }
-
-  .footer-manifesto__entries {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .footer-manifesto__entry {
-    display: grid;
-    gap: 0.28rem;
-    padding-top: 0.95rem;
-    border-top: 1px solid color-mix(in srgb, var(--border-soft) 78%, transparent);
-  }
-
   .footer-manifesto__title,
   .footer-manifesto__text {
     margin: 0;
@@ -163,12 +301,47 @@ const year = new Date().getFullYear();
 
   @media (min-width: 768px) {
     .footer-manifesto {
+      gap: 2.8rem;
+    }
+
+    .footer-manifesto__aside {
       grid-template-columns: auto minmax(0, 1fr);
-      gap: 3.5rem;
+      gap: 2.4rem 3rem;
     }
 
     .footer-manifesto__visual {
       margin-inline: 0;
+    }
+
+    .footer-contact {
+      grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.9fr);
+      gap: 1.4rem 2rem;
+      align-items: start;
+    }
+
+    .footer-contact__details {
+      padding-top: 1rem; 
+      padding-right: 1.25rem;
+      border-top: none;
+      border-right: 1px solid color-mix(in srgb, var(--border-soft) 52%, transparent);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-manifesto {
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .footer-manifesto__aside {
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 2.75rem;
+      align-self: center;
+    }
+
+    .footer-contact__details {
+      min-width: 18rem;
     }
 
     .footer-manifesto__entries {

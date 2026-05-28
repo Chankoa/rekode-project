@@ -1,11 +1,12 @@
 export const siteConfig = {
   name: "REKODE",
-  baseline: "Conception de sites vitrines, intégration front-end et accompagnement.",
+  baseline:
+    "Studio d'accompagnement digital humain pour indépendants, petites structures, acteurs du tourisme et projets à taille humaine.",
   lang: "fr",
   url: "https://rekode.studio",
   meta: {
     description:
-      "REKODE conçoit des sites vitrines et interfaces front-end sobres, rapides et maintenables, avec une approche structurée de la conception à la mise en ligne.",
+      "REKODE accompagne les indépendants, petites structures et acteurs du tourisme à clarifier leur présence digitale, avec des sites sobres, utiles et pensés pour des projets à taille humaine.",
   },
   contact: {
     phone: "06 82 91 98 56",
@@ -19,6 +20,7 @@ export const siteConfig = {
   },
   navigation: [
     { label: "Réalisations", href: "/realisations" },
+    { label: "Services", href: "/services" },
     { label: "À propos", href: "/a-propos" },
     { label: "Contact", href: "/contact" },
   ],

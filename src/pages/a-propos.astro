@@ -42,6 +42,15 @@ import { siteConfig } from "../data/site-config";
                 {paragraph}
               </p>
             ))}
+
+            <div class="about-page__skills about-page__skills--hero">
+              <p class="about-page__skills-label">{aboutPageContent.expertise.skillsLabel}</p>
+              <ul class="about-page__skills-list">
+                {aboutPageContent.expertise.skills.map((skill) => (
+                  <li class="about-page__skill-pill">{skill}</li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <aside class="about-page__hero-highlights" aria-label="Repères">
@@ -49,7 +58,10 @@ import { siteConfig } from "../data/site-config";
             <ul class="about-page__highlight-list">
               {aboutPageContent.hero.highlights.map((item) => (
                 <li>
-                  <span>{item}</span>
+                  <span class="about-highlight-list__icon about-page__highlight-icon">
+                    <Icon name={item.icon} />
+                  </span>
+                  <span>{item.label}</span>
                 </li>
               ))}
             </ul>
@@ -106,15 +118,6 @@ import { siteConfig } from "../data/site-config";
         </div>
 
         <div class="about-page__expertise-grid">
-          <div class="about-page__skills">
-            <p class="about-page__skills-label">{aboutPageContent.expertise.skillsLabel}</p>
-            <ul class="about-page__skills-list">
-              {aboutPageContent.expertise.skills.map((skill) => (
-                <li class="about-page__skill-pill">{skill}</li>
-              ))}
-            </ul>
-          </div>
-
           <div class="about-page__expertise-points">
             {aboutPageContent.expertise.points.map((item) => (
               <article class="about-page__expertise-point about-page__soft-rule">

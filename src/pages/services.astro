@@ -1,13 +1,221 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SelectedProjects from "../components/sections/SelectedProjects.astro";
+import Process from "../components/sections/Process.astro";
 import ServicesSection from "../components/sections/Services.astro";
-import { services } from "../data/site-content";
+import Icon from "../components/ui/Icon.astro";
+import {
+  selectedProjects,
+  type ProcessStep,
+  type IconName,
+  type ServiceItem,
+} from "../data/site-content";
+
+const offers: ServiceItem[] = [
+  {
+    title: "Diagnostic & plan d'action web",
+    icon: "document",
+    description:
+      "Pour comprendre ce qui bloque avant de refaire un site. À partir de 149 € : audit UX, clarté du message, mobile, SEO de base, parcours de contact et recommandations concrètes.",
+  },
+  {
+    title: "Refonte WordPress claire & rassurante",
+    icon: "wordpress",
+    description:
+      "Pour transformer un site vieillissant ou confus en support plus crédible. À partir de 790 € : structure de page, hiérarchie des contenus, UX, responsive, SEO local et amélioration éditoriale.",
+  },
+  {
+    title: "Accompagnement numérique sans jargon",
+    icon: "ear",
+    description:
+      "Pour débloquer une problématique web, WordPress, SEO, IA ou contenu. Session 1h30 à partir de 90 € : visio, conseils personnalisés, plan d'action simple et autonomie.",
+  },
+];
+
+const audiences: Array<{ label: string; icon: IconName; text: string }> = [
+  {
+    label: "Hébergements touristiques",
+    icon: "leaf",
+    text: "Pour clarifier une offre, rassurer avant la réservation et rendre le site plus vivant au quotidien.",
+  },
+  {
+    label: "Activités outdoor & tourisme",
+    icon: "mountain",
+    text: "Pour mieux présenter l'expérience, la saisonnalité et les informations utiles sans brouiller le parcours.",
+  },
+  {
+    label: "Indépendants, artisans, thérapeutes",
+    icon: "heart",
+    text: "Pour poser un cadre simple, crédible et humain autour d'une activité souvent portée seule.",
+  },
+  {
+    label: "Formateurs & organismes de formation",
+    icon: "cap",
+    text: "Pour rendre l'offre lisible, structurer les contenus et aider les publics à comprendre rapidement ce qui est proposé.",
+  },
+];
+
+const methodSteps: ProcessStep[] = [
+  {
+    title: "Comprendre",
+    description: "Écouter votre contexte, vos contraintes et les vrais enjeux du projet.",
+    icon: "ear",
+  },
+  {
+    title: "Clarifier",
+    description: "Identifier ce qui bloque dans le message, l'offre ou le parcours utilisateur.",
+    icon: "spark",
+  },
+  {
+    title: "Structurer",
+    description: "Organiser les contenus, les priorités et les actions attendues.",
+    icon: "document",
+  },
+  {
+    title: "Concevoir",
+    description: "Transformer la stratégie en pages lisibles, sobres et rassurantes.",
+    icon: "pen",
+  },
+  {
+    title: "Accompagner",
+    description: "Vous aider à comprendre, ajuster et faire vivre votre présence digitale.",
+    icon: "heart",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Travaillez-vous uniquement avec le tourisme ?",
+    answer:
+      "Non. Le tourisme, l'outdoor et les hébergements font partie des contextes que je connais bien, mais j'accompagne aussi les indépendants, artisans, thérapeutes, formateurs et petites structures.",
+  },
+  {
+    question: "Faut-il déjà avoir un site ?",
+    answer:
+      "Non. Je peux intervenir pour cadrer un futur site, clarifier une offre ou améliorer une présence existante.",
+  },
+  {
+    question: "Est-ce que vous travaillez à distance ?",
+    answer:
+      "Oui. Les diagnostics, accompagnements et phases de conception peuvent se faire à distance, avec des échanges simples et structurés.",
+  },
+  {
+    question: "Pouvez-vous intervenir uniquement sur une page ou un problème précis ?",
+    answer:
+      "Oui. Une session d'accompagnement peut suffire pour débloquer une page, un parcours, un problème WordPress, un sujet SEO ou une question de contenu.",
+  },
+  {
+    question: "Comment savoir quelle offre choisir ?",
+    answer:
+      "Si le besoin est flou, le diagnostic est le meilleur point de départ. Si le site est daté ou confus, la refonte est plus adaptée. Pour une difficulté ponctuelle, l'accompagnement suffit souvent.",
+  },
+];
 ---
 
-<Layout title="Services">
+<Layout
+  title="Services"
+  description="REKODE accompagne les indépendants, petites structures, acteurs du tourisme et projets à taille humaine avec des offres web claires, concrètes et humaines."
+>
+  <section class="section-shell">
+    <div class="services-hero max-w-(--site-max-width) mx-auto px-4">
+      <header class="services-hero__content section-header">
+        <p class="section-label">Services</p>
+        <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
+          Des services pour rendre votre présence web plus claire.
+        </h1>
+        <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
+          Site peu lisible, image datée, contenu confus, manque de visibilité ou besoin d'y voir plus clair ? REKODE accompagne les indépendants, petites structures et projets à taille humaine avec une approche mêlant UX, contenu, WordPress, SEO et accompagnement humain.
+        </p>
+        <div class="hero__actions pt-2">
+          <a href="/contact" class="btn-primary">Parler de votre projet</a>
+        </div>
+      </header>
+
+      <aside class="services-hero__visual" aria-hidden="true">
+        <div class="services-hero__manifesto-visual">
+          <div class="services-hero__circle services-hero__circle--outer"></div>
+          <div class="services-hero__circle services-hero__circle--middle"></div>
+          <div class="services-hero__circle services-hero__circle--inner"></div>
+        </div>
+
+        <div class="services-hero__manifesto-content">
+          <p class="services-hero__eyebrow services-hero__eyebrow--designer">Designer</p>
+          <p class="services-hero__eyebrow services-hero__eyebrow--integrer">Intégrer</p>
+          <p class="services-hero__eyebrow services-hero__eyebrow--transmettre">Transmettre</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="services-page section-stack--airy max-w-(--site-max-width) mx-auto px-4">
+      <header class="section-heading-row">
+        <div class="section-header">
+          <p class="section-label">Pour qui ?</p>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Des projets concrets, portés par des personnes de terrain.</h2>
+          <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
+            L'accompagnement s'adresse aux structures qui ont besoin d'un site plus clair, plus crédible et plus facile à faire vivre.
+          </p>
+        </div>
+      </header>
+
+      <div class="service-grid">
+        {audiences.map((audience) => (
+          <article class="audience-item u-soft-rule has-hover-fx">
+            <span class="service-item__icon">
+              <Icon name={audience.icon} />
+            </span>
+            <h3 class="text-base sm:text-lg font-semibold">{audience.label}</h3>
+            <p class="text-sm text-(--color-muted) leading-relaxed">{audience.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <ServicesSection
-    title="Services"
-    intro="De la création de site vitrine à l'accompagnement, chaque intervention vise une base plus claire, plus performante et plus simple à maintenir."
-    services={services}
+    title="Trois offres pour avancer sans vous perdre dans la technique"
+    intro="Chaque offre vise un résultat concret : comprendre ce qui bloque, rendre un site plus rassurant ou gagner en autonomie sur un sujet digital précis."
+    services={offers}
   />
+
+  <Process
+    title="Une méthode simple et humaine"
+    intro="L'objectif n'est pas de complexifier votre présence digitale, mais de rendre les décisions plus claires et les actions plus faciles à prioriser."
+    steps={methodSteps}
+  />
+
+  <SelectedProjects
+    title="Quelques projets à taille humaine"
+    intro="Des exemples de sites et d'interventions où la clarté du parcours, le contenu et la crédibilité ont compté autant que la technique."
+    projects={selectedProjects.slice(0, 3)}
+    showProjectsLink={true}
+  />
+
+  <section class="section-shell">
+    <div class="max-w-(--site-max-width) mx-auto px-4 section-stack--airy">
+      <header class="section-header">
+        <p class="section-label">FAQ</p>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Questions fréquentes</h2>
+      </header>
+
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details class="faq-item u-soft-rule">
+            <summary class="faq-item__summary">
+              <span class="faq-item__question text-base sm:text-lg font-semibold">{item.question}</span>
+              <span class="faq-item__toggle" aria-hidden="true">
+                <span class="faq-item__toggle-line faq-item__toggle-line--horizontal"></span>
+                <span class="faq-item__toggle-line faq-item__toggle-line--vertical"></span>
+              </span>
+            </summary>
+            <div class="faq-item__answer">
+              <p class="text-sm text-(--color-muted) leading-relaxed">{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
 </Layout>

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { aboutContent } from "../../data/site-content";
+import { aboutContent, type AboutHighlightItem } from "../../data/site-content";
 import aboutPortrait from "../../assets/about-chandra-josephus.webp";
 import Icon from "../ui/Icon.astro";
 
@@ -8,7 +8,7 @@ interface Props {
   eyebrow?: string;
   title?: string;
   text?: string;
-  points?: string[];
+  points?: AboutHighlightItem[];
   ctaLabel?: string;
   ctaHref?: string;
 }
@@ -61,7 +61,10 @@ const {
             <ul class="about-highlight-list">
               {points.map((point) => (
                 <li>
-                  <span>{point}</span>
+                  <span class="about-highlight-list__icon">
+                    <Icon name={point.icon} />
+                  </span>
+                  <span>{point.label}</span>
                 </li>
               ))}
             </ul>

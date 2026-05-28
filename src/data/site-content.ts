@@ -83,11 +83,16 @@ export interface ProcessStep {
   icon: IconName;
 }
 
+export interface AboutHighlightItem {
+  label: string;
+  icon: IconName;
+}
+
 export interface AboutContent {
   eyebrow: string;
   title: string;
   text: string;
-  points: string[];
+  points: AboutHighlightItem[];
   ctaLabel: string;
   ctaHref: string;
 }
@@ -116,7 +121,7 @@ export interface AboutPageHeroContent {
   title: string;
   paragraphs: string[];
   highlightsLabel: string;
-  highlights: string[];
+  highlights: AboutHighlightItem[];
   ctaLabel: string;
   ctaHref: string;
   portraitAlt: string;
@@ -411,9 +416,18 @@ export const aboutContent: AboutContent = {
   text:
     "Développeur front-end, intégrateur, designer dans l'âme, formateur et entrepreneur terrain. J'aime les projets qui ont du sens et les collaborations basées sur la confiance.",
   points: [
-    "15+ ans d'expérience dans l'accompagnement",
-    "Passion pour l'UX, le design et le cinéma",
-    "Esprit entrepreneurial et sens du terrain",
+    {
+      label: "15+ ans d'expérience dans l'accompagnement",
+      icon: "cap",
+    },
+    {
+      label: "Passion pour l'UX, le design et le cinéma",
+      icon: "pen",
+    },
+    {
+      label: "Esprit entrepreneurial et sens du terrain",
+      icon: "mountain",
+    },
   ],
   ctaLabel: "En savoir plus sur moi",
   ctaHref: "/a-propos",
@@ -434,11 +448,26 @@ export const aboutPageContent: AboutPageContent = {
     ],
     highlightsLabel: "Repères",
     highlights: [
-      "Webdesigner / intégrateur depuis 2007",
-      "UX, design & front-end",
-      "Formation web et pédagogie",
-      "Entrepreneuriat & expérience terrain",
-      "Sens du détail, du rythme et du récit",
+      {
+        label: "Webdesigner / intégrateur depuis 2007",
+        icon: "monitor",
+      },
+      {
+        label: "UX, design & front-end",
+        icon: "pen",
+      },
+      {
+        label: "Formation web et pédagogie",
+        icon: "cap",
+      },
+      {
+        label: "Entrepreneuriat & expérience terrain",
+        icon: "mountain",
+      },
+      {
+        label: "Sens du détail, du rythme et du récit",
+        icon: "spark",
+      },
     ],
     ctaLabel: "Découvrir mon parcours",
     ctaHref: "#parcours",

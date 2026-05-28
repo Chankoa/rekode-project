@@ -5,7 +5,6 @@ import SelectedProjects from "../components/sections/SelectedProjects.astro";
 import Services from "../components/sections/Services.astro";
 import Process from "../components/sections/Process.astro";
 import About from "../components/sections/About.astro";
-import Contact from "../components/sections/Contact.astro";
 import { processSteps, selectedProjects, services } from "../data/site-content";
 ---
 
@@ -19,6 +18,4 @@ import { processSteps, selectedProjects, services } from "../data/site-content";
   <Process steps={processSteps} />
 
   <About />
-
-  <Contact compact={true} />
 </Layout>
