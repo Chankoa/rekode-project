@@ -1885,6 +1885,7 @@
   .about-page__inspiration-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.15rem 1.5rem;
+    padding-top: 3rem;
   }
 
   .about-page__expertise-points {

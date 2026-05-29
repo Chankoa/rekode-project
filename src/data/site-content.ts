@@ -610,7 +610,7 @@ export const aboutPageContent: AboutPageContent = {
   },
   inspiration: {
     index: "04",
-    title: "Ce qui nourrit le travail.",
+    title: "Ce qui nourrit ce travail.",
     intro:
       "Des projets utiles, des personnes engagées et des univers qui demandent une attention au ton, au rythme et au détail.",
     items: [
