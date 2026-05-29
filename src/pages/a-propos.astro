@@ -5,7 +5,6 @@ import aboutPortrait from "../assets/about-chandra-josephus.webp";
 import aboutLandscape from "../assets/home/hero.webp";
 import Icon from "../components/ui/Icon.astro";
 import { aboutPageContent } from "../data/site-content";
-import { siteConfig } from "../data/site-config";
 ---
 
 <Layout
@@ -110,13 +109,29 @@ import { siteConfig } from "../data/site-config";
               alt={aboutPageContent.story.imageAlt}
               class="about-page__story-image"
               widths={[640, 960, 1280]}
-              sizes="(max-width: 1023px) 100vw, 55vw"
+              sizes="(max-width: 1023px) 100vw, 36vw"
               loading="lazy"
               format="webp"
             />
             <figcaption class="about-page__media-caption">{aboutPageContent.story.imageCaption}</figcaption>
           </div>
         </figure>
+
+        <aside class="project-case-study__overview-shell about-page__story-skills" aria-label={aboutPageContent.story.technicalSkillsLabel}>
+          <p class="project-case-study__group-label">{aboutPageContent.story.technicalSkillsLabel}</p>
+          <dl class="project-case-study__overview">
+            <div class="project-case-study__overview-item about-page__soft-rule">
+              <dt class="project-case-study__label">Repères</dt>
+              <dd>
+                <ul class="about-page__skills-list">
+                  {aboutPageContent.story.technicalSkills.map((skill) => (
+                    <li class="about-page__skill-pill">{skill}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </aside>
       </section>
 
       <section class="section-shell about-page__panel about-page__panel--expertise">
@@ -139,39 +154,7 @@ import { siteConfig } from "../data/site-config";
               </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section class="section-shell about-page__panel about-page__panel--values">
-        <div class="about-page__section-intro">
-          <p class="about-page__section-index">{aboutPageContent.values.index}</p>
-          <div class="section-copy-stack">
-            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">{aboutPageContent.values.title}</h2>
-            <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed">
-              {aboutPageContent.values.intro}
-            </p>
-          </div>
-        </div>
-
-        <div class="about-page__values-shell">
-          <aside class="about-page__values-manifesto" aria-label="Manifeste">
-            <p class="about-page__values-manifesto-label">{aboutPageContent.values.manifestoLabel}</p>
-            <p class="about-page__values-manifesto-quote">
-              {aboutPageContent.values.manifestoQuote}
-            </p>
-          </aside>
-
-          <div class="about-page__value-grid">
-            {aboutPageContent.values.items.map((item) => (
-              <article class="about-page__value-item about-page__soft-rule">
-                <span class="about-page__value-icon">
-                  <Icon name={item.icon} />
-                </span>
-                <h3 class="text-lg font-semibold">{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -203,14 +186,14 @@ import { siteConfig } from "../data/site-config";
           {aboutPageContent.process.steps.map((step, index) => (
             <li class="about-page__process-item">
               <p class="about-page__process-index">0{index + 1}</p>
-              <span class="about-page__process-icon">
-                <Icon name={step.icon} />
-              </span>         
               <h3 class="text-base font-semibold">{step.title}</h3>
               <p>{step.text}</p>
             </li>
           ))}
         </ol>
+        <p class="text-xs sm:text-sm text-(--color-muted) leading-relaxed max-w-2xl mt-6">
+          {aboutPageContent.process.note}
+        </p>
       </section>
 
       <section class="section-shell about-page__panel about-page__panel--inspiration">

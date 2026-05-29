@@ -2,33 +2,42 @@
 import Layout from "../layouts/Layout.astro";
 import SelectedProjects from "../components/sections/SelectedProjects.astro";
 import Process from "../components/sections/Process.astro";
-import ServicesSection from "../components/sections/Services.astro";
 import Icon from "../components/ui/Icon.astro";
 import {
   selectedProjects,
   type ProcessStep,
   type IconName,
-  type ServiceItem,
 } from "../data/site-content";
 
-const offers: ServiceItem[] = [
+interface OfferItem {
+  title: string;
+  icon: IconName;
+  lead: string;
+  text: string;
+  price: string;
+}
+
+const offers: OfferItem[] = [
   {
-    title: "Diagnostic & plan d'action web",
+    title: "Diagnostic & plan d'action",
     icon: "document",
-    description:
-      "Pour comprendre ce qui bloque avant de refaire un site. À partir de 149 € : audit UX, clarté du message, mobile, SEO de base, parcours de contact et recommandations concrètes.",
+    lead: "Pour clarifier un besoin avant de refaire un site.",
+    text: "Prendre du recul sur un site existant, un message ou une idée avant d'engager du temps ou un budget.",
+    price: "À partir de 149 €",
   },
   {
-    title: "Refonte WordPress claire & rassurante",
-    icon: "wordpress",
-    description:
-      "Pour transformer un site vieillissant ou confus en support plus crédible. À partir de 790 € : structure de page, hiérarchie des contenus, UX, responsive, SEO local et amélioration éditoriale.",
+    title: "Création & refonte de site vitrine",
+    icon: "monitor",
+    lead: "Pour créer une présence web vivante et simple à faire évoluer.",
+    text: "Concevoir un site cohérent avec une activité, un public et un message. De la structure au contenu, avec une attention portée à l'expérience.",
+    price: "À partir de 790 € / sur devis selon périmètre",
   },
   {
-    title: "Accompagnement numérique sans jargon",
+    title: "Accompagnement & regard extérieur",
     icon: "ear",
-    description:
-      "Pour débloquer une problématique web, WordPress, SEO, IA ou contenu. Session 1h30 à partir de 90 € : visio, conseils personnalisés, plan d'action simple et autonomie.",
+    lead: "Pour débloquer une idée ou avancer avec méthode.",
+    text: "Un temps d'échange pour clarifier un besoin, structurer une réflexion ou avancer sur un site, un contenu ou une problématique web.",
+    price: "Session 1h30 à partir de 90 €",
   },
 ];
 
@@ -36,12 +45,12 @@ const audiences: Array<{ label: string; icon: IconName; text: string }> = [
   {
     label: "Hébergements touristiques",
     icon: "leaf",
-    text: "Pour clarifier une offre, rassurer avant la réservation et rendre le site plus vivant au quotidien.",
+    text: "Pour clarifier une offre, rassurer avant la réservation et faire vivre le site au quotidien.",
   },
   {
     label: "Activités outdoor & tourisme",
     icon: "mountain",
-    text: "Pour mieux présenter l'expérience, la saisonnalité et les informations utiles sans brouiller le parcours.",
+    text: "Pour présenter l'expérience, la saisonnalité et les informations utiles sans brouiller le parcours.",
   },
   {
     label: "Indépendants, artisans, thérapeutes",
@@ -51,7 +60,7 @@ const audiences: Array<{ label: string; icon: IconName; text: string }> = [
   {
     label: "Formateurs & organismes de formation",
     icon: "cap",
-    text: "Pour rendre l'offre lisible, structurer les contenus et aider les publics à comprendre rapidement ce qui est proposé.",
+    text: "Pour structurer une offre lisible, organiser les contenus et aider les publics à comprendre rapidement ce qui est proposé.",
   },
 ];
 
@@ -78,7 +87,7 @@ const methodSteps: ProcessStep[] = [
   },
   {
     title: "Accompagner",
-    description: "Vous aider à comprendre, ajuster et faire vivre votre présence digitale.",
+    description: "Vous aider à comprendre, ajuster et faire vivre votre présence web.",
     icon: "heart",
   },
 ];
@@ -92,7 +101,7 @@ const faqItems = [
   {
     question: "Faut-il déjà avoir un site ?",
     answer:
-      "Non. Je peux intervenir pour cadrer un futur site, clarifier une offre ou améliorer une présence existante.",
+      "Non. Je peux intervenir pour cadrer un futur site, clarifier une offre ou faire évoluer une présence existante.",
   },
   {
     question: "Est-ce que vous travaillez à distance ?",
@@ -107,7 +116,7 @@ const faqItems = [
   {
     question: "Comment savoir quelle offre choisir ?",
     answer:
-      "Si le besoin est flou, le diagnostic est le meilleur point de départ. Si le site est daté ou confus, la refonte est plus adaptée. Pour une difficulté ponctuelle, l'accompagnement suffit souvent.",
+      "Si le besoin est flou, le diagnostic est souvent le bon point de départ. Si le site est daté ou confus, la refonte est indiquée. Pour une difficulté ponctuelle, l'accompagnement suffit souvent.",
   },
 ];
 ---
@@ -121,10 +130,10 @@ const faqItems = [
       <header class="services-hero__content section-header">
         <p class="section-label">Services</p>
         <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
-          Des services pour rendre votre présence web plus claire.
+          Clarifier votre présence web. Créer une expérience juste.
         </h1>
         <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
-          Site peu lisible, image datée, contenu confus, manque de visibilité ou besoin d'y voir plus clair ? REKODE accompagne les indépendants, petites structures et projets à taille humaine avec une approche mêlant UX, contenu, WordPress, SEO et accompagnement humain.
+          REKODE accompagne les indépendants, petites structures et projets à taille humaine dans la création, la refonte ou l'évolution de sites pensés pour transmettre un message clair, crédible et simple à parcourir.
         </p>
         <div class="hero__actions pt-2">
           <a href="/contact" class="btn-primary">Parler de votre projet</a>
@@ -139,9 +148,9 @@ const faqItems = [
         </div>
 
         <div class="services-hero__manifesto-content">
-          <p class="services-hero__eyebrow services-hero__eyebrow--designer">Designer</p>
-          <p class="services-hero__eyebrow services-hero__eyebrow--integrer">Intégrer</p>
-          <p class="services-hero__eyebrow services-hero__eyebrow--transmettre">Transmettre</p>
+          <p class="services-hero__eyebrow services-hero__eyebrow--create">Créer</p>
+          <p class="services-hero__eyebrow services-hero__eyebrow--share">Partager</p>
+          <p class="services-hero__eyebrow services-hero__eyebrow--creative">Rester créatif</p>
         </div>
       </aside>
     </div>
@@ -154,7 +163,7 @@ const faqItems = [
           <p class="section-label">Pour qui ?</p>
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Des projets concrets, portés par des personnes de terrain.</h2>
           <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
-            L'accompagnement s'adresse aux structures qui ont besoin d'un site plus clair, plus crédible et plus facile à faire vivre.
+            L'accompagnement s'adresse aux structures qui ont besoin d'un site clair, crédible et facile à faire vivre.
           </p>
         </div>
       </header>
@@ -173,19 +182,46 @@ const faqItems = [
     </div>
   </section>
 
-  <ServicesSection
-    title="Trois offres pour avancer sans vous perdre dans la technique"
-    intro="Chaque offre vise un résultat concret : comprendre ce qui bloque, rendre un site plus rassurant ou gagner en autonomie sur un sujet digital précis."
-    services={offers}
-  />
+  <section class="section-shell">
+    <div class="services-page section-stack--airy max-w-(--site-max-width) mx-auto px-4">
+      <header class="section-heading-row">
+        <div class="section-header">
+          <p class="section-label">Services</p>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Trois offres pour avancer</h2>
+          <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
+            Des formats simples pour prendre du recul, créer ou refondre un site, ou avancer avec un regard extérieur.
+          </p>
+        </div>
+      </header>
+
+      <div class="service-grid">
+        {offers.map((offer) => (
+          <article class="service-item service-item--offer has-hover-fx">
+            <span class="service-item__icon"><Icon name={offer.icon} /></span>
+            <h3 class="text-base sm:text-lg font-semibold">{offer.title}</h3>
+            <p class="text-sm text-(--color-muted) leading-relaxed">{offer.lead}</p>
+            <p class="text-sm text-(--color-muted) leading-relaxed">{offer.text}</p>
+            <p class="text-sm font-semibold text-(--color-text) leading-relaxed">{offer.price}</p>
+          </article>
+        ))}
+      </div>
+
+      <a href="/contact" class="section-link section-link--inline">
+        <span>Parler de votre projet</span>
+        <Icon name="arrow" />
+      </a>
+    </div>
+  </section>
 
   <Process
+    label="Méthode"
     title="Une méthode simple et humaine"
-    intro="L'objectif n'est pas de complexifier votre présence digitale, mais de rendre les décisions plus claires et les actions plus faciles à prioriser."
+    intro="L'objectif n'est pas de complexifier votre présence web, mais de clarifier les décisions et de prioriser les actions utiles."
     steps={methodSteps}
   />
 
   <SelectedProjects
+    label="Projets"
     title="Quelques projets à taille humaine"
     intro="Des exemples de sites et d'interventions où la clarté du parcours, le contenu et la crédibilité ont compté autant que la technique."
     projects={selectedProjects.slice(0, 3)}

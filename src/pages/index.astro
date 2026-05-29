@@ -11,11 +11,25 @@ import { processSteps, selectedProjects, services } from "../data/site-content";
 <Layout title="Accueil">
   <Hero />
 
-  <SelectedProjects label="Réalisations" projects={selectedProjects} />
+  <section class="section-shell" aria-label="Fil conducteur REKODE">
+    <div class="max-w-(--site-max-width) mx-auto px-4">
+      <div class="section-header max-w-4xl">
+        <p class="section-label">Fil conducteur</p>
+        <h2 class="text-2xl sm:text-3xl font-semibold">
+          Créer des expériences. Partager. Rester créatif.
+        </h2>
+        <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed max-w-2xl">
+          Créer des expériences qui portent un message, partager ce qui aide à avancer, rester créatif sans perdre en clarté.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <Services label="Services" services={services} showServicesLink={true} />
+  <Services label="Services" services={services} showServicesLink={true} servicesLinkLabel="Voir les services" />
 
   <Process label="Approche" steps={processSteps} />
+
+  <SelectedProjects label="Réalisations" projects={selectedProjects} />
 
   <About />
 </Layout>

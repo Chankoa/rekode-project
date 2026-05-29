@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "REKODE",
   baseline:
-    "Studio d'accompagnement digital humain pour indépendants, petites structures, acteurs du tourisme et projets à taille humaine.",
+    "Studio d'accompagnement web humain pour indépendants, petites structures, acteurs du tourisme et projets à taille humaine.",
   lang: "fr",
   url: "https://rekode.studio",
   meta: {
     description:
-      "REKODE accompagne les indépendants, petites structures et acteurs du tourisme à clarifier leur présence digitale, avec des sites sobres, utiles et pensés pour des projets à taille humaine.",
+      "REKODE accompagne les indépendants, petites structures et acteurs du tourisme à clarifier leur présence web, avec des sites sobres, utiles et pensés pour des projets à taille humaine.",
   },
   contact: {
     phone: "06 82 91 98 56",

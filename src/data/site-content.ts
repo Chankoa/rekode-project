@@ -106,9 +106,7 @@ export interface AboutPageIconPoint extends AboutPageSectionPoint {
   icon: IconName;
 }
 
-export interface AboutPageProcessStep extends AboutPageSectionPoint {
-  icon: IconName;
-}
+export type AboutPageProcessStep = AboutPageSectionPoint;
 
 export interface AboutPageSectionBase {
   index: string;
@@ -132,6 +130,8 @@ export interface AboutPageHeroContent {
 export interface AboutPageStorySection extends AboutPageSectionBase {
   id: string;
   paragraphs: string[];
+  technicalSkillsLabel: string;
+  technicalSkills: string[];
   imageAlt: string;
   imageCaption: string;
 }
@@ -149,6 +149,7 @@ export interface AboutPageValuesSection extends AboutPageSectionBase {
 }
 
 export interface AboutPageProcessSection extends AboutPageSectionBase {
+  note: string;
   steps: AboutPageProcessStep[];
 }
 
@@ -175,7 +176,6 @@ export interface AboutPageContent {
   hero: AboutPageHeroContent;
   story: AboutPageStorySection;
   expertise: AboutPageExpertiseSection;
-  values: AboutPageValuesSection;
   quote: AboutPageQuoteSection;
   process: AboutPageProcessSection;
   inspiration: AboutPageInspirationSection;
@@ -200,27 +200,27 @@ export interface SectionIntroContent {
 }
 
 export const heroContent: HeroContent = {
-  eyebrow: "Studio web et accompagnement digital",
+  eyebrow: "Studio web & accompagnement",
   titleParts: [
-    { text: "Des " },
-    { text: "sites web", highlight: true },
-    { text: "pensés pour des " },
-    { text: "humains.", highlight: true },
+    { text: "Clarifier votre " },
+    { text: "présence web.", highlight: true },
+    { text: " Créer une " },
+    { text: "expérience juste.", highlight: true },
   ],
   subtitle:
-    "J’aide les indépendants, petites structures et acteurs du tourisme à clarifier leur présence web grâce à une approche mêlant UX, contenu, WordPress, SEO et accompagnement humain.",
+    "J'accompagne les indépendants, petites structures et projets à taille humaine dans la création, la refonte ou l'évolution de sites pensés pour transmettre un message clair, crédible et simple à parcourir.",
   ctaLabel: "Parler de votre projet",
   ctaHref: "/contact",
   secondaryCtaLabel: "Voir les réalisations",
   secondaryCtaHref: "/realisations",
-  supportingLabel: "Clarté éditoriale",
+  supportingLabel: "Fil conducteur",
   supportingText:
-    "Une base technique légère et une structure de contenu lisible pour garder le bon niveau de précision sans transformer le site en vitrine technique.",
+    "Créer des expériences qui portent un message, partager ce qui aide à avancer, rester créatif sans perdre en clarté.",
   features: [
-    { label: "Sites optimisés" },
-    { label: "UX et design" },
-    { label: "Intégration soignée" },
+    { label: "Clarification" },
+    { label: "Création web" },
     { label: "Accompagnement" },
+    { label: "Transmission" },
   ],
 };
 
@@ -228,21 +228,23 @@ export const selectedProjects: ProjectItem[] = [
   {
     title: "ROCKSIDERS",
     slug: "rocksiders",
-    summary: "Site WordPress sur-mesure pour l'encadrement outdoor.",
-    tags: ["UX", "Design", "WordPress", "SEO"],
+    summary:
+      "Création d'un univers outdoor, du site WordPress aux contenus, en passant par l'identité, le SEO et les supports de communication.",
+    tags: ["Création de marque", "WordPress", "SEO", "Contenu", "Communication"],
     meta: "01",
     thumbnailAlt: "Apercu du projet ROCKSIDERS",
     websiteHref: "https://www.rocksiders.com/",
     caseStudy: {
       overview: {
-        role: "UX, direction visuelle, intégration WordPress",
-        deliverables: "Arborescence, maquettes, intégration, optimisation SEO",
-        stack: "WordPress, SCSS, contenus éditoriaux structurés",
-        timeline: "Refonte et mise en ligne progressive",
+        role: "Création d'entreprise, direction éditoriale, identité de marque, UX, développement de thème WordPress, SEO, rédaction de contenus, supports graphiques, communication web",
+        deliverables:
+          "Site WordPress sur mesure, thème WP, arborescence, contenus SEO, pages d'offres, identité éditoriale, flyers, affiches, supports de communication, contenus réseaux sociaux",
+        stack: "WordPress, thème sur mesure, SEO, contenus éditoriaux, supports imprimés",
+        timeline: "Création d'entreprise outdoor et écosystème web / marque",
         highlights: [
-          "Clarification de l'offre et des parcours",
-          "Direction visuelle plus incarnée",
-          "Base WordPress légère et maintenable",
+          "Création d'une marque de terrain",
+          "Structuration des offres outdoor",
+          "Écosystème web et communication",
         ],
       },
       cta: {
@@ -250,33 +252,35 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "ROCKSIDERS avait besoin d'une présence en ligne plus cohérente avec son positionnement outdoor, capable de transmettre l'esprit de terrain de la marque tout en rendant l'offre plus lisible pour un public qui découvre l'activité.",
+        "ROCKSIDERS est né comme une entreprise outdoor dans le Verdon, avec un besoin de construire à la fois une offre lisible, une identité reconnaissable et une présence web capable de rassurer des publics variés.",
       objective:
-        "Clarifier les prestations, renforcer la crédibilité dès les premières secondes et poser une base WordPress suffisamment souple pour faire évoluer les contenus sans complexifier l'administration.",
+        "Donner forme à une marque de terrain, clarifier les activités proposées et créer un site capable d'accompagner la découverte, la confiance et la réservation.",
       approach:
-        "Le travail s'est concentré sur une hiérarchie de contenus plus nette, un design plus incarné, des points d'entrée plus directs vers les offres et une intégration sobre pour garder un site rapide, clair et facile à maintenir.",
+        "Le travail a associé création de marque, structuration des offres, rédaction de contenus, conception UX, développement WordPress, optimisation SEO et communication graphique.",
       outcome:
-        "Le projet aboutit à une vitrine plus rassurante, plus alignée avec l'univers de la marque et mieux structurée pour accompagner la prise de contact ou la découverte progressive des prestations.",
+        "Un écosystème cohérent autour d'une activité outdoor : site, contenus, identité, supports imprimés et communication web.",
     },
   },
   {
     title: "Sens Dessus Dessous",
     slug: "sens-dessus-dessous",
-    summary: "Site vitrine pour promouvoir des activités de pleine nature.",
-    tags: ["Redesign", "Intégration", "WordPress", "SEO"],
+    summary:
+      "Refonte d'un site WordPress existant pour clarifier l'offre, restructurer les contenus et améliorer l'expérience de lecture.",
+    tags: ["Refonte", "WordPress", "Contenu", "UX", "SiteOrigin"],
     meta: "02",
     thumbnailAlt: "Apercu du projet Sens Dessus Dessous",
     websiteHref: "https://sensdessusdessous.eu/",
     caseStudy: {
       overview: {
-        role: "Refonte UX/UI et intégration WordPress",
-        deliverables: "Reprise de structure, redesign, gabarits de contenus",
-        stack: "WordPress, CSS sur mesure, optimisation éditoriale",
-        timeline: "Refonte du site existant",
+        role: "Refonte UX/UI, restructuration de contenus, rédaction, création de modèles de pages, amélioration ergonomique, adaptation sur thème WordPress existant",
+        deliverables:
+          "Pages modèles, contenus réécrits, structure d'activité, optimisation UX, ajustements graphiques, amélioration du parcours utilisateur",
+        stack: "WordPress, thème existant, SiteOrigin Page Builder, CSS, structuration éditoriale",
+        timeline: "Refonte et restructuration d'un site existant",
         highlights: [
-          "Hiérarchie éditoriale simplifiée",
-          "Mise en avant plus lisible des accompagnements",
-          "Autonomie de mise à jour côté client",
+          "Hiérarchie éditoriale retravaillée",
+          "Modèles de pages réutilisables",
+          "Adaptation sur une base WordPress existante",
         ],
       },
       cta: {
@@ -284,66 +288,70 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "Le site devait mieux refléter la qualité de l'accompagnement proposé, avec une présentation plus claire des activités et une expérience de lecture plus fluide pour des visiteurs parfois peu familiers avec cet univers.",
+        "Le site existait déjà mais nécessitait une hiérarchie de l'information retravaillée, une présentation lisible des activités et une expérience de navigation fluide.",
       objective:
-        "Redonner de la lisibilité à l'ensemble, mieux mettre en avant les accompagnements et construire un cadre éditorial rassurant pour faciliter la compréhension de l'offre.",
+        "Aider les visiteurs à comprendre rapidement les activités proposées, les niveaux, les publics concernés et les informations utiles avant contact ou réservation.",
       approach:
-        "La refonte a porté sur la structure des pages, la hiérarchie des informations, la respiration visuelle et une intégration WordPress légère, pensée pour permettre des mises à jour simples côté client.",
+        "Le travail a porté sur la structure des pages, la réécriture de contenus, la création de gabarits réutilisables et l'amélioration progressive de l'ergonomie sur la base technique existante.",
       outcome:
-        "Le résultat est un site plus apaisé, plus clair et plus crédible, qui soutient mieux la prise d'information et donne davantage de place au contenu utile dans le parcours utilisateur.",
+        "Un site mieux structuré, cohérent dans ses contenus et facile à faire évoluer.",
     },
   },
   {
     title: "La Fabrique de Moustiers",
     slug: "lafabrique-moustiers",
-    summary: "Site vitrine des hébergements touristiques de La Fabrique de Moustiers.",
-    tags: ["Wordpress", "UX / UI Design", "Performance", "Optimisation SEO"],
+    summary:
+      "Création d'un site WordPress pour un hébergement touristique, en cohérence avec une identité graphique existante.",
+    tags: ["Hébergement", "WordPress", "Elementor", "UX", "SEO local"],
     meta: "03",
     thumbnailAlt: "Apercu du projet La Fabrique de Moustiers",
     websiteHref: "https://lafabrique-moustiers.com/",
     caseStudy: {
       overview: {
-        role: "UX/UI design, intégration et optimisation de parcours",
-        deliverables: "Direction visuelle, pages de présentation, base SEO",
-        stack: "WordPress, design system léger, optimisation performance",
-        timeline: "Conception et déploiement du site vitrine",
+        role: "Création de site, UX/UI design, intégration WordPress, cohérence de marque, optimisation SEO, structuration du parcours utilisateur",
+        deliverables:
+          "Site vitrine WordPress, pages hébergements, structure éditoriale, optimisation UX, intégration avec thème Elementor, base SEO",
+        stack: "WordPress, Elementor, optimisation UX, SEO local",
+        timeline: "Site d'hébergement touristique : gîtes et table d'hôtes",
         highlights: [
-          "Valorisation sensible du lieu",
-          "Parcours de découverte plus fluides",
-          "Attention portée aux performances et au SEO",
+          "Cohérence avec l'identité existante",
+          "Présentation des hébergements",
+          "Parcours de découverte et SEO local",
         ],
       },
       cta: {
-        label: "Imaginer un site d'hospitalité",
+        label: "Faire un site pour des hébergements",
         href: "/contact",
       },
       context:
-        "Le projet consistait à mettre en valeur plusieurs hébergements touristiques au sein d'un même univers, en trouvant le bon équilibre entre désirabilité, informations pratiques et capacité de réservation ou de contact.",
+        "La Fabrique de Moustiers disposait déjà d'une identité visuelle avec enseigne et logo. Le site devait prolonger cet univers et présenter clairement les hébergements et la table d'hôtes.",
       objective:
-        "Raconter le lieu avec plus de sensibilité, aider les visiteurs à se projeter et structurer le contenu de façon à soutenir à la fois l'expérience utilisateur et la visibilité organique.",
+        "Créer une présence web cohérente avec le lieu, aider les visiteurs à se projeter et améliorer la visibilité en ligne.",
       approach:
-        "L'approche a combiné cadrage UX, direction visuelle, optimisation des parcours de découverte et attention portée aux performances pour conserver une navigation légère malgré la richesse du contenu visuel.",
+        "Le travail a cherché l'équilibre entre identité existante, lisibilité des offres, expérience utilisateur, design d'interface et référencement.",
       outcome:
-        "Le site sert aujourd'hui de support de présentation plus complet, avec une lecture plus fluide des hébergements et une base plus saine pour faire évoluer les contenus et le référencement dans le temps.",
+        "Un site vitrine clair, cohérent avec l'univers du lieu et pensé pour accompagner la découverte des hébergements.",
     },
   },
   {
     title: "Learn It",
     slug: "learn-it",
-    summary: "Plateforme pédagogique WordPress sur-mesure.",
-    tags: ["Work in Progress", "React", "UX/UI Design", "Pédagogie"],
+    summary:
+      "Recherche d'interface LMS basée sur React, pensée pour les formateurs et les apprenants.",
+    tags: ["React", "LMS", "UX/UI", "Design system", "Pédagogie"],
     meta: "04",
     thumbnailAlt: "Apercu du projet Learn It",
     caseStudy: {
       overview: {
-        role: "Conception produit, UX/UI design, architecture front",
-        deliverables: "Parcours, composants, interface pédagogique",
-        stack: "React, WordPress, logique modulaire de contenus",
-        timeline: "Projet en cours",
+        role: "Conception produit, UX/UI, recherche de design system, composants React, réflexion pédagogique, architecture d'interface",
+        deliverables:
+          "Maquettes, composants, réflexion design system, logique front/back, parcours formateur et apprenant",
+        stack: "React, design system, composants, interface pédagogique",
+        timeline: "Projet LMS / interface pédagogique",
         highlights: [
-          "Parcours d'apprentissage plus progressifs",
-          "Architecture de contenus modulaire",
-          "Articulation entre pédagogie et interface",
+          "Parcours formateur et apprenant",
+          "Composants d'interface",
+          "Recherche de design system pédagogique",
         ],
       },
       cta: {
@@ -351,93 +359,120 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "Learn It est un projet en cours autour d'une expérience pédagogique plus engageante, avec des besoins forts en clarté de parcours, en modularité des contenus et en cohérence entre usage éditorial et interface.",
+        "Learn It explore la création d'une interface d'apprentissage utilisable côté formateur comme côté élève, avec des besoins forts en lisibilité, modularité et progression.",
       objective:
-        "Construire une base capable d'accompagner différentes formes d'apprentissage, tout en gardant une expérience simple, progressive et suffisamment robuste pour accueillir des évolutions futures.",
+        "Concevoir une interface pédagogique ergonomique, structurée et simple à utiliser pour créer, organiser et suivre des contenus de formation.",
       approach:
-        "Le travail explore une articulation entre UX, design d'interface, logique de composants et réflexion pédagogique, avec une attention particulière portée à la lisibilité des étapes, des contenus et des actions attendues.",
+        "Le travail porte sur la hiérarchie des contenus, les composants d'interface, les parcours utilisateurs et la recherche d'un design system adapté à un usage pédagogique.",
       outcome:
-        "Le projet est encore en développement, mais il pose déjà les fondations d'une plateforme plus claire, plus flexible et mieux alignée avec les besoins d'apprentissage et de transmission.",
+        "Un prototype de réflexion autour d'un LMS clair, modulaire et orienté usage.",
+    },
+  },
+  {
+    title: "Site vitrine Astro",
+    slug: "site-vitrine-astro",
+    summary:
+      "Maquette de site vitrine simple, fonctionnelle et rapide à mettre en œuvre avec Astro.",
+    tags: ["Astro", "Site vitrine", "Template", "UI", "Intégration"],
+    meta: "05",
+    thumbnailAlt: "Apercu du projet Site vitrine Astro",
+    websiteHref: "https://website-template-pro.netlify.app/",
+    websiteLabel: "Voir la maquette",
+    caseStudy: {
+      overview: {
+        role: "Conception UI, intégration Astro, structure de composants, réflexion sur une base de site réutilisable",
+        deliverables:
+          "Template Astro, homepage, structure de sections, composants réutilisables, base responsive",
+        stack: "Astro, HTML, CSS/SCSS, composants, optimisation légère",
+        timeline: "Maquette de site vitrine Astro",
+        highlights: [
+          "Base de site réutilisable",
+          "Structure de sections",
+          "Intégration légère avec Astro",
+        ],
+      },
+      cta: {
+        label: "Discuter d'un site vitrine",
+        href: "/contact",
+      },
+      context:
+        "Ce projet explore une base de site vitrine sobre et rapide à déployer pour présenter une activité, structurer un message et disposer d'une fondation technique légère.",
+      objective:
+        "Créer un modèle simple à adapter pour des projets vitrines, avec une structure claire, un design sobre et une intégration rapide.",
+      approach:
+        "Le travail s'est concentré sur la composition des sections, la lisibilité, la performance et la possibilité de réutiliser la structure pour différents contextes.",
+      outcome:
+        "Une maquette fonctionnelle qui peut servir de base à des sites vitrines simples, légers et rapides à mettre en ligne.",
     },
   },
 ];
 
 export const services: ServiceItem[] = [
   {
-    title: "Création de site vitrine",
+    title: "Diagnostic & plan d'action",
+    icon: "document",
+    description: "Pour clarifier un besoin avant de refaire un site. Prendre du recul sur un site existant, un message ou une idée avant d'engager du temps ou un budget.",
+  },
+  {
+    title: "Création & refonte de site vitrine",
     icon: "monitor",
-    description: "Un site clair, adapté à votre activité et à vos objectifs.",
+    description: "Pour créer une présence web vivante et simple à faire évoluer. Concevoir un site cohérent avec une activité, un public et un message. De la structure au contenu, avec une attention portée à l'expérience.",
   },
   {
-    title: "Intégration front-end",
-    icon: "code",
-    description: "HTML, CSS, JavaScript, Astro. Propre, sémantique, rapide.",
-  },
-  {
-    title: "Refonte / optimisation",
-    icon: "refresh",
-    description: "Amélioration de l'expérience, des performances et du SEO.",
-  },
-  {
-    title: "WordPress sur-mesure",
-    icon: "wordpress",
-    description: "Thèmes légers, modulaires et faciles à prendre en main.",
-  },
-  {
-    title: "Formation / accompagnement",
-    icon: "cap",
-    description: "Transmission et autonomie pour vos équipes.",
+    title: "Accompagnement & regard extérieur",
+    icon: "ear",
+    description: "Pour débloquer une idée ou avancer avec méthode. Un temps d'échange pour clarifier un besoin, structurer une réflexion ou avancer sur un site, un contenu ou une problématique web.",
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
-    title: "Écouter",
-    description: "Comprendre vos besoins, vos contraintes et vos enjeux.",
+    title: "Échanger",
+    description: "Comprendre votre activité, vos publics et ce que le site doit rendre lisible.",
     icon: "ear",
   },
   {
-    title: "Structure",
-    description: "Organiser l'information et poser des bases solides.",
+    title: "Clarifier",
+    description: "Identifier le message juste, les priorités et les contenus à structurer.",
     icon: "spark",
   },
   {
-    title: "Concevoir",
-    description: "Imaginer des interfaces claires, utiles et élégantes.",
+    title: "Structurer",
+    description: "Organiser les pages, les parcours et les actions attendues.",
+    icon: "document",
+  },
+  {
+    title: "Créer",
+    description: "Donner forme à une expérience web claire, sobre et cohérente.",
     icon: "pen",
   },
   {
-    title: "Intégration",
-    description: "Développer un front-end propre, rapide et accessible.",
-    icon: "code",
-  },
-  {
-    title: "Mise en ligne",
-    description: "Déployer, optimiser et vous rendre autonome.",
-    icon: "rocket",
+    title: "Transmettre",
+    description: "Expliquer les choix, livrer les repères utiles et accompagner la prise en main.",
+    icon: "cap",
   },
 ];
 
 export const aboutContent: AboutContent = {
   eyebrow: "À propos",
-  title: "Un profil hybride au service du web.",
+  title: "Derrière chaque projet, chercher le message juste.",
   text:
-    "Développeur front-end, intégrateur, designer dans l'âme, formateur et entrepreneur terrain. J'aime les projets qui ont du sens et les collaborations basées sur la confiance.",
+    "Derrière chaque projet, il y a souvent une phase d'écoute, de réflexion et de clarification. Une manière de travailler nourrie par le terrain, la transmission et l'attention aux détails.",
   points: [
     {
-      label: "15+ ans d'expérience dans l'accompagnement",
-      icon: "cap",
+      label: "Écouter avant de produire",
+      icon: "ear",
     },
     {
-      label: "Passion pour l'UX, le design et le cinéma",
+      label: "Clarifier le fond et la forme",
       icon: "pen",
     },
     {
-      label: "Esprit entrepreneurial et sens du terrain",
-      icon: "mountain",
+      label: "Transmettre des repères simples",
+      icon: "cap",
     },
   ],
-  ctaLabel: "En savoir plus sur moi",
+  ctaLabel: "À propos",
   ctaHref: "/a-propos",
 };
 
@@ -445,58 +480,68 @@ export const aboutPageContent: AboutPageContent = {
   meta: {
     title: "À propos",
     description:
-      "Un parcours hybride entre terrain, création et numérique au service d’expériences web plus humaines.",
+      "Un parcours entre terrain, création et transmission pour clarifier les projets web et chercher le message juste.",
   },
   hero: {
     label: "À propos",
-    title: "Un parcours transversal pour concevoir des projets web plus justes.",
+    title: "Derrière chaque projet, chercher le message juste",
     titleParts: [
-      { text: "Je m'appelle " },
-      { text: "Chandra", highlight: true },
-      { text: "," },
+      { text: "Derrière chaque projet, " },
+      { text: "chercher le message juste", highlight: true },
     ],
     paragraphs: [
-      "J'avance depuis plusieurs annees a la croisee du terrain, de la creation, de la transmission et du developpement web, avec une meme attention pour le fond, l'usage, le rythme et la clarte.",
-      "Design, intégration front-end, WordPress, Astro, React, pédagogie et entrepreneuriat terrain : un parcours transversal qui me permet de relier vision, exécution et transmission.",
+      "REKODE est né d'un parcours à la croisée du terrain, de la création, de la transmission et du web. J'y accompagne des indépendants, petites structures et projets à taille humaine pour clarifier ce qu'ils font, ce qu'ils veulent transmettre et la forme que leur site peut prendre.",
+      "Avant de penser pages, outils ou interface, je cherche à comprendre l'activité, les publics, les contraintes et le ton juste. Le site devient alors un support clair, crédible et vivant, pensé pour être compris et repris dans le temps.",
     ],
     highlightsLabel: "Repères",
     highlights: [
       {
-        label: "Webdesigner / intégrateur depuis 2007",
-        icon: "monitor",
+        label: "Écoute et clarification",
+        icon: "ear",
       },
       {
-        label: "UX, design & front-end",
-        icon: "pen",
-      },
-      {
-        label: "Formation web et pédagogie",
-        icon: "cap",
-      },
-      {
-        label: "Entrepreneuriat & expérience terrain",
+        label: "Culture terrain et entrepreneuriat",
         icon: "mountain",
       },
       {
-        label: "Sens du détail, du rythme et du récit",
+        label: "Création web sobre",
+        icon: "monitor",
+      },
+      {
+        label: "Transmission et autonomie",
+        icon: "cap",
+      },
+      {
+        label: "Rythme, récit et attention aux détails",
         icon: "spark",
       },
     ],
-    ctaLabel: "Découvrir mon parcours",
-    ctaHref: "#parcours",
+    ctaLabel: "Parler de votre projet",
+    ctaHref: "/contact",
     portraitAlt: "Portrait en noir et blanc",
     portraitCaption:
-      "Un parcours hybride, entre exigence terrain, culture visuelle et production web.",
+      "Un parcours entre terrain, création, web et transmission.",
   },
   story: {
     id: "parcours",
     index: "01",
-    title: "Un parcours entre terrain, création et numérique.",
+    title: "Un parcours nourri par le terrain.",
     intro:
-      "Avant le web, il y a eu le terrain, l'accompagnement, la relation humaine et l'entrepreneuriat.",
+      "Avant les interfaces, il y a eu les situations réelles : accompagner, expliquer, organiser, décider.",
     paragraphs: [
-      "Éducateur sportif depuis 1998, puis entrepreneur outdoor avec ROCKSIDERS de 2019 à 2025, j'ai appris à construire des offres, gérer des projets, transmettre, communiquer et prendre des décisions au contact du réel.",
-      "En parallèle, le web est devenu un terrain d'expression central : design d'interface, intégration HTML/CSS, WordPress, responsive design, UX/UI, puis outils plus récents comme Astro ou React. Cette diversité nourrit aujourd'hui ma manière de concevoir des projets numériques plus solides, plus lisibles et plus ancrés dans les usages.",
+      "Éducateur sportif depuis 1998, puis entrepreneur outdoor avec ROCKSIDERS de 2019 à 2025, j'ai appris à construire une offre, tenir un cadre, écouter des publics différents et transformer des idées en actions concrètes.",
+      "Le web s'est ajouté comme un espace de création et de transmission. Il m'a donné un moyen de structurer des messages, de raconter une activité, de rendre une expérience compréhensible et de créer des supports que les personnes peuvent faire vivre.",
+      "Cette double culture du terrain et du web nourrit aujourd'hui REKODE : une manière de concevoir qui part du réel avant de choisir les outils.",
+    ],
+    technicalSkillsLabel: "Compétences techniques",
+    technicalSkills: [
+      "HTML / CSS",
+      "WordPress",
+      "Responsive design",
+      "UX / UI",
+      "Optimisation SEO",
+      "Accessibilité",
+      "Astro / React",
     ],
     imageAlt: "Carnet ouvert face aux montagnes au lever du soleil",
     imageCaption:
@@ -504,117 +549,82 @@ export const aboutPageContent: AboutPageContent = {
   },
   expertise: {
     index: "02",
-    title: "Ce que ce parcours me permet d'apporter.",
+    title: "Clarifier, structurer, transmettre.",
     intro:
-      "Mes compétences ne sont pas un inventaire d'outils. Elles prennent sens dans la façon dont j'articule stratégie, design, intégration et transmission pour faire avancer un projet de manière lisible.",
-    skillsLabel: "Compétences-clés",
+      "Cette approche tient en trois gestes simples : clarifier ce qui doit être compris, structurer ce qui doit être parcouru, transmettre ce qui doit rester vivant après la mise en ligne. Créer une expérience web juste, c'est aussi partager les bons repères et rester créatif sans brouiller le message.",
+    skillsLabel: "Axes directeurs",
     skills: [
-      "HTML / CSS",
-      "WordPress",
-      "UX / UI",
-      "Astro",
-      "React",
-      "SEO",
-      "Pédagogie",
-      "Gestion de projet",
+      "Clarification",
+      "Structure",
+      "Transmission",
     ],
     points: [
       {
-        title: "Concevoir avec clarté",
-        text: "Transformer des besoins diffus en structure lisible, en hiérarchie de contenu et en expérience crédible.",
+        title: "Clarifier",
+        text: "Faire émerger le message juste, mettre des mots sur l'activité et distinguer ce qui doit être compris en priorité.",
       },
       {
-        title: "Produire sans surcouche inutile",
-        text: "Choisir le bon niveau d'outil et d'intégration pour rester sobre, maintenable et vraiment utile dans le temps.",
+        title: "Structurer",
+        text: "Organiser les contenus, les parcours et les actions attendues pour donner au site une lecture simple et cohérente.",
       },
       {
-        title: "Transmettre et rendre autonome",
-        text: "Documenter, expliquer et simplifier pour que le projet puisse être compris, repris et faire gagner du temps après livraison.",
-      },
-    ],
-  },
-  values: {
-    index: "03",
-    title: "Ma philosophie.",
-    intro:
-      "Je crois aux expériences digitales qui restent simples, compréhensibles et alignées avec ce que vous faites réellement. Un site n'a pas besoin d'être spectaculaire pour être juste : il doit être lisible, fluide et crédible.",
-    manifestoLabel: "Fil conducteur",
-    manifestoQuote:
-      "Concevoir des interfaces calmes, utiles et lisibles, où la forme accompagne le sens au lieu de le parasiter.",
-    items: [
-      {
-        icon: "leaf",
-        title: "Clarté",
-        text: "Concevoir des interfaces lisibles, hiérarchisées et utiles, sans surcharger l'expérience.",
-      },
-      {
-        icon: "heart",
-        title: "Humain",
-        text: "Relier le fond, la forme et la relation de confiance pour faire émerger des expériences plus justes.",
-      },
-      {
-        icon: "spark",
-        title: "Sens",
-        text: "Faire en sorte que la technique, le design et le contenu servent une intention claire et durable.",
+        title: "Transmettre",
+        text: "Expliquer les choix, partager les repères utiles et rendre la présence web appropriable dans le temps.",
       },
     ],
   },
   quote: {
-    label: "Phrase repere",
+    label: "Repère",
     text:
-      "Pour penser differemment, il faut parfois accepter de sortir du chemin commun.",
-    attribution: "Libre inspiration autour d'une idee souvent associee a Haruki Murakami",
+      "Un site juste commence souvent par une conversation précise.",
+    attribution: "REKODE",
   },
   process: {
-    index: "04",
-    title: "Ma façon d'aborder vos projets.",
+    index: "03",
+    title: "Laisser les idées prendre forme",
     intro:
-      "Une démarche souple et collaborative, nourrie par le design, l'intégration, la pédagogie et la gestion de projet, adaptée à votre réalité et au bon niveau de complexité.",
+      "Avant de concevoir une interface, il faut souvent remettre les idées sur la table : écouter, observer, déplacer les angles, chercher le message juste. Cette phase n'est pas un détour ; elle fait partie du travail.",
+    note: "Parfois : boire un café, regarder ailleurs, revenir au détail.",
     steps: [
       {
-        icon: "ear",
-        title: "Écouter",
-        text: "Comprendre votre activité, votre contexte et ce qui compte vraiment pour vos utilisateurs.",
+        title: "Observer",
+        text: "Prendre le temps de regarder le contexte, les usages, les contraintes et les détails qui comptent.",
       },
       {
-        icon: "document",
-        title: "Explorer",
-        text: "Clarifier les contenus, les enjeux et les opportunités avant de produire des écrans.",
+        title: "Connecter",
+        text: "Relier les idées, les envies et les hésitations pour faire apparaître une direction.",
       },
       {
-        icon: "pen",
-        title: "Concevoir",
-        text: "Donner une forme visuelle et narrative cohérente à des idées parfois encore diffuses.",
+        title: "Recomposer",
+        text: "Remettre les éléments dans un ordre clair, en gardant ce qui donne au projet sa matière vivante.",
       },
       {
-        icon: "code",
-        title: "Développer",
-        text: "Intégrer proprement en HTML, CSS, WordPress, Astro ou React selon le bon niveau de réponse.",
+        title: "Itérer",
+        text: "Ajuster la forme, le rythme et les contenus jusqu'à trouver une lecture juste.",
       },
       {
-        icon: "arrow",
-        title: "Livrer & ajuster",
-        text: "Documenter, transmettre et ajuster pour que le projet reste vivant et appropriable.",
+        title: "Recommencer",
+        text: "Revenir au besoin, simplifier encore, puis avancer.",
       },
     ],
   },
   inspiration: {
-    index: "05",
-    title: "Ce qui m'inspire.",
+    index: "04",
+    title: "Ce qui nourrit le travail.",
     intro:
-      "Des projets utiles, des personnes passionnées et des trajectoires atypiques. J'aime les croisements entre technique, création, transmission et récit visuel.",
+      "Des projets utiles, des personnes engagées et des univers qui demandent une attention au ton, au rythme et au détail.",
     items: [
-      "Les projets utiles, les trajectoires atypiques et les personnes qui portent une vision claire.",
-      "La nature, le mouvement, l'outdoor et ce qu'ils enseignent sur le rythme, l'attention et la simplicité.",
-      "La transmission, la pédagogie et le plaisir d'aider d'autres personnes à mieux comprendre les outils du web.",
-      "Le récit visuel, l'audiovisuel, le voyage, la culture et les détails qui créent une ambiance juste.",
+      "Les projets portés par des personnes qui connaissent leur métier et cherchent à le rendre lisible.",
+      "La nature, le mouvement et l'outdoor, pour leur rapport au rythme, à l'attention et à la simplicité.",
+      "La pédagogie et la transmission, parce qu'un site doit aussi aider à comprendre.",
+      "Le récit visuel, l'image et les ambiances qui donnent une présence sans ajouter de bruit.",
     ],
   },
   closing: {
-    index: "06",
-    title: "Un projet en tête ?",
+    index: "05",
+    title: "Un projet à clarifier ?",
     intro:
-      "Une idée, une refonte ou un projet à faire émerger ? Discutons-en simplement et voyons quelle forme lui donner.",
+      "Une idée, une refonte ou une présence web à remettre à plat ? Discutons-en simplement et voyons quel message faire émerger.",
     ctaLabel: "Discutons-en",
     ctaHref: "/contact",
   },
@@ -648,18 +658,18 @@ export const labItems: LabItem[] = [
 ];
 
 export const selectedProjectsContent: SectionIntroContent = {
-  title: "Quelques réalisations",
+  title: "Des réalisations concrètes",
   intro:
-    "Une sélection de projets menés autour des activités de pleine nature, des hébergements touristiques, de l’accompagnement et de la pédagogie.",
+    "Des sites pensés pour rendre une activité lisible, crédible et simple à comprendre.",
 };
 
 export const servicesContent: SectionIntroContent = {
-  title: "Ce que je peux faire pour vous",
-  intro: "Des prestations structurées pour produire un site juste, rapide et facile à faire vivre.",
+  title: "Trois façons d'avancer",
+  intro: "Des formats simples pour clarifier un besoin, faire évoluer un site ou avancer avec un regard extérieur.",
 };
 
 export const processContent: SectionIntroContent = {
-  title: "Une approche simple et humaine",
+  title: "Comment avancer ensemble",
   intro:
-    "Une méthode lisible, sans mise en scène inutile : comprendre, structurer, concevoir, intégrer, mettre en ligne.",
+    "Un déroulé lisible pour passer d'une idée, d'un site daté ou d'un besoin flou à une présence web claire et appropriable.",
 };

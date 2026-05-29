@@ -11,10 +11,10 @@ import { selectedProjects } from "../data/site-content";
       <header class="projects-page__hero-content section-header">
         <p class="section-label">Réalisations</p>
         <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
-          Des projets pensés pour des structures de terrain.
+          Des projets conçus à partir de besoins réels.
         </h1>
         <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
-          Une sélection de sites et d'interventions menés autour des activités de pleine nature, des hébergements touristiques, de l'accompagnement et de la pédagogie, avec un même objectif : rendre l'offre plus claire, plus crédible et plus simple à parcourir.
+          Des sites, refontes et interfaces pensés pour clarifier une activité, structurer un message et donner une présence web cohérente à des projets portés par des personnes.
         </p>
         <div class="hero__actions pt-2">
           <a href="#liste-realisations" class="btn-primary">Voir les études de cas</a>
@@ -22,20 +22,20 @@ import { selectedProjects } from "../data/site-content";
         </div>
       </header>
 
-      <aside class="projects-page__hero-aside u-soft-rule" aria-label="Repères">
+      <aside class="projects-page__hero-aside" aria-label="Repères de lecture">
         <p class="projects-page__hero-kicker">Ce que montrent ces projets</p>
         <ul class="projects-page__hero-points">
           <li>
-            <span class="projects-page__hero-icon"><Icon name="pen" /></span>
-            <span>Clarifier le message, la structure et les priorités de contenu.</span>
+            <span class="projects-page__hero-icon"><Icon name="document" /></span>
+            <span>Une activité clarifiée avant de produire des écrans.</span>
           </li>
           <li>
-            <span class="projects-page__hero-icon"><Icon name="code" /></span>
-            <span>Concevoir des interfaces plus sobres, plus lisibles et plus simples à maintenir.</span>
+            <span class="projects-page__hero-icon"><Icon name="pen" /></span>
+            <span>Un parcours pensé pour aider les visiteurs à comprendre et agir.</span>
           </li>
           <li>
             <span class="projects-page__hero-icon"><Icon name="heart" /></span>
-            <span>Relier image, usage et crédibilité pour des projets à taille humaine.</span>
+            <span>Une présence web alignée avec le contexte, les contenus et les usages.</span>
           </li>
         </ul>
       </aside>
@@ -45,7 +45,7 @@ import { selectedProjects } from "../data/site-content";
   <div id="liste-realisations">
     <SelectedProjects
       title="Les réalisations"
-      intro="Chaque étude de cas montre comment le contenu, l'UX, l'intégration et les arbitrages éditoriaux ont été pensés ensemble pour servir un usage réel."
+      intro="Chaque projet part d'un contexte réel : une activité à rendre lisible, une offre à structurer, un parcours à simplifier ou une expérience à concevoir."
       projects={selectedProjects}
       showProjectsLink={false}
       variant="case-studies"

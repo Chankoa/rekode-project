@@ -67,12 +67,12 @@ const currentPath = normalizePath(Astro.url.pathname);
   aria-label="Menu mobile"
 >
   <div class="drawer-intro flex flex-col gap-3">
-    <span class="drawer-intro__eyebrow">Navigation</span>
-    <div class="flex items-center gap-2">
+    <span class="drawer-intro__eyebrow">Menu</span>
+    <a href="/" class="drawer-intro__brand flex items-center gap-2 no-underline" aria-label={`Retour à l'accueil ${siteConfig.name}`}>
       <span style="font-family: var(--font-heading);" class="text-lg font-bold tracking-tighter text-(--text-strong)">{siteConfig.name}<span class="text-(--accent-primary)">.</span></span>
-    </div>
+    </a>
     <p class="drawer-intro__lede max-w-md text-sm leading-6 text-(--text-muted)">
-      Explore les pages essentielles du studio avec une navigation plus lisible et plus directe sur mobile.
+      Découvrir les réalisations, consulter les services, comprendre l'approche ou prendre contact.
     </p>
   </div>
 

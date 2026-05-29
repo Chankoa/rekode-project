@@ -8,6 +8,7 @@ interface Props {
   intro?: string;
   services: ServiceItem[];
   showServicesLink?: boolean;
+  servicesLinkLabel?: string;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   intro = servicesContent.intro,
   services,
   showServicesLink = false,
+  servicesLinkLabel = "Voir la page Services",
 } = Astro.props;
 ---
 
@@ -29,7 +31,7 @@ const {
       </div>
       {showServicesLink && (
         <a href="/services" class="section-link">
-          <span>Voir la page Services</span>
+          <span>{servicesLinkLabel}</span>
           <Icon name="arrow" />
         </a>
       )}

@@ -193,6 +193,17 @@
   color: var(--text-muted);
 }
 
+.drawer-intro__brand {
+  width: fit-content;
+  color: var(--text-default);
+}
+
+.drawer-intro__brand:hover,
+.drawer-intro__brand:focus-visible {
+  color: var(--accent-primary);
+  outline: none;
+}
+
 .drawer-intro__lede {
   text-wrap: balance;
 }
