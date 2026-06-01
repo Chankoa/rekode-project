@@ -204,11 +204,11 @@ export const heroContent: HeroContent = {
   titleParts: [
     { text: "Clarifier votre " },
     { text: "présence web.", highlight: true },
-    { text: " Créer une " },
+    { text: " Concevoir une " },
     { text: "expérience juste.", highlight: true },
   ],
   subtitle:
-    "J'accompagne les indépendants, petites structures et projets à taille humaine dans la création, la refonte ou l'évolution de sites pensés pour transmettre un message clair, crédible et simple à parcourir.",
+    "J’accompagne les indépendants, équipes, structures et projets en évolution dans la création, la refonte ou l’évolution de sites et interfaces pensés pour transmettre un message clair, structurer une expérience et donner une forme cohérente aux idées.",
   ctaLabel: "Parler de votre projet",
   ctaHref: "/contact",
   secondaryCtaLabel: "Voir les réalisations",
@@ -669,7 +669,7 @@ export const servicesContent: SectionIntroContent = {
 };
 
 export const processContent: SectionIntroContent = {
-  title: "Comment avancer ensemble",
+  title: "Avançons ensemble",
   intro:
     "Un déroulé lisible pour passer d'une idée, d'un site daté ou d'un besoin flou à une présence web claire et appropriable.",
 };

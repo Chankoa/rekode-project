@@ -1170,7 +1170,7 @@
 .about-page__quote-icon svg {
   width: 100%;
   height: 100%;
-  fill: currentColor;
+  fill: var(--accent-primary);
   stroke: none;
 }
 
@@ -1276,7 +1276,7 @@
 
 .about-page__story-image {
   min-height: clamp(16.5rem, 24vw, 20rem);
-  aspect-ratio: 4 / 3;
+  /*aspect-ratio: 4 / 3;*/
   object-position: center 46%;
 }
 
