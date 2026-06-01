@@ -334,12 +334,49 @@ export const selectedProjects: ProjectItem[] = [
     },
   },
   {
+    title: "Maison Alta",
+    slug: "alta-website-demo",
+    summary:
+      "Démo Astro immersive pour une maison d'hôtes contemporaine, entre storytelling visuel, informations de séjour et intention de réservation.",
+    tags: ["Astro", "Hébergements", "Landing page", "UI", "Direction artistique"],
+    meta: "04",
+    thumbnailAlt: "Apercu du projet Maison Alta, site vitrine pour une maison d'hotes contemporaine",
+    websiteHref: "https://alta-website-demo.netlify.app/",
+    websiteLabel: "Voir la démo",
+    caseStudy: {
+      overview: {
+        role: "Direction artistique, conception UI, intégration Astro, structure éditoriale et hiérarchisation du parcours de réservation",
+        deliverables:
+          "Landing page complète, hero immersif, sections de chambres, galerie, FAQ, témoignages et CTA de réservation",
+        stack: "Astro, HTML, SCSS, composants, optimisation d'images, structure responsive",
+        timeline: "Démo éditoriale pour maison d'hôtes",
+        highlights: [
+          "Univers visuel chaleureux et premium",
+          "Parcours orienté séjour et réservation",
+          "Base réutilisable pour location ou hôtellerie indépendante",
+        ],
+      },
+      cta: {
+        label: "Discuter d'un site d'hébergements",
+        href: "/contact",
+      },
+      context:
+        "Maison Alta imagine le site d'une maison d'hôtes nichée en bord de village. L'enjeu est de transmettre une atmosphère, clarifier l'offre et rassurer sur l'expérience avant même la prise de contact.",
+      objective:
+        "Composer une page de destination capable de vendre un séjour: montrer le lieu, détailler les chambres, mettre en avant les expériences à proximité et rendre les informations pratiques immédiatement lisibles.",
+      approach:
+        "Le travail s'est concentré sur un hero immersif, une narration par blocs courts, des cartes de chambres et d'expériences, puis des sections de réassurance comme les avis, la FAQ et les informations pratiques pour accompagner la décision.",
+      outcome:
+        "Une démo Astro cohérente et réutilisable pour des projets d'hébergements touristiques, avec une présence visuelle plus incarnée qu'un simple template vitrine et un parcours pensé pour convertir sans surcharger la lecture.",
+    },
+  },
+  {
     title: "Learn It",
     slug: "learn-it",
     summary:
       "Recherche d'interface LMS basée sur React, pensée pour les formateurs et les apprenants.",
     tags: ["React", "LMS", "UX/UI", "Design system", "Pédagogie"],
-    meta: "04",
+    meta: "05",
     thumbnailAlt: "Apercu du projet Learn It",
     caseStudy: {
       overview: {
@@ -366,43 +403,6 @@ export const selectedProjects: ProjectItem[] = [
         "Le travail porte sur la hiérarchie des contenus, les composants d'interface, les parcours utilisateurs et la recherche d'un design system adapté à un usage pédagogique.",
       outcome:
         "Un prototype de réflexion autour d'un LMS clair, modulaire et orienté usage.",
-    },
-  },
-  {
-    title: "Site vitrine Astro",
-    slug: "site-vitrine-astro",
-    summary:
-      "Maquette de site vitrine simple, fonctionnelle et rapide à mettre en œuvre avec Astro.",
-    tags: ["Astro", "Site vitrine", "Template", "UI", "Intégration"],
-    meta: "05",
-    thumbnailAlt: "Apercu du projet Site vitrine Astro",
-    websiteHref: "https://website-template-pro.netlify.app/",
-    websiteLabel: "Voir la maquette",
-    caseStudy: {
-      overview: {
-        role: "Conception UI, intégration Astro, structure de composants, réflexion sur une base de site réutilisable",
-        deliverables:
-          "Template Astro, homepage, structure de sections, composants réutilisables, base responsive",
-        stack: "Astro, HTML, CSS/SCSS, composants, optimisation légère",
-        timeline: "Maquette de site vitrine Astro",
-        highlights: [
-          "Base de site réutilisable",
-          "Structure de sections",
-          "Intégration légère avec Astro",
-        ],
-      },
-      cta: {
-        label: "Discuter d'un site vitrine",
-        href: "/contact",
-      },
-      context:
-        "Ce projet explore une base de site vitrine sobre et rapide à déployer pour présenter une activité, structurer un message et disposer d'une fondation technique légère.",
-      objective:
-        "Créer un modèle simple à adapter pour des projets vitrines, avec une structure claire, un design sobre et une intégration rapide.",
-      approach:
-        "Le travail s'est concentré sur la composition des sections, la lisibilité, la performance et la possibilité de réutiliser la structure pour différents contextes.",
-      outcome:
-        "Une maquette fonctionnelle qui peut servir de base à des sites vitrines simples, légers et rapides à mettre en ligne.",
     },
   },
 ];
