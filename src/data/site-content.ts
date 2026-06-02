@@ -202,10 +202,10 @@ export interface SectionIntroContent {
 export const heroContent: HeroContent = {
   eyebrow: "Studio web & accompagnement",
   titleParts: [
-    { text: "Clarifier votre " },
-    { text: "présence web.", highlight: true },
-    { text: " Concevoir une " },
-    { text: "expérience juste.", highlight: true },
+    { text: "Concevoir des " },
+    { text: "interfaces web.", highlight: true },
+    { text: " pour des " },
+    { text: "humains.", highlight: true },
   ],
   subtitle:
     "J’accompagne les indépendants, équipes, structures et projets en évolution dans la création, la refonte ou l’évolution de sites et interfaces pensés pour transmettre un message clair, structurer une expérience et donner une forme cohérente aux idées.",
@@ -455,20 +455,20 @@ export const processSteps: ProcessStep[] = [
 
 export const aboutContent: AboutContent = {
   eyebrow: "À propos",
-  title: "Derrière chaque projet, chercher le message juste.",
+  title: "Derrière chaque projet, chercher le message juste, pour le bon public.",
   text:
-    "Derrière chaque projet, il y a souvent une phase d'écoute, de réflexion et de clarification. Une manière de travailler nourrie par le terrain, la transmission et l'attention aux détails.",
+    "Commencer par une phase d'écoute, de réflexion et de clarification : une manière de travailler nourrie par les activités de pleine nature, le goût de partager (et d'apprendre), l'attention portée au design, et aux détails.",
   points: [
     {
-      label: "Écouter avant de produire",
+      label: "Écouter, observer",
       icon: "ear",
     },
     {
-      label: "Clarifier le fond et la forme",
+      label: "Chercher les connexions avec le public",
       icon: "pen",
     },
     {
-      label: "Transmettre des repères simples",
+      label: "Tracer les chemins entre le fond et la forme",
       icon: "cap",
     },
   ],
@@ -486,12 +486,12 @@ export const aboutPageContent: AboutPageContent = {
     label: "À propos",
     title: "Derrière chaque projet, chercher le message juste",
     titleParts: [
-      { text: "Derrière chaque projet, " },
-      { text: "chercher le message juste", highlight: true },
+      { text: "Sous les projets, " },
+      { text: "le message.", highlight: true },
     ],
     paragraphs: [
-      "REKODE est né d'un parcours à la croisée du terrain, de la création, de la transmission et du web. J'y accompagne des indépendants, petites structures et projets à taille humaine pour clarifier ce qu'ils font, ce qu'ils veulent transmettre et la forme que leur site peut prendre.",
-      "Avant de penser pages, outils ou interface, je cherche à comprendre l'activité, les publics, les contraintes et le ton juste. Le site devient alors un support clair, crédible et vivant, pensé pour être compris et repris dans le temps.",
+      "REKODE est né d'un parcours à la croisée des activités de pleine nature, de ma passion pour l'espace de création web, et de mon goût pour le partage des savoirs (et celui de l'apprentissage). Le but de ce studio est de créer des expériences web qui font sens, et dont le message est clair, pour le public qui est visé : le bon message, pour le bon public.",
+      "Dans cette perspective, je cherche à comprendre l'activité, son contexte, les publics, les contraintes, afin de trouver le ton juste. Le site doit être un support clair, crédible et vivant, pensé pour être compris, et si possible, parcouru avec plaisir.",
     ],
     highlightsLabel: "Repères",
     highlights: [
@@ -527,11 +527,11 @@ export const aboutPageContent: AboutPageContent = {
     index: "01",
     title: "Un parcours nourri par le terrain.",
     intro:
-      "Avant les interfaces, il y a eu les situations réelles : accompagner, expliquer, organiser, décider.",
+      "Je m’appelle Chandra, j’ai une formation initiale orientée vers la relation client et l’enseignement, et c’est un peu par hasard que j’ai découvert une passion pour le web et son potentiel créatif, au détour d’une falaise et de la nécessité de concevoir un site pour promouvoir et vendre des activités de pleine nature.",
     paragraphs: [
-      "Éducateur sportif depuis 1998, puis entrepreneur outdoor avec ROCKSIDERS de 2019 à 2025, j'ai appris à construire une offre, tenir un cadre, écouter des publics différents et transformer des idées en actions concrètes.",
-      "Le web s'est ajouté comme un espace de création et de transmission. Il m'a donné un moyen de structurer des messages, de raconter une activité, de rendre une expérience compréhensible et de créer des supports que les personnes peuvent faire vivre.",
-      "Cette double culture du terrain et du web nourrit aujourd'hui REKODE : une manière de concevoir qui part du réel avant de choisir les outils.",
+      "Éducateur sportif, puis entrepreneur outdoor, j'ai appris à construire une offre, tenir un cadre, écouter des publics différents et transformer des idées en actions concrètes.",
+      "Le web s'est ainsi ajouté comme un espace de création, de partage, et se nourrit de toutes ces expériences, ainsi que d’une indéfectible curiosité. C’est un moyen de structurer des messages, de raconter une activité, de rendre une idée ou un concept compréhensible, et de créer des supports pour que les utilisateurs(trices) vivent des expériences, numériques, mais aussi réelles.",
+      "Cette double culture alimente aujourd'hui REKODE : une manière de concevoir qui part du réel avant de choisir les outils.",
     ],
     technicalSkillsLabel: "Compétences techniques",
     technicalSkills: [
