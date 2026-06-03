@@ -548,17 +548,17 @@
 
 .services-hero__eyebrow--create {
   top: 13%;
-  right: -9%;
+  right: -5%;
 }
 
 .services-hero__eyebrow--share {
   top: 46%;
-  left: -13%;
+  left: -20%;
 }
 
 .services-hero__eyebrow--creative {
-  right: -17%;
-  bottom: 13%;
+  right: -256%;
+  bottom: 25%;
 }
 
 .services-hero__eyebrow--create::after,
@@ -1703,10 +1703,11 @@
     max-width: 40rem;
   }
 
+  /*
   .about-page__hero-header h1 {
     max-width: 10.5ch;
   }
-
+*/
   .project-case-study__heading-row h3 {
     max-width: 12ch;
   }
@@ -1958,7 +1959,7 @@
   }
 
   .service-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.75rem;
   }
 

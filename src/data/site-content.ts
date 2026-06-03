@@ -200,15 +200,15 @@ export interface SectionIntroContent {
 }
 
 export const heroContent: HeroContent = {
-  eyebrow: "Studio web & accompagnement",
+  eyebrow: "Studio web et accompagnement",
   titleParts: [
-    { text: "Concevoir des " },
-    { text: "interfaces web.", highlight: true },
+    { text: "Créer des " },
+    { text: "expériences web", highlight: true },
     { text: " pour des " },
     { text: "humains.", highlight: true },
   ],
   subtitle:
-    "J’accompagne les indépendants, équipes, structures et projets en évolution dans la création, la refonte ou l’évolution de sites et interfaces pensés pour transmettre un message clair, structurer une expérience et donner une forme cohérente aux idées.",
+    "Je conçois et accompagne des projets en évolution dans la création, la refonte ou l’évolution de sites et interfaces pensés pour transmettre un message clair, structurer une expérience et donner une forme cohérente aux idées.",
   ctaLabel: "Parler de votre projet",
   ctaHref: "/contact",
   secondaryCtaLabel: "Voir les réalisations",
@@ -217,8 +217,8 @@ export const heroContent: HeroContent = {
   supportingText:
     "Créer des expériences qui portent un message, partager ce qui aide à avancer, rester créatif sans perdre en clarté.",
   features: [
-    { label: "Clarification" },
     { label: "Création web" },
+    { label: "Clarification" },
     { label: "Accompagnement" },
     { label: "Transmission" },
   ],
@@ -409,17 +409,17 @@ export const selectedProjects: ProjectItem[] = [
 
 export const services: ServiceItem[] = [
   {
-    title: "Diagnostic & plan d'action",
+    title: "Diagnostic et plan d'action",
     icon: "document",
-    description: "Pour clarifier un besoin avant de refaire un site. Prendre du recul sur un site existant, un message ou une idée avant d'engager du temps ou un budget.",
+    description: "Pour clarifier votre besoin avant de refaire votre site. Prendre du recul sur un site existant, un message ou une idée avant d'engager du temps ou un budget.",
   },
   {
-    title: "Création & refonte de site vitrine",
+    title: "Création et refonte de site vitrine",
     icon: "monitor",
     description: "Pour créer une présence web vivante et simple à faire évoluer. Concevoir un site cohérent avec une activité, un public et un message. De la structure au contenu, avec une attention portée à l'expérience.",
   },
   {
-    title: "Accompagnement & regard extérieur",
+    title: "Accompagnement et conseil",
     icon: "ear",
     description: "Pour débloquer une idée ou avancer avec méthode. Un temps d'échange pour clarifier un besoin, structurer une réflexion ou avancer sur un site, un contenu ou une problématique web.",
   },
@@ -664,12 +664,12 @@ export const selectedProjectsContent: SectionIntroContent = {
 };
 
 export const servicesContent: SectionIntroContent = {
-  title: "Trois façons d'avancer",
-  intro: "Des formats simples pour clarifier un besoin, faire évoluer un site ou avancer avec un regard extérieur.",
+  title: "Mes propositions",
+  intro: "Des formats simples pour clarifier votre besoin, faire évoluer votre site ou obtenir des conseils.",
 };
 
 export const processContent: SectionIntroContent = {
-  title: "Avançons ensemble",
+  title: "Comment ça marche",
   intro:
-    "Un déroulé lisible pour passer d'une idée, d'un site daté ou d'un besoin flou à une présence web claire et appropriable.",
+    "Un process en 5 étapes pour passer d'une idée, d'un site daté ou d'un besoin flou à une présence web claire et un site ergonomique.",
 };
