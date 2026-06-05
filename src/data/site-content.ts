@@ -371,38 +371,38 @@ export const selectedProjects: ProjectItem[] = [
     },
   },
   {
-    title: "Learn It",
+    title: "LearnIt",
     slug: "learn-it",
     summary:
-      "Recherche d'interface LMS basée sur React, pensée pour les formateurs et les apprenants.",
-    tags: ["React", "LMS", "UX/UI", "Design system", "Pédagogie"],
+      "Work in progress d'un projet e-learning multi-domaines, dont le parcours création web est actuellement présenté comme exemple.",
+    tags: ["Next.js", "TypeScript", "UX/UI", "E-learning", "Prototype produit"],
     meta: "05",
-    thumbnailAlt: "Apercu du projet Learn It",
+    thumbnailAlt: "Apercu du projet LearnIt",
     caseStudy: {
       overview: {
-        role: "Conception produit, UX/UI, recherche de design system, composants React, réflexion pédagogique, architecture d'interface",
+        role: "Direction produit, UX/UI, architecture de contenus, design system, structuration initiale du hub et des parcours de formation, intégration front",
         deliverables:
-          "Maquettes, composants, réflexion design system, logique front/back, parcours formateur et apprenant",
-        stack: "React, design system, composants, interface pédagogique",
-        timeline: "Projet LMS / interface pédagogique",
+          "Landing page, hub de formations, fiche programme exemple, composants de progression, filtres catalogue, ressources pédagogiques, maquettes UI",
+        stack: "Next.js, TypeScript, Tailwind, Sass, design system, contenus pédagogiques",
+        timeline: "Prototype e-learning en cours de développement",
         highlights: [
-          "Parcours formateur et apprenant",
-          "Composants d'interface",
-          "Recherche de design system pédagogique",
+          "Hub pensé pour accueillir plusieurs domaines de formation",
+          "Parcours création web montré comme cas d'usage initial",
+          "Base d'interface en préparation avant enrichissement du produit",
         ],
       },
       cta: {
-        label: "Échanger sur un produit pédagogique",
+        label: "Échanger sur un produit de formation",
         href: "/contact",
       },
       context:
-        "Learn It explore la création d'une interface d'apprentissage utilisable côté formateur comme côté élève, avec des besoins forts en lisibilité, modularité et progression.",
+        "LearnIt est un projet e-learning en cours de construction porté par REKODE. La maquette actuelle pose les bases d'une plateforme capable d'accueillir plusieurs domaines de formation ; le parcours création web y sert aujourd'hui d'exemple, tandis que le hub laisse déjà entrevoir d'autres entrées et futurs contenus.",
       objective:
-        "Concevoir une interface pédagogique ergonomique, structurée et simple à utiliser pour créer, organiser et suivre des contenus de formation.",
+        "Donner une forme lisible à une première vision produit : présenter la promesse, structurer un hub, détailler un parcours type et préparer une architecture extensible avant le développement complet de l'interface.",
       approach:
-        "Le travail porte sur la hiérarchie des contenus, les composants d'interface, les parcours utilisateurs et la recherche d'un design system adapté à un usage pédagogique.",
+        "Le travail s'est concentré sur une maquette de démonstration : hero, indicateurs de progression, hub de formations, fiche programme exemple et premiers liens vers d'autres domaines. L'objectif était de tester la logique de navigation, la hiérarchie des contenus et la capacité du projet à s'étendre avant de figer une interface complète.",
       outcome:
-        "Un prototype de réflexion autour d'un LMS clair, modulaire et orienté usage.",
+        "Une base de démonstration pour un projet e-learning encore en développement. LearnIt présente pour l'instant une formation création web à titre d'exemple et prépare l'ajout d'autres formations, domaines et écrans à mesure que l'interface se construit.",
     },
   },
 ];
