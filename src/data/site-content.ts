@@ -202,7 +202,7 @@ export interface SectionIntroContent {
 export const heroContent: HeroContent = {
   eyebrow: "Studio web et accompagnement",
   titleParts: [
-    { text: "Créer des " },
+    { text: "Concevoir des " },
     { text: "expériences web", highlight: true },
     { text: " pour des " },
     { text: "humains.", highlight: true },
@@ -218,7 +218,7 @@ export const heroContent: HeroContent = {
     "Créer des expériences qui portent un message, partager ce qui aide à avancer, rester créatif sans perdre en clarté.",
   features: [
     { label: "Création web" },
-    { label: "Clarification" },
+    { label: "Expérience utilisateur" },
     { label: "Accompagnement" },
     { label: "Transmission" },
   ],
