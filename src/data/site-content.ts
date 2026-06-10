@@ -490,47 +490,47 @@ export const aboutPageContent: AboutPageContent = {
       { text: "le message.", highlight: true },
     ],
     paragraphs: [
-      "REKODE est né d'un parcours à la croisée des activités de pleine nature, de ma passion pour l'espace de création web, et de mon goût pour le partage des savoirs (et celui de l'apprentissage). Le but de ce studio est de créer des expériences web qui font sens, et dont le message est clair, pour le public qui est visé : le bon message, pour le bon public.",
+      "REKODE est né d'un parcours à la croisée des activités de pleine nature, de ma passion pour l'espace de création web, et de mon goût pour le partage des savoirs (et celui de l'apprentissage). Le but est de créer des expériences web qui font sens, et dont le message est clair et attractif, pour le public qui est visé : le bon message, pour le bon public.",
       "Dans cette perspective, je cherche à comprendre l'activité, son contexte, les publics, les contraintes, afin de trouver le ton juste. Le site doit être un support clair, crédible et vivant, pensé pour être compris, et si possible, parcouru avec plaisir.",
     ],
     highlightsLabel: "Repères",
     highlights: [
       {
-        label: "Écoute et clarification",
+        label: "Écoute, empathie et expérience utilisateur",
         icon: "ear",
       },
       {
-        label: "Culture terrain et entrepreneuriat",
-        icon: "mountain",
-      },
-      {
-        label: "Création web sobre",
+        label: "Ergonomie et design pour donner du sens",
         icon: "monitor",
-      },
-      {
-        label: "Transmission et autonomie",
-        icon: "cap",
       },
       {
         label: "Rythme, récit et attention aux détails",
         icon: "spark",
+      },
+      {
+        label: "Transmission, bienveillance et autonomie",
+        icon: "cap",
+      },
+      {
+        label: "Culture terrain et entrepreneuriat",
+        icon: "mountain",
       },
     ],
     ctaLabel: "Parler de votre projet",
     ctaHref: "/contact",
     portraitAlt: "Portrait en noir et blanc",
     portraitCaption:
-      "Un parcours entre terrain, création, web et transmission.",
+      "Regarader au loin pour voir plus près ?",
   },
   story: {
     id: "parcours",
     index: "01",
-    title: "Un parcours nourri par le terrain.",
+    title: "Un parcours nourri par des expériences de terrain.",
     intro:
       "Je m’appelle Chandra, j’ai une formation initiale orientée vers la relation client et l’enseignement, et c’est un peu par hasard que j’ai découvert une passion pour le web et son potentiel créatif, au détour d’une falaise et de la nécessité de concevoir un site pour promouvoir et vendre des activités de pleine nature.",
     paragraphs: [
       "Éducateur sportif, puis entrepreneur outdoor, j'ai appris à construire une offre, tenir un cadre, écouter des publics différents et transformer des idées en actions concrètes.",
-      "Le web s'est ainsi ajouté comme un espace de création, de partage, et se nourrit de toutes ces expériences, ainsi que d’une indéfectible curiosité. C’est un moyen de structurer des messages, de raconter une activité, de rendre une idée ou un concept compréhensible, et de créer des supports pour que les utilisateurs(trices) vivent des expériences, numériques, mais aussi réelles.",
+      "Le web s'est ainsi ajouté comme un espace de création, de partage, et se nourrit de toutes ces expériences, ainsi que d’une indéfectible curiosité. C’est un moyen de communiquer, de raconter une activité, de rendre une idée ou un concept compréhensible, et de créer des supports pour que les utilisateurs(trices) vivent des expériences, numériques, mais aussi réelles.",
       "Cette double culture alimente aujourd'hui REKODE : une manière de concevoir qui part du réel avant de choisir les outils.",
     ],
     technicalSkillsLabel: "Compétences techniques",
@@ -542,21 +542,24 @@ export const aboutPageContent: AboutPageContent = {
       "Optimisation SEO",
       "Accessibilité",
       "Astro / React",
+      "Outils IA",
     ],
     imageAlt: "Carnet ouvert face aux montagnes au lever du soleil",
     imageCaption:
-      "Terrain, pédagogie, entrepreneuriat : une culture du concret qui structure ensuite les projets web.",
+      "Un café, un carnet, un stylo, un ordinateur, et le paysage comme source d'inspiration.",
   },
   expertise: {
     index: "02",
     title: "Clarifier, structurer, transmettre.",
     intro:
-      "Cette approche tient en trois gestes simples : clarifier ce qui doit être compris, structurer ce qui doit être parcouru, transmettre ce qui doit rester vivant après la mise en ligne. Créer une expérience web juste, c'est aussi partager les bons repères et rester créatif sans brouiller le message.",
+      "Cette approche tient en trois gestes simples : clarifier ce qui doit être compris, structurer et organiser des parcours, transmettre et expliquer : créer une expérience web, c'est aussi partager.",
     skillsLabel: "Axes directeurs",
     skills: [
-      "Clarification",
-      "Structure",
-      "Transmission",
+      "Contexte et public",
+      "Expérience utilisateur",
+      "Storytelling",
+      "Ergonomie",
+      "Design",
     ],
     points: [
       {
@@ -574,25 +577,25 @@ export const aboutPageContent: AboutPageContent = {
     ],
   },
   quote: {
-    label: "Repère",
+    label: "Qui a dit ça ?",
     text:
-      "Un site juste commence souvent par une conversation précise.",
+      "Un site réussi commence souvent par un café serré.",
     attribution: "REKODE",
   },
   process: {
     index: "03",
     title: "Laisser les idées prendre forme",
     intro:
-      "Avant de concevoir une interface, il faut souvent remettre les idées sur la table : écouter, observer, déplacer les angles, chercher le message juste. Cette phase n'est pas un détour ; elle fait partie du travail.",
-    note: "Parfois : boire un café, regarder ailleurs, revenir au détail.",
+      "Avant de concevoir une interface, il faut souvent mettre les idées sur la table : écouter, observer, déplacer les angles, prendre du recul, chercher le message juste : ce qui semblait un détour est souvent une phase essentielle d'une expérience réussie.",
+    note: "(NB: boire un café à l'étape 1 et 3.",
     steps: [
       {
         title: "Observer",
-        text: "Prendre le temps de regarder le contexte, les usages, les contraintes et les détails qui comptent.",
+        text: "Prendre le temps de regarder le contexte, les usages, les contraintes et les détails.",
       },
       {
         title: "Connecter",
-        text: "Relier les idées, les envies et les hésitations pour faire apparaître une direction.",
+        text: "Relier les idées, les envies (et quelques hésitations) pour faire apparaître une direction.",
       },
       {
         title: "Recomposer",
@@ -600,11 +603,11 @@ export const aboutPageContent: AboutPageContent = {
       },
       {
         title: "Itérer",
-        text: "Ajuster la forme, le rythme et les contenus jusqu'à trouver une lecture juste.",
+        text: "Ajuster la forme, le rythme et les contenus jusqu'à trouver le bon parcours, le message juste.",
       },
       {
         title: "Recommencer",
-        text: "Revenir au besoin, simplifier encore, puis avancer.",
+        text: "Revenir au besoin, simplifier encore, puis avancer (Same player, Try again).",
       },
     ],
   },
@@ -612,12 +615,12 @@ export const aboutPageContent: AboutPageContent = {
     index: "04",
     title: "Ce qui nourrit ce travail.",
     intro:
-      "Des projets utiles, des personnes engagées et des univers qui demandent une attention au ton, au rythme et au détail.",
+      "Des projets, des personnes et des univers variés, la curiosité, un zeste de bienveillance, une attention portée au public, au message, et au rythme et au détail.",
     items: [
-      "Les projets portés par des personnes qui connaissent leur métier et cherchent à le rendre lisible.",
-      "La nature, le mouvement et l'outdoor, pour leur rapport au rythme, à l'attention et à la simplicité.",
-      "La pédagogie et la transmission, parce qu'un site doit aussi aider à comprendre.",
-      "Le récit visuel, l'image et les ambiances qui donnent une présence sans ajouter de bruit.",
+      "La recherche d'une expérience utilisateur optimale, l'ergonomie, l'utilisabilité, et le design des interfaces.",
+      "Le récit visuel et la communication par l'image, photographique, cinématographique, publicitaire.",
+      "La volonté de partager, enseigner (et apprendre), et la curiosité",
+      "La passion pour les récits et les histoires, cinématographiques, ou sériels, quelques romans, et la musique, Rock ou électronique.",
     ],
   },
   closing: {
