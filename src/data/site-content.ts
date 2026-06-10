@@ -490,7 +490,7 @@ export const aboutPageContent: AboutPageContent = {
       { text: "le message.", highlight: true },
     ],
     paragraphs: [
-      "REKODE est né d'un parcours à la croisée des activités de pleine nature, de ma passion pour l'espace de création web, et de mon goût pour le partage des savoirs (et celui de l'apprentissage). Le but est de créer des expériences web qui font sens, et dont le message est clair et attractif, pour le public qui est visé : le bon message, pour le bon public.",
+      "REKODE est né d'un parcours à la croisée des activités de pleine nature, de ma passion pour l'espace de création web, et de mon goût pour le partage des savoirs (et celui de l'apprentissage). Le but est de créer des expériences web qui font sens, et dont le message est clair et attractif, adapté au public qui est visé : le bon message, pour le bon public.",
       "Dans cette perspective, je cherche à comprendre l'activité, son contexte, les publics, les contraintes, afin de trouver le ton juste. Le site doit être un support clair, crédible et vivant, pensé pour être compris, et si possible, parcouru avec plaisir.",
     ],
     highlightsLabel: "Repères",
@@ -520,18 +520,18 @@ export const aboutPageContent: AboutPageContent = {
     ctaHref: "/contact",
     portraitAlt: "Portrait en noir et blanc",
     portraitCaption:
-      "Regarader au loin pour voir plus près ?",
+      "Regarder au loin pour voir plus près ?",
   },
   story: {
     id: "parcours",
     index: "01",
     title: "Un parcours nourri par des expériences de terrain.",
     intro:
-      "Je m’appelle Chandra, j’ai une formation initiale orientée vers la relation client et l’enseignement, et c’est un peu par hasard que j’ai découvert une passion pour le web et son potentiel créatif, au détour d’une falaise et de la nécessité de concevoir un site pour promouvoir et vendre des activités de pleine nature.",
+      "Je m’appelle Chandra, j’ai suivi un parcours de formation initial orienté vers la relation client et l’enseignement, et c’est un peu par hasard que j’ai découvert une passion pour le web et son potentiel créatif, au détour d’une falaise et de la nécessité de concevoir un site pour promouvoir et vendre des activités de pleine nature.",
     paragraphs: [
       "Éducateur sportif, puis entrepreneur outdoor, j'ai appris à construire une offre, tenir un cadre, écouter des publics différents et transformer des idées en actions concrètes.",
       "Le web s'est ainsi ajouté comme un espace de création, de partage, et se nourrit de toutes ces expériences, ainsi que d’une indéfectible curiosité. C’est un moyen de communiquer, de raconter une activité, de rendre une idée ou un concept compréhensible, et de créer des supports pour que les utilisateurs(trices) vivent des expériences, numériques, mais aussi réelles.",
-      "Cette double culture alimente aujourd'hui REKODE : une manière de concevoir qui part du réel avant de choisir les outils.",
+      "Cette double culture alimente aujourd'hui mon travail : une manière de concevoir qui part du réel avant de choisir les outils.",
     ],
     technicalSkillsLabel: "Compétences techniques",
     technicalSkills: [
@@ -546,7 +546,7 @@ export const aboutPageContent: AboutPageContent = {
     ],
     imageAlt: "Carnet ouvert face aux montagnes au lever du soleil",
     imageCaption:
-      "Un café, un carnet, un stylo, un ordinateur, et le paysage comme source d'inspiration.",
+      "Un café, un carnet, un stylo, un ordinateur, et le paysage (parfois) comme source d'inspiration.",
   },
   expertise: {
     index: "02",
@@ -586,8 +586,8 @@ export const aboutPageContent: AboutPageContent = {
     index: "03",
     title: "Laisser les idées prendre forme",
     intro:
-      "Avant de concevoir une interface, il faut souvent mettre les idées sur la table : écouter, observer, déplacer les angles, prendre du recul, chercher le message juste : ce qui semblait un détour est souvent une phase essentielle d'une expérience réussie.",
-    note: "(NB: boire un café à l'étape 1 et 3.",
+      "Avant de concevoir une interface, il faut souvent mettre les idées sur la table : écouter, observer, déplacer les angles, prendre du recul, chercher le message juste : ce qui semblait un détour est une phase essentielle de l'expérience réussie.",
+    note: "(NB: boire un café à l'étape 1 et 3)",
     steps: [
       {
         title: "Observer",
@@ -603,11 +603,11 @@ export const aboutPageContent: AboutPageContent = {
       },
       {
         title: "Itérer",
-        text: "Ajuster la forme, le rythme et les contenus jusqu'à trouver le bon parcours, le message juste.",
+        text: "Ajuster la forme, le rythme et les contenus, par couches successives, jusqu'à trouver le bon parcours, le message juste.",
       },
       {
         title: "Recommencer",
-        text: "Revenir au besoin, simplifier encore, puis avancer (Same player, Try again).",
+        text: "Bien mélanger : revenir au besoin, simplifier encore, puis avancer (Same player, Try again).",
       },
     ],
   },
@@ -618,9 +618,9 @@ export const aboutPageContent: AboutPageContent = {
       "Des projets, des personnes et des univers variés, la curiosité, un zeste de bienveillance, une attention portée au public, au message, et au rythme et au détail.",
     items: [
       "La recherche d'une expérience utilisateur optimale, l'ergonomie, l'utilisabilité, et le design des interfaces.",
-      "Le récit visuel et la communication par l'image, photographique, cinématographique, publicitaire.",
-      "La volonté de partager, enseigner (et apprendre), et la curiosité",
-      "La passion pour les récits et les histoires, cinématographiques, ou sériels, quelques romans, et la musique, Rock ou électronique.",
+      "Le récit visuel et la communication par l'image, photographique, cinématographique et publicitaire.",
+      "La volonté de partager, enseigner (et apprendre), et la curiosité.",
+      "La passion pour les récits et les histoires, cinématographiques ou sériels, quelques romans, et la musique, Rock ou électronique.",
     ],
   },
   closing: {
