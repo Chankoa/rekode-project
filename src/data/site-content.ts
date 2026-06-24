@@ -202,10 +202,10 @@ export interface SectionIntroContent {
 export const heroContent: HeroContent = {
   eyebrow: "Studio web et accompagnement",
   titleParts: [
-    { text: "Concevoir des " },
-    { text: "expériences web", highlight: true },
-    { text: " pour des " },
-    { text: "humains.", highlight: true },
+    { text: " ", highlight: true },
+    { text: "Créer " },
+    { text: "des expériences", highlight: true },
+    { text: "pour vos sites web. " },
   ],
   subtitle:
     "Je conçois et accompagne des projets en évolution dans la création, la refonte ou l’évolution de sites et interfaces pensés pour transmettre un message clair, structurer une expérience et donner une forme cohérente aux idées.",
