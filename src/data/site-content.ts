@@ -21,7 +21,8 @@ export type IconName =
   | "pin"
   | "star"
   | "heart"
-  | "mountain";
+  | "mountain"
+    "shoppingBag";
 
 export interface HeroTitlePart {
   text: string;
@@ -203,12 +204,12 @@ export const heroContent: HeroContent = {
   eyebrow: "Studio web et accompagnement",
   titleParts: [
     { text: " ", highlight: true },
-    { text: "Créer " },
-    { text: "des expériences", highlight: true },
-    { text: "pour vos sites web. " },
+    { text: "Concevoir vos " },
+    { text: "expériences ", highlight: true },
+    { text: "pour le web. " },
   ],
   subtitle:
-    "Je conçois et accompagne des projets en évolution dans la création, la refonte ou l’évolution de sites et interfaces pensés pour transmettre un message clair, structurer une expérience et donner une forme cohérente aux idées.",
+    "REKODE conçoit et accompagne des projets dans la création, la refonte ou l’évolution de sites et interfaces pensés pour transmettre votre message, optimiser votre présence en ligne et structurer l'expérience utlisateur.",
   ctaLabel: "Parler de votre projet",
   ctaHref: "/contact",
   secondaryCtaLabel: "Voir les réalisations",
@@ -226,39 +227,105 @@ export const heroContent: HeroContent = {
 
 export const selectedProjects: ProjectItem[] = [
   {
-    title: "ROCKSIDERS",
-    slug: "rocksiders",
+    title: "MIMOSA",
+    slug: "mimosa-eshop",
     summary:
-      "Création d'un univers outdoor, du site WordPress aux contenus, en passant par l'identité, le SEO et les supports de communication.",
-    tags: ["Création de marque", "WordPress", "SEO", "Contenu", "Communication"],
+      "Boutique Shopify pour une marque de vêtements & lifestyle, combinant direction artistique, e-commerce, UX et production visuelle assistée par IA.",
+    tags: [
+      "Shopify",
+      "Liquid",
+      "UX/UI",
+      "Direction artistique",
+      "E-commerce",
+      "IA générative",
+      "ChatGPT",
+      "Codex",
+      "Adobe Firefly",
+      "Figma",
+    ],
     meta: "01",
-    thumbnailAlt: "Apercu du projet ROCKSIDERS",
-    websiteHref: "https://www.rocksiders.com/",
+    thumbnailAlt: "Aperçu du projet MIMOSA Eshop",
+    websiteHref: "https://mimosa-9354.myshopify.com/",
+    websiteLabel: "Voir le projet",
     caseStudy: {
       overview: {
-        role: "Création d'entreprise, direction éditoriale, identité de marque, UX, développement de thème WordPress, SEO, rédaction de contenus, supports graphiques, communication web",
+        role:
+          "Direction artistique, conception UX/UI, intégration Shopify, structuration du catalogue, production visuelle assistée par IA et accompagnement e-commerce",
         deliverables:
-          "Site WordPress sur mesure, thème WP, arborescence, contenus SEO, pages d'offres, identité éditoriale, flyers, affiches, supports de communication, contenus réseaux sociaux",
-        stack: "WordPress, thème sur mesure, SEO, contenus éditoriaux, supports imprimés",
-        timeline: "Création d'entreprise outdoor et écosystème web / marque",
+          "Boutique Shopify, personnalisation du thème, structure catalogue, fiches produits, navigation, optimisation des visuels, parcours d'achat et pages de contenus",
+        stack:
+          "Shopify, Liquid, HTML, CSS, JavaScript, Figma, ChatGPT, Codex, Adobe Firefly, optimisation d'images et UX e-commerce",
+        timeline:
+          "Création d'une boutique e-commerce pour une marque vêtements & lifestyle",
         highlights: [
-          "Création d'une marque de terrain",
-          "Structuration des offres outdoor",
-          "Écosystème web et communication",
+          "Univers visuel cohérent avec la marque",
+          "Parcours d'achat simplifié",
+          "Production visuelle enrichie par IA",
         ],
       },
       cta: {
-        label: "Discuter d'un projet similaire",
+        label: "Discuter d'un projet e-commerce",
         href: "/contact",
       },
       context:
-        "ROCKSIDERS est né comme une entreprise outdoor dans le Verdon, avec un besoin de construire à la fois une offre lisible, une identité reconnaissable et une présence web capable de rassurer des publics variés.",
+        "MIMOSA souhaitait disposer d'une boutique en ligne capable de refléter son identité tout en offrant une expérience d'achat simple et rassurante. Le projet devait mettre en valeur les produits, faciliter la navigation et créer un environnement cohérent avec l'univers de la marque.",
       objective:
-        "Donner forme à une marque de terrain, clarifier les activités proposées et créer un site capable d'accompagner la découverte, la confiance et la réservation.",
+        "Créer une boutique Shopify élégante et facile à administrer, capable de présenter efficacement les collections, d'améliorer la compréhension des produits et d'accompagner le visiteur jusqu'à l'achat.",
       approach:
-        "Le travail a associé création de marque, structuration des offres, rédaction de contenus, conception UX, développement WordPress, optimisation SEO et communication graphique.",
+        "Le travail a porté sur la hiérarchisation des contenus, la personnalisation de l'interface Shopify, l'optimisation des visuels produits, l'organisation du catalogue et la création d'un parcours utilisateur fluide. Des outils d'IA générative ont également été intégrés au processus afin d'explorer différentes directions visuelles, produire certains visuels d'ambiance et accélérer les phases de prototypage et de création de contenus.",
       outcome:
-        "Un écosystème cohérent autour d'une activité outdoor : site, contenus, identité, supports imprimés et communication web.",
+        "Une boutique en ligne cohérente avec l'identité de la marque, pensée pour valoriser les produits, faciliter la gestion quotidienne du catalogue et offrir une expérience d'achat claire sur ordinateur comme sur mobile. Le projet illustre aussi l'intégration d'outils IA dans un workflow de conception et de production orienté résultat.",
+    },
+  },
+  {
+    title: "Maison Alta",
+    slug: "alta-website-demo",
+    summary:
+      "Démo Astro immersive pour une maison d'hôtes contemporaine, entre storytelling visuel, informations de séjour et intention de réservation.",
+    tags: [
+      "Astro",
+      "HTML",
+      "SCSS",
+      "UX/UI",
+      "Direction artistique",
+      "Landing page",
+      "Tourisme",
+      "Figma",
+      "ChatGPT",
+      "Codex",
+    ],
+    meta: "02",
+    thumbnailAlt:
+      "Aperçu du projet Maison Alta, site vitrine pour une maison d'hôtes contemporaine",
+    websiteHref: "https://alta-website-demo.netlify.app/",
+    websiteLabel: "Voir la démo",
+    caseStudy: {
+      overview: {
+        role:
+          "Direction artistique, conception UI, intégration Astro, structure éditoriale et hiérarchisation du parcours de réservation",
+        deliverables:
+          "Landing page complète, hero immersif, sections de chambres, galerie, FAQ, témoignages et CTA de réservation",
+        stack:
+          "Astro, HTML, SCSS, composants, optimisation d'images, structure responsive, Figma, ChatGPT, Codex",
+        timeline: "Démo éditoriale pour maison d'hôtes",
+        highlights: [
+          "Univers visuel chaleureux et premium",
+          "Parcours orienté séjour et réservation",
+          "Base réutilisable pour location ou hôtellerie indépendante",
+        ],
+      },
+      cta: {
+        label: "Discuter d'un site d'hébergements",
+        href: "/contact",
+      },
+      context:
+        "Maison Alta imagine le site d'une maison d'hôtes nichée en bord de village. L'enjeu est de transmettre une atmosphère, clarifier l'offre et rassurer sur l'expérience avant même la prise de contact.",
+      objective:
+        "Composer une page de destination capable de vendre un séjour : montrer le lieu, détailler les chambres, mettre en avant les expériences à proximité et rendre les informations pratiques immédiatement lisibles.",
+      approach:
+        "Le travail s'est concentré sur un hero immersif, une narration par blocs courts, des cartes de chambres et d'expériences, puis des sections de réassurance comme les avis, la FAQ et les informations pratiques.",
+      outcome:
+        "Une démo Astro cohérente et réutilisable pour des projets d'hébergements touristiques, avec une présence visuelle plus incarnée qu'un simple template vitrine.",
     },
   },
   {
@@ -266,16 +333,29 @@ export const selectedProjects: ProjectItem[] = [
     slug: "sens-dessus-dessous",
     summary:
       "Refonte d'un site WordPress existant pour clarifier l'offre, restructurer les contenus et améliorer l'expérience de lecture.",
-    tags: ["Refonte", "WordPress", "Contenu", "UX", "SiteOrigin"],
-    meta: "02",
-    thumbnailAlt: "Apercu du projet Sens Dessus Dessous",
+    tags: [
+      "Refonte",
+      "WordPress",
+      "SiteOrigin",
+      "CSS",
+      "UX",
+      "SEO",
+      "Rédaction web",
+      "Structuration éditoriale",
+      "Figma",
+      "ChatGPT",
+    ],
+    meta: "03",
+    thumbnailAlt: "Aperçu du projet Sens Dessus Dessous",
     websiteHref: "https://sensdessusdessous.eu/",
     caseStudy: {
       overview: {
-        role: "Refonte UX/UI, restructuration de contenus, rédaction, création de modèles de pages, amélioration ergonomique, adaptation sur thème WordPress existant",
+        role:
+          "Refonte UX/UI, restructuration de contenus, rédaction, création de modèles de pages, amélioration ergonomique, adaptation sur thème WordPress existant",
         deliverables:
           "Pages modèles, contenus réécrits, structure d'activité, optimisation UX, ajustements graphiques, amélioration du parcours utilisateur",
-        stack: "WordPress, thème existant, SiteOrigin Page Builder, CSS, structuration éditoriale",
+        stack:
+          "WordPress, thème existant, SiteOrigin Page Builder, CSS, structuration éditoriale, Figma, ChatGPT",
         timeline: "Refonte et restructuration d'un site existant",
         highlights: [
           "Hiérarchie éditoriale retravaillée",
@@ -298,20 +378,85 @@ export const selectedProjects: ProjectItem[] = [
     },
   },
   {
+    title: "ROCKSIDERS",
+    slug: "rocksiders",
+    summary:
+      "Création complète d'une marque outdoor dans le Verdon : positionnement, identité éditoriale, site WordPress, SEO, offres, supports commerciaux et acquisition client.",
+    tags: [
+      "Création de marque",
+      "WordPress",
+      "ACF",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "UX",
+      "SEO",
+      "Rédaction web",
+      "Communication",
+      "Acquisition client",
+      "Outdoor",
+      "Figma",
+      "ChatGPT",
+    ],
+    meta: "04",
+    thumbnailAlt: "Aperçu du projet ROCKSIDERS",
+    websiteHref: "https://www.rocksiders.com/",
+    caseStudy: {
+      overview: {
+        role:
+          "Création d'entreprise, positionnement de marque, direction éditoriale, UX/UI, développement WordPress, structuration des offres, SEO, rédaction de contenus, supports graphiques et communication commerciale",
+        deliverables:
+          "Marque outdoor, site WordPress sur mesure, thème personnalisé, arborescence SEO, pages piliers, pages d'activités, contenus éditoriaux, supports imprimés, flyers, affiches, visuels web, messages commerciaux et contenus réseaux sociaux",
+        stack:
+          "WordPress, thème sur mesure, ACF, HTML, CSS, JavaScript, SEO, rédaction web, identité éditoriale, supports imprimés, Figma, ChatGPT",
+        timeline:
+          "Création, développement et exploitation d'un écosystème de marque outdoor dans le Verdon",
+        highlights: [
+          "Création d'une marque de terrain identifiable",
+          "Structuration d'une offre outdoor lisible",
+          "Site pensé pour la confiance, le SEO et la réservation",
+        ],
+      },
+      cta: {
+        label: "Construire une présence de marque",
+        href: "/contact",
+      },
+      context:
+        "ROCKSIDERS est né comme une entreprise outdoor dans le Verdon, autour d'activités comme le canyoning, l'escalade et la découverte du territoire. Le projet ne consistait pas seulement à créer un site, mais à construire une marque complète : une identité, une manière de parler aux clients, une offre lisible et un dispositif capable de générer des réservations.",
+      objective:
+        "Transformer une activité de terrain en marque identifiable, rassurante et commercialement exploitable. L'objectif était de clarifier les activités proposées, d'aider les visiteurs à choisir une sortie adaptée à leur niveau, de créer une relation de confiance avant la réservation et d'améliorer la visibilité organique sur les recherches liées aux activités outdoor dans le Verdon.",
+      approach:
+        "Le travail a commencé par le positionnement : ton de marque, promesse, structure des offres et hiérarchie des informations utiles pour les clients. Le site WordPress a ensuite été conçu comme un véritable support commercial, avec des pages d'activités détaillées, des contenus SEO, des blocs de réassurance, des informations pratiques et une navigation pensée pour accompagner la décision.",
+      outcome:
+        "ROCKSIDERS est devenu un écosystème de marque cohérent, capable de relier l'expérience terrain, la communication, le référencement naturel et la relation client. Le projet démontre une approche complète : création de marque, conception web, contenu, acquisition, pédagogie commerciale et cohérence entre le discours en ligne et l'expérience vécue sur le terrain.",
+    },
+  },
+  {
     title: "La Fabrique de Moustiers",
     slug: "lafabrique-moustiers",
     summary:
       "Création d'un site WordPress pour un hébergement touristique, en cohérence avec une identité graphique existante.",
-    tags: ["Hébergement", "WordPress", "Elementor", "UX", "SEO local"],
-    meta: "03",
-    thumbnailAlt: "Apercu du projet La Fabrique de Moustiers",
+    tags: [
+      "Hébergement",
+      "WordPress",
+      "Elementor",
+      "CSS",
+      "UX/UI",
+      "SEO local",
+      "Tourisme",
+      "Figma",
+      "ChatGPT",
+    ],
+    meta: "05",
+    thumbnailAlt: "Aperçu du projet La Fabrique de Moustiers",
     websiteHref: "https://lafabrique-moustiers.com/",
     caseStudy: {
       overview: {
-        role: "Création de site, UX/UI design, intégration WordPress, cohérence de marque, optimisation SEO, structuration du parcours utilisateur",
+        role:
+          "Création de site, UX/UI design, intégration WordPress, cohérence de marque, optimisation SEO, structuration du parcours utilisateur",
         deliverables:
           "Site vitrine WordPress, pages hébergements, structure éditoriale, optimisation UX, intégration avec thème Elementor, base SEO",
-        stack: "WordPress, Elementor, optimisation UX, SEO local",
+        stack: "WordPress, Elementor, optimisation UX, SEO local, Figma, ChatGPT",
         timeline: "Site d'hébergement touristique : gîtes et table d'hôtes",
         highlights: [
           "Cohérence avec l'identité existante",
@@ -334,56 +479,34 @@ export const selectedProjects: ProjectItem[] = [
     },
   },
   {
-    title: "Maison Alta",
-    slug: "alta-website-demo",
-    summary:
-      "Démo Astro immersive pour une maison d'hôtes contemporaine, entre storytelling visuel, informations de séjour et intention de réservation.",
-    tags: ["Astro", "Hébergements", "Landing page", "UI", "Direction artistique"],
-    meta: "04",
-    thumbnailAlt: "Apercu du projet Maison Alta, site vitrine pour une maison d'hotes contemporaine",
-    websiteHref: "https://alta-website-demo.netlify.app/",
-    websiteLabel: "Voir la démo",
-    caseStudy: {
-      overview: {
-        role: "Direction artistique, conception UI, intégration Astro, structure éditoriale et hiérarchisation du parcours de réservation",
-        deliverables:
-          "Landing page complète, hero immersif, sections de chambres, galerie, FAQ, témoignages et CTA de réservation",
-        stack: "Astro, HTML, SCSS, composants, optimisation d'images, structure responsive",
-        timeline: "Démo éditoriale pour maison d'hôtes",
-        highlights: [
-          "Univers visuel chaleureux et premium",
-          "Parcours orienté séjour et réservation",
-          "Base réutilisable pour location ou hôtellerie indépendante",
-        ],
-      },
-      cta: {
-        label: "Discuter d'un site d'hébergements",
-        href: "/contact",
-      },
-      context:
-        "Maison Alta imagine le site d'une maison d'hôtes nichée en bord de village. L'enjeu est de transmettre une atmosphère, clarifier l'offre et rassurer sur l'expérience avant même la prise de contact.",
-      objective:
-        "Composer une page de destination capable de vendre un séjour: montrer le lieu, détailler les chambres, mettre en avant les expériences à proximité et rendre les informations pratiques immédiatement lisibles.",
-      approach:
-        "Le travail s'est concentré sur un hero immersif, une narration par blocs courts, des cartes de chambres et d'expériences, puis des sections de réassurance comme les avis, la FAQ et les informations pratiques pour accompagner la décision.",
-      outcome:
-        "Une démo Astro cohérente et réutilisable pour des projets d'hébergements touristiques, avec une présence visuelle plus incarnée qu'un simple template vitrine et un parcours pensé pour convertir sans surcharger la lecture.",
-    },
-  },
-  {
     title: "LearnIt",
     slug: "learn-it",
     summary:
-      "Work in progress d'un projet e-learning multi-domaines, dont le parcours création web est actuellement présenté comme exemple.",
-    tags: ["Next.js", "TypeScript", "UX/UI", "E-learning", "Prototype produit"],
-    meta: "05",
-    thumbnailAlt: "Apercu du projet LearnIt",
+      "Prototype e-learning multi-domaines, pensé comme un produit numérique évolutif autour de la formation, de l'UX pédagogique et du design system.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Sass",
+      "UX/UI",
+      "E-learning",
+      "Prototype produit",
+      "Product design",
+      "Design system",
+      "Figma",
+      "ChatGPT",
+      "Codex",
+    ],
+    meta: "06",
+    thumbnailAlt: "Aperçu du projet LearnIt",
     caseStudy: {
       overview: {
-        role: "Direction produit, UX/UI, architecture de contenus, design system, structuration initiale du hub et des parcours de formation, intégration front",
+        role:
+          "Direction produit, UX/UI, architecture de contenus, design system, structuration initiale du hub et des parcours de formation, intégration front",
         deliverables:
           "Landing page, hub de formations, fiche programme exemple, composants de progression, filtres catalogue, ressources pédagogiques, maquettes UI",
-        stack: "Next.js, TypeScript, Tailwind, Sass, design system, contenus pédagogiques",
+        stack:
+          "Next.js, TypeScript, Tailwind, Sass, design system, contenus pédagogiques, Figma, ChatGPT, Codex",
         timeline: "Prototype e-learning en cours de développement",
         highlights: [
           "Hub pensé pour accueillir plusieurs domaines de formation",
@@ -396,13 +519,13 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "LearnIt est un projet e-learning en cours de construction porté par REKODE. La maquette actuelle pose les bases d'une plateforme capable d'accueillir plusieurs domaines de formation ; le parcours création web y sert aujourd'hui d'exemple, tandis que le hub laisse déjà entrevoir d'autres entrées et futurs contenus.",
+        "LearnIt est un projet e-learning en cours de construction porté par REKODE. La maquette actuelle pose les bases d'une plateforme capable d'accueillir plusieurs domaines de formation ; le parcours création web y sert aujourd'hui d'exemple.",
       objective:
         "Donner une forme lisible à une première vision produit : présenter la promesse, structurer un hub, détailler un parcours type et préparer une architecture extensible avant le développement complet de l'interface.",
       approach:
-        "Le travail s'est concentré sur une maquette de démonstration : hero, indicateurs de progression, hub de formations, fiche programme exemple et premiers liens vers d'autres domaines. L'objectif était de tester la logique de navigation, la hiérarchie des contenus et la capacité du projet à s'étendre avant de figer une interface complète.",
+        "Le travail s'est concentré sur une maquette de démonstration : hero, indicateurs de progression, hub de formations, fiche programme exemple et premiers liens vers d'autres domaines.",
       outcome:
-        "Une base de démonstration pour un projet e-learning encore en développement. LearnIt présente pour l'instant une formation création web à titre d'exemple et prépare l'ajout d'autres formations, domaines et écrans à mesure que l'interface se construit.",
+        "Une base de démonstration pour un projet e-learning encore en développement, pensée pour accueillir d'autres formations, domaines et écrans à mesure que l'interface se construit.",
     },
   },
 ];
@@ -418,6 +541,12 @@ export const services: ServiceItem[] = [
     icon: "monitor",
     description: "Pour créer une présence web vivante et simple à faire évoluer. Concevoir un site cohérent avec une activité, un public et un message. De la structure au contenu, avec une attention portée à l'expérience.",
   },
+  {
+    title: "Boutique e-commerce Shopify",
+    icon: "monitor",
+    description:
+      "Pour vendre en ligne avec une boutique pensée pour votre activité et vos clients. Conception UX/UI, personnalisation Shopify, structuration du catalogue, optimisation des fiches produits et accompagnement jusqu'à la mise en ligne.",
+  },  
   {
     title: "Accompagnement et conseil",
     icon: "ear",
@@ -661,9 +790,9 @@ export const labItems: LabItem[] = [
 ];
 
 export const selectedProjectsContent: SectionIntroContent = {
-  title: "Des réalisations concrètes",
+  title: "Quelques réalisations",
   intro:
-    "Des sites pensés pour rendre une activité lisible, crédible et simple à comprendre.",
+    "Des sites pensés pour promouvoir une activité et la rendre visible, crédible et attractive.",
 };
 
 export const servicesContent: SectionIntroContent = {

@@ -458,7 +458,7 @@
 }
 
 .services-hero__content h1 {
-  max-width: 12.5ch;
+ /* max-width: 12.5ch; */
   font-size: clamp(2.25rem, 1.64rem + 2.45vw, 3.55rem);
   line-height: 1.03;
   text-wrap: balance;
@@ -692,7 +692,7 @@
 .audience-item .service-item__icon {
   width: 2.6rem;
   height: 2.6rem;
-  background: color-mix(in srgb, var(--surface-card) 48%, transparent);
+  /*background: color-mix(in srgb, var(--surface-card) 48%, transparent);*/
   border-color: color-mix(in srgb, var(--border-soft) 68%, transparent);
   box-shadow: none;
 }
