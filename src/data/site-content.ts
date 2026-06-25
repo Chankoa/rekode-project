@@ -22,6 +22,7 @@ export type IconName =
   | "star"
   | "heart"
   | "mountain"
+  | "shopping"
   | "shoppingBag";
 
 export interface HeroTitlePart {
@@ -211,27 +212,27 @@ export interface SectionIntroContent {
 }
 
 export const heroContent: HeroContent = {
-  eyebrow: "Studio de conception numérique",
+  eyebrow: "Studio de conception web et numérique",
   titleParts: [
     { text: "Concevoir des " },
     { text: "expériences ", highlight: true },
-    { text: "numériques claires, utiles et " },
-    { text: "mémorables.", highlight: true },
+    { text: "pour le " },
+    { text: "web ", highlight: true },
   ],
   subtitle:
-    "REKODE accompagne les entreprises et projets à taille humaine de la stratégie digitale jusqu'à la mise en ligne : UX/UI, architecture de contenu, storytelling, direction artistique, front-end, WordPress, Shopify, Astro et outils d'IA générative.",
+    "De la création de site professionnel à la refonte de site, REKODE accompagne les projets avec stratégie, UX/UI, architecture de contenu, conception web, WordPress, Shopify, Astro et intégration Front-End.",
   ctaLabel: "Parler de votre projet",
   ctaHref: "/contact",
   secondaryCtaLabel: "Voir les études de cas",
   secondaryCtaHref: "/etudes-de-cas",
   supportingLabel: "Positionnement",
   supportingText:
-    "Transformer une idée, une offre ou un contenu complexe en expérience numérique lisible, incarnée et exploitable.",
+    "Transformer une idée, une offre ou un contenu complexe en parcours clair, utile et exploitable.",
   features: [
-    { label: "Stratégie digitale" },
-    { label: "UX / UI" },
-    { label: "Front-End & CMS" },
-    { label: "Accompagnement" },
+    { label: "Création & refonte" },
+    { label: "UX/UI" },
+    { label: "WordPress · Shopify · Astro" },
+    { label: "Intégration Front-End" },
   ],
 };
 
@@ -590,23 +591,23 @@ export const services: ServiceItem[] = [
   {
     title: "Audit & stratégie digitale",
     icon: "document",
-    description: "Prendre du recul sur votre présence numérique, clarifier les objectifs, les publics, les messages, les parcours et les priorités avant d'engager une refonte ou une création.",
+    description: "Clarifier les objectifs, les publics, les contenus et les parcours avant une création de site professionnel, une refonte de site ou une évolution de votre présence numérique.",
   },
   {
-    title: "Site vitrine & expérience utilisateur",
+    title: "Création & refonte de site professionnel",
     icon: "monitor",
-    description: "Concevoir un site clair, crédible et facile à faire évoluer, depuis l'arborescence et les contenus jusqu'à l'interface, l'intégration et la mise en ligne.",
+    description: "Concevoir un site clair et durable, depuis l'architecture de contenu et l'UX/UI jusqu'à l'intégration Front-End, WordPress, Astro ou la mise en ligne.",
   },
   {
-    title: "E-commerce & expérience d'achat",
-    icon: "monitor",
+    title: "Shopify & expérience d'achat",
+    icon: "shopping",
     description:
-      "Structurer une boutique Shopify autour du catalogue, des fiches produits, du récit de marque et d'un parcours d'achat lisible sur desktop comme sur mobile.",
+      "Structurer une boutique Shopify autour du catalogue produits, des fiches articles, du récit de marque, de l'UX/UI et d'un parcours d'achat lisible sur desktop comme sur mobile.",
   },  
   {
     title: "Accompagnement stratégique",
     icon: "ear",
-    description: "Avancer avec méthode sur un sujet précis : contenu, UX, WordPress, Shopify, SEO, IA générative, organisation d'un projet ou arbitrage technique.",
+    description: "Avancer avec méthode sur un sujet précis : refonte, contenus, UX/UI, WordPress, Shopify, SEO, IA générative, architecture de contenu ou arbitrage technique.",
   },
 ];
 

@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "REKODE",
   baseline:
-    "Studio de conception d'expériences numériques pour clarifier une stratégie, structurer des contenus et mettre en ligne des interfaces utiles.",
+    "Studio de conception web et d'expériences numériques pour créer, refondre et structurer des sites professionnels utiles.",
   lang: "fr",
   url: "https://rekode.studio",
   meta: {
     description:
-      "REKODE accompagne les entreprises, indépendants et projets à taille humaine dans la conception d'expériences numériques claires, utiles et mémorables, de la stratégie à la mise en ligne.",
+      "REKODE accompagne la création et la refonte de sites professionnels avec stratégie, UX/UI, architecture de contenu, WordPress, Shopify, Astro et intégration Front-End.",
   },
   contact: {
     phone: "06 82 91 98 56",

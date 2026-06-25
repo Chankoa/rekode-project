@@ -37,10 +37,10 @@ const {
   supportingLabel = heroContent.supportingLabel,
   supportingText = heroContent.supportingText,
   features = [
-    { label: "Stratégie digitale", icon: "pen" },
-    { label: "UX / UI", icon: "bolt" },
-    { label: "Front-End & CMS", icon: "code" },
-    { label: "Accompagnement", icon: "ear" },
+    { label: "Création & refonte", icon: "pen" },
+    { label: "UX/UI", icon: "bolt" },
+    { label: "WordPress · Shopify · Astro", icon: "monitor" },
+    { label: "Intégration Front-End", icon: "code" },
   ],
 } = Astro.props;
 
@@ -93,7 +93,7 @@ const fallbackIcons: FeatureIconName[] = ["bolt", "pen", "code", "ear"];
       <div class="hero__visual-frame card-elevated">
         <Image
           src={heroImage}
-          alt="Vue de montagne au lever du soleil"
+          alt="Paysage de montagne illustrant une démarche claire de conception web et numérique"
           class="hero__image"
           widths={[480, 720, 960]}
           sizes="(max-width: 767px) 100vw, 40vw"
