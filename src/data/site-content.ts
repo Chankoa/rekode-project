@@ -203,10 +203,11 @@ export interface SectionIntroContent {
 export const heroContent: HeroContent = {
   eyebrow: "Studio web et accompagnement",
   titleParts: [
-    { text: " ", highlight: true },
-    { text: "Concevoir vos " },
+    { text: "Transformer " },
+    { text: "vos idées ", highlight: true },
+    { text: "en " },
     { text: "expériences ", highlight: true },
-    { text: "pour le web. " },
+    { text: "numériques. " },
   ],
   subtitle:
     "REKODE conçoit et accompagne des projets dans la création, la refonte ou l’évolution de sites et interfaces pensés pour transmettre votre message, optimiser votre présence en ligne et structurer l'expérience utlisateur.",
@@ -396,7 +397,6 @@ export const selectedProjects: ProjectItem[] = [
       "Acquisition client",
       "Outdoor",
       "Figma",
-      "ChatGPT",
     ],
     meta: "04",
     thumbnailAlt: "Aperçu du projet ROCKSIDERS",
@@ -422,7 +422,7 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "ROCKSIDERS est né comme une entreprise outdoor dans le Verdon, autour d'activités comme le canyoning, l'escalade et la découverte du territoire. Le projet ne consistait pas seulement à créer un site, mais à construire une marque complète : une identité, une manière de parler aux clients, une offre lisible et un dispositif capable de générer des réservations.",
+        "ROCKSIDERS est une entreprise outdoor dans le Verdon qui propose des activités comme le canyoning, l'escalade et la découverte du territoire. Le projet ne consistait pas seulement à créer un site, mais à construire une marque complète : une identité, une manière de parler aux clients, une offre lisible et un dispositif capable de générer des réservations.",
       objective:
         "Transformer une activité de terrain en marque identifiable, rassurante et commercialement exploitable. L'objectif était de clarifier les activités proposées, d'aider les visiteurs à choisir une sortie adaptée à leur niveau, de créer une relation de confiance avant la réservation et d'améliorer la visibilité organique sur les recherches liées aux activités outdoor dans le Verdon.",
       approach:
@@ -445,7 +445,6 @@ export const selectedProjects: ProjectItem[] = [
       "SEO local",
       "Tourisme",
       "Figma",
-      "ChatGPT",
     ],
     meta: "05",
     thumbnailAlt: "Aperçu du projet La Fabrique de Moustiers",
@@ -656,7 +655,7 @@ export const aboutPageContent: AboutPageContent = {
     index: "01",
     title: "Un parcours nourri par des expériences de terrain.",
     intro:
-      "Je m’appelle Chandra, j’ai suivi un parcours de formation initial orienté vers la relation client et l’enseignement, et c’est un peu par hasard que j’ai découvert une passion pour le web et son potentiel créatif, au détour d’une falaise et de la nécessité de concevoir un site pour promouvoir et vendre des activités de pleine nature.",
+      "Je m’appelle Chandra, j’ai suivi un parcours initial orienté vers la relation client et l’enseignement, et c’est un peu par hasard que j’ai découvert une passion pour le web et son potentiel créatif, au détour d’une falaise et de la nécessité de concevoir un site pour promouvoir et vendre des activités de pleine nature.",
     paragraphs: [
       "Éducateur sportif, puis entrepreneur outdoor, j'ai appris à construire une offre, tenir un cadre, écouter des publics différents et transformer des idées en actions concrètes.",
       "Le web s'est ainsi ajouté comme un espace de création, de partage, et se nourrit de toutes ces expériences, ainsi que d’une indéfectible curiosité. C’est un moyen de communiquer, de raconter une activité, de rendre une idée ou un concept compréhensible, et de créer des supports pour que les utilisateurs(trices) vivent des expériences, numériques, mais aussi réelles.",
@@ -666,6 +665,7 @@ export const aboutPageContent: AboutPageContent = {
     technicalSkills: [
       "HTML / CSS",
       "WordPress",
+      "Shopify",
       "Responsive design",
       "UX / UI",
       "Optimisation SEO",
