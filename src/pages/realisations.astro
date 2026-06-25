@@ -5,19 +5,22 @@ import Icon from "../components/ui/Icon.astro";
 import { selectedProjects } from "../data/site-content";
 ---
 
-<Layout title="Réalisations">
+<Layout
+  title="Études de cas"
+  description="Études de cas REKODE : projets de stratégie digitale, UX/UI, contenu, WordPress, Shopify, Astro et front-end."
+>
   <section class="section-shell">
     <div class="projects-page__hero max-w-(--site-max-width) mx-auto px-4">
       <header class="projects-page__hero-content section-header">
-        <p class="section-label">Réalisations</p>
+        <p class="section-label">Études de cas</p>
         <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
-          Des sites web <span class="u-text-gradient">individualisés</span> pour répondre à <span class="u-text-gradient">vos besoins</span>.
+          Des projets où la conception dépasse la <span class="u-text-gradient">création de site</span>.
         </h1>
         <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
-          Voici quelques exemples de sites web, refonte et interfaces pensées pour promouvoir une activité, structurer un message et donner une présence web cohérente à des projets portant sur différentes activités.
+          Voici quelques projets documentés comme des études de cas : contexte, objectifs, approche, décisions de conception, technologies, résultats et retours d'expérience.
         </p>
         <div class="hero__actions pt-2">
-          <a href="#liste-realisations" class="btn-primary">Voir les études de cas</a>
+          <a href="/etudes-de-cas" class="btn-primary">Nouvelle section Études de cas</a>
           <a href="/services" class="btn-secondary">Découvrir les services</a>
         </div>
       </header>
@@ -27,7 +30,7 @@ import { selectedProjects } from "../data/site-content";
         <ul class="projects-page__hero-points">
           <li>
             <span class="projects-page__hero-icon"><Icon name="document" /></span>
-            <span>Une attention portée sur le design, l'ergonomie et l'expérience utilisateur.</span>
+            <span>Une attention portée à la stratégie, aux contenus et à l'expérience utilisateur.</span>
           </li>
           <li>
             <span class="projects-page__hero-icon"><Icon name="pen" /></span>
@@ -35,7 +38,7 @@ import { selectedProjects } from "../data/site-content";
           </li>
           <li>
             <span class="projects-page__hero-icon"><Icon name="heart" /></span>
-            <span>Une recherche de présence web alignée avec le contexte.</span>
+            <span>Une recherche de cohérence entre message, interface, technologie et accompagnement.</span>
           </li>
         </ul>
       </aside>
@@ -44,11 +47,11 @@ import { selectedProjects } from "../data/site-content";
 
   <div id="liste-realisations">
     <SelectedProjects
-      title="Les réalisations"
+      label="Archive"
+      title="Les études de cas"
       intro="Chaque projet part d'un contexte réel : une activité à rendre lisible, une offre à structurer, un parcours à simplifier ou une expérience à concevoir."
       projects={selectedProjects}
       showProjectsLink={false}
-      variant="case-studies"
     />
   </div>
 </Layout>

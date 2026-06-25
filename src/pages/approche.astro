@@ -4,10 +4,14 @@ import Process from "../components/sections/Process.astro";
 import { processSteps } from "../data/site-content";
 ---
 
-<Layout title="Approche">
+<Layout
+  title="Méthode"
+  description="La méthode REKODE pour comprendre, clarifier, structurer, concevoir et accompagner une expérience numérique."
+>
   <Process
-    title="Approche"
-    intro="Le projet avance par étapes courtes et explicites, avec une attention particulière à la structure de contenu, à la lisibilité du code et aux contraintes réelles de mise en ligne."
+    label="Méthode"
+    title="Comprendre, clarifier, structurer, concevoir, accompagner"
+    intro="Le projet avance par étapes explicites, avec une attention particulière à la stratégie, à la structure de contenu, à l'expérience utilisateur et aux contraintes réelles de mise en ligne."
     steps={processSteps}
   />
 </Layout>

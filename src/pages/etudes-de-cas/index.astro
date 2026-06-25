@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SelectedProjects from "../../components/sections/SelectedProjects.astro";
+import ContactSection from "../../components/sections/Contact.astro";
+import Icon from "../../components/ui/Icon.astro";
+import { selectedProjects } from "../../data/site-content";
+---
+
+<Layout
+  title="Études de cas"
+  description="Études de cas REKODE : stratégie digitale, UX/UI, architecture de contenu, direction artistique, front-end, WordPress, Shopify, Astro et IA générative."
+>
+  <section class="section-shell">
+    <div class="projects-page__hero max-w-(--site-max-width) mx-auto px-4">
+      <header class="projects-page__hero-content section-header">
+        <p class="section-label">Études de cas</p>
+        <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
+          Des projets où le site devient une <span class="u-text-gradient">expérience complète</span>.
+        </h1>
+        <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
+          Les projets REKODE ne se limitent pas à l'interface finale. Ils articulent stratégie, contenus, storytelling, UX/UI, direction artistique, front-end, CMS, SEO et accompagnement.
+        </p>
+        <div class="hero__actions pt-2">
+          <a href="#liste-etudes" class="btn-primary">Voir les projets</a>
+          <a href="/methode" class="btn-secondary">Comprendre la méthode</a>
+        </div>
+      </header>
+
+      <aside class="projects-page__hero-aside" aria-label="Repères de lecture">
+        <p class="projects-page__hero-kicker">Lecture des cas</p>
+        <ul class="projects-page__hero-points">
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="document" /></span>
+            <span>Contexte, objectif, approche et décisions de conception.</span>
+          </li>
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="monitor" /></span>
+            <span>Technologies, contenus, interface, CMS et front-end.</span>
+          </li>
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="heart" /></span>
+            <span>Résultat et retour d'expérience pour documenter les arbitrages.</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <div id="liste-etudes">
+    <SelectedProjects
+      label="Projets"
+      title="Les études de cas"
+      intro="MIMOSA, Maison Alta, Sens Dessus Dessous, ROCKSIDERS, La Fabrique et LearnIt montrent des interventions où la conception dépasse la simple création d'un site."
+      projects={selectedProjects}
+      showProjectsLink={false}
+    />
+  </div>
+
+  <ContactSection
+    compact={true}
+    title="Un projet à documenter ou à transformer ?"
+    intro="Partons du contexte et des objectifs pour identifier les décisions utiles avant de produire les écrans."
+    ctaLabel="Parler du projet"
+  />
+</Layout>

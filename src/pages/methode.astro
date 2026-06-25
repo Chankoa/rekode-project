@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Process from "../components/sections/Process.astro";
+import SelectedProjects from "../components/sections/SelectedProjects.astro";
+import ContactSection from "../components/sections/Contact.astro";
+import Icon from "../components/ui/Icon.astro";
+import { processSteps, selectedProjects } from "../data/site-content";
+
+const methodDetails = [
+  {
+    title: "Comprendre",
+    text: "Chaque mission commence par une lecture du contexte : activité, publics, contraintes, objectifs, contenus existants, outils en place et rôle attendu du site, de la boutique ou de l'interface.",
+  },
+  {
+    title: "Clarifier",
+    text: "Le travail consiste ensuite à faire émerger les messages prioritaires, les preuves à montrer, les actions attendues et les points de friction qui empêchent l'expérience d'être lisible.",
+  },
+  {
+    title: "Structurer",
+    text: "L'arborescence, les parcours, les contenus, les composants et les appels à l'action sont organisés pour créer une architecture compréhensible et durable.",
+  },
+  {
+    title: "Concevoir",
+    text: "La stratégie prend forme dans l'interface : UX/UI, direction artistique, rythme éditorial, intégration front-end, WordPress, Shopify, Astro ou autre socle adapté au projet.",
+  },
+  {
+    title: "Accompagner",
+    text: "La mission se termine par la mise en ligne, la transmission des repères utiles, les ajustements prioritaires et l'accompagnement nécessaire pour faire vivre l'expérience dans le temps.",
+  },
+];
+---
+
+<Layout
+  title="Méthode"
+  description="La méthode REKODE en cinq étapes : comprendre, clarifier, structurer, concevoir et accompagner une expérience numérique de la stratégie à la mise en ligne."
+>
+  <section class="section-shell">
+    <div class="projects-page__hero max-w-(--site-max-width) mx-auto px-4">
+      <header class="projects-page__hero-content section-header">
+        <p class="section-label">Méthode</p>
+        <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
+          Transformer une idée en <span class="u-text-gradient">expérience numérique</span> structurée.
+        </h1>
+        <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
+          La méthode REKODE relie stratégie digitale, architecture de contenu, UX/UI, storytelling, direction artistique, front-end et accompagnement. Elle sert à clarifier les décisions avant de produire les écrans.
+        </p>
+        <div class="hero__actions pt-2">
+          <a href="/contact" class="btn-primary">Parler de votre projet</a>
+          <a href="/etudes-de-cas" class="btn-secondary">Voir les études de cas</a>
+        </div>
+      </header>
+
+      <aside class="projects-page__hero-aside" aria-label="Repères de méthode">
+        <p class="projects-page__hero-kicker">Ce que la méthode évite</p>
+        <ul class="projects-page__hero-points">
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="spark" /></span>
+            <span>Produire une interface avant d'avoir clarifié le message.</span>
+          </li>
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="document" /></span>
+            <span>Empiler des contenus sans hiérarchie ni parcours utilisateur.</span>
+          </li>
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="code" /></span>
+            <span>Choisir un outil technique sans tenir compte de l'usage réel.</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <Process
+    label="Les 5 étapes"
+    title="Comprendre, clarifier, structurer, concevoir, accompagner"
+    intro="La méthode n'est pas un tunnel rigide. Elle donne un ordre aux décisions pour que la stratégie, les contenus, l'interface et la technique avancent ensemble."
+    steps={processSteps}
+  />
+
+  <section class="section-shell">
+    <div class="project-case-study-page max-w-(--site-max-width) mx-auto px-4 section-stack--airy">
+      <header class="section-header">
+        <p class="section-label">Détail</p>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Ce que chaque étape produit</h2>
+        <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
+          Une bonne expérience numérique ne dépend pas seulement du design final. Elle dépend de la qualité des questions posées, des arbitrages éditoriaux et de la cohérence entre le contenu, l'usage et la technique.
+        </p>
+      </header>
+
+      <div class="project-case-study__sections">
+        {methodDetails.map((step) => (
+          <article class="project-case-study__section about-page__soft-rule">
+            <p class="project-case-study__label">{step.title}</p>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SelectedProjects
+    label="Exemples"
+    title="Des projets qui montrent la méthode"
+    intro="MIMOSA, Maison Alta, ROCKSIDERS ou LearnIt illustrent des interventions où le contenu, l'interface, la technique et l'accompagnement dépassent la simple création d'un site."
+    projects={selectedProjects.slice(0, 3)}
+    showProjectsLink={true}
+  />
+
+  <ContactSection
+    compact={true}
+    title="Une idée à structurer ?"
+    intro="Décrivons le contexte, les publics et les objectifs pour identifier le bon format d'accompagnement."
+    ctaLabel="Démarrer"
+  />
+</Layout>

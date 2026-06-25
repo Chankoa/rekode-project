@@ -22,7 +22,7 @@ export type IconName =
   | "star"
   | "heart"
   | "mountain"
-    "shoppingBag";
+  | "shoppingBag";
 
 export interface HeroTitlePart {
   text: string;
@@ -68,6 +68,10 @@ export interface ProjectItem {
     context: string;
     objective: string;
     approach: string;
+    decisions?: string;
+    technologies?: string;
+    result?: string;
+    retrospective?: string;
     outcome: string;
   };
 }
@@ -188,6 +192,12 @@ export interface LabItem {
   summary: string;
 }
 
+export interface JournalCategoryItem {
+  label: string;
+  slug: string;
+  summary: string;
+}
+
 export interface ContactContent {
   title: string;
   intro: string;
@@ -201,28 +211,27 @@ export interface SectionIntroContent {
 }
 
 export const heroContent: HeroContent = {
-  eyebrow: "Studio web et accompagnement",
+  eyebrow: "Studio de conception numérique",
   titleParts: [
-    { text: "Transformer " },
-    { text: "vos idées ", highlight: true },
-    { text: "en " },
+    { text: "Concevoir des " },
     { text: "expériences ", highlight: true },
-    { text: "numériques. " },
+    { text: "numériques claires, utiles et " },
+    { text: "mémorables.", highlight: true },
   ],
   subtitle:
-    "REKODE conçoit et accompagne des projets dans la création, la refonte ou l’évolution de sites et interfaces pensés pour transmettre votre message, optimiser votre présence en ligne et structurer l'expérience utlisateur.",
+    "REKODE accompagne les entreprises et projets à taille humaine de la stratégie digitale jusqu'à la mise en ligne : UX/UI, architecture de contenu, storytelling, direction artistique, front-end, WordPress, Shopify, Astro et outils d'IA générative.",
   ctaLabel: "Parler de votre projet",
   ctaHref: "/contact",
-  secondaryCtaLabel: "Voir les réalisations",
-  secondaryCtaHref: "/realisations",
-  supportingLabel: "Fil conducteur",
+  secondaryCtaLabel: "Voir les études de cas",
+  secondaryCtaHref: "/etudes-de-cas",
+  supportingLabel: "Positionnement",
   supportingText:
-    "Créer des expériences qui portent un message, partager ce qui aide à avancer, rester créatif sans perdre en clarté.",
+    "Transformer une idée, une offre ou un contenu complexe en expérience numérique lisible, incarnée et exploitable.",
   features: [
-    { label: "Création web" },
-    { label: "Expérience utilisateur" },
+    { label: "Stratégie digitale" },
+    { label: "UX / UI" },
+    { label: "Front-End & CMS" },
     { label: "Accompagnement" },
-    { label: "Transmission" },
   ],
 };
 
@@ -274,6 +283,14 @@ export const selectedProjects: ProjectItem[] = [
         "Créer une boutique Shopify élégante et facile à administrer, capable de présenter efficacement les collections, d'améliorer la compréhension des produits et d'accompagner le visiteur jusqu'à l'achat.",
       approach:
         "Le travail a porté sur la hiérarchisation des contenus, la personnalisation de l'interface Shopify, l'optimisation des visuels produits, l'organisation du catalogue et la création d'un parcours utilisateur fluide. Des outils d'IA générative ont également été intégrés au processus afin d'explorer différentes directions visuelles, produire certains visuels d'ambiance et accélérer les phases de prototypage et de création de contenus.",
+      decisions:
+        "Prioriser une navigation courte, travailler les fiches produits comme des pages de décision, harmoniser les visuels et donner à la boutique un univers identifiable sans alourdir l'expérience d'achat.",
+      technologies:
+        "Shopify, Liquid, HTML, CSS, JavaScript, Figma, ChatGPT, Codex, Adobe Firefly et optimisation d'images.",
+      result:
+        "Une boutique en ligne cohérente avec l'identité de la marque, simple à administrer et pensée pour valoriser les produits sur mobile comme sur desktop.",
+      retrospective:
+        "Le projet montre l'intérêt d'intégrer l'IA générative comme accélérateur de recherche visuelle et éditoriale, à condition de garder une direction claire et des arbitrages humains.",
       outcome:
         "Une boutique en ligne cohérente avec l'identité de la marque, pensée pour valoriser les produits, faciliter la gestion quotidienne du catalogue et offrir une expérience d'achat claire sur ordinateur comme sur mobile. Le projet illustre aussi l'intégration d'outils IA dans un workflow de conception et de production orienté résultat.",
     },
@@ -325,6 +342,14 @@ export const selectedProjects: ProjectItem[] = [
         "Composer une page de destination capable de vendre un séjour : montrer le lieu, détailler les chambres, mettre en avant les expériences à proximité et rendre les informations pratiques immédiatement lisibles.",
       approach:
         "Le travail s'est concentré sur un hero immersif, une narration par blocs courts, des cartes de chambres et d'expériences, puis des sections de réassurance comme les avis, la FAQ et les informations pratiques.",
+      decisions:
+        "Construire la page comme une projection de séjour : image forte, lecture rapide des chambres, informations pratiques visibles et CTA de réservation répétés aux moments utiles.",
+      technologies:
+        "Astro, HTML, SCSS, composants responsive, optimisation d'images, Figma, ChatGPT et Codex.",
+      result:
+        "Une démonstration immersive qui sert de base éditoriale et technique pour des projets d'hébergement indépendants.",
+      retrospective:
+        "Le prototype rappelle qu'un site touristique ne doit pas seulement être esthétique : il doit aider à se projeter, comparer, comprendre et passer à l'action.",
       outcome:
         "Une démo Astro cohérente et réutilisable pour des projets d'hébergements touristiques, avec une présence visuelle plus incarnée qu'un simple template vitrine.",
     },
@@ -374,6 +399,14 @@ export const selectedProjects: ProjectItem[] = [
         "Aider les visiteurs à comprendre rapidement les activités proposées, les niveaux, les publics concernés et les informations utiles avant contact ou réservation.",
       approach:
         "Le travail a porté sur la structure des pages, la réécriture de contenus, la création de gabarits réutilisables et l'amélioration progressive de l'ergonomie sur la base technique existante.",
+      decisions:
+        "Conserver la base WordPress existante, concentrer l'effort sur la hiérarchie des informations, créer des modèles de pages plus réguliers et améliorer la lisibilité avant toute refonte lourde.",
+      technologies:
+        "WordPress, SiteOrigin Page Builder, CSS, structuration éditoriale, rédaction web, Figma et ChatGPT.",
+      result:
+        "Un site plus lisible, plus cohérent dans ses contenus et plus facile à faire évoluer avec les outils déjà en place.",
+      retrospective:
+        "La valeur d'une refonte ne vient pas toujours d'un changement graphique majeur. Ici, le gain principal vient de la clarification éditoriale et de l'organisation des parcours.",
       outcome:
         "Un site mieux structuré, cohérent dans ses contenus et facile à faire évoluer.",
     },
@@ -427,6 +460,14 @@ export const selectedProjects: ProjectItem[] = [
         "Transformer une activité de terrain en marque identifiable, rassurante et commercialement exploitable. L'objectif était de clarifier les activités proposées, d'aider les visiteurs à choisir une sortie adaptée à leur niveau, de créer une relation de confiance avant la réservation et d'améliorer la visibilité organique sur les recherches liées aux activités outdoor dans le Verdon.",
       approach:
         "Le travail a commencé par le positionnement : ton de marque, promesse, structure des offres et hiérarchie des informations utiles pour les clients. Le site WordPress a ensuite été conçu comme un véritable support commercial, avec des pages d'activités détaillées, des contenus SEO, des blocs de réassurance, des informations pratiques et une navigation pensée pour accompagner la décision.",
+      decisions:
+        "Structurer l'offre par activités et niveaux, créer des pages piliers SEO, renforcer les preuves de confiance, articuler contenus pratiques et récit d'expérience, puis aligner le site avec les supports imprimés et commerciaux.",
+      technologies:
+        "WordPress, thème sur mesure, ACF, HTML, CSS, JavaScript, SEO, rédaction web, supports imprimés, Figma et ChatGPT.",
+      result:
+        "Un écosystème de marque complet qui relie positionnement, contenus, acquisition, relation client et expérience terrain.",
+      retrospective:
+        "ROCKSIDERS illustre le mieux le repositionnement de REKODE : le site n'est qu'une partie d'un dispositif plus large de marque, d'offre, de pédagogie commerciale et de confiance.",
       outcome:
         "ROCKSIDERS est devenu un écosystème de marque cohérent, capable de relier l'expérience terrain, la communication, le référencement naturel et la relation client. Le projet démontre une approche complète : création de marque, conception web, contenu, acquisition, pédagogie commerciale et cohérence entre le discours en ligne et l'expérience vécue sur le terrain.",
     },
@@ -473,6 +514,14 @@ export const selectedProjects: ProjectItem[] = [
         "Créer une présence web cohérente avec le lieu, aider les visiteurs à se projeter et améliorer la visibilité en ligne.",
       approach:
         "Le travail a cherché l'équilibre entre identité existante, lisibilité des offres, expérience utilisateur, design d'interface et référencement.",
+      decisions:
+        "Respecter l'identité déjà présente, organiser les hébergements et informations de séjour, renforcer le SEO local et créer une lecture plus fluide pour les visiteurs en phase de choix.",
+      technologies:
+        "WordPress, Elementor, CSS, UX/UI, SEO local, Figma et ChatGPT.",
+      result:
+        "Un site vitrine clair, cohérent avec le lieu et pensé pour accompagner la découverte des hébergements.",
+      retrospective:
+        "Le projet montre l'importance de prolonger une identité existante sans la surcharger, en laissant les informations pratiques et la projection dans le lieu guider la conception.",
       outcome:
         "Un site vitrine clair, cohérent avec l'univers du lieu et pensé pour accompagner la découverte des hébergements.",
     },
@@ -523,6 +572,14 @@ export const selectedProjects: ProjectItem[] = [
         "Donner une forme lisible à une première vision produit : présenter la promesse, structurer un hub, détailler un parcours type et préparer une architecture extensible avant le développement complet de l'interface.",
       approach:
         "Le travail s'est concentré sur une maquette de démonstration : hero, indicateurs de progression, hub de formations, fiche programme exemple et premiers liens vers d'autres domaines.",
+      decisions:
+        "Penser l'interface comme un produit évolutif plutôt qu'une simple page de présentation : hub, cartes de parcours, progression, fiche programme, catégories et base de design system.",
+      technologies:
+        "Next.js, TypeScript, Tailwind, Sass, design system, Figma, ChatGPT et Codex.",
+      result:
+        "Une base de démonstration pour un projet e-learning modulaire, prête à accueillir de nouveaux domaines, parcours et écrans.",
+      retrospective:
+        "LearnIt confirme l'intérêt de travailler très tôt l'architecture de contenu et les composants, même avant que toutes les fonctionnalités produit soient finalisées.",
       outcome:
         "Une base de démonstration pour un projet e-learning encore en développement, pensée pour accueillir d'autres formations, domaines et écrans à mesure que l'interface se construit.",
     },
@@ -531,72 +588,72 @@ export const selectedProjects: ProjectItem[] = [
 
 export const services: ServiceItem[] = [
   {
-    title: "Diagnostic et plan d'action",
+    title: "Audit & stratégie digitale",
     icon: "document",
-    description: "Pour clarifier votre besoin avant de refaire votre site. Prendre du recul sur un site existant, un message ou une idée avant d'engager du temps ou un budget.",
+    description: "Prendre du recul sur votre présence numérique, clarifier les objectifs, les publics, les messages, les parcours et les priorités avant d'engager une refonte ou une création.",
   },
   {
-    title: "Création et refonte de site vitrine",
+    title: "Site vitrine & expérience utilisateur",
     icon: "monitor",
-    description: "Pour créer une présence web vivante et simple à faire évoluer. Concevoir un site cohérent avec une activité, un public et un message. De la structure au contenu, avec une attention portée à l'expérience.",
+    description: "Concevoir un site clair, crédible et facile à faire évoluer, depuis l'arborescence et les contenus jusqu'à l'interface, l'intégration et la mise en ligne.",
   },
   {
-    title: "Boutique e-commerce Shopify",
+    title: "E-commerce & expérience d'achat",
     icon: "monitor",
     description:
-      "Pour vendre en ligne avec une boutique pensée pour votre activité et vos clients. Conception UX/UI, personnalisation Shopify, structuration du catalogue, optimisation des fiches produits et accompagnement jusqu'à la mise en ligne.",
+      "Structurer une boutique Shopify autour du catalogue, des fiches produits, du récit de marque et d'un parcours d'achat lisible sur desktop comme sur mobile.",
   },  
   {
-    title: "Accompagnement et conseil",
+    title: "Accompagnement stratégique",
     icon: "ear",
-    description: "Pour débloquer une idée ou avancer avec méthode. Un temps d'échange pour clarifier un besoin, structurer une réflexion ou avancer sur un site, un contenu ou une problématique web.",
+    description: "Avancer avec méthode sur un sujet précis : contenu, UX, WordPress, Shopify, SEO, IA générative, organisation d'un projet ou arbitrage technique.",
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
-    title: "Échanger",
-    description: "Comprendre votre activité, vos publics et ce que le site doit rendre lisible.",
+    title: "Comprendre",
+    description: "Explorer votre activité, vos publics, vos contraintes, vos objectifs et ce que l'expérience numérique doit rendre lisible.",
     icon: "ear",
   },
   {
     title: "Clarifier",
-    description: "Identifier le message juste, les priorités et les contenus à structurer.",
+    description: "Faire émerger le message juste, les priorités éditoriales, les preuves à montrer et les actions attendues.",
     icon: "spark",
   },
   {
     title: "Structurer",
-    description: "Organiser les pages, les parcours et les actions attendues.",
+    description: "Organiser l'arborescence, les contenus, les parcours, les composants et les repères nécessaires à la compréhension.",
     icon: "document",
   },
   {
-    title: "Créer",
-    description: "Donner forme à une expérience web claire, sobre et cohérente.",
+    title: "Concevoir",
+    description: "Transformer la stratégie en interface : UX/UI, direction artistique, front-end, CMS et expérience responsive.",
     icon: "pen",
   },
   {
-    title: "Transmettre",
-    description: "Expliquer les choix, livrer les repères utiles et accompagner la prise en main.",
+    title: "Accompagner",
+    description: "Préparer la mise en ligne, transmettre les repères utiles et aider le projet à évoluer après livraison.",
     icon: "cap",
   },
 ];
 
 export const aboutContent: AboutContent = {
   eyebrow: "À propos",
-  title: "Derrière chaque projet, chercher le message juste, pour le bon public.",
+  title: "Un parcours transversal pour relier stratégie, contenu, design et technique.",
   text:
-    "Commencer par une phase d'écoute, de réflexion et de clarification : une manière de travailler nourrie par les activités de pleine nature, le goût de partager (et d'apprendre), l'attention portée au design, et aux détails.",
+    "REKODE s'appuie sur un parcours entre terrain, entrepreneuriat, transmission et création web pour concevoir des expériences numériques qui partent du réel avant de choisir les outils.",
   points: [
     {
-      label: "Écouter, observer",
+      label: "Observer le contexte et les publics",
       icon: "ear",
     },
     {
-      label: "Chercher les connexions avec le public",
+      label: "Relier contenu, parcours et interface",
       icon: "pen",
     },
     {
-      label: "Tracer les chemins entre le fond et la forme",
+      label: "Transformer les idées en supports utilisables",
       icon: "cap",
     },
   ],
@@ -608,18 +665,19 @@ export const aboutPageContent: AboutPageContent = {
   meta: {
     title: "À propos",
     description:
-      "Un parcours entre terrain, création et transmission pour clarifier les projets web et chercher le message juste.",
+      "Un parcours entre terrain, création, transmission et technique pour concevoir des expériences numériques claires, utiles et incarnées.",
   },
   hero: {
     label: "À propos",
-    title: "Derrière chaque projet, chercher le message juste",
+    title: "Derrière chaque projet, chercher l'expérience juste",
     titleParts: [
-      { text: "Sous les projets, " },
-      { text: "le message.", highlight: true },
+      { text: "Relier le fond, " },
+      { text: "la forme ", highlight: true },
+      { text: "et l'usage." },
     ],
     paragraphs: [
-      "REKODE est né d'un parcours à la croisée des activités de pleine nature, de ma passion pour l'espace de création web, et de mon goût pour le partage des savoirs (et celui de l'apprentissage). Le but est de créer des expériences web qui font sens, et dont le message est clair et attractif, adapté au public qui est visé : le bon message, pour le bon public.",
-      "Dans cette perspective, je cherche à comprendre l'activité, son contexte, les publics, les contraintes, afin de trouver le ton juste. Le site doit être un support clair, crédible et vivant, pensé pour être compris, et si possible, parcouru avec plaisir.",
+      "REKODE est né d'un parcours à la croisée des activités de pleine nature, de l'entrepreneuriat, de la transmission et de la création numérique. Cette trajectoire a construit une manière de travailler attentive au terrain, aux publics, aux usages et aux détails qui rendent une expérience compréhensible.",
+      "Dans cette perspective, je cherche à comprendre l'activité, son contexte, les contraintes et les objectifs avant de choisir la forme. Un site, une boutique ou une interface doivent devenir des supports clairs, crédibles et vivants, capables de raconter, orienter et accompagner.",
     ],
     highlightsLabel: "Repères",
     highlights: [
@@ -628,11 +686,11 @@ export const aboutPageContent: AboutPageContent = {
         icon: "ear",
       },
       {
-        label: "Ergonomie et design pour donner du sens",
+        label: "Architecture de contenu et parcours lisibles",
         icon: "monitor",
       },
       {
-        label: "Rythme, récit et attention aux détails",
+        label: "Storytelling, direction artistique et détails",
         icon: "spark",
       },
       {
@@ -655,11 +713,11 @@ export const aboutPageContent: AboutPageContent = {
     index: "01",
     title: "Un parcours nourri par des expériences de terrain.",
     intro:
-      "Je m’appelle Chandra, j’ai suivi un parcours initial orienté vers la relation client et l’enseignement, et c’est un peu par hasard que j’ai découvert une passion pour le web et son potentiel créatif, au détour d’une falaise et de la nécessité de concevoir un site pour promouvoir et vendre des activités de pleine nature.",
+      "Je m’appelle Chandra. Mon parcours a commencé par la relation client, l'enseignement et les activités de pleine nature, avant de rejoindre le web par la nécessité très concrète de structurer une offre, la raconter et la rendre visible.",
     paragraphs: [
       "Éducateur sportif, puis entrepreneur outdoor, j'ai appris à construire une offre, tenir un cadre, écouter des publics différents et transformer des idées en actions concrètes.",
-      "Le web s'est ainsi ajouté comme un espace de création, de partage, et se nourrit de toutes ces expériences, ainsi que d’une indéfectible curiosité. C’est un moyen de communiquer, de raconter une activité, de rendre une idée ou un concept compréhensible, et de créer des supports pour que les utilisateurs(trices) vivent des expériences, numériques, mais aussi réelles.",
-      "Cette double culture alimente aujourd'hui mon travail : une manière de concevoir qui part du réel avant de choisir les outils.",
+      "Le web s'est ainsi ajouté comme un espace de création, de stratégie et de transmission. Il permet de communiquer, de raconter une activité, de rendre une idée compréhensible et de construire des supports qui préparent aussi des expériences réelles.",
+      "Cette double culture alimente aujourd'hui mon travail : partir du réel, clarifier ce qui doit être compris, puis choisir les outils adaptés, qu'il s'agisse de WordPress, Shopify, Astro, front-end ou IA générative.",
     ],
     technicalSkillsLabel: "Compétences techniques",
     technicalSkills: [
@@ -668,10 +726,12 @@ export const aboutPageContent: AboutPageContent = {
       "Shopify",
       "Responsive design",
       "UX / UI",
+      "Architecture de contenu",
+      "Storytelling",
       "Optimisation SEO",
       "Accessibilité",
       "Astro / React",
-      "Outils IA",
+      "ChatGPT / Codex / Firefly",
     ],
     imageAlt: "Carnet ouvert face aux montagnes au lever du soleil",
     imageCaption:
@@ -679,16 +739,17 @@ export const aboutPageContent: AboutPageContent = {
   },
   expertise: {
     index: "02",
-    title: "Clarifier, structurer, transmettre.",
+    title: "Clarifier, structurer, concevoir.",
     intro:
-      "Cette approche tient en trois gestes simples : clarifier ce qui doit être compris, structurer et organiser des parcours, transmettre et expliquer : créer une expérience web, c'est aussi partager.",
+      "Cette approche tient en trois gestes simples : clarifier ce qui doit être compris, structurer les parcours et donner forme à une expérience numérique utile, cohérente et maintenable.",
     skillsLabel: "Axes directeurs",
     skills: [
       "Contexte et public",
       "Expérience utilisateur",
+      "Architecture de contenu",
       "Storytelling",
-      "Ergonomie",
-      "Design",
+      "Direction artistique",
+      "Front-End / CMS",
     ],
     points: [
       {
@@ -700,23 +761,23 @@ export const aboutPageContent: AboutPageContent = {
         text: "Organiser les contenus, les parcours et les actions attendues pour donner au site une lecture simple et cohérente.",
       },
       {
-        title: "Transmettre",
-        text: "Expliquer les choix, partager les repères utiles et rendre la présence web appropriable dans le temps.",
+        title: "Concevoir",
+        text: "Transformer les décisions en interface, composants, contenus, intégration et repères de prise en main.",
       },
     ],
   },
   quote: {
-    label: "Qui a dit ça ?",
+    label: "Fil conducteur",
     text:
-      "Un site réussi commence souvent par un café serré.",
+      "Une expérience numérique réussie commence rarement par l'écran. Elle commence par ce qu'il faut rendre clair.",
     attribution: "REKODE",
   },
   process: {
     index: "03",
     title: "Laisser les idées prendre forme",
     intro:
-      "Avant de concevoir une interface, il faut souvent mettre les idées sur la table : écouter, observer, déplacer les angles, prendre du recul, chercher le message juste : ce qui semblait un détour est une phase essentielle de l'expérience réussie.",
-    note: "(NB: boire un café à l'étape 1 et 3)",
+      "Avant de concevoir une interface, il faut souvent mettre les idées sur la table : écouter, observer, déplacer les angles, prendre du recul et chercher la forme utile. Ce qui ressemble à un détour devient souvent la base d'une expérience plus solide.",
+    note: "L'objectif reste simple : rendre le projet plus clair, plus cohérent et plus facile à faire évoluer.",
     steps: [
       {
         title: "Observer",
@@ -744,64 +805,127 @@ export const aboutPageContent: AboutPageContent = {
     index: "04",
     title: "Ce qui nourrit ce travail.",
     intro:
-      "Des projets, des personnes et des univers variés, la curiosité, un zeste de bienveillance, une attention portée au public, au message, et au rythme et au détail.",
+      "Des projets, des personnes et des univers variés, la curiosité, la technique, le design, les usages et une attention constante portée au public, au message, au rythme et au détail.",
     items: [
-      "La recherche d'une expérience utilisateur optimale, l'ergonomie, l'utilisabilité, et le design des interfaces.",
-      "Le récit visuel et la communication par l'image, photographique, cinématographique et publicitaire.",
-      "La volonté de partager, enseigner (et apprendre), et la curiosité.",
-      "La passion pour les récits et les histoires, cinématographiques ou sériels, quelques romans, et la musique, Rock ou électronique.",
+      "La recherche d'une expérience utilisateur lisible : ergonomie, utilisabilité, accessibilité et design d'interface.",
+      "Le récit visuel et la communication par l'image, de la direction artistique à la production de contenus.",
+      "La volonté de partager, enseigner, apprendre et documenter les décisions pour rendre les projets appropriables.",
+      "La curiosité pour les outils, du front-end aux CMS en passant par les usages de l'IA générative dans la conception.",
     ],
   },
   closing: {
     index: "05",
     title: "Un projet à clarifier ?",
     intro:
-      "Une idée, une refonte ou une présence web à remettre à plat ? Discutons-en simplement et voyons quel message faire émerger.",
+      "Une idée, une refonte, une boutique ou une expérience numérique à clarifier ? Discutons-en simplement et voyons quelle direction faire émerger.",
     ctaLabel: "Discutons-en",
     ctaHref: "/contact",
   },
 };
 
 export const contactContent: ContactContent = {
-  title: "Un projet en tête ? Discutons-en.",
+  title: "Un projet à clarifier ? Discutons-en.",
   intro:
-    "Un site, une refonte ou une idée à concrétiser ? Écrivez-moi, je vous réponds rapidement.",
+    "Une idée, une refonte, une boutique, un contenu ou une expérience numérique à structurer ? Écrivez-moi, je vous réponds rapidement.",
   ctaLabel: "Parler du projet",
   ctaHref: "/contact",
 };
 
 export const labItems: LabItem[] = [
   {
-    title: "UI / CSS",
-    summary: "Explorations de systèmes visuels, composants et détails d'interaction.",
+    title: "UX & architecture de contenu",
+    summary: "Réflexions sur les parcours, les arborescences, les messages et les contenus qui rendent une expérience plus claire.",
   },
   {
-    title: "Astro / front-end",
-    summary: "Tests d'architecture, patterns de composition et arbitrages de performance.",
+    title: "Direction artistique & storytelling",
+    summary: "Notes sur le rythme visuel, la mise en récit, les univers de marque et la production d'images.",
   },
   {
-    title: "IA créative",
-    summary: "Essais autour de la génération, de l'assistance au design et des usages éditoriaux.",
+    title: "Front-End, WordPress, Shopify & Astro",
+    summary: "Retours d'expérience sur les choix techniques, les CMS, les composants, la performance et la maintenabilité.",
   },
   {
-    title: "Storytelling visuel",
-    summary: "Formats narratifs, rythme de lecture et mise en scène de contenus complexes.",
+    title: "IA générative appliquée",
+    summary: "Usages concrets de ChatGPT, Codex ou Firefly dans la recherche, le contenu, la conception et la production.",
+  },
+];
+
+export const journalCategories: JournalCategoryItem[] = [
+  {
+    label: "UX",
+    slug: "ux",
+    summary: "Parcours, ergonomie, lisibilité des interfaces et décisions de conception.",
+  },
+  {
+    label: "Direction artistique",
+    slug: "direction-artistique",
+    summary: "Univers visuels, cohérence de marque, images et atmosphère d'un projet.",
+  },
+  {
+    label: "Création de contenu",
+    slug: "creation-de-contenu",
+    summary: "Architecture éditoriale, storytelling, rédaction web et hiérarchie des messages.",
+  },
+  {
+    label: "WordPress",
+    slug: "wordpress",
+    summary: "Refontes, thèmes, ACF, builders, maintenance et autonomie éditoriale.",
+  },
+  {
+    label: "Shopify",
+    slug: "shopify",
+    summary: "Expérience d'achat, catalogue, fiches produits, Liquid et personnalisation.",
+  },
+  {
+    label: "Astro",
+    slug: "astro",
+    summary: "Sites performants, architecture de composants et génération statique.",
+  },
+  {
+    label: "Front-End",
+    slug: "front-end",
+    summary: "HTML, CSS, JavaScript, accessibilité, responsive et qualité d'intégration.",
+  },
+  {
+    label: "IA générative",
+    slug: "ia-generative",
+    summary: "ChatGPT, Codex, Firefly et workflows hybrides de conception.",
+  },
+  {
+    label: "Études de cas",
+    slug: "etudes-de-cas",
+    summary: "Retours structurés sur les projets, les arbitrages et les résultats obtenus.",
+  },
+  {
+    label: "Design systems",
+    slug: "design-systems",
+    summary: "Composants, tokens, cohérence visuelle et bases réutilisables.",
+  },
+  {
+    label: "SEO",
+    slug: "seo",
+    summary: "Structure, intentions de recherche, contenus piliers et visibilité naturelle.",
+  },
+  {
+    label: "Accessibilité",
+    slug: "accessibilite",
+    summary: "Contrastes, navigation, sémantique et usages inclusifs.",
   },
 ];
 
 export const selectedProjectsContent: SectionIntroContent = {
-  title: "Quelques réalisations",
+  title: "Études de cas",
   intro:
-    "Des sites pensés pour promouvoir une activité et la rendre visible, crédible et attractive.",
+    "Des projets où la stratégie, les contenus, l'interface et la technique travaillent ensemble pour rendre une activité plus claire, plus crédible et plus actionnable.",
 };
 
 export const servicesContent: SectionIntroContent = {
-  title: "Mes propositions",
-  intro: "Des formats simples pour clarifier votre besoin, faire évoluer votre site ou obtenir des conseils.",
+  title: "Services",
+  intro: "Des formats d'accompagnement pour clarifier une stratégie, concevoir une expérience numérique, structurer des contenus et mettre en ligne un support fiable.",
 };
 
 export const processContent: SectionIntroContent = {
-  title: "Comment ça marche",
+  title: "Méthode",
   intro:
-    "Un process en 5 étapes pour passer d'une idée, d'un site daté ou d'un besoin flou à une présence web claire et un site ergonomique.",
+    "Cinq étapes pour passer d'une idée, d'un site confus ou d'une offre à clarifier vers une expérience numérique structurée, utile et durable.",
 };

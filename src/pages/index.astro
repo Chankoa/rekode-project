@@ -4,22 +4,25 @@ import Hero from "../components/sections/Hero.astro";
 import SelectedProjects from "../components/sections/SelectedProjects.astro";
 import Services from "../components/sections/Services.astro";
 import Process from "../components/sections/Process.astro";
-import About from "../components/sections/About.astro";
+import ContactSection from "../components/sections/Contact.astro";
 import { processSteps, selectedProjects, services } from "../data/site-content";
 ---
 
-<Layout title="Accueil">
+<Layout
+  title="Accueil"
+  description="REKODE conçoit des expériences numériques claires, utiles et mémorables, de la stratégie digitale à la mise en ligne."
+>
   <Hero />
 
   <section class="section-shell" aria-label="Fil conducteur REKODE">
     <div class="max-w-(--site-max-width) mx-auto px-4">
       <div class="section-header max-w-4xl">
-        <p class="section-label">Fil conducteur</p>
+        <p class="section-label">Manifeste</p>
         <h2 class="text-2xl sm:text-3xl font-semibold">
-          Créer des expériences. Partager. Rester créatif.
+          Donner une forme claire à ce qui mérite d'être compris.
         </h2>
         <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed max-w-2xl">
-          Créer des expériences qui portent un message, partager ce qui aide à avancer, rester créatif sans perdre en clarté.
+          REKODE existe pour transformer une idée, une offre ou un contenu complexe en expérience numérique lisible. Chaque projet relie stratégie, récit, interface et technique pour créer un support utile, cohérent et facile à faire évoluer.
         </p>
       </div>
     </div>
@@ -27,9 +30,14 @@ import { processSteps, selectedProjects, services } from "../data/site-content";
 
   <Services label="Services" services={services} showServicesLink={true} servicesLinkLabel="Voir les services" />
 
-  <Process label="Approche" steps={processSteps} />
+  <Process label="Méthode" steps={processSteps} />
 
-  <SelectedProjects label="Réalisations" projects={selectedProjects} />
+  <SelectedProjects label="Études de cas" projects={selectedProjects.slice(0, 4)} />
 
-  <About />
+  <ContactSection
+    compact={true}
+    title="Prêt à clarifier votre projet ?"
+    intro="Un échange suffit souvent à identifier la bonne direction : stratégie, contenus, interface, technologie ou accompagnement."
+    ctaLabel="Démarrer un projet"
+  />
 </Layout>

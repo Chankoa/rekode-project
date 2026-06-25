@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "REKODE",
   baseline:
-    "Studio d'accompagnement web humain pour indépendants, petites structures, acteurs du tourisme et projets à taille humaine.",
+    "Studio de conception d'expériences numériques pour clarifier une stratégie, structurer des contenus et mettre en ligne des interfaces utiles.",
   lang: "fr",
   url: "https://rekode.studio",
   meta: {
     description:
-      "REKODE accompagne les indépendants, petites structures et acteurs du tourisme à clarifier leur présence web, avec des sites sobres, utiles et pensés pour des projets à taille humaine.",
+      "REKODE accompagne les entreprises, indépendants et projets à taille humaine dans la conception d'expériences numériques claires, utiles et mémorables, de la stratégie à la mise en ligne.",
   },
   contact: {
     phone: "06 82 91 98 56",
@@ -19,9 +19,11 @@ export const siteConfig = {
     linkedin: "",
   },
   navigation: [
-    { label: "Réalisations", href: "/realisations" },
     { label: "Services", href: "/services" },
+    { label: "Études de cas", href: "/etudes-de-cas" },
+    { label: "Méthode", href: "/methode" },
     { label: "À propos", href: "/a-propos" },
+    { label: "Journal", href: "/journal" },
     { label: "Contact", href: "/contact" },
   ],
 };

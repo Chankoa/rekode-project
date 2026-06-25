@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/ui/Icon.astro";
+import { journalCategories, labItems } from "../data/site-content";
+---
+
+<Layout
+  title="Journal"
+  description="Journal REKODE : réflexions de fond sur UX, direction artistique, création de contenu, WordPress, Shopify, Astro, front-end, IA générative, SEO et accessibilité."
+>
+  <section class="section-shell">
+    <div class="projects-page__hero max-w-(--site-max-width) mx-auto px-4">
+      <header class="projects-page__hero-content section-header">
+        <p class="section-label">Journal</p>
+        <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
+          Des réflexions de fond sur la <span class="u-text-gradient">conception numérique</span>.
+        </h1>
+        <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
+          Le Journal rassemble des notes longues, retours d'expérience et analyses destinés à documenter la manière de travailler de REKODE : contenus, UX, direction artistique, outils, CMS, front-end, SEO, accessibilité et IA générative.
+        </p>
+      </header>
+
+      <aside class="projects-page__hero-aside" aria-label="Intentions éditoriales">
+        <p class="projects-page__hero-kicker">Ligne éditoriale</p>
+        <ul class="projects-page__hero-points">
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="document" /></span>
+            <span>Documenter les méthodes, décisions et arbitrages.</span>
+          </li>
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="spark" /></span>
+            <span>Relier design, contenu, technique et usage réel.</span>
+          </li>
+          <li>
+            <span class="projects-page__hero-icon"><Icon name="cap" /></span>
+            <span>Produire des contenus utiles pour le SEO et la transmission.</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="services-page section-stack--airy max-w-(--site-max-width) mx-auto px-4">
+      <header class="section-heading-row">
+        <div class="section-header">
+          <p class="section-label">Axes</p>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Les premiers territoires éditoriaux</h2>
+          <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
+            Ces axes serviront à accueillir progressivement des contenus de fond : retours de projets, notes de méthode, comparatifs d'outils, analyses UX et documentation de workflows.
+          </p>
+        </div>
+      </header>
+
+      <div class="service-grid">
+        {labItems.map((item) => (
+          <article class="service-item service-item--offer has-hover-fx">
+            <span class="service-item__icon"><Icon name="pen" /></span>
+            <h3 class="text-base sm:text-lg font-semibold">{item.title}</h3>
+            <p class="text-sm text-(--color-muted) leading-relaxed">{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="services-page section-stack--airy max-w-(--site-max-width) mx-auto px-4">
+      <header class="section-header">
+        <p class="section-label">Catégories</p>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Une architecture prête à évoluer</h2>
+        <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
+          Les catégories sont posées dès maintenant pour structurer les futurs articles et renforcer le référencement naturel autour des expertises réellement mobilisées dans les projets.
+        </p>
+      </header>
+
+      <div class="project-grid project-grid--services">
+        {journalCategories.map((category) => (
+          <article class="audience-item u-soft-rule has-hover-fx" id={category.slug}>
+            <h3 class="text-base sm:text-lg font-semibold">{category.label}</h3>
+            <p class="text-sm text-(--color-muted) leading-relaxed">{category.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

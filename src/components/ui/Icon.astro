@@ -20,7 +20,8 @@ interface Props {
     | "arrow"
     | "star"
     | "heart"
-    | "mountain";
+    | "mountain"
+    | "shoppingBag";
   class?: string;
 }
 
@@ -87,6 +88,9 @@ const { name, class: className = "" } = Astro.props;
   )}
   {name === "mountain" && (
     <svg viewBox="0 0 24 24"><path d="M3 19l6.5-9 3.5 4 3-4 5 9" /><path d="M14 6l1.5-2L17 6" /></svg>
+  )}
+  {name === "shoppingBag" && (
+    <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg>
   )}
 
 </span>

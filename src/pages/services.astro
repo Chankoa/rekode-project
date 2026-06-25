@@ -19,55 +19,55 @@ interface OfferItem {
 
 const offers: OfferItem[] = [
   {
-    title: "Diagnostic & plan d'action",
+    title: "Audit & stratégie digitale",
     icon: "document",
-    lead: "Pour clarifier un besoin avant de refaire un site.",
-    text: "Prendre du recul sur un site existant, un message ou une idée avant d'engager du temps ou un budget.",
+    lead: "Pour cadrer une direction avant de créer, refondre ou optimiser.",
+    text: "Analyse de votre présence numérique, clarification des objectifs, publics, messages, contenus, parcours et priorités d'action.",
     price: "À partir de 149 €",
   },
   {
-    title: "Création & refonte de site vitrine",
+    title: "Site vitrine & expérience utilisateur",
     icon: "monitor",
-    lead: "Pour créer une présence web vivante et simple à faire évoluer.",
-    text: "Concevoir un site cohérent avec une activité, un public et un message. De la structure au contenu, avec une attention portée à l'expérience.",
+    lead: "Pour transformer une activité en expérience numérique claire.",
+    text: "Arborescence, contenus, UX/UI, direction artistique, intégration front-end, WordPress ou Astro, mise en ligne et prise en main.",
     price: "À partir de 790 € / sur devis selon périmètre",
   },
-    {
-    title: "Création de boutique e-commerce Shopify",
+  {
+    title: "E-commerce & expérience d'achat",
     icon: "monitor",
-    lead: "Pour vendre en ligne avec une boutique pensée pour votre activité et vos clients.",
-    text: "Conception UX/UI, personnalisation Shopify, structuration du catalogue, optimisation des fiches produits et accompagnement jusqu'à la mise en ligne.",
+    lead: "Pour concevoir une boutique qui aide vraiment à choisir et acheter.",
+    text: "Shopify, structuration du catalogue, fiches produits, récit de marque, parcours d'achat, contenus de réassurance et optimisation mobile.",
     price: "À partir de 1490 € / sur devis selon périmètre",
   },
   {
-    title: "Accompagnement & regard extérieur",
+    title: "Accompagnement stratégique",
     icon: "ear",
-    lead: "Pour débloquer une idée ou avancer avec méthode.",
-    text: "Un temps d'échange pour clarifier un besoin, structurer une réflexion ou avancer sur un site, un contenu ou une problématique web.",
+    lead: "Pour avancer avec méthode sur un sujet précis ou dans la durée.",
+    text: "Conseil, UX, contenu, WordPress, Shopify, SEO, IA générative, arbitrages techniques ou accompagnement de mise en ligne.",
     price: "Session 1h30 à partir de 90 €",
   },
 ];
 
-const audiences: Array<{ label: string; icon: IconName; text: string }> = [
+const formats: Array<{ label: string; icon: IconName; text: string }> = [
   {
-    label: "Hébergements touristiques",
-    icon: "leaf",
-    text: "Pour clarifier une offre, rassurer avant la réservation et faire vivre le site au quotidien.",
+    label: "Cadrage",
+    icon: "document",
+    text: "Une phase courte pour comprendre le contexte, identifier les priorités et poser un plan d'action exploitable.",
   },
   {
-    label: "Activités outdoor & tourisme",
-    icon: "mountain",
-    text: "Pour présenter l'expérience, la saisonnalité et les informations utiles sans brouiller le parcours.",
+    label: "Conception complète",
+    icon: "monitor",
+    text: "Une mission de bout en bout, de la stratégie à la mise en ligne, avec contenus, interface et intégration.",
   },
   {
-    label: "Indépendants, artisans, thérapeutes",
-    icon: "heart",
-    text: "Pour poser un cadre simple, crédible et humain autour d'une activité souvent portée seule.",
+    label: "Refonte ciblée",
+    icon: "refresh",
+    text: "Une intervention sur une base existante pour clarifier l'offre, améliorer les parcours ou renforcer le SEO.",
   },
   {
-    label: "Formateurs & organismes de formation",
+    label: "Conseil continu",
     icon: "cap",
-    text: "Pour structurer une offre lisible, organiser les contenus et aider les publics à comprendre rapidement ce qui est proposé.",
+    text: "Un accompagnement ponctuel ou régulier pour arbitrer, débloquer, documenter et faire évoluer le projet.",
   },
 ];
 
@@ -130,17 +130,17 @@ const faqItems = [
 
 <Layout
   title="Services"
-  description="REKODE accompagne les indépendants, petites structures, acteurs du tourisme et projets avec des offres web claires, concrètes et humaines."
+  description="Services REKODE : stratégie digitale, UX/UI, architecture de contenu, sites vitrines, Shopify, WordPress, Astro, front-end, IA générative et accompagnement."
 >
   <section class="section-shell">
     <div class="services-hero max-w-(--site-max-width) mx-auto px-4">
       <header class="services-hero__content section-header">
         <p class="section-label">Services</p>
         <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
-          <span class="u-text-gradient">Optimiser</span> votre <span class="u-text-gradient">présence</span> sur le web, créer une <span class="u-text-gradient">expérience utilisateur</span> impactante.
+          Concevoir une <span class="u-text-gradient">expérience numérique</span> claire, utile et prête à vivre.
         </h1>
         <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
-          Vous cherchez à créer un site web pour développer votre activité, vous souhaitez maintenir, changer le design ou optimiser le référencement de votre site actuel : REKODE vous accompagne et réalise votre projet.
+          REKODE accompagne les projets de la stratégie à la mise en ligne : clarification, architecture de contenu, UX/UI, storytelling, direction artistique, front-end, WordPress, Shopify, Astro et usages concrets de l'IA générative.
         </p>
         <div class="hero__actions pt-2">
           <a href="/contact" class="btn-primary">Parler de votre projet</a>
@@ -155,9 +155,9 @@ const faqItems = [
         </div>
 
         <div class="services-hero__manifesto-content">
-          <p class="services-hero__eyebrow services-hero__eyebrow--create">Créer</p>
-          <p class="services-hero__eyebrow services-hero__eyebrow--share">Partager</p>
-          <p class="services-hero__eyebrow services-hero__eyebrow--creative">Rester créatif</p>
+          <p class="services-hero__eyebrow services-hero__eyebrow--create">Clarifier</p>
+          <p class="services-hero__eyebrow services-hero__eyebrow--share">Structurer</p>
+          <p class="services-hero__eyebrow services-hero__eyebrow--creative">Concevoir</p>
         </div>
       </aside>
     </div>
@@ -167,25 +167,25 @@ const faqItems = [
     <div class="services-page section-stack--airy max-w-(--site-max-width) mx-auto px-4">
       <header class="section-heading-row">
         <div class="section-header">
-          <p class="section-label">Pour qui ?</p>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Le web pour tous.</h2>
+          <p class="section-label">Philosophie</p>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Commencer par ce qui doit être compris.</h2>
           <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
-           Le web est en mouvement permanent, et les techniques utlisées pour réaliser un projet numérique évoluent, mais l'objectif demeure identique : créer une expérience utilisateur optimale dans le but de promouvoir une, ou plusieurs activités.
+            Les outils changent vite, mais les enjeux restent stables : rendre une offre lisible, aider un public à se repérer, raconter ce qui fait la singularité d'un projet et construire une interface fiable.
           </p>
           <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
-            L'accompagnement proposé s'adresse à tous types de projets dont le but est de produire un site clair et attractif, en accord avec vos valeurs et objectifs. Quelques exemples :
+            L'accompagnement peut prendre plusieurs formes selon le moment du projet : cadrer, concevoir, refondre, optimiser ou simplement avancer avec un regard extérieur structuré.
           </p>
         </div>
       </header>
 
       <div class="service-grid">
-        {audiences.map((audience) => (
+        {formats.map((format) => (
           <article class="audience-item u-soft-rule has-hover-fx">
             <span class="service-item__icon">
-              <Icon name={audience.icon} />
+              <Icon name={format.icon} />
             </span>
-            <h3 class="text-base sm:text-lg font-semibold">{audience.label}</h3>
-            <p class="text-sm text-(--color-muted) leading-relaxed">{audience.text}</p>
+            <h3 class="text-base sm:text-lg font-semibold">{format.label}</h3>
+            <p class="text-sm text-(--color-muted) leading-relaxed">{format.text}</p>
           </article>
         ))}
       </div>
@@ -197,9 +197,9 @@ const faqItems = [
       <header class="section-heading-row">
         <div class="section-header">
           <p class="section-label">Services</p>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Quel est votre projet ?</h2>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Prestations</h2>
           <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
-            Vous avez besoin de conseil sur l'optimisation de votre site web, vous souhaitez créer, ou refondre un site vitrine, vous avez un projet de boutique en ligne : voici quelques-unes de mes propositions.
+            Les formats ci-dessous servent de point de départ. Le périmètre précis dépend du contexte, du niveau de contenu existant, des choix techniques et de l'accompagnement souhaité.
           </p>
         </div>
       </header>
@@ -224,16 +224,16 @@ const faqItems = [
   </section>
 
   <Process
-    label="Méthode"
-    title="Une méthode simple"
-    intro="L'objectif n'est pas de complexifier votre présence web, mais de clarifier les décisions et de prioriser les actions utiles."
+    label="Déroulement"
+    title="Comment se déroule une mission"
+    intro="L'objectif n'est pas d'empiler les livrables, mais de clarifier les décisions, produire ce qui sert vraiment et vous donner les repères nécessaires pour avancer."
     steps={methodSteps}
   />
 
   <SelectedProjects
     label="Projets"
-    title="Quelques projets "
-    intro="Des exemples de sites et d'interventions où la clarté du parcours, le contenu et la crédibilité ont compté autant que la technique."
+    title="Quelques études de cas"
+    intro="Des exemples où la clarté du parcours, le contenu, la crédibilité et la technique ont compté autant que l'interface."
     projects={selectedProjects.slice(0, 4)}
     showProjectsLink={true}
   />
