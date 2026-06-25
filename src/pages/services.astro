@@ -22,28 +22,28 @@ const offers: OfferItem[] = [
     title: "Audit & stratégie digitale",
     icon: "document",
     lead: "Pour cadrer une direction avant de créer, refondre ou optimiser.",
-    text: "Analyse de votre présence numérique, clarification des objectifs, publics, messages, contenus, parcours et priorités d'action.",
+    text: "Analyse de votre présence numérique, clarification des objectifs, publics, contenus, parcours, SEO et priorités d'action.",
     price: "À partir de 149 €",
   },
   {
-    title: "Site vitrine & expérience utilisateur",
+    title: "Création & refonte de site professionnel",
     icon: "monitor",
-    lead: "Pour transformer une activité en expérience numérique claire.",
-    text: "Arborescence, contenus, UX/UI, direction artistique, intégration front-end, WordPress ou Astro, mise en ligne et prise en main.",
+    lead: "Pour transformer une activité en site clair, utile et évolutif.",
+    text: "Conception web, architecture de contenu, UX/UI, direction artistique, intégration Front-End, WordPress ou Astro, mise en ligne et prise en main.",
     price: "À partir de 790 € / sur devis selon périmètre",
   },
   {
-    title: "E-commerce & expérience d'achat",
-    icon: "monitor",
+    title: "Shopify & expérience d'achat",
+    icon: "shopping",
     lead: "Pour concevoir une boutique qui aide vraiment à choisir et acheter.",
-    text: "Shopify, structuration du catalogue, fiches produits, récit de marque, parcours d'achat, contenus de réassurance et optimisation mobile.",
+    text: "Shopify, catalogue produits, fiches articles, récit de marque, UX/UI, contenus de réassurance, optimisation mobile et accompagnement à la mise en ligne.",
     price: "À partir de 1490 € / sur devis selon périmètre",
   },
   {
     title: "Accompagnement stratégique",
     icon: "ear",
     lead: "Pour avancer avec méthode sur un sujet précis ou dans la durée.",
-    text: "Conseil, UX, contenu, WordPress, Shopify, SEO, IA générative, arbitrages techniques ou accompagnement de mise en ligne.",
+    text: "Conseil, UX/UI, architecture de contenu, WordPress, Shopify, SEO, IA générative, arbitrages techniques ou accompagnement de mise en ligne.",
     price: "Session 1h30 à partir de 90 €",
   },
 ];
@@ -129,18 +129,18 @@ const faqItems = [
 ---
 
 <Layout
-  title="Services"
-  description="Services REKODE : stratégie digitale, UX/UI, architecture de contenu, sites vitrines, Shopify, WordPress, Astro, front-end, IA générative et accompagnement."
+  title="Services de conception web, UX/UI, WordPress, Shopify et Astro"
+  description="Services REKODE pour création de site professionnel, refonte de site, UX/UI, architecture de contenu, Shopify, WordPress, Astro et intégration Front-End."
 >
   <section class="section-shell">
     <div class="services-hero max-w-(--site-max-width) mx-auto px-4">
       <header class="services-hero__content section-header">
         <p class="section-label">Services</p>
         <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
-          Concevoir une <span class="u-text-gradient">expérience numérique</span> claire, utile et prête à vivre.
+          Créer ou refondre un <span class="u-text-gradient">site professionnel</span> comme une expérience numérique.
         </h1>
         <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
-          REKODE accompagne les projets de la stratégie à la mise en ligne : clarification, architecture de contenu, UX/UI, storytelling, direction artistique, front-end, WordPress, Shopify, Astro et usages concrets de l'IA générative.
+          REKODE accompagne les projets de la stratégie à la mise en ligne : clarification, architecture de contenu, UX/UI, direction artistique, intégration Front-End, WordPress, Shopify, Astro et usages concrets de l'IA générative.
         </p>
         <div class="hero__actions pt-2">
           <a href="/contact" class="btn-primary">Parler de votre projet</a>
@@ -233,7 +233,7 @@ const faqItems = [
   <SelectedProjects
     label="Projets"
     title="Quelques études de cas"
-    intro="Des exemples où la clarté du parcours, le contenu, la crédibilité et la technique ont compté autant que l'interface."
+    intro="Des exemples où la clarté du parcours, le contenu, la crédibilité, le SEO et la technique ont compté autant que l'interface."
     projects={selectedProjects.slice(0, 4)}
     showProjectsLink={true}
   />

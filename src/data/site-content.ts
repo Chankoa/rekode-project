@@ -214,10 +214,10 @@ export interface SectionIntroContent {
 export const heroContent: HeroContent = {
   eyebrow: "Studio de conception web et numérique",
   titleParts: [
-    { text: "Concevoir des " },
-    { text: "expériences ", highlight: true },
+    { text: "Concevoir " },
+    { text: "des expériences ", highlight: true },
     { text: "pour le " },
-    { text: "web ", highlight: true },
+    { text: "web.", highlight: true },
   ],
   subtitle:
     "De la création de site professionnel à la refonte de site, REKODE accompagne les projets avec stratégie, UX/UI, architecture de contenu, conception web, WordPress, Shopify, Astro et intégration Front-End.",
@@ -241,37 +241,38 @@ export const selectedProjects: ProjectItem[] = [
     title: "MIMOSA",
     slug: "mimosa-eshop",
     summary:
-      "Boutique Shopify pour une marque de vêtements & lifestyle, combinant direction artistique, e-commerce, UX et production visuelle assistée par IA.",
+      "Boutique Shopify pour une marque de vêtements & lifestyle, entre UX/UI, direction artistique, catalogue produits et workflow IA avec Firefly, ChatGPT et Codex.",
     tags: [
       "Shopify",
       "Liquid",
       "UX/UI",
       "Direction artistique",
-      "E-commerce",
-      "IA générative",
+      "Catalogue produits",
+      "Expérience d'achat",
+      "Workflow IA",
       "ChatGPT",
       "Codex",
       "Adobe Firefly",
       "Figma",
     ],
     meta: "01",
-    thumbnailAlt: "Aperçu du projet MIMOSA Eshop",
+    thumbnailAlt: "Aperçu de la boutique Shopify MIMOSA avec catalogue produits et direction artistique",
     websiteHref: "https://mimosa-9354.myshopify.com/",
     websiteLabel: "Voir le projet",
     caseStudy: {
       overview: {
         role:
-          "Direction artistique, conception UX/UI, intégration Shopify, structuration du catalogue, production visuelle assistée par IA et accompagnement e-commerce",
+          "Direction artistique, UX/UI, intégration Shopify, structuration du catalogue produits, production visuelle avec Adobe Firefly et accompagnement e-commerce",
         deliverables:
-          "Boutique Shopify, personnalisation du thème, structure catalogue, fiches produits, navigation, optimisation des visuels, parcours d'achat et pages de contenus",
+          "Boutique Shopify, personnalisation du thème, structure catalogue, fiches produits, navigation, parcours d'achat, visuels générés ou enrichis par IA et pages de contenus",
         stack:
-          "Shopify, Liquid, HTML, CSS, JavaScript, Figma, ChatGPT, Codex, Adobe Firefly, optimisation d'images et UX e-commerce",
+          "Shopify, Liquid, HTML, CSS, JavaScript, Figma, ChatGPT, Codex, Adobe Firefly, optimisation d'images et UX/UI e-commerce",
         timeline:
           "Création d'une boutique e-commerce pour une marque vêtements & lifestyle",
         highlights: [
           "Univers visuel cohérent avec la marque",
-          "Parcours d'achat simplifié",
-          "Production visuelle enrichie par IA",
+          "Catalogue produits structuré",
+          "Workflow IA intégré à la conception",
         ],
       },
       cta: {
@@ -279,19 +280,19 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "MIMOSA souhaitait disposer d'une boutique en ligne capable de refléter son identité tout en offrant une expérience d'achat simple et rassurante. Le projet devait mettre en valeur les produits, faciliter la navigation et créer un environnement cohérent avec l'univers de la marque.",
+        "MIMOSA souhaitait disposer d'une boutique Shopify capable de refléter son univers tout en offrant une expérience d'achat simple et rassurante. Le projet devait mettre en valeur les vêtements, organiser le catalogue produits et créer une direction artistique cohérente avec la marque.",
       objective:
-        "Créer une boutique Shopify élégante et facile à administrer, capable de présenter efficacement les collections, d'améliorer la compréhension des produits et d'accompagner le visiteur jusqu'à l'achat.",
+        "Créer une boutique Shopify facile à administrer, capable de présenter les collections, d'améliorer la compréhension des produits et d'accompagner le visiteur jusqu'à l'achat avec une UX/UI claire.",
       approach:
-        "Le travail a porté sur la hiérarchisation des contenus, la personnalisation de l'interface Shopify, l'optimisation des visuels produits, l'organisation du catalogue et la création d'un parcours utilisateur fluide. Des outils d'IA générative ont également été intégrés au processus afin d'explorer différentes directions visuelles, produire certains visuels d'ambiance et accélérer les phases de prototypage et de création de contenus.",
+        "Le travail a porté sur la hiérarchisation des contenus, la personnalisation de l'interface Shopify, l'optimisation des visuels produits, l'organisation du catalogue et la création d'un parcours utilisateur fluide. Figma a servi à cadrer l'UX/UI, tandis que ChatGPT, Codex et Adobe Firefly ont été intégrés dans un workflow IA pour explorer les directions visuelles, accélérer certains contenus et faciliter l'intégration.",
       decisions:
-        "Prioriser une navigation courte, travailler les fiches produits comme des pages de décision, harmoniser les visuels et donner à la boutique un univers identifiable sans alourdir l'expérience d'achat.",
+        "Prioriser une navigation courte, travailler les fiches produits comme des pages de décision, harmoniser les visuels, clarifier le catalogue et donner à la boutique un univers identifiable sans alourdir l'expérience d'achat.",
       technologies:
         "Shopify, Liquid, HTML, CSS, JavaScript, Figma, ChatGPT, Codex, Adobe Firefly et optimisation d'images.",
       result:
-        "Une boutique en ligne cohérente avec l'identité de la marque, simple à administrer et pensée pour valoriser les produits sur mobile comme sur desktop.",
+        "Une boutique Shopify cohérente avec l'identité de la marque, simple à administrer et pensée pour valoriser les produits sur mobile comme sur desktop.",
       retrospective:
-        "Le projet montre l'intérêt d'intégrer l'IA générative comme accélérateur de recherche visuelle et éditoriale, à condition de garder une direction claire et des arbitrages humains.",
+        "Le projet montre l'intérêt d'un workflow IA dans une mission e-commerce : l'IA accélère la recherche visuelle et éditoriale, mais la cohérence vient toujours des arbitrages de direction artistique, d'UX/UI et de catalogue.",
       outcome:
         "Une boutique en ligne cohérente avec l'identité de la marque, pensée pour valoriser les produits, faciliter la gestion quotidienne du catalogue et offrir une expérience d'achat claire sur ordinateur comme sur mobile. Le projet illustre aussi l'intégration d'outils IA dans un workflow de conception et de production orienté résultat.",
     },
@@ -300,14 +301,15 @@ export const selectedProjects: ProjectItem[] = [
     title: "Maison Alta",
     slug: "alta-website-demo",
     summary:
-      "Démo Astro immersive pour une maison d'hôtes contemporaine, entre storytelling visuel, informations de séjour et intention de réservation.",
+      "Expérience Astro pour une maison d'hôtes contemporaine, entre storytelling visuel, direction artistique, UX et parcours de réservation.",
     tags: [
       "Astro",
-      "HTML",
-      "SCSS",
       "UX/UI",
       "Direction artistique",
-      "Landing page",
+      "Storytelling",
+      "Intégration Front-End",
+      "HTML",
+      "SCSS",
       "Tourisme",
       "Figma",
       "ChatGPT",
@@ -315,22 +317,22 @@ export const selectedProjects: ProjectItem[] = [
     ],
     meta: "02",
     thumbnailAlt:
-      "Aperçu du projet Maison Alta, site vitrine pour une maison d'hôtes contemporaine",
+      "Aperçu de l'expérience Astro Maison Alta avec storytelling, UX et direction artistique",
     websiteHref: "https://alta-website-demo.netlify.app/",
     websiteLabel: "Voir la démo",
     caseStudy: {
       overview: {
         role:
-          "Direction artistique, conception UI, intégration Astro, structure éditoriale et hiérarchisation du parcours de réservation",
+          "Direction artistique, conception UX/UI, intégration Astro, structure éditoriale et hiérarchisation du parcours de réservation",
         deliverables:
-          "Landing page complète, hero immersif, sections de chambres, galerie, FAQ, témoignages et CTA de réservation",
+          "Page Astro complète, hero immersif, sections de chambres, galerie, FAQ, témoignages, contenus de réassurance et CTA de réservation",
         stack:
           "Astro, HTML, SCSS, composants, optimisation d'images, structure responsive, Figma, ChatGPT, Codex",
         timeline: "Démo éditoriale pour maison d'hôtes",
         highlights: [
-          "Univers visuel chaleureux et premium",
-          "Parcours orienté séjour et réservation",
-          "Base réutilisable pour location ou hôtellerie indépendante",
+          "Direction artistique orientée séjour",
+          "UX de réservation lisible",
+          "Intégration Astro responsive",
         ],
       },
       cta: {
@@ -338,17 +340,17 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "Maison Alta imagine le site d'une maison d'hôtes nichée en bord de village. L'enjeu est de transmettre une atmosphère, clarifier l'offre et rassurer sur l'expérience avant même la prise de contact.",
+        "Maison Alta imagine l'expérience numérique d'une maison d'hôtes nichée en bord de village. L'enjeu est de transmettre une atmosphère, clarifier l'offre et rassurer sur l'expérience avant même la prise de contact.",
       objective:
-        "Composer une page de destination capable de vendre un séjour : montrer le lieu, détailler les chambres, mettre en avant les expériences à proximité et rendre les informations pratiques immédiatement lisibles.",
+        "Composer une page Astro capable de soutenir une intention de séjour : montrer le lieu, détailler les chambres, mettre en avant les expériences à proximité et rendre les informations pratiques immédiatement lisibles.",
       approach:
-        "Le travail s'est concentré sur un hero immersif, une narration par blocs courts, des cartes de chambres et d'expériences, puis des sections de réassurance comme les avis, la FAQ et les informations pratiques.",
+        "Le travail s'est concentré sur un hero immersif, une direction artistique chaleureuse, une narration par blocs courts, des cartes de chambres et d'expériences, puis des sections de réassurance comme les avis, la FAQ et les informations pratiques.",
       decisions:
-        "Construire la page comme une projection de séjour : image forte, lecture rapide des chambres, informations pratiques visibles et CTA de réservation répétés aux moments utiles.",
+        "Construire la page comme une projection de séjour : image forte, lecture rapide des chambres, informations pratiques visibles, UX orientée décision et CTA de réservation répétés aux moments utiles.",
       technologies:
         "Astro, HTML, SCSS, composants responsive, optimisation d'images, Figma, ChatGPT et Codex.",
       result:
-        "Une démonstration immersive qui sert de base éditoriale et technique pour des projets d'hébergement indépendants.",
+        "Une expérience Astro immersive qui sert de base éditoriale et technique pour des projets d'hébergement indépendants.",
       retrospective:
         "Le prototype rappelle qu'un site touristique ne doit pas seulement être esthétique : il doit aider à se projeter, comparer, comprendre et passer à l'action.",
       outcome:
@@ -359,34 +361,35 @@ export const selectedProjects: ProjectItem[] = [
     title: "Sens Dessus Dessous",
     slug: "sens-dessus-dessous",
     summary:
-      "Refonte d'un site WordPress existant pour clarifier l'offre, restructurer les contenus et améliorer l'expérience de lecture.",
+      "Refonte WordPress pour clarifier la hiérarchie éditoriale, améliorer l'expérience de lecture et renforcer les bases SEO d'un site existant.",
     tags: [
       "Refonte",
       "WordPress",
+      "Hiérarchie éditoriale",
+      "Architecture de contenu",
+      "SEO",
+      "UX/UI",
       "SiteOrigin",
       "CSS",
-      "UX",
-      "SEO",
       "Rédaction web",
-      "Structuration éditoriale",
       "Figma",
       "ChatGPT",
     ],
     meta: "03",
-    thumbnailAlt: "Aperçu du projet Sens Dessus Dessous",
+    thumbnailAlt: "Aperçu de la refonte WordPress Sens Dessus Dessous avec hiérarchie éditoriale et SEO",
     websiteHref: "https://sensdessusdessous.eu/",
     caseStudy: {
       overview: {
         role:
-          "Refonte UX/UI, restructuration de contenus, rédaction, création de modèles de pages, amélioration ergonomique, adaptation sur thème WordPress existant",
+          "Refonte UX/UI, hiérarchie éditoriale, restructuration de contenus, rédaction web, amélioration SEO et adaptation sur thème WordPress existant",
         deliverables:
-          "Pages modèles, contenus réécrits, structure d'activité, optimisation UX, ajustements graphiques, amélioration du parcours utilisateur",
+          "Pages modèles, contenus réécrits, structure d'activité, optimisation UX, ajustements graphiques, amélioration du parcours utilisateur et bases SEO",
         stack:
-          "WordPress, thème existant, SiteOrigin Page Builder, CSS, structuration éditoriale, Figma, ChatGPT",
+          "WordPress, thème existant, SiteOrigin Page Builder, CSS, architecture de contenu, SEO, Figma, ChatGPT",
         timeline: "Refonte et restructuration d'un site existant",
         highlights: [
           "Hiérarchie éditoriale retravaillée",
-          "Modèles de pages réutilisables",
+          "SEO et contenus clarifiés",
           "Adaptation sur une base WordPress existante",
         ],
       },
@@ -395,17 +398,17 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "Le site existait déjà mais nécessitait une hiérarchie de l'information retravaillée, une présentation lisible des activités et une expérience de navigation fluide.",
+        "Le site WordPress existait déjà mais nécessitait une hiérarchie éditoriale retravaillée, une présentation lisible des activités, des contenus plus cohérents et une expérience de navigation plus fluide.",
       objective:
-        "Aider les visiteurs à comprendre rapidement les activités proposées, les niveaux, les publics concernés et les informations utiles avant contact ou réservation.",
+        "Aider les visiteurs à comprendre rapidement les activités proposées, les niveaux, les publics concernés et les informations utiles avant contact ou réservation, tout en renforçant les bases SEO.",
       approach:
-        "Le travail a porté sur la structure des pages, la réécriture de contenus, la création de gabarits réutilisables et l'amélioration progressive de l'ergonomie sur la base technique existante.",
+        "Le travail a porté sur la structure des pages, la réécriture de contenus, la création de gabarits réutilisables, la hiérarchie Hn, les repères SEO et l'amélioration progressive de l'ergonomie sur la base technique existante.",
       decisions:
-        "Conserver la base WordPress existante, concentrer l'effort sur la hiérarchie des informations, créer des modèles de pages plus réguliers et améliorer la lisibilité avant toute refonte lourde.",
+        "Conserver la base WordPress existante, concentrer l'effort sur la hiérarchie des informations, créer des modèles de pages plus réguliers, améliorer la lisibilité et renforcer les contenus utiles avant toute refonte lourde.",
       technologies:
-        "WordPress, SiteOrigin Page Builder, CSS, structuration éditoriale, rédaction web, Figma et ChatGPT.",
+        "WordPress, SiteOrigin Page Builder, CSS, architecture de contenu, rédaction web, SEO, Figma et ChatGPT.",
       result:
-        "Un site plus lisible, plus cohérent dans ses contenus et plus facile à faire évoluer avec les outils déjà en place.",
+        "Un site WordPress plus lisible, plus cohérent dans ses contenus, mieux structuré pour le SEO et plus facile à faire évoluer avec les outils déjà en place.",
       retrospective:
         "La valeur d'une refonte ne vient pas toujours d'un changement graphique majeur. Ici, le gain principal vient de la clarification éditoriale et de l'organisation des parcours.",
       outcome:
@@ -416,39 +419,39 @@ export const selectedProjects: ProjectItem[] = [
     title: "ROCKSIDERS",
     slug: "rocksiders",
     summary:
-      "Création complète d'une marque outdoor dans le Verdon : positionnement, identité éditoriale, site WordPress, SEO, offres, supports commerciaux et acquisition client.",
+      "Création d'une marque outdoor dans le Verdon : positionnement, offres, SEO, communication, acquisition et expérience client autour d'un écosystème WordPress.",
     tags: [
       "Création de marque",
+      "Positionnement",
+      "Offres",
       "WordPress",
       "ACF",
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "UX",
       "SEO",
-      "Rédaction web",
       "Communication",
       "Acquisition client",
-      "Outdoor",
+      "Expérience client",
+      "UX/UI",
+      "Rédaction web",
       "Figma",
+      "ChatGPT",
     ],
     meta: "04",
-    thumbnailAlt: "Aperçu du projet ROCKSIDERS",
+    thumbnailAlt: "Aperçu de l'écosystème de marque ROCKSIDERS avec WordPress, SEO et acquisition client",
     websiteHref: "https://www.rocksiders.com/",
     caseStudy: {
       overview: {
         role:
-          "Création d'entreprise, positionnement de marque, direction éditoriale, UX/UI, développement WordPress, structuration des offres, SEO, rédaction de contenus, supports graphiques et communication commerciale",
+          "Création de marque, positionnement, structuration des offres, direction éditoriale, UX/UI, développement WordPress, SEO, communication, acquisition et expérience client",
         deliverables:
-          "Marque outdoor, site WordPress sur mesure, thème personnalisé, arborescence SEO, pages piliers, pages d'activités, contenus éditoriaux, supports imprimés, flyers, affiches, visuels web, messages commerciaux et contenus réseaux sociaux",
+          "Positionnement de marque, offres outdoor, site WordPress sur mesure, arborescence SEO, pages piliers, pages d'activités, contenus éditoriaux, supports imprimés, messages commerciaux et contenus de communication",
         stack:
-          "WordPress, thème sur mesure, ACF, HTML, CSS, JavaScript, SEO, rédaction web, identité éditoriale, supports imprimés, Figma, ChatGPT",
+          "WordPress, thème sur mesure, ACF, HTML, CSS, JavaScript, SEO, rédaction web, identité éditoriale, communication, Figma, ChatGPT",
         timeline:
           "Création, développement et exploitation d'un écosystème de marque outdoor dans le Verdon",
         highlights: [
-          "Création d'une marque de terrain identifiable",
-          "Structuration d'une offre outdoor lisible",
-          "Site pensé pour la confiance, le SEO et la réservation",
+          "Marque outdoor positionnée",
+          "Offres structurées pour la réservation",
+          "SEO, communication et acquisition reliés",
         ],
       },
       cta: {
@@ -456,19 +459,19 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "ROCKSIDERS est une entreprise outdoor dans le Verdon qui propose des activités comme le canyoning, l'escalade et la découverte du territoire. Le projet ne consistait pas seulement à créer un site, mais à construire une marque complète : une identité, une manière de parler aux clients, une offre lisible et un dispositif capable de générer des réservations.",
+        "ROCKSIDERS est une marque outdoor dans le Verdon construite autour d'activités comme le canyoning, l'escalade et la découverte du territoire. Le projet ne consistait pas uniquement à créer un site WordPress, mais à poser un positionnement, une offre, une communication et une expérience client capables de générer de la confiance et des réservations.",
       objective:
-        "Transformer une activité de terrain en marque identifiable, rassurante et commercialement exploitable. L'objectif était de clarifier les activités proposées, d'aider les visiteurs à choisir une sortie adaptée à leur niveau, de créer une relation de confiance avant la réservation et d'améliorer la visibilité organique sur les recherches liées aux activités outdoor dans le Verdon.",
+        "Transformer une activité de terrain en marque identifiable, rassurante et commercialement exploitable. L'objectif était de clarifier les offres, d'aider les visiteurs à choisir une sortie adaptée à leur niveau, de créer une relation de confiance avant la réservation et d'améliorer l'acquisition organique grâce au SEO.",
       approach:
-        "Le travail a commencé par le positionnement : ton de marque, promesse, structure des offres et hiérarchie des informations utiles pour les clients. Le site WordPress a ensuite été conçu comme un véritable support commercial, avec des pages d'activités détaillées, des contenus SEO, des blocs de réassurance, des informations pratiques et une navigation pensée pour accompagner la décision.",
+        "Le travail a commencé par le positionnement : ton de marque, promesse, structure des offres, arguments de confiance et informations utiles pour les clients. Le site WordPress a ensuite été conçu comme un support commercial et SEO, avec des pages d'activités détaillées, des contenus d'acquisition, des blocs de réassurance et une navigation pensée pour accompagner la décision.",
       decisions:
-        "Structurer l'offre par activités et niveaux, créer des pages piliers SEO, renforcer les preuves de confiance, articuler contenus pratiques et récit d'expérience, puis aligner le site avec les supports imprimés et commerciaux.",
+        "Structurer l'offre par activités et niveaux, créer des pages piliers SEO, renforcer les preuves de confiance, articuler contenus pratiques et récit d'expérience, puis aligner le site avec les supports imprimés, les messages commerciaux et les contenus de communication.",
       technologies:
-        "WordPress, thème sur mesure, ACF, HTML, CSS, JavaScript, SEO, rédaction web, supports imprimés, Figma et ChatGPT.",
+        "WordPress, thème sur mesure, ACF, HTML, CSS, JavaScript, SEO, rédaction web, communication, supports imprimés, Figma et ChatGPT.",
       result:
-        "Un écosystème de marque complet qui relie positionnement, contenus, acquisition, relation client et expérience terrain.",
+        "Un écosystème de marque complet qui relie positionnement, offres, contenus, SEO, acquisition, relation client et expérience terrain.",
       retrospective:
-        "ROCKSIDERS illustre le mieux le repositionnement de REKODE : le site n'est qu'une partie d'un dispositif plus large de marque, d'offre, de pédagogie commerciale et de confiance.",
+        "ROCKSIDERS illustre le repositionnement de REKODE : le site WordPress n'est qu'une partie d'un dispositif plus large de marque, d'offre, de communication, d'acquisition et de confiance.",
       outcome:
         "ROCKSIDERS est devenu un écosystème de marque cohérent, capable de relier l'expérience terrain, la communication, le référencement naturel et la relation client. Le projet démontre une approche complète : création de marque, conception web, contenu, acquisition, pédagogie commerciale et cohérence entre le discours en ligne et l'expérience vécue sur le terrain.",
     },
@@ -477,19 +480,22 @@ export const selectedProjects: ProjectItem[] = [
     title: "La Fabrique de Moustiers",
     slug: "lafabrique-moustiers",
     summary:
-      "Création d'un site WordPress pour un hébergement touristique, en cohérence avec une identité graphique existante.",
+      "Création d'un site WordPress pour un hébergement touristique, avec UX/UI, SEO local et cohérence avec une identité graphique existante.",
     tags: [
-      "Hébergement",
       "WordPress",
       "Elementor",
-      "CSS",
       "UX/UI",
       "SEO local",
+      "Architecture de contenu",
+      "Hébergement touristique",
+      "Direction artistique",
+      "CSS",
       "Tourisme",
       "Figma",
+      "ChatGPT",
     ],
     meta: "05",
-    thumbnailAlt: "Aperçu du projet La Fabrique de Moustiers",
+    thumbnailAlt: "Aperçu du site WordPress La Fabrique de Moustiers avec UX/UI et SEO local",
     websiteHref: "https://lafabrique-moustiers.com/",
     caseStudy: {
       overview: {
@@ -531,36 +537,38 @@ export const selectedProjects: ProjectItem[] = [
     title: "LearnIt",
     slug: "learn-it",
     summary:
-      "Prototype e-learning multi-domaines, pensé comme un produit numérique évolutif autour de la formation, de l'UX pédagogique et du design system.",
+      "Produit numérique e-learning conçu autour de Next.js, de l'UX pédagogique, d'un design system et d'une architecture de contenu évolutive.",
     tags: [
       "Next.js",
       "TypeScript",
+      "UX/UI",
+      "UX pédagogique",
+      "Design System",
+      "Architecture de contenu",
+      "E-learning",
+      "Produit numérique",
+      "Product design",
       "Tailwind",
       "Sass",
-      "UX/UI",
-      "E-learning",
-      "Prototype produit",
-      "Product design",
-      "Design system",
       "Figma",
       "ChatGPT",
       "Codex",
     ],
     meta: "06",
-    thumbnailAlt: "Aperçu du projet LearnIt",
+    thumbnailAlt: "Aperçu du produit numérique LearnIt avec UX pédagogique et design system",
     caseStudy: {
       overview: {
         role:
-          "Direction produit, UX/UI, architecture de contenus, design system, structuration initiale du hub et des parcours de formation, intégration front",
+          "Direction produit, UX/UI, UX pédagogique, architecture de contenu, design system, structuration du hub de formation et intégration Front-End",
         deliverables:
-          "Landing page, hub de formations, fiche programme exemple, composants de progression, filtres catalogue, ressources pédagogiques, maquettes UI",
+          "Landing page, hub de formations, fiche programme exemple, composants de progression, filtres catalogue, ressources pédagogiques, maquettes UI et premiers repères de design system",
         stack:
-          "Next.js, TypeScript, Tailwind, Sass, design system, contenus pédagogiques, Figma, ChatGPT, Codex",
+          "Next.js, TypeScript, Tailwind, Sass, design system, architecture de contenu, contenus pédagogiques, Figma, ChatGPT, Codex",
         timeline: "Prototype e-learning en cours de développement",
         highlights: [
-          "Hub pensé pour accueillir plusieurs domaines de formation",
-          "Parcours création web montré comme cas d'usage initial",
-          "Base d'interface en préparation avant enrichissement du produit",
+          "Produit numérique structuré",
+          "UX pédagogique et parcours de formation",
+          "Design system initial",
         ],
       },
       cta: {
@@ -568,19 +576,19 @@ export const selectedProjects: ProjectItem[] = [
         href: "/contact",
       },
       context:
-        "LearnIt est un projet e-learning en cours de construction porté par REKODE. La maquette actuelle pose les bases d'une plateforme capable d'accueillir plusieurs domaines de formation ; le parcours création web y sert aujourd'hui d'exemple.",
+        "LearnIt est un produit numérique e-learning en cours de construction porté par REKODE. La maquette actuelle pose les bases d'une plateforme capable d'accueillir plusieurs domaines de formation ; le parcours création web y sert aujourd'hui d'exemple.",
       objective:
-        "Donner une forme lisible à une première vision produit : présenter la promesse, structurer un hub, détailler un parcours type et préparer une architecture extensible avant le développement complet de l'interface.",
+        "Donner une forme lisible à une première vision produit : présenter la promesse, structurer un hub, détailler un parcours type, poser une UX pédagogique et préparer une architecture de contenu extensible avant le développement complet.",
       approach:
-        "Le travail s'est concentré sur une maquette de démonstration : hero, indicateurs de progression, hub de formations, fiche programme exemple et premiers liens vers d'autres domaines.",
+        "Le travail s'est concentré sur une maquette de démonstration construite comme un produit : hero, indicateurs de progression, hub de formations, fiche programme exemple, premiers liens vers d'autres domaines et composants réutilisables.",
       decisions:
-        "Penser l'interface comme un produit évolutif plutôt qu'une simple page de présentation : hub, cartes de parcours, progression, fiche programme, catégories et base de design system.",
+        "Penser l'interface comme un produit évolutif plutôt qu'une simple page de présentation : hub, cartes de parcours, progression, fiche programme, catégories, architecture de contenu et base de design system.",
       technologies:
         "Next.js, TypeScript, Tailwind, Sass, design system, Figma, ChatGPT et Codex.",
       result:
-        "Une base de démonstration pour un projet e-learning modulaire, prête à accueillir de nouveaux domaines, parcours et écrans.",
+        "Une base de produit numérique e-learning modulaire, prête à accueillir de nouveaux domaines, parcours et écrans.",
       retrospective:
-        "LearnIt confirme l'intérêt de travailler très tôt l'architecture de contenu et les composants, même avant que toutes les fonctionnalités produit soient finalisées.",
+        "LearnIt confirme l'intérêt de travailler très tôt l'architecture de contenu, l'UX pédagogique et les composants de design system, même avant que toutes les fonctionnalités produit soient finalisées.",
       outcome:
         "Une base de démonstration pour un projet e-learning encore en développement, pensée pour accueillir d'autres formations, domaines et écrans à mesure que l'interface se construit.",
     },
@@ -629,7 +637,7 @@ export const processSteps: ProcessStep[] = [
   },
   {
     title: "Concevoir",
-    description: "Transformer la stratégie en interface : UX/UI, direction artistique, front-end, CMS et expérience responsive.",
+    description: "Transformer la stratégie en interface : UX/UI, direction artistique, intégration Front-End, CMS et expérience responsive.",
     icon: "pen",
   },
   {
@@ -705,7 +713,7 @@ export const aboutPageContent: AboutPageContent = {
     ],
     ctaLabel: "Parler de votre projet",
     ctaHref: "/contact",
-    portraitAlt: "Portrait en noir et blanc",
+    portraitAlt: "Portrait du concepteur REKODE, studio de conception web et expériences numériques",
     portraitCaption:
       "Regarder au loin pour voir plus près ?",
   },
@@ -718,7 +726,7 @@ export const aboutPageContent: AboutPageContent = {
     paragraphs: [
       "Éducateur sportif, puis entrepreneur outdoor, j'ai appris à construire une offre, tenir un cadre, écouter des publics différents et transformer des idées en actions concrètes.",
       "Le web s'est ainsi ajouté comme un espace de création, de stratégie et de transmission. Il permet de communiquer, de raconter une activité, de rendre une idée compréhensible et de construire des supports qui préparent aussi des expériences réelles.",
-      "Cette double culture alimente aujourd'hui mon travail : partir du réel, clarifier ce qui doit être compris, puis choisir les outils adaptés, qu'il s'agisse de WordPress, Shopify, Astro, front-end ou IA générative.",
+      "Cette double culture alimente aujourd'hui mon travail : partir du réel, clarifier ce qui doit être compris, puis choisir les outils adaptés, qu'il s'agisse de WordPress, Shopify, Astro, intégration Front-End ou IA générative.",
     ],
     technicalSkillsLabel: "Compétences techniques",
     technicalSkills: [
@@ -811,7 +819,7 @@ export const aboutPageContent: AboutPageContent = {
       "La recherche d'une expérience utilisateur lisible : ergonomie, utilisabilité, accessibilité et design d'interface.",
       "Le récit visuel et la communication par l'image, de la direction artistique à la production de contenus.",
       "La volonté de partager, enseigner, apprendre et documenter les décisions pour rendre les projets appropriables.",
-      "La curiosité pour les outils, du front-end aux CMS en passant par les usages de l'IA générative dans la conception.",
+      "La curiosité pour les outils, de l'intégration Front-End aux CMS en passant par les usages de l'IA générative dans la conception.",
     ],
   },
   closing: {
@@ -922,7 +930,7 @@ export const selectedProjectsContent: SectionIntroContent = {
 
 export const servicesContent: SectionIntroContent = {
   title: "Services",
-  intro: "Des formats d'accompagnement pour clarifier une stratégie, concevoir une expérience numérique, structurer des contenus et mettre en ligne un support fiable.",
+  intro: "Des formats d'accompagnement pour clarifier une stratégie, concevoir une expérience numérique, structurer des contenus et mettre en ligne un site professionnel fiable.",
 };
 
 export const processContent: SectionIntroContent = {
