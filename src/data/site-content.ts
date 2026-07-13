@@ -257,7 +257,7 @@ export const selectedProjects: ProjectItem[] = [
     ],
     meta: "01",
     thumbnailAlt: "Aperçu de la boutique Shopify MIMOSA avec catalogue produits et direction artistique",
-    websiteHref: "https://mimosa-9354.myshopify.com/",
+    websiteHref: "https://mimosa-eshop.com/",
     websiteLabel: "Voir le projet",
     caseStudy: {
       overview: {
@@ -936,5 +936,5 @@ export const servicesContent: SectionIntroContent = {
 export const processContent: SectionIntroContent = {
   title: "Méthode",
   intro:
-    "Cinq étapes pour passer d'une idée, d'un site confus ou d'une offre à clarifier vers une expérience numérique structurée, utile et durable.",
+    "Cinq étapes pour passer d'une idée, d'une recherche de visibilité, d'une offre à promouvoir vers une expérience numérique structurée, utile et durable.",
 };
