@@ -1,17 +1,3 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Process from "../components/sections/Process.astro";
-import { processSteps } from "../data/site-content";
+return Astro.redirect("/methode/", 301);
 ---
-
-<Layout
-  title="Méthode de conception web et UX/UI"
-  description="Méthode REKODE pour création de site professionnel, refonte, UX/UI, architecture de contenu, WordPress, Shopify, Astro et intégration Front-End."
->
-  <Process
-    label="Méthode"
-    title="Comprendre, clarifier, structurer, concevoir, accompagner"
-    intro="Le projet avance par étapes explicites, avec une attention particulière à la stratégie, à la structure de contenu, à l'expérience utilisateur et aux contraintes réelles de mise en ligne."
-    steps={processSteps}
-  />
-</Layout>

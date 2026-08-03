@@ -169,11 +169,6 @@ export interface AboutPageInspirationSection extends AboutPageSectionBase {
   items: string[];
 }
 
-export interface AboutPageClosingSection extends AboutPageSectionBase {
-  ctaLabel: string;
-  ctaHref: string;
-}
-
 export interface AboutPageContent {
   meta: {
     title: string;
@@ -185,7 +180,6 @@ export interface AboutPageContent {
   quote: AboutPageQuoteSection;
   process: AboutPageProcessSection;
   inspiration: AboutPageInspirationSection;
-  closing: AboutPageClosingSection;
 }
 
 export interface LabItem {
@@ -202,8 +196,6 @@ export interface JournalCategoryItem {
 export interface ContactContent {
   title: string;
   intro: string;
-  ctaLabel: string;
-  ctaHref: string;
 }
 
 export interface SectionIntroContent {
@@ -220,14 +212,14 @@ export const heroContent: HeroContent = {
     { text: "web.", highlight: true },
   ],
   subtitle:
-    "De la création de site professionnel à la refonte de site, REKODE accompagne les projets avec stratégie, UX/UI, architecture de contenu, conception web, WordPress, Shopify, Astro et intégration Front-End.",
-  ctaLabel: "Parler de votre projet",
-  ctaHref: "/contact",
+    "REKODE conçoit et refond des sites qui présentent une offre clairement, orientent les visiteurs et restent simples à faire évoluer.",
+  ctaLabel: "Voir les services",
+  ctaHref: "/services",
   secondaryCtaLabel: "Voir les études de cas",
   secondaryCtaHref: "/etudes-de-cas",
   supportingLabel: "Positionnement",
   supportingText:
-    "Transformer une idée, une offre ou un contenu complexe en parcours clair, utile et exploitable.",
+    "Faire comprendre une offre, aider à choisir et faciliter le passage à l'action.",
   features: [
     { label: "Création & refonte" },
     { label: "UX/UI" },
@@ -647,6 +639,24 @@ export const processSteps: ProcessStep[] = [
   },
 ];
 
+export const homeProcessSteps: ProcessStep[] = [
+  {
+    title: "Clarifier",
+    description: "Mettre au point l'offre, les publics et ce que le site doit permettre de comprendre.",
+    icon: "spark",
+  },
+  {
+    title: "Structurer",
+    description: "Organiser les pages et les repères pour aider à choisir, prendre contact ou acheter.",
+    icon: "document",
+  },
+  {
+    title: "Concevoir",
+    description: "Créer une interface responsive et une base technique adaptée à l'usage réel, facile à maintenir.",
+    icon: "pen",
+  },
+];
+
 export const aboutContent: AboutContent = {
   eyebrow: "À propos",
   title: "Un parcours transversal pour relier stratégie, contenu, design et technique.",
@@ -711,8 +721,8 @@ export const aboutPageContent: AboutPageContent = {
         icon: "mountain",
       },
     ],
-    ctaLabel: "Parler de votre projet",
-    ctaHref: "/contact",
+    ctaLabel: "Découvrir le parcours",
+    ctaHref: "#parcours",
     portraitAlt: "Portrait du concepteur REKODE, studio de conception web et expériences numériques",
     portraitCaption:
       "Regarder au loin pour voir plus près ?",
@@ -748,9 +758,9 @@ export const aboutPageContent: AboutPageContent = {
   },
   expertise: {
     index: "02",
-    title: "Clarifier, structurer, concevoir.",
+    title: "Ce que le terrain change dans ma pratique.",
     intro:
-      "Cette approche tient en trois gestes simples : clarifier ce qui doit être compris, structurer les parcours et donner forme à une expérience numérique utile, cohérente et maintenable.",
+      "Les expériences de terrain, de relation client et de transmission orientent ma façon de travailler : partir des situations réelles, faire des choix compréhensibles et laisser des outils utilisables.",
     skillsLabel: "Axes directeurs",
     skills: [
       "Contexte et public",
@@ -762,16 +772,16 @@ export const aboutPageContent: AboutPageContent = {
     ],
     points: [
       {
-        title: "Clarifier",
-        text: "Faire émerger le message juste, mettre des mots sur l'activité et distinguer ce qui doit être compris en priorité.",
+        title: "Écouter avant de proposer",
+        text: "Comprendre l'activité, les personnes concernées, les contraintes et les questions qui reviennent vraiment.",
       },
       {
-        title: "Structurer",
-        text: "Organiser les contenus, les parcours et les actions attendues pour donner au site une lecture simple et cohérente.",
+        title: "Faire des choix utilisables",
+        text: "Hiérarchiser l'information pour aider à choisir, rassurer et faciliter la prise de contact ou l'achat.",
       },
       {
-        title: "Concevoir",
-        text: "Transformer les décisions en interface, composants, contenus, intégration et repères de prise en main.",
+        title: "Transmettre une base autonome",
+        text: "Adapter la technique à l'usage réel et livrer un site que l'on peut comprendre, maintenir et faire évoluer.",
       },
     ],
   },
@@ -786,27 +796,19 @@ export const aboutPageContent: AboutPageContent = {
     title: "Laisser les idées prendre forme",
     intro:
       "Avant de concevoir une interface, il faut souvent mettre les idées sur la table : écouter, observer, déplacer les angles, prendre du recul et chercher la forme utile. Ce qui ressemble à un détour devient souvent la base d'une expérience plus solide.",
-    note: "L'objectif reste simple : rendre le projet plus clair, plus cohérent et plus facile à faire évoluer.",
+    note: "Cet espace d'essai complète la méthode de projet sans la recopier : il sert à éprouver une piste avant de la retenir.",
     steps: [
       {
         title: "Observer",
         text: "Prendre le temps de regarder le contexte, les usages, les contraintes et les détails.",
       },
       {
-        title: "Connecter",
-        text: "Relier les idées, les envies (et quelques hésitations) pour faire apparaître une direction.",
+        title: "Essayer",
+        text: "Mettre une idée en forme, la confronter au contenu et vérifier si elle aide réellement à comprendre.",
       },
       {
-        title: "Recomposer",
-        text: "Remettre les éléments dans un ordre clair, en gardant ce qui donne au projet sa matière vivante.",
-      },
-      {
-        title: "Itérer",
-        text: "Ajuster la forme, le rythme et les contenus, par couches successives, jusqu'à trouver le bon parcours, le message juste.",
-      },
-      {
-        title: "Recommencer",
-        text: "Bien mélanger : revenir au besoin, simplifier encore, puis avancer (Same player, Try again).",
+        title: "Ajuster",
+        text: "Garder ce qui fonctionne, retirer le reste et documenter la décision pour pouvoir avancer.",
       },
     ],
   },
@@ -822,22 +824,12 @@ export const aboutPageContent: AboutPageContent = {
       "La curiosité pour les outils, de l'intégration Front-End aux CMS en passant par les usages de l'IA générative dans la conception.",
     ],
   },
-  closing: {
-    index: "05",
-    title: "Un projet à clarifier ?",
-    intro:
-      "Une idée, une refonte, une boutique ou une expérience numérique à clarifier ? Discutons-en simplement et voyons quelle direction faire émerger.",
-    ctaLabel: "Discutons-en",
-    ctaHref: "/contact",
-  },
 };
 
 export const contactContent: ContactContent = {
   title: "Un projet à clarifier ? Discutons-en.",
   intro:
     "Une idée, une refonte, une boutique, un contenu ou une expérience numérique à structurer ? Écrivez-moi, je vous réponds rapidement.",
-  ctaLabel: "Parler du projet",
-  ctaHref: "/contact",
 };
 
 export const labItems: LabItem[] = [
@@ -861,64 +853,24 @@ export const labItems: LabItem[] = [
 
 export const journalCategories: JournalCategoryItem[] = [
   {
-    label: "UX",
-    slug: "ux",
-    summary: "Parcours, ergonomie, lisibilité des interfaces et décisions de conception.",
+    label: "Conception & contenus",
+    slug: "conception-contenus",
+    summary: "Lisibilité des pages, architecture éditoriale, UX et décisions d'interface.",
   },
   {
-    label: "Direction artistique",
-    slug: "direction-artistique",
-    summary: "Univers visuels, cohérence de marque, images et atmosphère d'un projet.",
+    label: "Projets & arbitrages",
+    slug: "projets-arbitrages",
+    summary: "Retours sur les problèmes rencontrés, les options écartées et les choix retenus.",
   },
   {
-    label: "Création de contenu",
-    slug: "creation-de-contenu",
-    summary: "Architecture éditoriale, storytelling, rédaction web et hiérarchie des messages.",
+    label: "Outils & maintenance",
+    slug: "outils-maintenance",
+    summary: "WordPress, Shopify, Astro et pratiques qui rendent un site fiable et maintenable.",
   },
   {
-    label: "WordPress",
-    slug: "wordpress",
-    summary: "Refontes, thèmes, ACF, builders, maintenance et autonomie éditoriale.",
-  },
-  {
-    label: "Shopify",
-    slug: "shopify",
-    summary: "Expérience d'achat, catalogue, fiches produits, Liquid et personnalisation.",
-  },
-  {
-    label: "Astro",
-    slug: "astro",
-    summary: "Sites performants, architecture de composants et génération statique.",
-  },
-  {
-    label: "Front-End",
-    slug: "front-end",
-    summary: "HTML, CSS, JavaScript, accessibilité, responsive et qualité d'intégration.",
-  },
-  {
-    label: "IA générative",
-    slug: "ia-generative",
-    summary: "ChatGPT, Codex, Firefly et workflows hybrides de conception.",
-  },
-  {
-    label: "Études de cas",
-    slug: "etudes-de-cas",
-    summary: "Retours structurés sur les projets, les arbitrages et les résultats obtenus.",
-  },
-  {
-    label: "Design systems",
-    slug: "design-systems",
-    summary: "Composants, tokens, cohérence visuelle et bases réutilisables.",
-  },
-  {
-    label: "SEO",
-    slug: "seo",
-    summary: "Structure, intentions de recherche, contenus piliers et visibilité naturelle.",
-  },
-  {
-    label: "Accessibilité",
-    slug: "accessibilite",
-    summary: "Contrastes, navigation, sémantique et usages inclusifs.",
+    label: "IA & pratiques de production",
+    slug: "ia-production",
+    summary: "Usages situés de l'IA pour rechercher, prototyper, produire et contrôler le résultat.",
   },
 ];
 

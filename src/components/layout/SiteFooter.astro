@@ -1,67 +1,18 @@
 ---
 import { siteConfig } from "../../data/site-config";
-import { contactContent } from "../../data/site-content";
-import Icon from "../ui/Icon.astro";
+
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer border-t border-(--border-soft)">
-  <div class="footer-manifesto-wrap">
-    <div class="footer-manifesto max-w-(--site-max-width) mx-auto px-4 py-10 md:py-12">
-      <aside class="footer-contact" aria-label="Contact direct">
-        <div class="footer-contact__intro">
-          <h2 class="footer-contact__title">{contactContent.title}</h2>
-          <p class="footer-contact__text">{contactContent.intro}</p>
-          <a href={contactContent.ctaHref} class="footer-contact__cta" aria-label={contactContent.ctaLabel} title={contactContent.ctaLabel}>
-            <span class="sr-only">{contactContent.ctaLabel}</span>
-            <Icon name="arrow" />
-          </a>
-        </div>
+  <div class="site-footer__inner max-w-(--site-max-width) mx-auto px-4 py-7 pr-16 md:pr-20">
+    <a href="/" class="site-footer__brand" aria-label={`Retour à l'accueil ${siteConfig.name}`}>
+      {siteConfig.name}<span aria-hidden="true">.</span>
+    </a>
 
-        <div class="footer-contact__details">
-          {siteConfig.contact.email && (
-            <a href={`mailto:${siteConfig.contact.email}`} class="footer-contact__line">
-              <Icon name="mail" />
-              <span>{siteConfig.contact.email}</span>
-            </a>
-          )}
-          {siteConfig.contact.phone && (
-            <a href={`tel:${siteConfig.contact.phone}`} class="footer-contact__line">
-              <Icon name="phone" />
-              <span>{siteConfig.contact.phone}</span>
-            </a>
-          )}
-          {siteConfig.contact.address && (
-            <p class="footer-contact__line footer-contact__line--static">
-              <Icon name="pin" />
-              <span>{siteConfig.contact.address}</span>
-            </p>
-          )}
-        </div>
-      </aside>
-
-      <div class="footer-manifesto__aside">
-        <div class="footer-manifesto__visual" aria-hidden="true">
-          <div class="footer-manifesto__circle footer-manifesto__circle--outer"></div>
-          <div class="footer-manifesto__circle footer-manifesto__circle--middle"></div>
-          <div class="footer-manifesto__circle footer-manifesto__circle--inner"></div>
-        </div>
-
-        <div class="footer-manifesto__content">
-          <a href="/" class="footer-contact__brand" aria-label={`Retour à l'accueil ${siteConfig.name}`}>
-            <span class="footer-contact__brand-mark">{siteConfig.name}<span class="footer-contact__brand-dot">.</span></span>
-          </a>
-          <p class="footer-manifesto__eyebrow">Clarifier,</p>
-          <p class="footer-manifesto__eyebrow">Structurer,</p>
-          <p class="footer-manifesto__eyebrow">Concevoir.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="relative max-w-(--site-max-width) mx-auto px-4 py-6 pr-16 md:pr-20 text-sm text-(--text-muted) flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
     <p>© {year} {siteConfig.name}. Tous droits réservés.</p>
-    <div class="flex flex-wrap items-center gap-5">
+
+    <div class="site-footer__links">
       <a href="#">Mentions légales</a>
       <a href="#">Politique de confidentialité</a>
       <p>Conçu avec Astro</p>
@@ -69,12 +20,11 @@ const year = new Date().getFullYear();
 
     <button
       type="button"
-      class="absolute right-4 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 rounded-full border border-(--border-soft) bg-(--surface-muted) text-(--text-strong) shadow-sm transition-colors hover:bg-(--surface-card)"
+      class="site-footer__scroll-top"
       aria-label="Revenir en haut de page"
       title="Revenir en haut de page"
       data-scroll-top
     >
-      <span class="sr-only">Haut de page</span>
       <span aria-hidden="true">↑</span>
     </button>
   </div>
@@ -82,9 +32,9 @@ const year = new Date().getFullYear();
 
 <script is:inline>
   (() => {
-    const btn = document.querySelector('[data-scroll-top]');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
+    const button = document.querySelector('[data-scroll-top]');
+    if (!button) return;
+    button.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   })();
@@ -93,260 +43,78 @@ const year = new Date().getFullYear();
 <style>
   .site-footer {
     background:
-      radial-gradient(circle at 18% 26%, color-mix(in srgb, var(--accent-primary) 16%, transparent) 0, transparent 32%),
-      radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--accent-primary) 10%, transparent) 0, transparent 28%),
+      radial-gradient(circle at 18% 26%, color-mix(in srgb, var(--accent-primary) 10%, transparent) 0, transparent 32%),
       var(--surface-bg);
   }
 
-  .footer-manifesto-wrap {
-    border-bottom: 1px solid color-mix(in srgb, var(--border-soft) 72%, transparent);
-    background:
-      linear-gradient(135deg, color-mix(in srgb, var(--surface-muted) 82%, transparent), color-mix(in srgb, var(--surface-card) 72%, transparent)),
-      var(--surface-card);
-  }
-
-  .footer-manifesto {
-    display: grid;
-    gap: 2.5rem;
-    align-items: start;
-  }
-
-  .footer-manifesto__aside {
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .footer-manifesto__visual {
+  .site-footer__inner {
     position: relative;
-    width: clamp(11rem, 23vw, 13.25rem);
-    aspect-ratio: 1;
-    margin-inline: auto;
-    filter: drop-shadow(0 18px 28px color-mix(in srgb, var(--accent-primary) 14%, transparent));
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
   }
 
-  .footer-manifesto__circle {
-    position: absolute;
-    border-radius: 999px;
-    background: var(--accent-primary);
-  }
-
-  .footer-manifesto__circle--outer {
-    inset: 12% auto auto 5%;
-    width: 80%;
-    aspect-ratio: 1;
-    opacity: 0.18;
-  }
-
-  .footer-manifesto__circle--middle {
-    inset: 23% auto auto 19%;
-    width: 63%;
-    aspect-ratio: 1;
-    opacity: 0.34;
-  }
-
-  .footer-manifesto__circle--inner {
-    inset: 45% auto auto 42%;
-    width: 34%;
-    aspect-ratio: 1;
-    opacity: 0.82;
-  }
-
-  .footer-manifesto__content {
-    display: grid;
-    gap: 1.1rem;
-    align-content: start;
-  }
-
-  .footer-contact {
-    display: grid;
-    gap: 1.1rem;
-    align-content: start;
-  }
-
-  .footer-contact__intro,
-  .footer-contact__details {
-    display: grid;
-    gap: 0.8rem;
-    padding-top: 1rem;
-  }
-
-  .footer-contact__brand {
+  .site-footer__brand {
     width: fit-content;
-    text-decoration: none;
-    line-height: 1;
-  }
-
-  .footer-contact__brand-mark {
+    color: var(--text-default);
     font-family: var(--font-heading);
-    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.25rem);
+    font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: -0.04em;
-    color: var(--text-default);
+    line-height: 1;
+    text-decoration: none;
   }
 
-  .footer-contact__brand-dot {
+  .site-footer__brand span {
     color: var(--accent-primary);
   }
 
-  .footer-contact__label {
-    margin: 0;
-    max-width: 28rem;
-    font-size: 0.82rem;
-    line-height: 1.55;
-    color: var(--text-muted);
-  }
-
-  .footer-contact__title,
-  .footer-contact__text {
+  .site-footer__inner p {
     margin: 0;
   }
 
-  .footer-contact__title {
-    max-width: 22ch;
-    font-size: clamp(1.22rem, 1.02rem + 0.72vw, 1.78rem);
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-    color: var(--text-default);
-    text-wrap: balance;
+  .site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem 1.25rem;
   }
 
-  .footer-contact__text {
-    color: var(--text-muted);
-    line-height: 1.55;
-  }
-
-  .footer-contact__cta {
+  .site-footer__scroll-top {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
     display: inline-flex;
+    width: 2.75rem;
+    height: 2.75rem;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
+    transform: translateY(-50%);
+    border: 1px solid var(--border-soft);
     border-radius: 999px;
-    border: 1px solid transparent;
-    background: var(--text-default);
-    color: var(--surface-bg);
-    text-decoration: none;
-    box-shadow: 0 10px 20px color-mix(in srgb, var(--accent-primary) 10%, transparent);
-    transition:
-      transform 160ms var(--ease-standard, ease),
-      box-shadow 160ms var(--ease-standard, ease),
-      background-color 160ms var(--ease-standard, ease);
+    background: var(--surface-muted);
+    color: var(--text-strong);
+    box-shadow: var(--shadow-sm);
+    transition: background-color 160ms var(--ease-standard, ease);
   }
 
-  .footer-contact__cta:hover,
-  .footer-contact__cta:focus-visible {
-    transform: translateX(0.16rem);
-    box-shadow: 0 14px 28px color-mix(in srgb, var(--accent-primary) 14%, transparent);
-  }
-
-  .footer-contact__cta .icon {
-    font-size: 1rem;
-    transition: transform 160ms var(--ease-standard, ease);
-  }
-
-  .footer-contact__cta:hover .icon,
-  .footer-contact__cta:focus-visible .icon {
-    transform: translateX(0.08rem);
-  }
-
-  .footer-contact__details {
-    padding-top: 2rem; 
-    border-top: 1px solid color-mix(in srgb, var(--border-soft) 52%, transparent);
-  }
-
-  .footer-contact__line {
-    display: inline-flex;
-    align-items: start;
-    gap: 0.75rem;
-    color: var(--text-default);
-    text-decoration: none;
-    line-height: 1.5;
-  }
-
-  .footer-contact__line--static {
-    margin: 0;
-  }
-
-  .footer-contact__line .icon {
-    flex: 0 0 auto;
-    margin-top: 0.1rem;
-    font-size: 0.98rem;
-    color: color-mix(in srgb, var(--text-muted) 86%, var(--accent-primary) 14%);
-  }
-
-  .footer-manifesto__eyebrow {
-    margin: 0;
-    font-size: 0.78rem;
-    line-height: 1;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: color-mix(in srgb, var(--accent-primary-strong) 66%, var(--text-default) 34%);
-  }
-  .footer-manifesto__title,
-  .footer-manifesto__text {
-    margin: 0;
-  }
-
-  .footer-manifesto__title {
-    font-weight: 700;
-    color: var(--text-default);
-    line-height: 1.2;
-  }
-
-  .footer-manifesto__text {
-    max-width: 34rem;
-    color: var(--text-muted);
+  .site-footer__scroll-top:hover,
+  .site-footer__scroll-top:focus-visible {
+    background: var(--surface-card);
   }
 
   @media (min-width: 768px) {
-    .footer-manifesto {
-      gap: 2.8rem;
+    .site-footer__inner {
+      display: grid;
+      grid-template-columns: auto auto minmax(0, 1fr);
+      align-items: center;
+      gap: 1rem 2rem;
     }
 
-    .footer-manifesto__aside {
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: 2.4rem 3rem;
-    }
-
-    .footer-manifesto__visual {
-      margin-inline: 0;
-    }
-
-    .footer-contact {
-      grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.9fr);
-      gap: 1.4rem 2rem;
-      align-items: start;
-    }
-
-    .footer-contact__details {
-      padding-top: 1rem; 
-      padding-right: 1.25rem;
-      border-top: none;
-      border-right: 1px solid color-mix(in srgb, var(--border-soft) 52%, transparent);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .footer-manifesto {
-      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-      gap: 3.5rem;
-      align-items: start;
-    }
-
-    .footer-manifesto__aside {
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: 2.75rem;
-      align-self: center;
-    }
-
-    .footer-contact__details {
-      min-width: 18rem;
-    }
-
-    .footer-manifesto__entries {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.35rem;
+    .site-footer__links {
+      justify-content: flex-end;
     }
   }
 </style>

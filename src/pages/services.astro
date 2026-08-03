@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import SelectedProjects from "../components/sections/SelectedProjects.astro";
 import Process from "../components/sections/Process.astro";
+import PageCta from "../components/sections/PageCta.astro";
 import Icon from "../components/ui/Icon.astro";
 import {
   selectedProjects,
@@ -73,29 +74,24 @@ const formats: Array<{ label: string; icon: IconName; text: string }> = [
 
 const methodSteps: ProcessStep[] = [
   {
-    title: "Comprendre",
-    description: "Écouter votre contexte, vos contraintes et les vrais enjeux du projet.",
+    title: "Vous partagez le contexte",
+    description: "Nous passons en revue l'offre, les publics, les contraintes, les outils et les éléments déjà disponibles.",
     icon: "ear",
   },
   {
-    title: "Clarifier",
-    description: "Identifier ce qui bloque dans le message, l'offre ou le parcours utilisateur.",
+    title: "Nous choisissons les priorités",
+    description: "Nous décidons ce que le site doit faire comprendre et l'action qu'il doit faciliter : choisir, contacter, réserver ou acheter.",
     icon: "spark",
   },
   {
-    title: "Structurer",
-    description: "Organiser les contenus, les priorités et les actions attendues.",
-    icon: "document",
-  },
-  {
-    title: "Concevoir",
-    description: "Transformer la stratégie en pages lisibles, sobres et rassurantes.",
+    title: "Vous suivez la conception",
+    description: "Les pages, textes et interactions sont présentés à des moments utiles pour recueillir vos retours sans ralentir la mission.",
     icon: "pen",
   },
   {
-    title: "Accompagner",
-    description: "Vous aider à comprendre, ajuster et faire vivre votre présence web.",
-    icon: "heart",
+    title: "Vous recevez une base exploitable",
+    description: "Le résultat est testé sur mobile et desktop, documenté et transmis avec les repères nécessaires à sa maintenance.",
+    icon: "cap",
   },
 ];
 
@@ -140,11 +136,8 @@ const faqItems = [
           Créer ou refondre un <span class="u-text-gradient">site professionnel</span> comme une expérience numérique.
         </h1>
         <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
-          REKODE accompagne les projets de la stratégie à la mise en ligne : clarification, architecture de contenu, UX/UI, direction artistique, intégration Front-End, WordPress, Shopify, Astro et usages concrets de l'IA générative.
+          Audit, création, refonte ou accompagnement ciblé : chaque format répond à un moment différent, de la mise au point de l'offre jusqu'à la mise en ligne.
         </p>
-        <div class="hero__actions pt-2">
-          <a href="/contact" class="btn-primary">Parler de votre projet</a>
-        </div>
       </header>
 
       <aside class="services-hero__visual" aria-hidden="true">
@@ -216,17 +209,13 @@ const faqItems = [
         ))}
       </div>
 
-      <a href="/contact" class="section-link section-link--inline">
-        <span>Parler de votre projet</span>
-        <Icon name="arrow" />
-      </a>
     </div>
   </section>
 
   <Process
     label="Déroulement"
     title="Comment se déroule une mission"
-    intro="L'objectif n'est pas d'empiler les livrables, mais de clarifier les décisions, produire ce qui sert vraiment et vous donner les repères nécessaires pour avancer."
+    intro="Vous savez ce qui est attendu, quand intervenir et ce qui vous sera remis à la fin de la mission."
     steps={methodSteps}
   />
 
@@ -263,5 +252,11 @@ const faqItems = [
       </div>
     </div>
   </section>
+
+  <PageCta
+    title="Quel format correspond à votre projet ?"
+    intro="Décrivez le besoin et l'état d'avancement : je vous indiquerai le format pertinent ou les informations à réunir d'abord."
+    ctaLabel="Présenter le contexte"
+  />
 
 </Layout>

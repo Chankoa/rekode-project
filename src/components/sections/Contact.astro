@@ -6,58 +6,18 @@ import Icon from "../ui/Icon.astro";
 interface Props {
   title?: string;
   intro?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  compact?: boolean;
 }
 
 const {
   title = contactContent.title,
   intro = contactContent.intro,
-  ctaLabel = contactContent.ctaLabel,
-  ctaHref = contactContent.ctaHref,
-  compact = false,
 } = Astro.props;
 ---
 
 <section class="section-shell" id="contact">
-  {compact ? (
-    <div class="max-w-(--site-max-width) mx-auto px-4">
-      <div class="contact-band">
-        <div class="contact-band__intro section-copy-stack">
-          <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
-          <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed">{intro}</p>
-          <a href={ctaHref} class="contact-band__cta" aria-label={ctaLabel}>
-            <Icon name="arrow" />
-          </a>
-        </div>
-
-        <div class="contact-band__details">
-          {siteConfig.contact.email && (
-            <a href={`mailto:${siteConfig.contact.email}`} class="contact-line">
-              <Icon name="mail" />
-              <span>{siteConfig.contact.email}</span>
-            </a>
-          )}
-          {siteConfig.contact.phone && (
-            <a href={`tel:${siteConfig.contact.phone}`} class="contact-line">
-              <Icon name="phone" />
-              <span>{siteConfig.contact.phone}</span>
-            </a>
-          )}
-          {siteConfig.contact.address && (
-            <p class="contact-line">
-              <Icon name="pin" />
-              <span>{siteConfig.contact.address}</span>
-            </p>
-          )}
-        </div>
-      </div>
-    </div>
-  ) : (
     <div class="max-w-(--site-max-width) mx-auto px-4 grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
       <div class="section-copy-stack">
-        <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
+        <h1 class="text-2xl sm:text-3xl font-semibold">{title}</h1>
         <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed">{intro}</p>
         <div class="space-y-2 text-sm text-(--color-muted)">
           {siteConfig.contact.phone && (
@@ -76,7 +36,7 @@ const {
         class="contact-form card-elevated section-card text-sm"
         data-contact-form
       >
-        <p class="contact-form__honeypot" aria-hidden="true">
+        <p class="contact-form__honeypot" aria-hidden="true" inert>
           <label>
             Ne pas remplir ce champ si vous êtes humain
             <input name="website" tabindex="-1" autocomplete="off" />
@@ -134,7 +94,6 @@ const {
         </div>
       </form>
     </div>
-  )}
 </section>
 
 <script>

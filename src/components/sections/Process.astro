@@ -7,6 +7,8 @@ interface Props {
   title?: string;
   intro?: string;
   steps: ProcessStep[];
+  linkHref?: string;
+  linkLabel?: string;
 }
 
 const {
@@ -14,6 +16,8 @@ const {
   title = processContent.title,
   intro = processContent.intro,
   steps,
+  linkHref,
+  linkLabel,
 } = Astro.props;
 ---
 
@@ -35,5 +39,12 @@ const {
         </li>
       ))}
     </ol>
+
+    {linkHref && linkLabel && (
+      <a href={linkHref} class="section-link section-link--inline">
+        <span>{linkLabel}</span>
+        <Icon name="arrow" />
+      </a>
+    )}
   </div>
 </section>

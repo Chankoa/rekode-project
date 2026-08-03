@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import aboutPortrait from "../assets/about-chandra-josephus.webp";
 import aboutLandscape from "../assets/pages/landscape.webp";
 import Icon from "../components/ui/Icon.astro";
+import PageCta from "../components/sections/PageCta.astro";
 import { aboutPageContent } from "../data/site-content";
 ---
 
@@ -216,4 +217,10 @@ import { aboutPageContent } from "../data/site-content";
 
     </div>
   </div>
+
+  <PageCta
+    title="Travaillons à partir de votre contexte."
+    intro="Parlez-moi de l'activité, des personnes concernées et de ce que le site doit rendre plus simple."
+    ctaLabel="Partager le contexte"
+  />
 </Layout>

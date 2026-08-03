@@ -1,0 +1,32 @@
+---
+import Icon from "../ui/Icon.astro";
+
+interface Props {
+  title: string;
+  intro: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const {
+  title,
+  intro,
+  ctaLabel = "Ouvrir la conversation",
+  ctaHref = "/contact",
+} = Astro.props;
+---
+
+<section class="section-shell" aria-labelledby={`page-cta-${Astro.url.pathname.replace(/\W+/g, "-")}`}>
+  <div class="max-w-(--site-max-width) mx-auto px-4">
+    <div class="contact-band">
+      <div class="contact-band__intro section-copy-stack">
+        <h2 id={`page-cta-${Astro.url.pathname.replace(/\W+/g, "-")}`} class="text-2xl sm:text-3xl font-semibold">{title}</h2>
+        <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed">{intro}</p>
+        <a href={ctaHref} class="contact-band__cta section-link section-link--inline" aria-label={ctaLabel}>
+          <span>{ctaLabel}</span>
+          <Icon name="arrow" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -65,6 +65,8 @@ const currentPath = normalizePath(Astro.url.pathname);
   id="mobile-drawer"
   class="drawer fixed inset-y-0 left-0 w-full max-w-none bg-(--surface-card) border-r border-(--border-soft) shadow-2xl z-50 flex flex-col p-6 gap-8"
   aria-label="Menu mobile"
+  aria-hidden="true"
+  inert
 >
   <div class="drawer-intro flex flex-col gap-3">
     <span class="drawer-intro__eyebrow">Menu</span>
@@ -198,6 +200,8 @@ const currentPath = normalizePath(Astro.url.pathname);
       if (drawer) {
         drawer.style.transform = open ? "translateX(0)" : "translateX(-100%)";
         drawer.classList.toggle("is-open", open);
+        drawer.setAttribute("aria-hidden", open ? "false" : "true");
+        drawer.toggleAttribute("inert", !open);
       }
       if (openBtn) {
         openBtn.setAttribute("aria-expanded", open ? "true" : "false");
@@ -210,6 +214,12 @@ const currentPath = normalizePath(Astro.url.pathname);
         backdrop.classList.toggle("is-open", open);
       }
       document.body.classList.toggle("overflow-hidden", open);
+
+      if (open) {
+        drawer?.querySelector("a")?.focus();
+      } else if (drawer?.contains(document.activeElement)) {
+        openBtn?.focus();
+      }
     };
 
     openBtn?.addEventListener("click", () => setDrawer(openBtn.getAttribute("aria-expanded") !== "true"));

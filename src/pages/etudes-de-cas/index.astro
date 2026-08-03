@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SelectedProjects from "../../components/sections/SelectedProjects.astro";
-import ContactSection from "../../components/sections/Contact.astro";
+import PageCta from "../../components/sections/PageCta.astro";
 import Icon from "../../components/ui/Icon.astro";
 import { selectedProjects } from "../../data/site-content";
 ---
@@ -15,10 +15,10 @@ import { selectedProjects } from "../../data/site-content";
       <header class="projects-page__hero-content section-header">
         <p class="section-label">Études de cas</p>
         <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
-          Des études de cas où la conception web vise une <span class="u-text-gradient">expérience numérique</span>.
+          Des études de cas centrées sur les <span class="u-text-gradient">décisions utiles</span>.
         </h1>
         <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
-          Les projets REKODE ne se limitent pas à l'interface finale. Ils articulent stratégie, contenus, storytelling, UX/UI, direction artistique, intégration Front-End, CMS, SEO et accompagnement.
+          Chaque cas présente un contexte, les choix réalisés et leur effet sur la compréhension de l'offre, la confiance, la prise de contact ou l'achat.
         </p>
         <div class="hero__actions pt-2">
           <a href="#liste-etudes" class="btn-primary">Voir les projets</a>
@@ -56,10 +56,9 @@ import { selectedProjects } from "../../data/site-content";
     />
   </div>
 
-  <ContactSection
-    compact={true}
-    title="Un projet à documenter ou à transformer ?"
-    intro="Partons du contexte et des objectifs pour identifier les décisions utiles avant de produire les écrans."
-    ctaLabel="Parler du projet"
+  <PageCta
+    title="Un projet à transformer ?"
+    intro="Présentez la situation actuelle, ce qui freine les visiteurs et le résultat attendu."
+    ctaLabel="Décrire le projet"
   />
 </Layout>

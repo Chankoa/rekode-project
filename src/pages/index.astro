@@ -4,8 +4,8 @@ import Hero from "../components/sections/Hero.astro";
 import SelectedProjects from "../components/sections/SelectedProjects.astro";
 import Services from "../components/sections/Services.astro";
 import Process from "../components/sections/Process.astro";
-import ContactSection from "../components/sections/Contact.astro";
-import { processSteps, selectedProjects, services } from "../data/site-content";
+import PageCta from "../components/sections/PageCta.astro";
+import { homeProcessSteps, selectedProjects, services } from "../data/site-content";
 ---
 
 <Layout
@@ -22,7 +22,7 @@ import { processSteps, selectedProjects, services } from "../data/site-content";
           Un site est utile lorsqu'il aide à comprendre, choisir et agir.
         </h2>
         <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed max-w-2xl">
-          Le point de départ est le public visé, l'utilisateur, et les usages potentiels de l'interface. La conception web devient alors un travail d'architecture de contenu, d'expérience utilisateur, de direction artistique et d'intégration Front-End.
+          Le point de départ reste l'usage : présenter une offre sans détour, donner les bons repères et faciliter une prise de contact, une réservation ou un achat.
         </p>
       </div>
     </div>
@@ -30,14 +30,20 @@ import { processSteps, selectedProjects, services } from "../data/site-content";
 
   <Services label="Services" services={services} showServicesLink={true} servicesLinkLabel="Voir les services" />
 
-  <Process label="Méthode" steps={processSteps} />
+  <Process
+    label="Aperçu de la méthode"
+    title="Clarifier, structurer, concevoir"
+    intro="Trois gestes pour passer du besoin aux pages utiles, puis choisir une solution technique que l'équipe pourra faire vivre."
+    steps={homeProcessSteps}
+    linkHref="/methode/"
+    linkLabel="Voir la méthode complète"
+  />
 
   <SelectedProjects label="Études de cas" projects={selectedProjects.slice(0, 4)} />
 
-  <ContactSection
-    compact={true}
-    title="Prêt à clarifier votre projet ?"
-    intro="Un échange suffit souvent à identifier la bonne direction : stratégie, contenus, interface, technologie ou accompagnement."
-    ctaLabel="Démarrer un projet"
+  <PageCta
+    title="Votre projet commence peut-être par une conversation."
+    intro="Présentez le contexte, ce qui existe déjà et la décision que le site doit faciliter."
+    ctaLabel="Échanger sur le projet"
   />
 </Layout>

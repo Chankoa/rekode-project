@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Process from "../components/sections/Process.astro";
 import SelectedProjects from "../components/sections/SelectedProjects.astro";
-import ContactSection from "../components/sections/Contact.astro";
+import PageCta from "../components/sections/PageCta.astro";
 import Icon from "../components/ui/Icon.astro";
 import { processSteps, selectedProjects } from "../data/site-content";
 
@@ -39,14 +39,13 @@ const methodDetails = [
       <header class="projects-page__hero-content section-header">
         <p class="section-label">Méthode</p>
         <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight">
-          Transformer une idée en <span class="u-text-gradient">expérience numérique</span> structurée.
+          Donner un ordre clair aux <span class="u-text-gradient">décisions du projet</span>.
         </h1>
         <p class="text-sm sm:text-base text-(--color-muted) leading-relaxed max-w-3xl">
-          La méthode REKODE relie stratégie digitale, architecture de contenu, UX/UI, storytelling, direction artistique, intégration Front-End et accompagnement. Elle sert à clarifier les décisions avant de produire les écrans.
+          Cinq étapes permettent de comprendre l'activité, hiérarchiser l'information, produire les pages puis transmettre une base fiable.
         </p>
         <div class="hero__actions pt-2">
-          <a href="/contact" class="btn-primary">Parler de votre projet</a>
-          <a href="/etudes-de-cas" class="btn-secondary">Voir les études de cas</a>
+          <a href="/etudes-de-cas" class="btn-secondary">Voir la méthode en situation</a>
         </div>
       </header>
 
@@ -83,7 +82,7 @@ const methodDetails = [
         <p class="section-label">Détail</p>
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold">Ce que chaque étape produit</h2>
         <p class="text-(--color-muted) text-sm sm:text-base leading-relaxed">
-          Une bonne expérience numérique ne dépend pas seulement du design final. Elle dépend de la qualité des questions posées, des arbitrages éditoriaux et de la cohérence entre le contenu, l'usage et la technique.
+          Chaque étape produit une décision vérifiable : une priorité, une arborescence, un écran, un test ou un repère de maintenance.
         </p>
       </header>
 
@@ -106,10 +105,9 @@ const methodDetails = [
     showProjectsLink={true}
   />
 
-  <ContactSection
-    compact={true}
+  <PageCta
     title="Une idée à structurer ?"
-    intro="Décrivons le contexte, les publics et les objectifs pour identifier le bon format d'accompagnement."
-    ctaLabel="Démarrer"
+    intro="Exposez le contexte et les contraintes : nous pourrons identifier la première décision à prendre."
+    ctaLabel="Présenter l'idée"
   />
 </Layout>
