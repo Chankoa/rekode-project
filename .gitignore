@@ -8,6 +8,11 @@ www/dist/
 .astro/
 www/.astro/
 
+# Local environment variables
+.env
+.env.*
+!.env.example
+
 # Local logs
 logs/
 *.log
@@ -15,3 +20,6 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local Netlify folder
+.netlify

@@ -13,8 +13,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@astrojs/netlify": "^7.0.13",
     "astro": "^6.3.7",
     "astro-expressive-code": "^0.42.0",
+    "resend": "^6.18.1",
     "sharp": "^0.34.5"
   },
   "optionalDependencies": {
@@ -34,7 +36,6 @@
     "typescript": "^5.0.0"
   },
   "overrides": {
-    "ajv": "^6.15.0",
     "flatted": "^3.4.2",
     "immutable": "^5.1.5",
     "anymatch": {
