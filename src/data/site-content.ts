@@ -526,63 +526,59 @@ export const selectedProjects: ProjectItem[] = [
     },
   },
   {
-    title: "LearnIt",
+    title: "LearnIt Forge",
     slug: "learn-it",
     summary:
-      "Produit numérique e-learning conçu autour de Next.js, de l'UX pédagogique, d'un design system et d'une architecture de contenu évolutive.",
+      "LMS full-stack augmenté par un copilote IA qui transforme briefs et sources pédagogiques en parcours structurés, sous validation humaine.",
     tags: [
-      "Next.js",
+      "AI Product Engineering",
+      "Next.js 16",
       "TypeScript",
-      "UX/UI",
+      "Supabase",
+      "PostgreSQL",
+      "RAG",
+      "Structured outputs",
+      "Human-in-the-loop",
       "UX pédagogique",
-      "Design System",
-      "Architecture de contenu",
-      "E-learning",
-      "Produit numérique",
       "Product design",
-      "Tailwind",
-      "Sass",
-      "Figma",
-      "ChatGPT",
-      "Codex",
     ],
     meta: "06",
-    thumbnailAlt: "Aperçu du produit numérique LearnIt avec UX pédagogique et design system",
+    thumbnailAlt: "Aperçu de LearnIt Forge, LMS et copilote IA de conception pédagogique",
     caseStudy: {
       overview: {
         role:
-          "Direction produit, UX/UI, UX pédagogique, architecture de contenu, design system, structuration du hub de formation et intégration Front-End",
+          "Product discovery, UX pédagogique, architecture full-stack, conception des workflows IA, développement Front-End et Back-End",
         deliverables:
-          "Landing page, hub de formations, fiche programme exemple, composants de progression, filtres catalogue, ressources pédagogiques, maquettes UI et premiers repères de design system",
+          "LMS multi-rôles, Teacher Studio, moteur de progression Learner, Forge AI, génération de parcours et de leçons, retrieval sur sources et workflow de validation",
         stack:
-          "Next.js, TypeScript, Tailwind, Sass, design system, architecture de contenu, contenus pédagogiques, Figma, ChatGPT, Codex",
-        timeline: "Prototype e-learning en cours de développement",
+          "Next.js 16, React, TypeScript, Supabase Auth, PostgreSQL, Storage, RLS, Server Actions, API IA compatible OpenAI, Tailwind et Sass",
+        timeline: "Produit LMS et copilote IA en développement continu",
         highlights: [
-          "Produit numérique structuré",
-          "UX pédagogique et parcours de formation",
-          "Design system initial",
+          "IA intégrée au workflow enseignant",
+          "Retrieval contextualisé et sorties structurées",
+          "Validation humaine avant toute modification",
         ],
       },
       cta: {
-        label: "Échanger sur un produit de formation",
+        label: "Échanger sur un produit IA",
         href: "/contact",
       },
       context:
-        "LearnIt est un produit numérique e-learning en cours de construction porté par REKODE. La maquette actuelle pose les bases d'une plateforme capable d'accueillir plusieurs domaines de formation ; le parcours création web y sert aujourd'hui d'exemple.",
+        "LearnIt Forge est né d'un prototype e-learning avant d'évoluer vers un LMS full-stack. Le produit réunit désormais un catalogue public, des espaces authentifiés Learner, Teacher et Admin, un moteur de progression et un studio de conception pédagogique assisté par IA.",
       objective:
-        "Donner une forme lisible à une première vision produit : présenter la promesse, structurer un hub, détailler un parcours type, poser une UX pédagogique et préparer une architecture de contenu extensible avant le développement complet.",
+        "Explorer une hypothèse produit concrète : réduire le temps nécessaire pour structurer et enrichir une formation sans retirer à l'enseignant le contrôle éditorial, la responsabilité pédagogique ni la décision de publier.",
       approach:
-        "Le travail s'est concentré sur une maquette de démonstration construite comme un produit : hero, indicateurs de progression, hub de formations, fiche programme exemple, premiers liens vers d'autres domaines et composants réutilisables.",
+        "Le produit a été construit par tranches verticales : authentification et rôles, catalogue et données de cours, progression apprenant, authoring enseignant, puis Forge AI. Le copilote combine brief pédagogique, structure du cours et extraits de sources pour produire des propositions JSON validées, affichées en aperçu avant persistance.",
       decisions:
-        "Penser l'interface comme un produit évolutif plutôt qu'une simple page de présentation : hub, cartes de parcours, progression, fiche programme, catégories, architecture de contenu et base de design system.",
+        "Faire de l'IA une capacité du produit plutôt qu'un chat généraliste : appels côté serveur, contrôle d'accès par rôle et RLS, retrieval limité au contexte utile, sorties structurées, références visibles et import en brouillon uniquement. Aucune proposition ne modifie ni ne publie silencieusement un contenu ; le Teacher compare, ajuste et accepte explicitement.",
       technologies:
-        "Next.js, TypeScript, Tailwind, Sass, design system, Figma, ChatGPT et Codex.",
+        "Next.js 16, React, TypeScript, Supabase Auth, PostgreSQL, Storage et Row Level Security, Server Actions, React Markdown, Tailwind, Sass et provider IA compatible OpenAI. Le retrieval V1.5 découpe et classe lexicalement les sources TXT/Markdown, avec un provider mock déterministe pour préserver le workflow sans dépendance externe.",
       result:
-        "Une base de produit numérique e-learning modulaire, prête à accueillir de nouveaux domaines, parcours et écrans.",
+        "Une base fonctionnelle où un Teacher peut créer et publier ses formations, générer une structure depuis un brief et des sources, enrichir une leçon avec son contexte réel et n'appliquer que les propositions retenues. Côté Learner, inscriptions, reprise de parcours, progression, notes et favoris sont persistés dans Supabase.",
       retrospective:
-        "LearnIt confirme l'intérêt de travailler très tôt l'architecture de contenu, l'UX pédagogique et les composants de design system, même avant que toutes les fonctionnalités produit soient finalisées.",
+        "Le projet montre qu'un produit IA crédible se joue autant dans l'orchestration que dans le modèle : contexte sélectionné, contrats de sortie, permissions, traçabilité, états d'erreur et possibilité de continuer sans provider externe. Les limites sont assumées : pas de publication automatique, pas de recherche vectorielle prématurée et pas de citation PDF page par page tant qu'elle ne peut pas être garantie.",
       outcome:
-        "Une base de démonstration pour un projet e-learning encore en développement, pensée pour accueillir d'autres formations, domaines et écrans à mesure que l'interface se construit.",
+        "Un produit IA en développement qui relie une proposition de valeur, une expérience multi-rôles et une architecture sécurisée à une boucle human-in-the-loop observable et extensible.",
     },
   },
 ];
